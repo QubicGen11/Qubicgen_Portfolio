@@ -71,7 +71,7 @@ const [Weserve, setWeserve] = useState([
   { 
 
     title: "Manufacturing", 
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709019776/QubicGen/person-using-ai-tool-job_3_spimvo.jpg",
+    background: "https://img.freepik.com/free-photo/person-using-ai-tool-job_23-2150711477.jpg?t=st=1709021125~exp=1709024725~hmac=c496cf767c1179e978669d6d16fadf52c9bbf1113f4f36b988815cfd301db900&w=740",
 
     description: "Transform your manufacturing operations with our RPA solutions. From supply chain management to production planning, we automate processes to optimize efficiency and drive innovation in manufacturing." 
 
@@ -80,7 +80,7 @@ const [Weserve, setWeserve] = useState([
   { 
 
     title: "Retail", 
-    background:"https://res.cloudinary.com/dightbmyi/image/upload/v1709018276/QG/different-people-taking-care-warehouse-logistics_2_bscg7d.jpg",
+    background:"https://img.freepik.com/free-photo/shopping-cart-full-products-inside-supermarket_123827-28165.jpg?t=st=1709030356~exp=1709033956~hmac=22ec31898c73439e24dba822fa9b5703a5ee62716cc01e5f7598f1f247e828cf&w=996",
 
     description: "Empower your retail business with our RPA services. From inventory management to customer service, we automate tasks to streamline operations and deliver exceptional shopping experiences." 
 
@@ -89,7 +89,7 @@ const [Weserve, setWeserve] = useState([
   { 
 
     title: "Government", 
-    background: "https://res.cloudinary.com/dightbmyi/image/upload/v1709018739/QG/business-people-working-together-table_2_kev6sw.jpg",
+    background: "https://img.freepik.com/free-photo/neo-classical-courthouse-facade-illuminated-night-generated-by-ai_188544-35360.jpg?t=st=1709030429~exp=1709034029~hmac=a112b3a8f009dc3e5f3b011c6ecbcaa249c3ff2a6bab778884bd9c7ffd6b6e8a&w=1060",
 
     description: "Modernize government processes with our RPA solutions. From citizen services to administrative tasks, we automate workflows to improve efficiency, transparency, and citizen satisfaction." 
 
@@ -98,7 +98,7 @@ const [Weserve, setWeserve] = useState([
   { 
 
     title: "Transportation", 
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709019299/QubicGen/Gemini_Generated_Image_2_ycuyqd.jpg",
+    background: "https://img.freepik.com/free-photo/truck-with-white-trailer-that-says-scania-side_123827-23486.jpg?t=st=1709021088~exp=1709024688~hmac=435df176298c401cf02faac7e0202c0492eaf045a76be3cbff7e92c00000fcee&w=740",
 
     description: "Drive efficiency in transportation with our RPA services. From logistics management to fleet operations, we automate processes to optimize performance and enhance customer service." 
 
@@ -107,7 +107,7 @@ const [Weserve, setWeserve] = useState([
   { 
 
     title: "BFSI", 
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709018779/QubicGen/34355879_sl_020622_4930_25_1_m1ey3b.jpg",
+    background: "https://img.freepik.com/free-vector/digital-rupee-inr-indian-currency-golden-coin-background_1017-41094.jpg?t=st=1709018630~exp=1709022230~hmac=11d1012f62e248200acd78c0d1ede0c2bf718786b578350b181a16f7a03a694c&w=740",
 
     description: "Transform BFSI operations with our RPA solutions. From compliance management to customer support, we automate tasks to increase productivity, reduce costs, and ensure regulatory compliance." 
 
@@ -116,14 +116,14 @@ const [Weserve, setWeserve] = useState([
   { 
 
     title: "Energy & Utilities", 
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709018348/QubicGen/solar-panels-wind-mills-sunset-sustainable-energy-eco-environment_1_xonapt.jpg",
+    background: "https://img.freepik.com/free-photo/solar-panels-wind-mills-sunset-sustainable-energy-eco-environment_1268-27834.jpg?t=st=1709020949~exp=1709024549~hmac=01951e78e2969e2426f5a027db27faaa45ee122f37abbd38bfca06767c39c795&w=740",
 
     description: "Optimize energy and utility operations with our RPA services. From meter reading to billing processes, we automate tasks to improve accuracy, reduce errors, and enhance service delivery for utilities providers." 
 
   },{ 
 
     title: "Automation Testing" ,
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709020099/QubicGen/standard-quality-control-collage-concept_1_bhcliq.jpg",
+    background: "https://img.freepik.com/free-photo/standard-quality-control-collage-concept_23-2149595830.jpg?t=st=1709018744~exp=1709022344~hmac=2ef72dbf6a55aa5e911a3f4abad872fc0de080ed02b77fc8c9e6db1f7a15054d&w=740",
 
    description: "In the field of automation testing, our RPA services automate test case generation, execution, and reporting. By integrating RPA into testing processes, organizations can accelerate testing cycles, increase test coverage, and improve overall software quality." 
 
