@@ -257,7 +257,9 @@
   color: gold;
 
 }
-
+#mainlogo{
+  height: 70px;
+}
 
 @media (max-width: 1000px) {
   .head {
@@ -396,15 +398,23 @@
   }
 }
 
-@media (min-width:390px) and (max-width:450px) {
+@media (min-width:320px) and (max-width:450px) {
   /* #offcanvasbtn{
     height: 10px;
     width: 30px;
   } */
 
+  #mainlogo{
+    height: 40px;
+  }
+
   .navli li{
    font-size: 20px;
    margin-right: 200px;
-  }
+  
+}
+.dropdown-menu{
+  width: 100px;
+}
 }
 

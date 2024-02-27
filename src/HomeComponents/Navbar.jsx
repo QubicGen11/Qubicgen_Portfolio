@@ -58,7 +58,7 @@ navbar.style.backgroundColor = newColor;
     <>
      <div className="head" style={{ position: "sticky", top: 0, zIndex: 1000 }}>
         <div className="navli">
-         <Link to="/"><img src={mainlogo} style={{height:'70px'}} alt="" /></Link> 
+         <Link to="/"><img src={mainlogo} id="mainlogo" alt="" /></Link> 
 
        
         </div>
@@ -136,7 +136,7 @@ navbar.style.backgroundColor = newColor;
   <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{border:'none'}}>
    <Link to="/"><li>Industies</li></Link> 
   </button>
-    <ul className="dropdown-menu" style={{backgroundColor:'#242424',width:'20vw'}} >
+    <ul className="dropdown-menu" style={{backgroundColor:'#242424',width:'50vw'}} >
     <Link to="/banking" style={{ color: 'white', textDecoration: 'none' }}><li>Banking, Financial Services and Insurance</li></Link>
                 <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Energy and Utilities</li></Link>
                 <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Media and Entertainment</li></Link>
@@ -152,7 +152,7 @@ navbar.style.backgroundColor = newColor;
   <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{border:'none'}}>
    <Link to="/"><li>Services</li></Link> 
   </button>
-  <ul className="dropdown-menu" style={{backgroundColor:'#242424' ,width:'20vw'}}>
+  <ul className="dropdown-menu" style={{backgroundColor:'#242424' ,width:'50vw'}}>
   <Link to="/rpa" style={{ color: 'white', textDecoration: 'none' }}><li>Robotic Process Automation</li></Link>
               <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Web Development</li></Link>
               <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>SAP</li></Link>
