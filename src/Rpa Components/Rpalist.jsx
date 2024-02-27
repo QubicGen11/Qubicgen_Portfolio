@@ -171,8 +171,19 @@ const [Weserve, setWeserve] = useState([
     <br />
     <br />
     
-    <div className="container"  style={{color:'white'}} ref={overviewRef } data-aos = "fade-up">
-    <div className="row featurette" bis_skin_checked="1" >
+    <div className="container"  style={{color:'white'}}  data-aos = "fade-up" ref={overviewRef }>
+
+      
+    <br />
+      <br />
+     
+    <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Overview</h1>
+      <br />
+      <br />
+      <br />
+      <br />
+    <div className="row featurette" bis_skin_checked="1"  >
+   
       <div className="col-md-7" bis_skin_checked="1">
         <h1 className="featurette-heading fw-normal lh-1" style={{fontSize:'40px',padding:'20px',fontWeight:'bolder'}}>Automate, Optimize, Excel: Welcome to RPA Innovation</h1>
         <p className="lead" id='leadtext'>Embrace the transformative power of Robotic Process Automation (RPA) to unlock your business potential. With RPA, streamline workflows, enhance efficiency, and propel your organization towards accelerated growth and success.</p>
@@ -186,10 +197,19 @@ const [Weserve, setWeserve] = useState([
 {/* This is rpalist ends */}
 
 
-      
+   
 {/* This is rpa offering start */}
-<div style={{ color: 'white',marginLeft:'40px' }} ref={serveRef} data-aos = "fade-up" >
-                    <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Our Offerings</h1>
+<div style={{ color: 'white',marginLeft:'40px' }}  data-aos = "fade-up"  ref={serveRef} >
+<br />
+      <br />
+      <br />
+      <br />
+      <br />
+                    <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Our Offerings</h1>
+      <br />
+      <br />
+      <br />
+      <br />
                     <br />
                     <div className="container">
                         <div className="row" >
@@ -227,8 +247,15 @@ const [Weserve, setWeserve] = useState([
 
 
 {/* This is who we server starts */}
-<div style={{ color: 'white',marginLeft:'40px' }}ref={caseStudiesRef} data-aos = "zoom-in"  >
+<div style={{ color: 'white',marginLeft:'40px' }} ref={caseStudiesRef} data-aos = "zoom-in"  >
+<br />
+      <br />
+      <br />
+      <br />
                     <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Who we Serve</h1>
+      <br />
+      <br />
+      <br />
                     <br />
                     <div className="container" >
                         <div className="row"  >

@@ -387,10 +387,9 @@
 
 
 @media (min-width:1400px) and (max-width:2000px) {
-  #offcanvasbtn{
-   display: none;
+  #otherOffcanvasBtn{
+    display: none;
   }
-
   .navli li{
    font-size: 20px;
    margin-right: 200px;
@@ -408,3 +407,4 @@
    margin-right: 200px;
   }
 }
+

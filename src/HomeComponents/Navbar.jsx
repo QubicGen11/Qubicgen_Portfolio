@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import Banking from "../BankingComponents/Banking";
 import mainlogo from "./og.png"
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [visibleSection, setVisibleSection] = useState(null);
@@ -16,13 +16,13 @@ const Navbar = () => {
     const handleScroll = () => {
       const navbar = document.querySelector(".head");
       const scrollPosition = window.scrollY;
-  
+
       const transparency = Math.min(scrollPosition / 200, 1);
-      const newColor = `rgba(0, 0, 0, 0.9)`;
-  
-      navbar.style.backgroundColor = newColor;
-      navbar.style.backdropFilter = `blur(30px)`;
-      navbar.style.overflow = "hidden"; // Add this line to prevent overflow
+const newColor = `rgba(${36 - 36 * transparency}, ${36 - 36 * transparency}, ${36 - 36 * transparency}, 1)`;
+navbar.style.backgroundColor = newColor;
+
+      
+   
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -86,43 +86,57 @@ const Navbar = () => {
           <li>Contact</li>
         </nav>
 
-        <button id="offcanvasbtn"
-  className="btn btn-primary"
-  type="button"
-  data-bs-toggle="offcanvas"
-  data-bs-target="#offcanvasWithBothOptions"  
-  aria-controls="offcanvasWithBothOptions"
-  style={{position:'absolute',right:'30px', }}
->
-<img style={{height:'20px',width:'20px'}} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAY1BMVEX///8AAADPz8+WlpZLS0v7+/vu7u5vb29TU1PDw8Pz8/N8fHyCgoITExMzMzOsrKyPj4+6urrU1NTo6Oizs7NCQkJkZGQoKCilpaUtLS05OTmenp7IyMiFhYVaWlpqamoLCwt+baPtAAACfUlEQVR4nO3di27CMAyF4TBWoAxYx2UX2Abv/5RbpSE2aXLSJpJl5/+ewEdQSlLXCQEAAAAAAAAAAAAAAAAA/Fu2H5/3dnyu2uWgfLv5xJ75Ljlf02kXO1LXpAWcHbQrHe0wSwm4XGvXmWGdcDU2G+0qs2ziX9SVdo2ZVrGAW+0Ks20jCZ+1C8z2LAecaddXgPx7+qhdXgGPYsKzdnkFnMWEL9rlFfAiJrxol1eCmFC7uCLEhJb/sV2txYT32uUVcBATWl03/daJCd+1yyvgXUzo4Mf0IgcMr9oFZnuNJGzetCvM9BZdIFq/EiNXof3v6SkeMISpdpUZpikBQ3jSrnO0p7SA3+tgixvCk8k8aS/xx2561K53oGOXvuV9Dbm9s2M7OB4AAAAAAAAAALBj2Z6mdpwGvm4Rmv1C+1nSYIt94rsIvdZmN/umTQ34oF3qaA9pAe19QW8WKQFtPuG+mscDWu/0lru8g4dm/Vi7gvVXZqIvzTTa9RUg3xbtNgvdyG1Ddm+FN/JN0Vqf0H82YkL7LcKxJmHt6oqo/DO0uaj46ygm9P9b6v9+6P8/jf//pRWsLfyvDytY41ewT2P5ppi411bBfmkFe949588tAAAAAAAAAACAJc7nRO06aw/Yhs36mtkcen1Onte21y51tMSZe+7nJp60q8ySMPvS/fzSxvrc+egMWtvzWXuxOcLa9RXg+yrsyVei/5nsdg+zupHn6vs/G0G7uiIqT2j9ft+Tz5mxuWz6Sz4ryHqXd0/u9Lbfqh9t1nd/7loFZ+eZf2kmev5hBWdY+j+HtIKzZCs4Dzj4P9O5Z+1c7g9euAAAAAAAAAAAAAAAAABQhS+ZyFZoP93BCgAAAABJRU5ErkJggg==" alt="" />
-</button>
+
+{/* This is offcanvas btn starts */}
 
 
+<button
+        id="otherOffcanvasBtn"
+        className="btn btn-primary"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#otherOffcanvas"
+        aria-controls="otherOffcanvas"
+        style={{ position: 'absolute', right: '30px' }}
+      >
+<img style={{height:'20px',width:'20px'}} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAY1BMVEX///8AAADPz8+WlpZLS0v7+/vu7u5vb29TU1PDw8Pz8/N8fHyCgoITExMzMzOsrKyPj4+6urrU1NTo6Oizs7NCQkJkZGQoKCilpaUtLS05OTmenp7IyMiFhYVaWlpqamoLCwt+baPtAAACfUlEQVR4nO3di27CMAyF4TBWoAxYx2UX2Abv/5RbpSE2aXLSJpJl5/+ewEdQSlLXCQEAAAAAAAAAAAAAAAAA/Fu2H5/3dnyu2uWgfLv5xJ75Ljlf02kXO1LXpAWcHbQrHe0wSwm4XGvXmWGdcDU2G+0qs2ziX9SVdo2ZVrGAW+0Ks20jCZ+1C8z2LAecaddXgPx7+qhdXgGPYsKzdnkFnMWEL9rlFfAiJrxol1eCmFC7uCLEhJb/sV2txYT32uUVcBATWl03/daJCd+1yyvgXUzo4Mf0IgcMr9oFZnuNJGzetCvM9BZdIFq/EiNXof3v6SkeMISpdpUZpikBQ3jSrnO0p7SA3+tgixvCk8k8aS/xx2561K53oGOXvuV9Dbm9s2M7OB4AAAAAAAAAALBj2Z6mdpwGvm4Rmv1C+1nSYIt94rsIvdZmN/umTQ34oF3qaA9pAe19QW8WKQFtPuG+mscDWu/0lru8g4dm/Vi7gvVXZqIvzTTa9RUg3xbtNgvdyG1Ddm+FN/JN0Vqf0H82YkL7LcKxJmHt6oqo/DO0uaj46ygm9P9b6v9+6P8/jf//pRWsLfyvDytY41ewT2P5ppi411bBfmkFe949588tAAAAAAAAAACAJc7nRO06aw/Yhs36mtkcen1Onte21y51tMSZe+7nJp60q8ySMPvS/fzSxvrc+egMWtvzWXuxOcLa9RXg+yrsyVei/5nsdg+zupHn6vs/G0G7uiIqT2j9ft+Tz5mxuWz6Sz4ryHqXd0/u9Lbfqh9t1nd/7loFZ+eZf2kmev5hBWdY+j+HtIKzZCs4Dzj4P9O5Z+1c7g9euAAAAAAAAAAAAAAAAABQhS+ZyFZoP93BCgAAAABJRU5ErkJggg==" alt="" />      </button>
 
-<div 
+      {/* Off-canvas component */}
+    <div
   className="offcanvas offcanvas-end"
   data-bs-scroll="true"
   tabIndex="-1"
-  id="offcanvasWithBothOptions"
-  aria-labelledby="offcanvasWithBothOptionsLabel"
-  style={{ backgroundColor: 'black', color: 'white' }}
+  id="otherOffcanvas"
+  aria-labelledby="otherOffcanvasLabel"
+  style={{
+    backgroundColor: 'black',
+    color: 'white',
+    position: 'fixed',
+    top: 0,
+    zIndex: 20000000, // Increase the z-index value
+    height: '80vh',
+    overflowY: 'auto'
+  }}
 >
-  <div className="offcanvas-header">
-    
-    <button
-      type="button"
-      className="btn btn-close"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close"
-   style={{color:'white',fontSize:'30px'}}>X</button>
-  </div>
-  <div className="offcanvas-body">
+        <div className="offcanvas-header">
+          <button
+            type="button"
+            className="btn btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+            style={{ color: 'white', fontSize: '30px' }}
+          >
+            X
+          </button>
+          </div>
+  <div className="offcanvas-body" style={{position:'relative'}}>
    <Link to="/"><li>Home</li></Link> 
-   <div className="dropdown">
+
+   <div className="dropdown" style={{position:'relative',right:'14px'}}>
   <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{border:'none'}}>
    <Link to="/"><li>Industies</li></Link> 
   </button>
-    <ul className="dropdown-menu" style={{backgroundColor:'#242424'}}>
+    <ul className="dropdown-menu" style={{backgroundColor:'#242424',width:'20vw'}} >
     <Link to="/banking" style={{ color: 'white', textDecoration: 'none' }}><li>Banking, Financial Services and Insurance</li></Link>
                 <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Energy and Utilities</li></Link>
                 <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Media and Entertainment</li></Link>
@@ -138,7 +152,7 @@ const Navbar = () => {
   <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{border:'none'}}>
    <Link to="/"><li>Services</li></Link> 
   </button>
-  <ul className="dropdown-menu" style={{backgroundColor:'#242424'}}>
+  <ul className="dropdown-menu" style={{backgroundColor:'#242424' ,width:'20vw'}}>
   <Link to="/rpa" style={{ color: 'white', textDecoration: 'none' }}><li>Robotic Process Automation</li></Link>
               <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Web Development</li></Link>
               <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>SAP</li></Link>
@@ -155,7 +169,7 @@ const Navbar = () => {
   
 </div>
 
-    <li>About Us</li>
+    <Link to="/about"><li>About Us</li></Link>
     <li>Portfolio Companies</li>
     <li>Investors</li>
     <li>Contact Us</li>
@@ -206,7 +220,13 @@ const Navbar = () => {
   </div>
 </div>
 
+{/* This is offcanvas btn ends */}
+
+
+{/* This is industries section starts */}
       </div>
+
+
       <div
         className={`industriesec ${visibleSection === "industries" ? "show" : ""}`}
         onMouseEnter={() => showSection("industries")}
@@ -238,6 +258,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+{/* This is industries section ends */}
 
       <div
         className={`servicesec ${visibleSection === "services" ? "show" : ""}`}
