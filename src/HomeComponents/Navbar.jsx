@@ -21,7 +21,7 @@ const Navbar = () => {
       const newColor = `rgba(0, 0, 0, 0.9)`;
   
       navbar.style.backgroundColor = newColor;
-      navbar.style.backdropFilter = `blur(100px)`;
+      navbar.style.backdropFilter = `blur(30px)`;
       navbar.style.overflow = "hidden"; // Add this line to prevent overflow
     };
 
@@ -58,10 +58,9 @@ const Navbar = () => {
     <>
      <div className="head" style={{ position: "sticky", top: 0, zIndex: 1000 }}>
         <div className="navli">
-          <img src={mainlogo} style={{height:'70px'}} alt="" />
+         <Link to="/"><img src={mainlogo} style={{height:'70px'}} alt="" /></Link> 
 
-          {/* <li style={{ fontFamily: "Brown Sugar",textShadow:'7px 7px black',fontWeight:'bolder',fontSize:'40px' }}>Qubic <span style={{color:'gold',marginLeft:'-4px'}}>Gen</span></li>
-          <li style={{fontSize:'20px'}}>Unlock Your Thoughts</li> */}
+       
         </div>
 
         <nav className={`nav ${isMobile ? "mobile" : ""}`}>

@@ -122,7 +122,7 @@
 .servicesec {
   display: none;
   position: fixed;
-  top: 260px;
+  top: 235px;
   left: 50%; /* Adjust as needed */
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 1);

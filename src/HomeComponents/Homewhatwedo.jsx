@@ -13,7 +13,7 @@ const Homewhatwedo = () => {
 
   return (
     <div>
-      <section id='homwwhatwedo' className="bg-[#26282b] w-11/12 mx-auto rounded-md m-4 p-4" data-aos="fade-left" style={{width:'85vw'}}>
+      <section id='homwwhatwedo' className="bg-[#26282b] w-11/12 mx-auto rounded-md m-4 p-4" data-aos="fade-up" style={{width:'85vw'}}>
         <div className="container mx-auto flex flex-col md:flex-row items-center" >
           <div className="md:ml-12 text-center md:text-left" id='lefttextabout' >
 
