@@ -1,0 +1,16 @@
+#carouselExampleFade1 {
+  border-radius: 30px;
+  transition: transform 0.3s ease-in-out; /* Add transition for a smooth effect */
+}
+
+/* Add the hover effect */
+#carouselExampleFade1:hover {
+  transform: scale(1.04);
+}
+
+@media (min-width: 320px) and (max-width: 440px) {
+  #whatwedotext {
+    position: relative;
+    right: 300px;
+  }
+}

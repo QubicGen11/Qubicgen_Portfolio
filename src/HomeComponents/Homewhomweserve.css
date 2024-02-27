@@ -1,0 +1,9 @@
+#carouselExampleFade2 {
+  border-radius: 30px;
+  transition: transform 0.3s ease-in-out; /* Add transition for a smooth effect */
+}
+
+/* Add the hover effect */
+#carouselExampleFade2:hover {
+  transform: scale(1.04);
+}

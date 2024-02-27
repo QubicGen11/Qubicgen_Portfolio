@@ -1,0 +1,182 @@
+
+
+#slide1img{
+  height: 800px;
+  opacity: 0.4;
+}
+#slide2img{
+  height: 800px;
+  opacity: 0.4;
+}
+#slide3img{
+  height: 800px;
+  opacity: 0.4;
+}
+#slide4img{
+  height: 800px;
+  opacity: 0.4;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 150px;
+ 
+
+}
+.carousel-caption2 {
+  position: absolute;
+  top: 100px;
+  left: 70px;
+ 
+
+}
+.carousel-caption {
+  position: absolute;
+  top: 150px;
+  left: 150px;
+
+}
+
+.carousel-caption h1 {
+  color: gold;
+  text-align: left;
+  font-size: 70px;
+  text-transform: uppercase;
+  animation: fadeInLeft 2s ease-in-out ; 
+}
+.carousel-caption2 h1 {
+  color: gold;
+  text-align: left;
+  font-size: 40px;
+  text-transform: uppercase;
+  animation: fadeInLeft 2s ease-in-out ; 
+}
+.carousel-caption4 h1 {
+  color: gold;
+  text-align: left;
+  font-size: 60px;
+  text-transform: uppercase;
+  animation: fadeInLeft 2s ease-in-out ; 
+}
+
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.carousel-caption {
+  color: gold;
+  text-align: left;
+  font-size: 70px;
+  text-transform: uppercase;
+  transform: scale(1);
+  transition: transform 0.5s ease; 
+}
+
+.carousel-caption:hover {
+  transform: scale(1.08);
+}
+.carousel-caption2 {
+  color: gold;
+  text-align: left;
+  font-size: 70px;
+  text-transform: uppercase;
+  transform: scale(1);
+  transition: transform 0.5s ease; 
+}
+
+.carousel-caption2:hover {
+  transform: scale(1.08);
+}
+.carousel-caption4 {
+  color: gold;
+  text-align: left;
+  font-size: 70px;
+  text-transform: uppercase;
+  transform: scale(1);
+  transition: transform 0.5s ease; 
+}
+
+.carousel-caption4:hover {
+  transform: scale(1.08);
+}
+
+
+#btnsofcarausel{
+  position: absolute;
+  top: 550px;
+}
+
+#carouselExampleIndicators {
+  z-index: 1; /* Set a lower z-index for the carousel */
+}
+
+
+
+@media only screen and (min-width: 200px) and (max-width: 600px) {
+  .carousel-caption h1 {
+    color: gold;
+    text-align: left;
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+  #slide1img{
+    height: 400px;
+    opacity: 0.4;
+  }
+  #slide2img{
+    height: 400px;
+    opacity: 0.4;
+  }
+  #slide3img{
+    height: 400px;
+    opacity: 0.4;
+  }
+  #slide4img{
+    height: 400px;
+    opacity: 0.4;
+  }
+  #btnsofcarausel{
+    position: absolute;
+    top: 300px;
+  }
+    
+  
+} 
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .carousel-caption h1 {
+    color: gold;
+    text-align: left;
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+  #slide1img{
+    height: 400px;
+    opacity: 0.4;
+  }
+  #slide2img{
+    height: 400px;
+    opacity: 0.4;
+  }
+  #slide3img{
+    height: 400px;
+    opacity: 0.4;
+  }
+  #slide4img{
+    height: 400px;
+    opacity: 0.4;
+  }
+  #btnsofcarausel{
+    position: absolute;
+    top: 300px;
+  }
+  
+  
+} 
