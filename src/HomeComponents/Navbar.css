@@ -259,7 +259,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .head {
     flex-direction: column;
     align-items: center;
@@ -329,11 +329,63 @@
 
 }
 
-@media (min-width:900px) and (max-width:2000px) {
+
+
+@media (min-width:1000px) and (max-width:1400px) {
   #offcanvasbtn{
     display: none;
   }
+
+.indusmain {
+  display: flex;
+  width: 900px;
+  justify-content: space-between;
 }
+
+.indusmain a {
+  text-decoration: none;
+  color: white;
+}
+
+.indusmain li {
+  list-style: none;
+  padding-bottom: 19px;
+  position: relative;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+  color: white; /* Set the initial color */
+  font-size: 14px;
+  margin-left: 20px;
+
+}
+.servicemain {
+  display: flex;
+  width: 900px;
+  justify-content: space-between;
+}
+
+.servicemain a {
+  text-decoration: none;
+  color: white;
+}
+
+.servicemain li {
+  list-style: none;
+  padding-bottom: 19px;
+  position: relative;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+  color: white; /* Set the initial color */
+  font-size: 14px;
+  margin-left: 20px;
+
+}
+}
+
+
+
 @media (min-width:390px) and (max-width:450px) {
   /* #offcanvasbtn{
     height: 10px;
