@@ -160,7 +160,7 @@ const [Weserve, setWeserve] = useState([
 {/* This is rpalist starts */}
     
     <div className="banking-main-list" >
-    <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 50 : 0, zIndex: 1, width: '90vw',backgroundColor:"rgba(0, 0, 0, 0.9)" }}>
+    <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw',backgroundColor:"rgba(0, 0, 0, 0.9)",backdropFilter:"blur(20px)" }}>
           <li onClick={() => scrollToRef(overviewRef)}>Overview</li>  
           <li onClick={() => scrollToRef(serveRef)}>Our Offerings</li>
           <li onClick={() => scrollToRef(caseStudiesRef)}>Who we serve</li>
@@ -188,7 +188,7 @@ const [Weserve, setWeserve] = useState([
 
       
 {/* This is rpa offering start */}
-<div style={{ color: 'white' }} ref={serveRef} data-aos = "fade-up" >
+<div style={{ color: 'white',marginLeft:'40px' }} ref={serveRef} data-aos = "fade-up" >
                     <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Our Offerings</h1>
                     <br />
                     <div className="container">
@@ -227,17 +227,17 @@ const [Weserve, setWeserve] = useState([
 
 
 {/* This is who we server starts */}
-<div style={{ color: 'white' }} ref={caseStudiesRef} data-aos = "zoom-in" >
+<div style={{ color: 'white',marginLeft:'40px' }}ref={caseStudiesRef} data-aos = "zoom-in"  >
                     <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Who we Serve</h1>
                     <br />
-                    <div className="container">
-                        <div className="row" >
+                    <div className="container" >
+                        <div className="row"  >
                             
                                 {
                                     Weserve.map((serve) => {
                                         return (
                                         <div className="col" >
-                                           <div className="card">
+                                           <div className="card" >
   <div className="card-inner">
     <div className="card-front" style={{ background: `url('${serve.background}')`, backgroundPosition:'center',objectFit:'cover' }}>
       <p>{serve.title}</p>

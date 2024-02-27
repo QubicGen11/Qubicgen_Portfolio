@@ -16,11 +16,13 @@ const Navbar = () => {
     const handleScroll = () => {
       const navbar = document.querySelector(".head");
       const scrollPosition = window.scrollY;
-
+  
       const transparency = Math.min(scrollPosition / 200, 1);
-      const newColor = `rgba(36, 36, 36, ${1 - transparency})`;
-
+      const newColor = `rgba(0, 0, 0, 0.9)`;
+  
       navbar.style.backgroundColor = newColor;
+      navbar.style.backdropFilter = `blur(100px)`;
+      navbar.style.overflow = "hidden"; // Add this line to prevent overflow
     };
 
     window.addEventListener("scroll", handleScroll);
