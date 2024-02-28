@@ -56,7 +56,7 @@ navbar.style.backgroundColor = newColor;
 
   return (
     <>
-     <div className="head" style={{ position: "sticky", top: 0, zIndex: 1000 }}>
+     <div className="head" style={{ position: "sticky", top: 0, zIndex: 1000, }}>
         <div className="navli">
          <Link to="/"><img src={mainlogo} id="mainlogo" alt="" /></Link> 
 
@@ -67,16 +67,16 @@ navbar.style.backgroundColor = newColor;
           <Link to="/" style={{ textDecoration: 'none' }}><li>Home</li></Link>
           <div
             className="dropdown"
-            onMouseEnter={() => showSection("industries")}
-            onMouseLeave={hideSections}
+            // onMouseEnter={() => showSection("industries")}
+            // onMouseLeave={hideSections}
             onClick={() => handleDropdownClick("industries")}
           >
             <li>Industries</li>
           </div>
           <div
             className="dropdown"
-            onMouseEnter={() => showSection("services")}
-            onMouseLeave={hideSections}
+            // onMouseEnter={() => showSection("services")}
+            // onMouseLeave={hideSections}
             onClick={() => handleDropdownClick("services")}
           >
             <li>Services</li>
