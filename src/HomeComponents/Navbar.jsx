@@ -154,13 +154,13 @@ navbar.style.backgroundColor = newColor;
   </button>
   <ul className="dropdown-menu" style={{backgroundColor:'#242424' ,width:'50vw'}}>
   <Link to="/rpa" style={{ color: 'white', textDecoration: 'none' }}><li>Robotic Process Automation</li></Link>
-              <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Web Development</li></Link>
-              <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>SAP</li></Link>
+              <Link to="/webdevelopment" style={{ color: 'white', textDecoration: 'none' }}><li>Web Development</li></Link>
+              <Link to="/sap" style={{ color: 'white', textDecoration: 'none' }}><li>SAP</li></Link>
               <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>DataBase</li></Link>
               <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Digital Marketing</li></Link>
               <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Digitization</li></Link>
               <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Outsourcing</li></Link>
-              <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Cyber Security</li></Link>
+              <Link to="/cybersecurity" style={{ color: 'white', textDecoration: 'none' }}><li>Cyber Security</li></Link>
               <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Data Analytics</li></Link>
               <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Testing</li></Link>
               <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Business Consulting</li></Link>
@@ -272,8 +272,8 @@ navbar.style.backgroundColor = newColor;
           <div className="service1">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
             <Link to="/rpa"><li>Robotic Process Automation</li></Link>
-            <Link to=""><li>Web Development</li></Link>
-            <Link to=""><li>SAP</li></Link>
+            <Link to="/webdevelopment"><li>Web Development</li></Link>
+            <Link to="/sap"><li>SAP</li></Link>
             <Link to=""> <li>DataBase</li></Link>
           </div>
           <div className="service2">
@@ -282,7 +282,7 @@ navbar.style.backgroundColor = newColor;
             <Link to=""><li>Digital Marketing</li></Link>
             <Link to=""><li>Digitization</li></Link>
             <Link to=""><li>Outsourcing</li></Link>
-            <Link to=""><li>Cyber Security</li></Link>
+            <Link to="/cybersecurity"><li>Cyber Security</li></Link>
           </div>
           <div className="service3">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}>
