@@ -4,6 +4,7 @@ import Rpahead from './Rpahead'
 import './Rpa.css'
 import Rpalist from './Rpalist'
 import Footer from '../HomeComponents/Footer'
+import Queries from './Queries'
 
 
 const Rpa = () => {
@@ -14,7 +15,7 @@ const Rpa = () => {
   <div className="bg" style={{backgroundColor:'black'}}>
     <Rpahead/>
     <Rpalist/>
-
+    <Queries/>
     <Footer/>
 
         

@@ -13,91 +13,88 @@ const Databaselist = () => {
   };
 
   // This is for rpa offering cards
-  const [Dataanalyticsoffering, setDataanalyticsoffering] = useState([
+  const[Databaseofferings,setDatabaseofferings]=useState([
     {
-        title: 'Data Exploration and Preparation',
-        description: 'Exploring and profiling raw data to understand its structure, quality, and relationships. Preparing data for analysis by cleaning, transforming, and integrating datasets from various sources.'
+      title: 'Database Design and Development',
+      description: 'Crafting databases tailored to our clients\' precise needs, meticulously creating schemas, tables, and relationships to efficiently organize and store data. Our expertise extends to implementing normalization and optimization techniques, ensuring peak performance for your database solution.'
     },
     {
-        title: 'Descriptive Analytics:',
-        description: 'Analyzing historical data to understand past trends, patterns, and relationships. Summarizing and visualizing data using techniques such as charts, graphs, and dashboards to gain insights into business performance.'
+      title: 'Database Administration',
+      description: 'Our team handles routine maintenance tasks, monitors performance, and optimizes configurations to guarantee seamless operation. We manage user access and permissions with precision, prioritizing data security and integrity at every step.'
     },
     {
-        title: 'Predictive Analytics:',
-        description: 'Forecasting future trends, behaviors, and outcomes based on historical data and statistical models. Building predictive models using machine learning algorithms such as regression, classification, clustering, and time series forecasting.'
+      title: 'Data Migration and Integration',
+      description: 'We seamlessly migrate data from legacy systems to modern platforms, integrating databases with other systems for smooth data flow. Throughout the process, we maintain data consistency and integrity, ensuring a reliable transition without compromising quality.'
     },
     {
-        title: 'Prescriptive Analytics',
-        description: 'Recommending optimal actions and strategies to achieve desired outcomes based on predictive models and business objectives. Using optimization techniques, simulation models, and decision support systems to prescribe actionable insights.'
+      title: 'Database Security',
+      description: 'We implement robust security measures, conducting assessments and audits to identify vulnerabilities and mitigate risks. Through encryption, access controls, and authentication mechanisms, we safeguard your sensitive data from unauthorized access and cyber threats.'
     },
     {
-        title: 'Data Visualization and Reporting',
-        description: 'Creating interactive visualizations, dashboards, and reports to communicate insights and findings effectively to stakeholders. Using tools such as Tableau, Power BI, or Python libraries like Matplotlib and Seaborn.'
+      title: 'Performance Tuning and Optimization',
+      description: 'Our experts analyze performance issues, optimize configurations, and fine-tune resource allocation for optimal efficiency. By optimizing queries, indexing strategies, and hardware configurations, we ensure your database operates at its peak potential.'
     },
     {
-        title: 'Big Data Analytics',
-        description: 'Analyzing large volumes of structured and unstructured data from diverse sources such as social media, sensors, logs, and IoT devices. Leveraging technologies like Hadoop, Spark, and NoSQL databases for distributed computing and storage.'
+      title: 'Disaster Recovery and High Availability',
+      description: 'We develop and implement disaster recovery plans to minimize downtime and data loss, setting up high availability solutions like clustering and replication for continuous data access. Our testing and validation processes ensure readiness for emergencies.'
     },
     {
-        title: 'Text Analytics and Natural Language Processing (NLP)',
-        description: 'Extracting insights from textual data such as customer reviews, social media posts, emails, and documents. Analyzing sentiment, categorizing topics, and extracting entities using NLP techniques like text mining and sentiment analysis.'
+      title: 'Cloud Database Services',
+      description: 'We assist in migrating databases to leading cloud platforms, designing and deploying cloud-native solutions for scalability and cost-effectiveness. Our management and optimization services in the cloud ensure your database performs optimally in a scalable environment.'
     },
     {
-        title: 'Data Governance and Privacy',
-        description: 'Establishing policies, processes, and controls to ensure data quality, integrity, security, and compliance with regulatory requirements such as GDPR, CCPA, HIPAA, and PCI DSS.'
-    },
-    
-]);
+      title: 'Database Automation',
+      description: 'Transforming database management, our automation service simplifies routine tasks, optimizing performance while minimizing manual intervention. Tailored to meet unique business needs, we streamline operations, ensuring efficiency and reliability for our clients\' data infrastructure.'
+    }
+  ]);
 
-const[Dataanalyticsserve,setDataanalyticsserve]=useState([
-
+const [DataBaseServe, setDataBaseServe] = useState([
   {
-  title:'Banking',
-  description: 'Unlock insights from vast financial data sets to drive informed decision-making, risk assessment, fraud detection, and customer segmentation, empowering banking institutions to optimize operations and enhance customer experiences.',
-  background: "https://img.freepik.com/free-photo/revenue-operations-concept_23-2150902423.jpg?t=st=1709113676~exp=1709117276~hmac=c16c5de74bfe8c9b46c5053f6552f648449a980d66a2368ec312a857e8a4fcc2&w=740"
-  },
-  
-  {
-  title: 'Healthcare',
-  description: 'Utilize data analytics to improve patient care outcomes, treatment effectiveness, resource allocation, and operational efficiency, empowering healthcare providers to enhance patient experiences and optimize healthcare delivery.',
-  background: "https://img.freepik.com/free-vector/medical-infographic-with-photo_23-2148368620.jpg?t=st=1709113744~exp=1709117344~hmac=2da6a7298fff5db8cf9457074f97e719b079e1355126bdf97773f261549b3844&w=740"
-  },
-  {
+      title:'HealthCare',
+      description: 'Securely manage patient data with our healthcare-focused database solutions, ensuring compliance and privacy.',
+      background: "https://img.freepik.com/free-photo/successful-medical-team_329181-9252.jpg?t=st=1709119814~exp=1709123414~hmac=a2b7793627d2d2d4ee59b6ed4dee3c3783886802f52c45a15e021db296d3a8c4&w=740"
+      },
+      
+      {
       title: 'Education',
-      description: 'Utilize data analytics to enhance student performance, retention rates, curriculum effectiveness, and resource allocation, enabling educational institutions to make data-driven decisions and improve learning outcomes.',
-      background: "https://img.freepik.com/premium-photo/open-book-with-graduation-hat-light-bulb-education-learning-school-university-idea-concept-3d-illustration_56345-604.jpg?w=826"
-  },
-  {
-  title: 'Energy and Utilities',
-  description: 'Harness data analytics to optimize energy consumption, grid management, asset performance, and maintenance schedules, enabling energy and utilities providers to improve operational efficiency, reliability, and sustainability.',
-  background: "https://img.freepik.com/free-photo/sunset-sky-powers-wind-solar-energy-generated-by-ai_188544-26193.jpg?t=st=1709113949~exp=1709117549~hmac=a03a2b572e15581c4871292f11bc50a1252c682ba7c03cf0aacbee300913a6e3&w=826"
-  },
-  {
-  title: 'Government',
-  description: 'Utilize data analytics to enhance policy-making, citizen services, resource allocation, and regulatory compliance, empowering government agencies to improve transparency, efficiency, and citizen satisfaction.',
-  background: "https://img.freepik.com/free-photo/neo-classical-courthouse-facade-illuminated-night-generated-by-ai_188544-35360.jpg?t=st=1709114085~exp=1709117685~hmac=bea8842c4c4a3016cbd7aca30879a1fb671ffa54c3e22aa5b6d2eedb1a4d761e&w=826"
-  },
-  {
-  title: 'Retail',
-  description :'Utilize data analytics to understand customer behavior, optimize inventory management, personalize marketing strategies, and improve sales forecasting, empowering retailers to enhance customer experiences and drive revenue growth.',
-  background: "https://img.freepik.com/free-photo/background-interior-supermarket-out-focus_123827-28041.jpg?t=st=1709114113~exp=1709117713~hmac=6dcffb1ebd83365425366be615d8e2d63da2487264954d3295f6bc149a503c8a&w=740"
-  },
-  {
-  title: 'Manufacturing',
-  description: 'Leverage data analytics to optimize production processes, supply chain management, predictive maintenance, and quality control, enabling manufacturers to improve efficiency, reduce costs, and drive innovation.',
-  background: "https://img.freepik.com/free-photo/factory-workshop-interior-machines-glass-production-background_645730-396.jpg?t=st=1709104730~exp=1709108330~hmac=cb89cfd3ebbff219b22610f56687568b04fe3666137040f34199db88d7367a77&w=996"
-  },
-  {
-  title: 'Media & Entertainment',
-  description: 'Harness the power of data analytics to understand audience preferences, content consumption patterns, advertising effectiveness, and revenue optimization, empowering media and entertainment companies to deliver personalized experiences and maximize ROI.',
-  background: "https://img.freepik.com/free-photo/cinema-elements-yellow-background-with-copy-space_23-2148457817.jpg?t=st=1709114274~exp=1709117874~hmac=b454c1cec006618cfffd3e6053576ead4c13010f35b3558c23b8995ec967f2e2&w=740"
-  },
-  {
-  title: 'Transport',
-  description: 'Leverage data analytics to optimize route planning, fleet management, passenger experience, and maintenance schedules, enabling transportation companies to improve service reliability, efficiency, and safety.',
-  background: "https://img.freepik.com/free-photo/night-view-waibaidu-bridge-blue-tone_1359-16.jpg?t=st=1709114346~exp=1709117946~hmac=d2250a7452d360b1b93348d3cdb9d9979ec2b4b2332784afebe79d85fcb6c6dd&w=740"
-  },
-  
+      description: 'Empower academic institutions with scalable database solutions for student management and learning platforms.',
+      background: "https://img.freepik.com/free-photo/person-with-books-digital-art-style-education-day_23-2151164358.jpg?t=st=1709119855~exp=1709123455~hmac=d4203c091526e85cff9741aea228390f0e483d1947c6df17070d4ce43ddf42f8&w=740"
+      },
+      {
+      title: 'Manufacturing',
+      description: 'Drive efficiency and innovation in manufacturing with our scalable database solutions for production control.',
+      background: "https://img.freepik.com/free-photo/smart-indian-engineer-man-wearing-safety-helmet-doing-stock-tick-check-cardboard-stock-product-management-factory-warehouse-background_609648-1445.jpg?t=st=1709119925~exp=1709123525~hmac=58a97f3dfc93d096638de57ab6dcac6e2a0420aa1866679a1cda695535812a1f&w=740"
+      },
+      {
+      title: 'Energy and Utilities',
+      description: 'Optimize grid operations and asset management with our reliable database solutions for the energy sector.',
+      background: "https://img.freepik.com/free-photo/turbine-green-energy-electricity-technology-concept_53876-31722.jpg?w=826&t=st=1709120004~exp=1709120604~hmac=8cb4bd897fd66735ae138d9db60a467539581591d0c45220afc6618aca88e775"
+      },
+      {
+      title: 'Banking',
+      description :'Ensure data integrity and compliance in financial transactions with our banking-focused database services.',
+      background: "https://img.freepik.com/premium-photo/online-banking-person-uses-system-selects-service-hologram-laptop_102583-7081.jpg?w=740"
+      },
+      {
+      title: 'Government',
+      description: 'Modernize citizen services and improve transparency with our government-focused database services.',
+      background: "https://img.freepik.com/free-photo/grey-marble-column-details-building_1359-886.jpg?t=st=1709109603~exp=1709113203~hmac=3c7a7385652c17affca217c4991154fc705e5deef262b54c84dd5ad40670ef14&w=740"
+      },
+      {
+      title: 'Media',
+      description: 'Deliver personalized content experiences with our media-focused database solutions for digital asset management.',
+      background: "https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-cinema-tickets-wooden-desk_23-2148188189.jpg?t=st=1709109656~exp=1709113256~hmac=af33f941cc0a2df0fd43470e2f487c91146d36b8ee356372296a23f66c0f4b9e&w=740"
+      },
+      {
+      title: 'Transportation',
+      description: 'Enhance fleet management and passenger safety with our transportation-focused database services.',
+      background: "https://img.freepik.com/free-photo/logistics-transportation-container-cargo-ship-cargo-plane-with-working-crane-bridge-shipyard-sunrise-logistic-import-export-transport-industry-background-ai-generative_123827-24177.jpg?t=st=1709120106~exp=1709123706~hmac=77cdedc3a3349f43f51317fc838a1aae925cf2690f0a7b998b1ea6c509867b5c&w=740"
+      },
+      {
+      title: 'Retail',
+      description: 'Optimize inventory management and customer engagement with our retail-focused database solutions.',
+      background: "https://img.freepik.com/free-photo/background-interior-supermarket-out-focus_123827-28040.jpg?t=st=1709120147~exp=1709123747~hmac=a2e2c1c8ddad348797742d1460189012a755a5e2aa5b01e10c727335057d19af&w=740"
+      }
   
   ]);
 
@@ -185,7 +182,7 @@ const[Dataanalyticsserve,setDataanalyticsserve]=useState([
                         <div className="row" >
                             
                                 {
-                                    Dataanalyticsoffering.map((item) => {
+                                    Databaseofferings.map((item) => {
                                         return (
                                         <div className="col" >
                                             <div className="card" id='offeringscards' style={{ height: '14rem', width: '18rem', backgroundColor: '#242424', color: 'white' }}>
@@ -231,12 +228,12 @@ const[Dataanalyticsserve,setDataanalyticsserve]=useState([
                         <div className="row"  >
                             
                                 {
-                                   Dataanalyticsserve.map((serve) => {
+                                   DataBaseServe.map((serve) => {
                                         return (
                                         <div className="col md-3 mb-3" >
                                            <div className="card" >
   <div className="card-inner">
-    <div className="card-front" style={{ background: `url('${serve.background}')`, backgroundPosition:'center',objectFit:'cover',opacity:'0.8' }}>
+    <div className="card-front" style={{ background: `url('${serve.background}')`, backgroundPosition:'right',objectFit:'cover',opacity:'0.8' }}>
       <p style={{fontWeight:'bolder'}}>{serve.title}</p>
     </div>
     <div className="card-back">
