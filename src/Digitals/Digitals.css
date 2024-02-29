@@ -1,0 +1,151 @@
+.digitalshead {
+    position: relative;
+    height: 70vh;
+    background-image: url("https://res.cloudinary.com/dightbmyi/image/upload/v1709203865/digital-marketing-with-icons-business-people_xvq9uj.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .digitalshead::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.6;
+    z-index: 1;
+  }
+
+  #digitalstit{
+    z-index: 5;
+    color: white;
+    position: absolute;
+    top: 200px;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  #digitalsdesc{
+    z-index: 5;
+    color: white;
+    position: absolute;
+    top: 20%;
+    left: 34%;
+    transform: translate(-50%, -50%);
+    font-weight: 300;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 350px;
+    padding-left: 2rem;
+  }
+  
+
+  @media (min-width: 320px) and (max-width: 500px) {
+#digitalstit{
+  font-size: 30px;
+}
+
+#digitalsdesc{
+  font-size: 12px;
+  top: 37%;
+  left: 30%;
+}
+.digitalshead {
+  position: relative;
+  height: 50vh;
+  background-image: url("https://res.cloudinary.com/dightbmyi/image/upload/v1709203865/digital-marketing-with-icons-business-people_xvq9uj.jpg");
+  background-size: cover;
+  background-position: center;
+}
+  }
+  @media (min-width: 501px) and (max-width: 768px) {
+#digitalstit{
+  font-size: 30px;
+}
+
+#digitalsdesc{
+  font-size: 12px;
+  top: 25%;
+  left: 32%;
+}
+.digitalshead {
+  position: relative;
+  height: 40vh;
+  background-image: url("https://res.cloudinary.com/dightbmyi/image/upload/v1709203865/digital-marketing-with-icons-business-people_xvq9uj.jpg");
+  background-size: cover;
+  background-position: center;
+}
+  }
+
+
+  /* This is offering cards css */
+  #offeringscards {
+    transition: transform 0.3s ease-in-out;
+
+  }
+  
+  #offeringscards:hover {
+    transform: scale(1.06);
+    box-shadow: 0px 0px 10px gold; /* Example: Add box shadow on hover */
+    opacity: 0.9; /* Example: Reduce opacity on hover */ 
+   }
+
+   .card {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    background-color: #242424;
+
+  }
+  
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.999s;
+  }
+  
+  .card:hover .card-inner {
+    transform: rotateY(180deg);
+    box-shadow: 0px 0px 10px gold; /* Example: Add box shadow on hover */
+
+  }
+  
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .card-front {
+    background : url("https://images.unsplash.com/photo-1589225643300-fbfd24356bc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHJwYXxlbnwwfHwwfHx8MA%3D%3D");
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 24px;  
+    transform: rotateY(0deg);
+  }
+  
+  .card-back {
+    background-color: #242424;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border: 10px solid #242424;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 13px;
+    transform: rotateY(180deg);
+  }
+  
+ 

@@ -1,21 +1,22 @@
 import React from 'react'
 import Navbar from '../HomeComponents/Navbar'
 import Footer from '../HomeComponents/Footer'
-import Webhead from './Webhead'
-import Weblist from './Weblist'
+import Queries from './Queries'
+import "./Digitals.css"
+import Digitalshead from './Digitalshead'
+import Digitalslist from './Digitalslist'
 
-const Web = () => {
+
+const Digitals = () => {
   return (
     
     <>
     <Navbar/>
   <div className="bg" style={{backgroundColor:'black'}}>
-    <Webhead/>
-    <Weblist/>
-
-
+    <Digitalshead/>
+    <Digitalslist/>
+    <Queries/>
     <Footer/>
-
 
         
     </div>
@@ -23,4 +24,4 @@ const Web = () => {
   )
 }
 
-export default Web
+export default Digitals

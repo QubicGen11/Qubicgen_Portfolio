@@ -14,7 +14,10 @@ import Cybersecurity from "./Cyber Components/Cybersecurity";
 import Web from "./Web Development Components/Web";
 import Dataanalytics from "./Data Analytics Components/Dataanalytics";
 import Testing from "./Testing Components/Testing";
-import Database from "./Data Analytics Components copy/Database";
+import Database from "./Database Components/Database";
+import Digitals from "./Digitals/Digitals";
+
+
 
 
 const App = () => {
@@ -36,6 +39,7 @@ const App = () => {
           <Route path="/dataanalytics" element={<Dataanalytics/>} />
           <Route path="/testing" element={<Testing/>} />
           <Route path="/database" element={<Database/>} />
+          <Route path="/digitalmarketing" element={<Digitals/>} />
           {/* <Route path="/blog" element={<Blog />} /> */}
         </Routes>
       </Router>
