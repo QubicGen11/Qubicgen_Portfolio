@@ -18,7 +18,8 @@ import Digitals from "./Digitals/Digitals";
 import Digitalization from "./Digitalization Components/Digitalization";
 import Outsourcing from "./Outsourcing Components/Outsourcing";
 import Businessconsulting from "./Business Consulting Components/Businessconsulting";
-// import Web from "./Services/Web Development Components/web";
+import Web from "./Web Development Components/Web";
+import Training from "./Training Components/Training";
 
 
 
@@ -46,6 +47,8 @@ const App = () => {
           <Route path="/digitalization" element={<Digitalization/>} />
           <Route path="/outsourcing" element={<Outsourcing/>} />
           <Route path="/businessconsulting" element={<Businessconsulting/>} />
+          <Route path="/webdevelopment" element={<Web/>} />
+          <Route path="/training" element={<Training/>} />
           {/* <Route path="/blog" element={<Blog />} /> */}
         </Routes>
       </Router>

@@ -163,7 +163,7 @@ navbar.style.backgroundColor = newColor;
               <Link to="/dataanalytics" style={{ color: 'white', textDecoration: 'none' }}><li>Data Analytics</li></Link>
               <Link to="/testing" style={{ color: 'white', textDecoration: 'none' }}><li>Testing</li></Link>
               <Link to="/businessconsulting" style={{ color: 'white', textDecoration: 'none' }}><li>Business Consulting</li></Link>
-              <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Trainings</li></Link>
+              <Link to="/training" style={{ color: 'white', textDecoration: 'none' }}><li>Trainings and Certifications</li></Link>
   </ul>
   
 </div>
@@ -289,7 +289,7 @@ navbar.style.backgroundColor = newColor;
             <Link to="/dataanalytics"><li>Data Analytics</li></Link>
             <Link to="/testing"><li>Testing</li></Link>
             <Link to="/businessconsulting"><li>Business Consulting</li></Link>
-            <Link to=""><li>Trainings </li></Link>
+            <Link to="/training"><li>Trainings and Certifications</li></Link>
           </div>
         </div>
       </div>
