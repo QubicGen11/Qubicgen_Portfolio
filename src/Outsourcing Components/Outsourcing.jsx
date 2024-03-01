@@ -1,20 +1,19 @@
 import React from 'react'
 import Navbar from '../HomeComponents/Navbar'
-import Rpahead from './Rpahead'
-import './Rpa.css'
-import Rpalist from './Rpalist'
+import './Outsourcing.css'
 import Footer from '../HomeComponents/Footer'
-import Queries from './Queries'
+import Outsourcinghead from './Outsourcinghead'
+import Outsourcinglist from './Outsourcinglist'
 
 
-const Rpa = () => {
+const Outsourcing = () => {
   return (
     
     <>
     <Navbar/>
   <div className="bg" style={{backgroundColor:'black'}}>
-    <Rpahead/>
-    <Rpalist/>
+    <Outsourcinghead/>
+    <Outsourcinglist/>
     <Footer/>
 
         
@@ -23,4 +22,4 @@ const Rpa = () => {
   )
 }
 
-export default Rpa
+export default Outsourcing

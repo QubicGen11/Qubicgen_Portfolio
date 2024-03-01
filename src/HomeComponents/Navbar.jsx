@@ -2,7 +2,6 @@ import "./Navbar.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-import Banking from "../BankingComponents/Banking";
 import mainlogo from "./og.png"
 import { useEffect, useState } from "react";
 
@@ -159,7 +158,7 @@ navbar.style.backgroundColor = newColor;
               <Link to="/database" style={{ color: 'white', textDecoration: 'none' }}><li>DataBase</li></Link>
               <Link to="/digitalmarketing" style={{ color: 'white', textDecoration: 'none' }}><li>Digital Marketing</li></Link>
               <Link to="/digitalization" style={{ color: 'white', textDecoration: 'none' }}><li>Digitalization</li></Link>
-              <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Outsourcing</li></Link>
+              <Link to="/outsourcing" style={{ color: 'white', textDecoration: 'none' }}><li>Outsourcing</li></Link>
               <Link to="/cybersecurity" style={{ color: 'white', textDecoration: 'none' }}><li>Cyber Security</li></Link>
               <Link to="/dataanalytics" style={{ color: 'white', textDecoration: 'none' }}><li>Data Analytics</li></Link>
               <Link to="/testing" style={{ color: 'white', textDecoration: 'none' }}><li>Testing</li></Link>
@@ -281,7 +280,7 @@ navbar.style.backgroundColor = newColor;
             </Link>
             <Link to="/digitalmarketing"><li>Digital Marketing</li></Link>
             <Link to="/digitalization"><li>Digitalization</li></Link>
-            <Link to=""><li>Outsourcing</li></Link>
+            <Link to="/outsourcing"><li>Outsourcing</li></Link>
             <Link to="/cybersecurity"><li>Cyber Security</li></Link>
           </div>
           <div className="service3">

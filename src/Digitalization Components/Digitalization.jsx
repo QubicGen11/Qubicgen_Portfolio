@@ -16,7 +16,6 @@ const Digitalization = () => {
   <Digitalizationhead/>
     <Digitalizationlist/>
    
-    <Queries/>
     <Footer/>
 
         

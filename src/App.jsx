@@ -11,12 +11,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Rpa from "./Rpa Components/Rpa";
 import Sap from "./Sap Components/Sap";
 import Cybersecurity from "./Cyber Components/Cybersecurity";
-import Web from "./Web Development Components/Web";
 import Dataanalytics from "./Data Analytics Components/Dataanalytics";
 import Testing from "./Testing Components/Testing";
 import Database from "./Database Components/Database";
 import Digitals from "./Digitals/Digitals";
 import Digitalization from "./Digitalization Components/Digitalization";
+import Outsourcing from "./Outsourcing Components/Outsourcing";
+// import Web from "./Services/Web Development Components/web";
 
 
 
@@ -36,12 +37,13 @@ const App = () => {
           <Route path="/rpa" element={<Rpa/>} />
           <Route path="/sap" element={<Sap/>} />
           <Route path="/cybersecurity" element={<Cybersecurity/>} />
-          <Route path="/webdevelopment" element={<Web/>} />
+          {/* <Route path="/webdevelopment" element={<Web/>} /> */}
           <Route path="/dataanalytics" element={<Dataanalytics/>} />
           <Route path="/testing" element={<Testing/>} />
           <Route path="/database" element={<Database/>} />
           <Route path="/digitalmarketing" element={<Digitals/>} />
           <Route path="/digitalization" element={<Digitalization/>} />
+          <Route path="/outsourcing" element={<Outsourcing/>} />
           {/* <Route path="/blog" element={<Blog />} /> */}
         </Routes>
       </Router>

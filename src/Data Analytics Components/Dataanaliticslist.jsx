@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
+import Queries from '../Rpa Components/Queries';
 
 
 const Dataanaliticslist = () => {
   const overviewRef = useRef(null);
   const serveRef = useRef(null);
   const caseStudiesRef = useRef(null);
+  const queriesRef = useRef(null);
+
   const [isNavFixed, setIsNavFixed] = useState(false);
   
   const scrollToRef = (ref) => {
@@ -134,6 +137,8 @@ const[Dataanalyticsserve,setDataanalyticsserve]=useState([
           <li onClick={() => scrollToRef(overviewRef)}>Overview</li>  
           <li onClick={() => scrollToRef(serveRef)}>Our Offerings</li>
           <li onClick={() => scrollToRef(caseStudiesRef)}>Who we serve</li>
+          <li onClick={() => scrollToRef(queriesRef)}>Queries</li>
+
           {/* <li onClick={() => scrollToRef(leadershipRef)}>Meet our leadership</li> */}
         </nav>
     </div>
@@ -269,7 +274,9 @@ const[Dataanalyticsserve,setDataanalyticsserve]=useState([
 
 
      
-
+<div className="queries" ref={queriesRef}>
+  <Queries/>
+</div>
 
 
     

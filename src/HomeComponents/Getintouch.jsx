@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import './Getintouch.css'
-import getinlogo from '../assets/Getintouch/group-2372@2x.png'
 import vectorgetin from '../assets/Getintouch/vector-186.svg'
 import mailgetin from '../assets/Getintouch/mail@2x.png'
 import sendgetin from '../assets/Getintouch/send.svg'
