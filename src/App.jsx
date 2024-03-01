@@ -17,6 +17,7 @@ import Database from "./Database Components/Database";
 import Digitals from "./Digitals/Digitals";
 import Digitalization from "./Digitalization Components/Digitalization";
 import Outsourcing from "./Outsourcing Components/Outsourcing";
+import Businessconsulting from "./Business Consulting Components/Businessconsulting";
 // import Web from "./Services/Web Development Components/web";
 
 
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="/digitalmarketing" element={<Digitals/>} />
           <Route path="/digitalization" element={<Digitalization/>} />
           <Route path="/outsourcing" element={<Outsourcing/>} />
+          <Route path="/businessconsulting" element={<Businessconsulting/>} />
           {/* <Route path="/blog" element={<Blog />} /> */}
         </Routes>
       </Router>
