@@ -158,7 +158,7 @@ navbar.style.backgroundColor = newColor;
               <Link to="/sap" style={{ color: 'white', textDecoration: 'none' }}><li>SAP</li></Link>
               <Link to="/database" style={{ color: 'white', textDecoration: 'none' }}><li>DataBase</li></Link>
               <Link to="/digitalmarketing" style={{ color: 'white', textDecoration: 'none' }}><li>Digital Marketing</li></Link>
-              <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Digitization</li></Link>
+              <Link to="/digitalization" style={{ color: 'white', textDecoration: 'none' }}><li>Digitalization</li></Link>
               <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Outsourcing</li></Link>
               <Link to="/cybersecurity" style={{ color: 'white', textDecoration: 'none' }}><li>Cyber Security</li></Link>
               <Link to="/dataanalytics" style={{ color: 'white', textDecoration: 'none' }}><li>Data Analytics</li></Link>
@@ -280,7 +280,7 @@ navbar.style.backgroundColor = newColor;
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}>
             </Link>
             <Link to="/digitalmarketing"><li>Digital Marketing</li></Link>
-            <Link to=""><li>Digitization</li></Link>
+            <Link to="/digitalization"><li>Digitalization</li></Link>
             <Link to=""><li>Outsourcing</li></Link>
             <Link to="/cybersecurity"><li>Cyber Security</li></Link>
           </div>

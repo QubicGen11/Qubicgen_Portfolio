@@ -16,6 +16,7 @@ import Dataanalytics from "./Data Analytics Components/Dataanalytics";
 import Testing from "./Testing Components/Testing";
 import Database from "./Database Components/Database";
 import Digitals from "./Digitals/Digitals";
+import Digitalization from "./Digitalization Components/Digitalization";
 
 
 
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/testing" element={<Testing/>} />
           <Route path="/database" element={<Database/>} />
           <Route path="/digitalmarketing" element={<Digitals/>} />
+          <Route path="/digitalization" element={<Digitalization/>} />
           {/* <Route path="/blog" element={<Blog />} /> */}
         </Routes>
       </Router>

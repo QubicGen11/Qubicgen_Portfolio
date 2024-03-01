@@ -8,7 +8,7 @@ const Homemeetourteam = () => {
     AOS.init({ duration: 2000 })
   }, [])
   return (
-    <div>
+    <div id='meetoutteam'>
  
     <section className="bg-[#26282b] w-11/12 mx-auto rounded-md m-4 p-4" style={{width:'82vw'}}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
