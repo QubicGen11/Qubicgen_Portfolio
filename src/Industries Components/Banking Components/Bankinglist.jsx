@@ -112,7 +112,7 @@ const Bankinglist = () => {
         <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.9)", backdropFilter: "blur(20px)" }}>
           <li onClick={() => scrollToRef(overviewRef)}>Overview</li>
           <li onClick={() => scrollToRef(caseStudiesRef)}>Who we serve</li>
-          <li onClick={() => scrollToRef(caseStudiesRef)}>Service Offerings</li>
+          <li onClick={() => scrollToRef(serveRef )}>Service Offerings</li>
           <li onClick={() => scrollToRef(queriesRef)}>Queries</li>
           {/* <li onClick={() => scrollToRef(leadershipRef)}>Meet our leadership</li> */}
         </nav>
@@ -121,7 +121,7 @@ const Bankinglist = () => {
       <br />
       <br />
 
-      <div className="container" style={{ color: 'white' }} data-aos="fade-up" ref={overviewRef}>
+      <div className="container" style={{ color: 'white' }} data-aos="fade-up" ref={ overviewRef}>
 
 
         <br />
@@ -150,21 +150,21 @@ const Bankinglist = () => {
       <br />
       <br />
       <br />
-      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}> Who we Serve</h1>
+      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }} > Who we Serve</h1>
       <br />
       <br />
       <br />
 
-      <div className="container">
+      <div className="container" ref={caseStudiesRef}>
         <div className="container text-center">
           <div className="row" style={{ display: 'flex', justifyContent: 'space-evenly' }} >
             {BankingServe.map((item) => {
               return (
                 <div className="card" style={{ height: '350px', width: '307px', marginTop: '20px' }} >
-                  <a className="card1" href="#" >
+                  <a className="card1" >
                     <p style={{ fontSize: '30px', paddingBottom: "20px" }}>{item.title}</p>
                     <p style={{ fontSize: '13px' }}>{item.description}</p>
-                    <div className="go-corner" href="#">
+                    <div className="go-corner">
                       <div className="go-arrow">
                         →
                       </div>
@@ -191,7 +191,7 @@ const Bankinglist = () => {
 
 
       {/* This is who we server starts */}
-      <div style={{ color: 'white', marginLeft: '40px' }} ref={caseStudiesRef} data-aos="zoom-in"  >
+      <div style={{ color: 'white', marginLeft: '40px' }} ref={serveRef} data-aos="zoom-in"  >
         <br />
         <br />
         <br />

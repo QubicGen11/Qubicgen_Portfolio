@@ -34,7 +34,7 @@ const Homeabout = () => {
 
 
 
-                <p className="mt-2 text-white">
+                <p className="mt-2 text-white" style={{fontSize:'13px'}}>
  
   QubiGen, situated in the dynamic and thriving city of Anantapur, Andhra Pradesh, India, stands as a beacon of knowledge and a catalyst for success. Our mission is to bridge the gap between learning and achievement, focusing on innovative where ideas flourish and ambitions are realizedWith a focus on innovation and excellence, QubiGen empowers individuals to unlock their potential and contribute meaningfully to their communities.Here, tradition meets technology, creating a unique synergy.|
 </p>

@@ -34,10 +34,21 @@
   position: absolute;
   top: 150px;
   left: 150px;
+  width: 100px;
 
+}
+#captiontrust{
+  width: 900px;
 }
 
 .carousel-caption h1 {
+  color: gold;
+  text-align: left;
+  font-size: 70px;
+  text-transform: uppercase;
+  animation: fadeInLeft 2s ease-in-out ; 
+}
+.carousel-caption0 h1 {
   color: gold;
   text-align: left;
   font-size: 70px;
@@ -124,7 +135,7 @@
   .carousel-caption h1 {
     color: gold;
     text-align: left;
-    font-size: 30px;
+    font-size: 20px;
     text-transform: uppercase;
   }
   #slide1img{
