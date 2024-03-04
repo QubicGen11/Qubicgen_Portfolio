@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 // import Services from "./pages/Services";
 // import Industries from "./pages/Industries";
-import Banking from "./BankingComponents/Banking";
 // import Blog from "./pages/Blog";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Rpa from "./Rpa Components/Rpa";
@@ -20,6 +19,8 @@ import Outsourcing from "./Outsourcing Components/Outsourcing";
 import Businessconsulting from "./Business Consulting Components/Businessconsulting";
 import Web from "./Web Development Components/Web";
 import Training from "./Training Components/Training";
+import Banking from "./Industries Components/Banking Components/Banking";
+import Energy from "./Industries Components/Energy Components/Energy";
 
 
 
@@ -49,6 +50,7 @@ const App = () => {
           <Route path="/businessconsulting" element={<Businessconsulting/>} />
           <Route path="/webdevelopment" element={<Web/>} />
           <Route path="/training" element={<Training/>} />
+          <Route path="/energy" element={<Energy/>} />
           {/* <Route path="/blog" element={<Blog />} /> */}
         </Routes>
       </Router>

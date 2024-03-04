@@ -234,14 +234,15 @@ const Digitalslist = () => {
                                         return (
                                         <div className="col" >
                                            <div className="card" >
-  <div className="card-inner">
-    <div className="card-front" style={{ background: `url('${serve.background}')`, backgroundPosition:'center',objectFit:'cover' }}>
-      <p>{serve.title}</p>
-    </div>
-    <div className="card-back">
-      <p>{serve.description}</p>
-    </div>
-  </div>
+                                           <div className="card-inner">
+                        <div className="card-front" style={{ background: `url('${serve.background}') center/cover`, }}>
+                          <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
+                          <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>{serve.title}</p>
+                        </div>
+                        <div className="card-back" style={{ backgroundColor: '#2f2f2f', color: '#000', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }}>
+                          <p style={{ fontSize: '12px' }}>{serve.description}</p>
+                        </div>
+                      </div>
 </div>
 
                                             <br />

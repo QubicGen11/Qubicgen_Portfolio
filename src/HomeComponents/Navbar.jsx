@@ -137,7 +137,7 @@ navbar.style.backgroundColor = newColor;
   </button>
     <ul className="dropdown-menu" style={{backgroundColor:'#242424',width:'50vw'}} >
     <Link to="/banking" style={{ color: 'white', textDecoration: 'none' }}><li>Banking, Financial Services and Insurance</li></Link>
-                <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Energy and Utilities</li></Link>
+                <Link to="/energy" style={{ color: 'white', textDecoration: 'none' }}><li>Energy and Utilities</li></Link>
                 <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Media and Entertainment</li></Link>
                 <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Healthcare Life Sciences</li></Link>
                 <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Retail and Consumer Goods</li></Link>
@@ -237,7 +237,7 @@ navbar.style.backgroundColor = newColor;
           <div className="indus1">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
             <Link to="/banking"><li>Banking, Financial Services and Insurance</li></Link>
-            <Link to=""><li>Energy and Utilities</li></Link>
+            <Link to="/energy"><li>Energy and Utilities</li></Link>
             <Link to=""><li>Media and Entertainment</li></Link>
             <Link to=""> <li>Healthcare Life Sciences</li></Link>
           </div>
