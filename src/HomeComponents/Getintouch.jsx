@@ -22,10 +22,10 @@ const Getintouch = () => {
                             <div className="frame-c">
                                 <h1 className="get-in-touch-container">
                                     <p className="get-in-touch-with">
-                                        <span className="get-in">Get in</span>
-                                        <span> touch with</span>
+                                        <span className="get-in" style={{fontSize:'50px'}}>Get in</span>
+                                        <span style={{fontSize:'50px'}}> touch with</span>
                                     </p>
-                                    <p className="us">us</p>
+                                    <p className="us" style={{fontSize:'50px'}}>us</p>
                                 </h1>
                                 <div className="frame-d">
                                     <div className="group-a-parent">
