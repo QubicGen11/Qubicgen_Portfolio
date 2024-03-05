@@ -63,14 +63,14 @@ navbar.style.backgroundColor = newColor;
         </div>
 
         <nav className={`nav ${isMobile ? "mobile" : ""}`}>
-          <Link to="/" style={{ textDecoration: 'none' }}><li>Home</li></Link>
+          <Link to="/" style={{ textDecoration: 'none' }}><li className="hover:cursor-pointer">Home</li></Link>
           <div
             className="dropdown"
             // onMouseEnter={() => showSection("industries")}
             // onMouseLeave={hideSections}
             onClick={() => handleDropdownClick("industries")}
           >
-            <li>Industries</li>
+            <li className="hover:cursor-pointer">Industries</li>
           </div>
           <div
             className="dropdown"
@@ -78,11 +78,11 @@ navbar.style.backgroundColor = newColor;
             // onMouseLeave={hideSections}
             onClick={() => handleDropdownClick("services")}
           >
-            <li>Services</li>
+            <li className="hover:cursor-pointer">Services</li>
           </div>
-          <li>Careers</li>
-          <li>Blog</li>
-          <li>Contact</li>
+          <li className="hover:cursor-pointer">Careers</li>
+          <li className="hover:cursor-pointer">Blog</li>
+          <li className="hover:cursor-pointer">Contact</li>
         </nav>
 
 
@@ -129,49 +129,49 @@ navbar.style.backgroundColor = newColor;
           </button>
           </div>
   <div className="offcanvas-body" style={{position:'relative'}}>
-   <Link to="/"><li>Home</li></Link> 
+   <Link to="/"><li className="hover:cursor-pointer">Home</li></Link> 
 
    <div className="dropdown" style={{position:'relative',right:'14px'}}>
   <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{border:'none'}}>
-   <a href="/"><li>Industies</li></a> 
+   <a href="/"><li className="hover:cursor-pointer">Industies</li></a> 
   </button>
     <ul className="dropdown-menu" style={{backgroundColor:'#242424',width:'50vw'}} >
-    <a href="/banking" style={{ color: 'white', textDecoration: 'none' }}><li>Banking, Financial Services and Insurance</li></a>
-                <Link to="/energy" style={{ color: 'white', textDecoration: 'none' }}><li>Energy and Utilities</li></Link>
-                <Link to="/media" style={{ color: 'white', textDecoration: 'none' }}><li>Media and Entertainment</li></Link>
-                <Link to="/health" style={{ color: 'white', textDecoration: 'none' }}><li>Healthcare Life Sciences</li></Link>
-                <Link to="/retail" style={{ color: 'white', textDecoration: 'none' }}><li>Retail and Consumer Goods</li></Link>
-                <Link to="/travel" style={{ color: 'white', textDecoration: 'none' }}><li>Travel, Transportation, Hospitality and Logistics</li></Link>
-                <Link to="/public" style={{ color: 'white', textDecoration: 'none' }}><li>Public Sector and Government</li></Link>
-                <Link to="/oil" style={{ color: 'white', textDecoration: 'none' }}><li>Oil and Gas</li></Link>
-                <Link to="/manufacturing" style={{ color: 'white', textDecoration: 'none' }}><li>Manufacturing</li></Link>
-                <Link to="/summary" style={{ color: 'white', textDecoration: 'none' }}><li>Professional Services</li></Link>
+    <a href="/banking" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Banking, Financial Services and Insurance</li></a>
+                <Link to="/energy" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Energy and Utilities</li></Link>
+                <Link to="/media" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Media and Entertainment</li></Link>
+                <Link to="/health" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Healthcare Life Sciences</li></Link>
+                <Link to="/retail" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Retail and Consumer Goods</li></Link>
+                <Link to="/travel" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Travel, Transportation, Hospitality and Logistics</li></Link>
+                <Link to="/public" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Public Sector and Government</li></Link>
+                <Link to="/oil" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Oil and Gas</li></Link>
+                <Link to="/manufacturing" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Manufacturing</li></Link>
+                <Link to="/summary" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Professional Services</li></Link>
     </ul>
   <br />
   <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{border:'none'}}>
-   <Link to="/"><li>Services</li></Link> 
+   <Link to="/"><li className="hover:cursor-pointer">Services</li></Link> 
   </button>
   <ul className="dropdown-menu" style={{backgroundColor:'#242424' ,width:'50vw'}}>
-  <Link to="/rpa" style={{ color: 'white', textDecoration: 'none' }}><li>Robotic Process Automation</li></Link>
-              <Link to="/webdevelopment" style={{ color: 'white', textDecoration: 'none' }}><li>Web Development</li></Link>
-              <Link to="/sap" style={{ color: 'white', textDecoration: 'none' }}><li>SAP</li></Link>
-              <Link to="/database" style={{ color: 'white', textDecoration: 'none' }}><li>DataBase</li></Link>
-              <Link to="/digitalmarketing" style={{ color: 'white', textDecoration: 'none' }}><li>Digital Marketing</li></Link>
-              <Link to="/digitalization" style={{ color: 'white', textDecoration: 'none' }}><li>Digitalization</li></Link>
-              <Link to="/outsourcing" style={{ color: 'white', textDecoration: 'none' }}><li>Outsourcing</li></Link>
-              <Link to="/cybersecurity" style={{ color: 'white', textDecoration: 'none' }}><li>Cyber Security</li></Link>
-              <Link to="/dataanalytics" style={{ color: 'white', textDecoration: 'none' }}><li>Data Analytics</li></Link>
-              <Link to="/testing" style={{ color: 'white', textDecoration: 'none' }}><li>Testing</li></Link>
-              <Link to="/businessconsulting" style={{ color: 'white', textDecoration: 'none' }}><li>Business Consulting</li></Link>
-              <Link to="/training" style={{ color: 'white', textDecoration: 'none' }}><li>Trainings and Certifications</li></Link>
+  <Link to="/rpa" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Robotic Process Automation</li></Link>
+              <Link to="/webdevelopment" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Web Development</li></Link>
+              <Link to="/sap" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">SAP</li></Link>
+              <Link to="/database" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">DataBase</li></Link>
+              <Link to="/digitalmarketing" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Digital Marketing</li></Link>
+              <Link to="/digitalization" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Digitalization</li></Link>
+              <Link to="/outsourcing" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Outsourcing</li></Link>
+              <Link to="/cybersecurity" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Cyber Security</li></Link>
+              <Link to="/dataanalytics" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Data Analytics</li></Link>
+              <Link to="/testing" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Testing</li></Link>
+              <Link to="/businessconsulting" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Business Consulting</li></Link>
+              <Link to="/training" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Trainings and Certifications</li></Link>
   </ul>
   
 </div>
 
-    <Link to="/about"><li>About Us</li></Link>
-    <li>Portfolio Companies</li>
-    <li>Investors</li>
-    <li>Contact Us</li>
+    <Link to="/about"><li className="hover:cursor-pointer">About Us</li></Link>
+    <li className="hover:cursor-pointer">Portfolio Companies</li>
+    <li className="hover:cursor-pointer">Investors</li>
+    <li className="hover:cursor-pointer">Contact Us</li>
 
       
     <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8" >
@@ -236,24 +236,24 @@ navbar.style.backgroundColor = newColor;
         <div className="indusmain" style={{ paddingLeft: '20px' }}>
           <div className="indus1">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
-            <Link to="/banking"><li>Banking, Financial Services and Insurance</li></Link>
-            <Link to="/energy"><li>Energy and Utilities</li></Link>
-            <Link to="/media"><li>Media and Entertainment</li></Link>
-            <Link to="/health"> <li>Healthcare Life Sciences</li></Link>
+            <Link to="/banking"><li className="hover:cursor-pointer">Banking, Financial Services and Insurance</li></Link>
+            <Link to="/energy"><li className="hover:cursor-pointer">Energy and Utilities</li></Link>
+            <Link to="/media"><li className="hover:cursor-pointer">Media and Entertainment</li></Link>
+            <Link to="/health"> <li className="hover:cursor-pointer">Healthcare Life Sciences</li></Link>
           </div>
           <div className="indus2">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}>
             </Link>
-            <Link to="/retail"><li>Retail and Consumer Goods</li></Link>
-            <Link to="/travel"><li>Travel, Transportation, Hospitality and Logistics</li></Link>
-            <Link to="/public"><li>Public Sector and Government</li></Link>
+            <Link to="/retail"><li className="hover:cursor-pointer">Retail and Consumer Goods</li></Link>
+            <Link to="/travel"><li className="hover:cursor-pointer">Travel, Transportation, Hospitality and Logistics</li></Link>
+            <Link to="/public"><li className="hover:cursor-pointer">Public Sector and Government</li></Link>
           </div>
           <div className="indus3">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}>
             </Link>
-            <Link to="/oil"><li>Oil and Gas</li></Link>
-            <Link to="/manufacturing"><li>Manufacturing</li></Link>
-            <Link to="/summary"><li>Professional Services</li></Link>
+            <Link to="/oil"><li className="hover:cursor-pointer">Oil and Gas</li></Link>
+            <Link to="/manufacturing"><li className="hover:cursor-pointer">Manufacturing</li></Link>
+            <Link to="/summary"><li className="hover:cursor-pointer">Professional Services</li></Link>
           </div>
         </div>
       </div>
@@ -270,26 +270,26 @@ navbar.style.backgroundColor = newColor;
         <div className="servicemain" style={{ paddingLeft: '20px' }}>
           <div className="service1">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
-            <Link to="/rpa"><li>Robotic Process Automation</li></Link>
-            <Link to="/webdevelopment"><li>Web Development</li></Link>
-            <Link to="/sap"><li>SAP</li></Link>
-            <Link to="/database"> <li>DataBase</li></Link>
+            <Link to="/rpa"><li className="hover:cursor-pointer">Robotic Process Automation</li></Link>
+            <Link to="/webdevelopment"><li className="hover:cursor-pointer">Web Development</li></Link>
+            <Link to="/sap"><li className="hover:cursor-pointer">SAP</li></Link>
+            <Link to="/database"> <li className="hover:cursor-pointer">DataBase</li></Link>
           </div>
           <div className="service2">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}>
             </Link>
-            <Link to="/digitalmarketing"><li>Digital Marketing</li></Link>
-            <Link to="/digitalization"><li>Digitalization</li></Link>
-            <Link to="/outsourcing"><li>Outsourcing</li></Link>
-            <Link to="/cybersecurity"><li>Cyber Security</li></Link>
+            <Link to="/digitalmarketing"><li className="hover:cursor-pointer">Digital Marketing</li></Link>
+            <Link to="/digitalization"><li className="hover:cursor-pointer">Digitalization</li></Link>
+            <Link to="/outsourcing"><li className="hover:cursor-pointer">Outsourcing</li></Link>
+            <Link to="/cybersecurity"><li className="hover:cursor-pointer">Cyber Security</li></Link>
           </div>
           <div className="service3">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}>
             </Link>
-            <Link to="/dataanalytics"><li>Data Analytics</li></Link>
-            <Link to="/testing"><li>Testing</li></Link>
-            <Link to="/businessconsulting"><li>Business Consulting</li></Link>
-            <Link to="/training"><li>Trainings and Certifications</li></Link>
+            <Link to="/dataanalytics"><li className="hover:cursor-pointer">Data Analytics</li></Link>
+            <Link to="/testing"><li className="hover:cursor-pointer">Testing</li></Link>
+            <Link to="/businessconsulting"><li className="hover:cursor-pointer">Business Consulting</li></Link>
+            <Link to="/training"><li className="hover:cursor-pointer">Trainings and Certifications</li></Link>
           </div>
         </div>
       </div>

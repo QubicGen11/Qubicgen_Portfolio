@@ -11,7 +11,7 @@ import '../AboutComponents/Aboutmain.css'
 
 const Aboutprojects = () => {
   useEffect(() => {
-    AOS.init({ duration: 2000 })
+    AOS.init({ duration: 1000 })
   }, [])
   return (
     <div className="main-frame" data-aos="fade-up">
