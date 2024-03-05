@@ -133,10 +133,10 @@ navbar.style.backgroundColor = newColor;
 
    <div className="dropdown" style={{position:'relative',right:'14px'}}>
   <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{border:'none'}}>
-   <Link to="/"><li>Industies</li></Link> 
+   <a href="/"><li>Industies</li></a> 
   </button>
     <ul className="dropdown-menu" style={{backgroundColor:'#242424',width:'50vw'}} >
-    <Link to="/banking" style={{ color: 'white', textDecoration: 'none' }}><li>Banking, Financial Services and Insurance</li></Link>
+    <a href="/banking" style={{ color: 'white', textDecoration: 'none' }}><li>Banking, Financial Services and Insurance</li></a>
                 <Link to="/energy" style={{ color: 'white', textDecoration: 'none' }}><li>Energy and Utilities</li></Link>
                 <Link to="/media" style={{ color: 'white', textDecoration: 'none' }}><li>Media and Entertainment</li></Link>
                 <Link to="/health" style={{ color: 'white', textDecoration: 'none' }}><li>Healthcare Life Sciences</li></Link>

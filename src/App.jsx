@@ -7,6 +7,7 @@ import About from "./pages/About";
 // import Industries from "./pages/Industries";
 // import Blog from "./pages/Blog";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ScrollToTop from './ScrollToTop'; 
 import Rpa from "./Rpa Components/Rpa";
 import Sap from "./Sap Components/Sap";
 import Cybersecurity from "./Cyber Components/Cybersecurity";
@@ -38,6 +39,7 @@ const App = () => {
     <HelmetProvider> {/* Wrap your App component with HelmetProvider */}
 
       <Router>
+          <ScrollToTop /> 
         <Routes>
           <Route path="/" element={<Home />} />
           

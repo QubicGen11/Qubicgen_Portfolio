@@ -39,47 +39,56 @@ const Manufacturinglist = () => {
   ]);
 
 
-  const [EnergyOffering, setEnergyOffering] = useState([
+  const [ManufacturingOffering, setManufacturingOffering] = useState([
     {
-        title: 'Smart Grid Solutions',
-        background:'',
-        description: 'Development and implementation of smart grid technologies to modernize the electrical grid infrastructure, improve energy efficiency, enable real-time monitoring, and support integration of renewable energy sources.'
+        title: 'Enterprise Resource Planning (ERP) Systems',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709638069/QubicGen/Manufacturing/man-hand-touching-virtual-screen-erp-corporate-company-management-business-internet-technology-concept_47006-834_t6zxbx.jpg',
+        description: 'Implementation, customization, and support of ERP systems to integrate and streamline various business processes such as production planning, inventory management, procurement, and supply chain management.'
     },
     {
-        title: 'Meter Data Management',
-        description: 'Provision of meter data management solutions to collect, store, and analyze energy consumption data from smart meters, enabling utilities to optimize billing, forecasting, and demand-side management.'
+        title: 'Manufacturing Execution Systems (MES)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709638143/QubicGen/Manufacturing/worker-are-working-factory-engineer-worker-skills-quality-maintenance-training-industry-factory-worker-warehouse-workshop-factory-operators-mechanical-engineering-team-production_10541-7784_qyp7r2.jpg',
+        description: 'Development and deployment of MES solutions to monitor, control, and optimize manufacturing processes in real-time, including shop floor operations, production scheduling, quality control, and equipment maintenance.'
     },
     {
-        title: 'Asset Management Systems',
-        description: 'Design and deployment of asset management systems to optimize maintenance schedules, monitor equipment health, and extend the lifespan of critical infrastructure assets such as power plants, substations, and distribution networks.'
+        title: 'Supply Chain Management (SCM)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709638293/QubicGen/Manufacturing/global-logistics-network-concept-delivery-planning-virtual-screen_161452-6699_nwfhd1.jpg',
+        description: 'Implementation of SCM solutions to optimize supply chain operations, including supplier management, procurement, logistics, inventory optimization, and demand forecasting, to reduce costs and improve efficiency.'
     },
     {
-        title: 'Renewable Energy Integration',
-        description: 'Integration of renewable energy sources, such as solar, wind, and hydroelectric power, into the existing energy grid through advanced control systems, forecasting models, and grid balancing technologies.'
+        title: 'Product Lifecycle Management (PLM)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709638360/QubicGen/Manufacturing/software-upgrade-concept-hand-connects-mechanism-with-gear_102583-6288_wk8xmp.jpg',
+        description: 'Provision of PLM solutions to manage the entire lifecycle of products from conception to disposal, including product design, engineering, manufacturing, and service, to accelerate time-to-market and improve product quality.'
     },
     {
-        title: 'Energy Trading and Risk Management (ETRM)',
-        description: 'Development and implementation of ETRM solutions to manage energy trading activities, including procurement, scheduling, pricing, and hedging, while mitigating market risks and ensuring regulatory compliance.'
+        title: 'Quality Management Systems (QMS)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709638423/QubicGen/Manufacturing/standard-quality-control-collage-concept_23-2149595834_n2x7y6.jpg',
+        description: 'Development and implementation of QMS solutions to ensure compliance with quality standards and regulations, manage non-conformance issues, track corrective actions, and drive continuous improvement in manufacturing processes.'
     },
     {
-        title: 'Customer Engagement Platforms',
-        description: 'Creation of customer engagement platforms to empower energy consumers with real-time access to their energy usage data, personalized recommendations for energy savings, and interactive tools for managing their accounts.'
+        title: 'Internet of Things (IoT) Integration',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709638603/QubicGen/Manufacturing/internet-things-concept_387612-232_tnf2jj.jpg',
+        description: 'Integration of IoT technologies into manufacturing processes to collect real-time data from sensors, equipment, and production lines, enabling predictive maintenance, remote monitoring, and optimization of production processes.'
     },
     {
-        title: 'Demand Response Solutions',
-        description: 'Deployment of demand response solutions to enable utilities to dynamically adjust energy consumption in response to grid conditions, customer preferences, and peak demand events, thereby improving grid stability and reliability.'
+        title: 'Advanced Analytics and Predictive Maintenance',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709638660/QubicGen/Manufacturing/business-visual-data-analyzing-technology-by-creative-computer-software_31965-42764_q97mdy.jpg',
+        description: 'Utilization of advanced analytics and predictive maintenance algorithms to analyze manufacturing data, identify patterns, predict equipment failures, and optimize maintenance schedules to minimize downtime and improve productivity.'
     },
     {
-        title: 'Grid Optimization and Analytics',
-        description: 'Utilization of advanced analytics and optimization techniques to analyze grid data, optimize energy distribution, predict equipment failures, and improve operational efficiency across the energy infrastructure.'
+        title: 'Digital Twin Solutions',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709638705/QubicGen/Manufacturing/hand-man-with-light-bulb-there-is-gear-icon-it-he-is-using-notebook-computer-idea-inspiration-from-online-technologyinnovation-idea-concept_265022-20214_zhl0yb.jpg',
+        description: 'Development of digital twin solutions to create virtual replicas of physical assets, processes, and systems, enabling simulation, optimization, and predictive analysis to improve efficiency, performance, and innovation in manufacturing operations.'
     },
     {
-        title: 'Cybersecurity Solutions',
-        description: 'Provision of cybersecurity services to protect energy infrastructure from cyber threats, including ransomware attacks, data breaches, and unauthorized access, through robust security measures, threat intelligence, and incident response capabilities.'
+        title: 'Robotics and Automation Solutions',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709638836/QubicGen/Manufacturing/rpa-concept-with-blurry-hand-touching-screen_23-2149311914_f9weyv.jpg',
+        description: 'Implementation of robotics and automation solutions to automate repetitive and manual tasks in manufacturing processes, including robotic process automation (RPA), autonomous vehicles, and industrial robots, to improve productivity and reduce costs.'
     },
     {
-        title: 'Regulatory Compliance Solutions',
-        description: 'Assistance with regulatory compliance requirements, including reporting, auditing, and documentation, to ensure adherence to industry standards and regulations governing the energy and utilities sector.'
+        title: 'Cybersecurity and Data Protection',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709638923/QubicGen/Manufacturing/background-secure-digital-security-system_49459-587_xsmsxn.jpg',
+        description: 'Provision of cybersecurity services to protect manufacturing systems and data from cyber threats, including malware, ransomware, and data breaches, through robust security measures, access controls, and employee training.'
     }
 ]);
   // This is for rpa offering cards
@@ -205,7 +214,7 @@ const Manufacturinglist = () => {
         <br />
         <div className="container">
           <div className="row">
-            {EnergyOffering.map((serve) => (
+            {ManufacturingOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
                 <p>{serve.description}</p>
                 <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>

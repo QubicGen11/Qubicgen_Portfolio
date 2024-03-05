@@ -63,47 +63,56 @@ const Healthlist = () => {
   ]);
 
 
-  const [EnergyOffering, setEnergyOffering] = useState([
+  const [HealthOffering, setHealthOffering] = useState([
     {
-        title: 'Smart Grid Solutions',
-        background:'',
-        description: 'Development and implementation of smart grid technologies to modernize the electrical grid infrastructure, improve energy efficiency, enable real-time monitoring, and support integration of renewable energy sources.'
+        title: 'Electronic Health Records (EHR) Systems',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637205/QubicGen/HealthCare/project-manager-working-update-tasks-with-gantt-chart-scheduling-diagram-hospital-success-smart-medical-doctor-working-with-smart-medical-doctor-as-conceptxa_71455-1228_gssxrw.jpg',
+        description: 'Development, implementation, and customization of electronic health records (EHR) systems to digitize patient health information, streamline clinical workflows, and improve care coordination among healthcare providers.'
     },
     {
-        title: 'Meter Data Management',
-        description: 'Provision of meter data management solutions to collect, store, and analyze energy consumption data from smart meters, enabling utilities to optimize billing, forecasting, and demand-side management.'
+        title: 'Health Information Exchange (HIE)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637297/QubicGen/HealthCare/medical-team-having-meeting-with-doctors-white-lab-coats-surgical-scrubs-seated-table-discussing-patients-working-online-using-computers-medical-industry_533878-1711_hz1lvc.jpg',
+        description: 'Integration of health information exchange platforms to facilitate secure sharing of patient data among healthcare organizations, enabling seamless communication and collaboration across the care continuum.'
     },
     {
-        title: 'Asset Management Systems',
-        description: 'Design and deployment of asset management systems to optimize maintenance schedules, monitor equipment health, and extend the lifespan of critical infrastructure assets such as power plants, substations, and distribution networks.'
+        title: 'Telemedicine and Telehealth Solutions',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637324/QubicGen/HealthCare/telemedicine-service-online-video-call-doctor-actively-chat-with-patient_31965-62472_dtrzf7.jpg',
+        description: 'Design and deployment of telemedicine and telehealth solutions, including video conferencing platforms, remote patient monitoring systems, and virtual care platforms, to enable remote consultations, monitoring, and care delivery.'
     },
     {
-        title: 'Renewable Energy Integration',
-        description: 'Integration of renewable energy sources, such as solar, wind, and hydroelectric power, into the existing energy grid through advanced control systems, forecasting models, and grid balancing technologies.'
+        title: 'Medical Imaging and Picture Archiving and Communication Systems (PACS)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637423/QubicGen/HealthCare/portrait-mature-biologist-woman-working-computer-modern-equipment-microbiological-laboratory_482257-34412_icmwwa.jpg',
+        description: 'Development and implementation of PACS solutions to manage medical imaging data, including storage, retrieval, and distribution of radiology images, enabling timely diagnosis and treatment planning.'
     },
     {
-        title: 'Energy Trading and Risk Management (ETRM)',
-        description: 'Development and implementation of ETRM solutions to manage energy trading activities, including procurement, scheduling, pricing, and hedging, while mitigating market risks and ensuring regulatory compliance.'
+        title: 'Healthcare Analytics and Business Intelligence',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637543/QubicGen/HealthCare/scientific-data-processing-with-human-body-scope-scanning-with-male-doctor-writing_1134-11878_hyy9ci.jpg',
+        description: 'Utilization of healthcare analytics tools and business intelligence solutions to analyze clinical, operational, and financial data, identify trends, and make data-driven decisions to improve patient outcomes and optimize resource utilization.'
     },
     {
-        title: 'Customer Engagement Platforms',
-        description: 'Creation of customer engagement platforms to empower energy consumers with real-time access to their energy usage data, personalized recommendations for energy savings, and interactive tools for managing their accounts.'
+        title: 'Revenue Cycle Management (RCM)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637572/QubicGen/HealthCare/top-view-businesspeople-working-with-icons-painted-table_1134-100_tqeic3.jpg',
+        description: 'Provision of revenue cycle management services to healthcare organizations, including billing, coding, claims management, and accounts receivable management, to optimize revenue capture and ensure timely reimbursement.'
     },
     {
-        title: 'Demand Response Solutions',
-        description: 'Deployment of demand response solutions to enable utilities to dynamically adjust energy consumption in response to grid conditions, customer preferences, and peak demand events, thereby improving grid stability and reliability.'
+        title: 'Population Health Management',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637618/QubicGen/HealthCare/close-up-picture-doctor-s-hands-posting-symbol-home-family-member-model_1150-26706_rvtk8g.jpg',
+        description: 'Development and implementation of population health management platforms to analyze patient populations, identify at-risk individuals, and implement targeted interventions to improve health outcomes and reduce healthcare costs.'
     },
     {
-        title: 'Grid Optimization and Analytics',
-        description: 'Utilization of advanced analytics and optimization techniques to analyze grid data, optimize energy distribution, predict equipment failures, and improve operational efficiency across the energy infrastructure.'
+        title: 'Healthcare Interoperability and Standards Compliance',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637659/QubicGen/HealthCare/medical-infographic-with-photo_23-2148368620_xpdhcg.jpg',
+        description: 'Assistance with healthcare interoperability initiatives and compliance with industry standards such as HL7, FHIR, and DICOM to ensure seamless data exchange and interoperability among healthcare systems and applications.'
     },
     {
-        title: 'Cybersecurity Solutions',
-        description: 'Provision of cybersecurity services to protect energy infrastructure from cyber threats, including ransomware attacks, data breaches, and unauthorized access, through robust security measures, threat intelligence, and incident response capabilities.'
+        title: 'Cybersecurity and Data Privacy',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637761/QubicGen/HealthCare/cyber-security-concept_23-2148532223_xyfk62.jpg',
+        description: 'Provision of cybersecurity services to protect sensitive healthcare data from cyber threats, including ransomware attacks, data breaches, and unauthorized access, through robust security measures, encryption, and access controls.'
     },
     {
-        title: 'Regulatory Compliance Solutions',
-        description: 'Assistance with regulatory compliance requirements, including reporting, auditing, and documentation, to ensure adherence to industry standards and regulations governing the energy and utilities sector.'
+        title: 'Compliance and Regulatory Consulting',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637813/QubicGen/HealthCare/standard-quality-control-collage-concept_23-2149595850_aqwrio.jpg',
+        description: 'Consulting and advisory services to help healthcare organizations navigate regulatory requirements, including HIPAA, HITECH, GDPR, and Meaningful Use, and implement compliance programs to safeguard patient privacy and data security.'
     }
 ]);
   // This is for rpa offering cards
@@ -198,7 +207,7 @@ const Healthlist = () => {
         <br />
         <div className="container">
           <div className="row">
-            {EnergyOffering.map((serve) => (
+            {HealthOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
                 <p>{serve.description}</p>
                 <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>
