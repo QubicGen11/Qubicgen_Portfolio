@@ -40,47 +40,56 @@ const Bankinglist = () => {
 
   const [BankingOffering, setBankingOffering] = useState([
     {
-      title: 'Core Banking Solutions',
-      background: 'https://images.unsplash.com/photo-1709432698326-b29e043c90b3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8',
-      description: 'Development, implementation, and maintenance of core banking systems to manage day-to-day banking operations such as account management, transactions, and customer relationship management. '
+        title: 'Core Banking Solutions',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709622538/QubicGen/bfsi/online-banking-internet-finance-e-commerce_53876-16542_qmqvnm.jpg',
+        description: 'Development, implementation, and maintenance of core banking systems to manage day-to-day banking operations such as account management, transactions, and customer relationship management. '
     },
     {
-      title: 'Digital Banking Solutions',
-      description: ' Design and development of digital banking platforms, including internet banking portals, mobile banking apps, and omnichannel banking experiences to enhance customer engagement and convenience. '
+        title: 'Digital Banking Solutions',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709622417/QubicGen/bfsi/hand-touching-book-hologram-with-rays-application-icons-dark-blue-background-online-communication-education-concept_670147-29290_fpexh9.jpg',
+        description: ' Design and development of digital banking platforms, including internet banking portals, mobile banking apps, and omnichannel banking experiences to enhance customer engagement and convenience. '
     },
     {
-      title: 'Payment Solutions',
-      description: 'Development of payment processing systems, including online payment gateways, mobile payment apps, peer-to-peer payment solutions, and contactless payment technologies. '
+        title: 'Payment Solutions',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623552/QubicGen/bfsi/coins-smartphone-virtual-environment-representing-digital-financial-transactions_934877-1234_mlsgib.jpg',
+        description: 'Development of payment processing systems, including online payment gateways, mobile payment apps, peer-to-peer payment solutions, and contactless payment technologies. '
     },
     {
-      title: 'Risk Management ',
-      description: 'Implementation of risk assessment tools, fraud detection systems, and regulatory compliance solutions to ensure adherence to industry regulations and safeguard against financial risks. '
+        title: 'Risk Management and Compliance Solutions',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623019/QubicGen/bfsi/standard-quality-control-concept-m_23-2150041853_yg1emd.jpg',
+        description: 'Implementation of risk assessment tools, fraud detection systems, and regulatory compliance solutions to ensure adherence to industry regulations and safeguard against financial risks. '
     },
     {
-      title: 'Data Analytics and Business Intelligence',
-      description: 'Utilization of data analytics and business intelligence tools to analyze customer behavior, market trends, and financial performance, enabling data-driven decision-making and strategic planning. '
+        title: 'Data Analytics and Business Intelligence',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623525/QubicGen/bfsi/business-concept-with-graphic-holography_23-2149160928_xkqre2.jpg',
+        description: 'Utilization of data analytics and business intelligence tools to analyze customer behavior, market trends, and financial performance, enabling data-driven decision-making and strategic planning. '
     },
     {
-      title: ' Cybersecurity Services',
-      description: ' Provision of cybersecurity services to protect sensitive financial data, prevent cyber threats, and ensure compliance with security standards and regulations. '
+        title: ' Cybersecurity Services',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709630218/QubicGen/cyber-security-concept_23-2148533308_lkosbr.jpg',
+        description: ' Provision of cybersecurity services to protect sensitive financial data, prevent cyber threats, and ensure compliance with security standards and regulations. '
     },
     {
-      title: 'Customer Relationship Management (CRM)',
-      description: ' Implementation of CRM systems tailored to the BFSI sector to manage customer interactions, improve customer satisfaction, and personalize marketing efforts. '
+        title: 'Customer Relationship Management (CRM)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623058/QubicGen/bfsi/customer-relationship-management-concept_23-2150038418_jaubrw.jpg',
+        description: ' Implementation of CRM systems tailored to the BFSI sector to manage customer interactions, improve customer satisfaction, and personalize marketing efforts. '
     },
     {
-      title: 'Enterprise Resource Planning (ERP)',
-      description: 'Integration of ERP solutions to streamline internal operations, automate processes, and enhance efficiency across various departments such as finance, human resources, and supply chain management. '
+        title: 'Enterprise Resource Planning (ERP)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623221/QubicGen/bfsi/isometric-erp-illustration_52683-84174_cmp1yj.jpg',
+        description: 'Integration of ERP solutions to streamline internal operations, automate processes, and enhance efficiency across various departments such as finance, human resources, and supply chain management. '
     },
     {
-      title: 'Regulatory Technology (RegTech)',
-      description: 'Development of RegTech solutions to assist financial institutions in compliance management, regulatory reporting, and monitoring of regulatory changes to ensure adherence to evolving compliance requirements.'
+        title: 'Regulatory Technology (RegTech)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709629763/QubicGen/bfsi/All-You-Need-to-Know-about-RegTech-in-2020-825x500_duakfc.jpg',
+        description: 'Development of RegTech solutions to assist financial institutions in compliance management, regulatory reporting, and monitoring of regulatory changes to ensure adherence to evolving compliance requirements.'
     },
     {
-      title: 'Cloud Computing Services',
-      description: 'Provision of cloud-based infrastructure, software as a service (SaaS), and platform as a service (PaaS) solutions to enable scalability, flexibility, and cost-efficiency in IT operations while ensuring data security and regulatory compliance. '
+        title: 'Cloud Computing Services',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709622450/QubicGen/bfsi/cloud-computing-diagram-cloud-technology-data-storage-networking-internet-service-concept_29488-6850_il5ukx.jpg',
+        description: 'Provision of cloud-based infrastructure, software as a service (SaaS), and platform as a service (PaaS) solutions to enable scalability, flexibility, and cost-efficiency in IT operations while ensuring data security and regulatory compliance. '
     }
-  ]);
+]);
   // This is for rpa offering cards
 
 

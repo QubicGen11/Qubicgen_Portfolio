@@ -63,47 +63,56 @@ const Medialist = () => {
   ]);
 
 
-  const [EnergyOffering, setEnergyOffering] = useState([
+  const [MediaOffering, setMediaOffering] = useState([
     {
-        title: 'Smart Grid Solutions',
-        background:'',
-        description: 'Development and implementation of smart grid technologies to modernize the electrical grid infrastructure, improve energy efficiency, enable real-time monitoring, and support integration of renewable energy sources.'
+        title: 'Content Management Systems (CMS)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635106/QubicGen/Media%20and%20Entertainment/person-working-html-computer_23-2150038849_ewha3z.jpg',
+        description: 'Development and customization of content management systems tailored to the needs of media and entertainment companies, enabling efficient organization, storage, and retrieval of digital assets such as videos, images, and articles.'
     },
     {
-        title: 'Meter Data Management',
-        description: 'Provision of meter data management solutions to collect, store, and analyze energy consumption data from smart meters, enabling utilities to optimize billing, forecasting, and demand-side management.'
+        title: 'Streaming Platforms',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635243/QubicGen/Media%20and%20Entertainment/full-shot-woman-looking-floating-screen_23-2150300996_uwqaui.jpg',
+        description: 'Design and development of streaming platforms for live and on-demand content delivery, including video streaming services, music streaming apps, and podcast platforms, to reach audiences across multiple devices and platforms.'
     },
     {
-        title: 'Asset Management Systems',
-        description: 'Design and deployment of asset management systems to optimize maintenance schedules, monitor equipment health, and extend the lifespan of critical infrastructure assets such as power plants, substations, and distribution networks.'
+        title: 'Digital Rights Management (DRM)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635371/QubicGen/Media%20and%20Entertainment/2022-concept-business-people-show-future-big-data-technology-metaverse-through-networking_590401-95_hnzwn4.jpg',
+        description: 'Implementation of digital rights management solutions to protect copyrighted content from piracy and unauthorized distribution, ensuring content creators and rights holders receive proper compensation for their work.'
     },
     {
-        title: 'Renewable Energy Integration',
-        description: 'Integration of renewable energy sources, such as solar, wind, and hydroelectric power, into the existing energy grid through advanced control systems, forecasting models, and grid balancing technologies.'
+        title: 'Content Distribution Networks (CDN)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635450/QubicGen/Media%20and%20Entertainment/world-map-with-global-technology-social-connection-network-with-nodes-links-vector-illustration_1284-1968_npdt7p.jpg',
+        description: 'Deployment of content distribution networks to optimize the delivery of media content to end-users, reducing latency, buffering, and downtime while improving scalability and reliability of content delivery.'
     },
     {
-        title: 'Energy Trading and Risk Management (ETRM)',
-        description: 'Development and implementation of ETRM solutions to manage energy trading activities, including procurement, scheduling, pricing, and hedging, while mitigating market risks and ensuring regulatory compliance.'
+        title: 'Advertising Technology (AdTech)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635556/QubicGen/Media%20and%20Entertainment/corporate-management-strategy-solution-branding-concept_53876-167088_v3pfuq.jpg',
+        description: 'Development of advertising technology solutions, including ad serving platforms, programmatic advertising systems, and ad targeting algorithms, to optimize ad placement, targeting, and monetization across digital channels.'
     },
     {
-        title: 'Customer Engagement Platforms',
-        description: 'Creation of customer engagement platforms to empower energy consumers with real-time access to their energy usage data, personalized recommendations for energy savings, and interactive tools for managing their accounts.'
+        title: 'Data Analytics and Personalization',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709622700/QubicGen/bfsi/revenue-operations-collage_23-2150847854_j10r9b.jpg',
+        description: 'Utilization of data analytics and machine learning algorithms to analyze user behavior, preferences, and engagement patterns, enabling personalized content recommendations, targeted advertising, and audience segmentation.'
     },
     {
-        title: 'Demand Response Solutions',
-        description: 'Deployment of demand response solutions to enable utilities to dynamically adjust energy consumption in response to grid conditions, customer preferences, and peak demand events, thereby improving grid stability and reliability.'
+        title: 'User Experience (UX) Design',
+        background: 'https://img.freepik.com/free-photo/representations-user-experience-interface-design_23-2150104516.jpg?t=st=1709635763~exp=1709639363~hmac=dbff7c5f2cb97dd598b114e8660b16a813c8c773be21493938d7273aaf634467&w=826',
+        description: 'User experience design services to create intuitive and engaging user interfaces for media and entertainment applications, enhancing user satisfaction and retention through seamless navigation and interactive features.'
     },
     {
-        title: 'Grid Optimization and Analytics',
-        description: 'Utilization of advanced analytics and optimization techniques to analyze grid data, optimize energy distribution, predict equipment failures, and improve operational efficiency across the energy infrastructure.'
+        title: 'Social Media Integration',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635894/QubicGen/Media%20and%20Entertainment/hands-holding-smartphone-social-media-concept_23-2150208264_ojh5o0.jpg',
+        description: 'Integration of social media platforms into media and entertainment applications to facilitate social sharing, user-generated content creation, and community engagement, enhancing brand visibility and audience interaction.'
     },
     {
-        title: 'Cybersecurity Solutions',
-        description: 'Provision of cybersecurity services to protect energy infrastructure from cyber threats, including ransomware attacks, data breaches, and unauthorized access, through robust security measures, threat intelligence, and incident response capabilities.'
+        title: 'Virtual Reality (VR) and Augmented Reality (AR)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709636013/QubicGen/Media%20and%20Entertainment/medium-shot-woman-wearing-vr-glasses_23-2150394453_y6xhge.jpg',
+        description: 'Development of immersive VR and AR experiences for gaming, storytelling, live events, and interactive marketing campaigns, leveraging cutting-edge technologies to create memorable and engaging content experiences.'
     },
     {
-        title: 'Regulatory Compliance Solutions',
-        description: 'Assistance with regulatory compliance requirements, including reporting, auditing, and documentation, to ensure adherence to industry standards and regulations governing the energy and utilities sector.'
+        title: 'Monetization Strategies',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709636200/QubicGen/Media%20and%20Entertainment/happy-business-woman-money-rain-made-dollars-isolated-black-wall_231208-11727_bybnqs.jpg',
+        description: 'Consulting and advisory services to help media and entertainment companies develop effective monetization strategies, including subscription models, pay-per-view options, advertising revenue, sponsorships, and merchandising opportunities.'
     }
 ]);
   // This is for rpa offering cards
@@ -201,7 +210,7 @@ const Medialist = () => {
         <br />
         <div className="container">
           <div className="row">
-            {EnergyOffering.map((serve) => (
+            {MediaOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
                 <p>{serve.description}</p>
                 <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>

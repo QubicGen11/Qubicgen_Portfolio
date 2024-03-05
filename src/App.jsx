@@ -26,6 +26,9 @@ import Health from "./Industries Components/Health Components/Health";
 import Media from "./Industries Components/Media Components/Media";
 import Manufacturing from "./Industries Components/Manufacturing Components/Manufacturing";
 import Travel from "./Industries Components/Travel Componets/Travel";
+import Retail from "./Industries Components/Retail Components/Retail";
+import Oil from "./Industries Components/Oil Components/Oil";
+import Summary from "./Industries Components/Summary Components/Summary";
 
 
 
@@ -61,6 +64,9 @@ const App = () => {
           <Route path="/media" element={<Media/>} />
           <Route path="/manufacturing" element={<Manufacturing/>} />
           <Route path="/travel" element={<Travel/>} />
+          <Route path="/retail" element={<Retail/>} />
+          <Route path="/oil" element={<Oil/>} />
+          <Route path="/summary" element={<Summary/>} />
           {/* <Route path="/blog" element={<Blog />} /> */}
         </Routes>
       </Router>

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
 import Queries from './Queries';
 
-const Energylist = () => {
+const Summarylist = () => {
   const overviewRef = useRef(null);
   const serveRef = useRef(null);
   const caseStudiesRef = useRef(null);
@@ -21,45 +21,27 @@ const Energylist = () => {
 
   // This is for rpa offering cards
 
-  const[EnergyServe,setEnergyServe]=useState([
+  const[ProfessionalServe,setProfessionalServe]=useState([
     {
-      title: 'Electricity',
-      description: 'At QubicGen, our developed solutions support the holistic growth of the power industry, spanning Electricity Generation, Transmission, Distribution, Retail, and catering to both commercial and residential sectors.'
+      title: 'Audit, Accounting and Tax',
+      description: 'Comprehensive audit, accounting, and tax services tailored to your business needs. Ensure compliance and optimize financial performance with our expert guidance.'
     },
     {
-      title: 'Renewables',
-      description: 'Delivers advanced monitoring and efficiency management platforms for solar and wind energy assets. Additionally, emphasizes the development of innovative technologies in renewable energy, including hydroelectric, wind, bioenergy, solar, and geothermal power.'
+      title: 'Consulting and Advisory',
+      description: "Strategic consulting and advisory services to drive business growth and innovation. Partner with us for insightful guidance and actionable solutions."
     },
     {
-      title: 'Water and Waste Management',
-      description: 'Our dedication lies in fostering enduring positive change, delivering enhanced value to water, wastewater utilities, and waste management sectors through the provision of seamless, efficient digital services to customers.'
+      title: 'Human Capital and Recruitment',
+      description: "Tailored human capital and recruitment solutions to build high-performing teams. Partner with us to attract top talent and optimize workforce efficiency."
     },
     {
-      title: 'Gas',
-      description: 'We aid in addressing challenges concerning the seamless operations of gas distribution.'
+        title: 'Legal,Risk and Compliance',
+        description: "Comprehensive legal, risk, and compliance solutions tailored to your business needs. Ensure regulatory adherence and mitigate risks with our expert guidance."
     },
     {
-      title: 'Nuclear',
-      description: 'Tackling industry challenges like the rise of nuclear power through innovative solutions with AR and VR technologies, while also offering sustainable alternatives.'
-    },
-    {
-      title: 'Distributed Energy Resources',
-      description: 'Delivering comprehensive services for electric vehicle charging systems, constructing microgrids, and facilitating real-time data streaming and infrastructure monitoring. We collaborate closely with end-users, manufacturers, and utilities to ensure optimal operation and efficiency.'
-    },
-    {
-      title: 'Mining',
-      description: 'Industry-focused solutions prioritize safety, environmental compliance, project development planning, and operational excellence within the mining sector.'
-    },
-    {
-      title: 'Smart Cities',
-      description: 'An integrated system utilizing IoT, data analytics, and machine learning drives smart city transformation, offering solutions such as meter reading and energy management.'
-    },
-    {
-      title: "EPC's",
-      description: 'Emphasizing ERP solutions for asset management and digital core to enhance business process automation.'
-    },
-
-    
+        title: 'Technology and Platforms',
+        description: "Innovative technology solutions and platforms to propel your business forward. Harness cutting-edge tools and expertise for sustainable growth."
+    },    
   ]);
 
 
@@ -112,7 +94,7 @@ const [EnergyOffering, setEnergyOffering] = useState([
     },
     {
         title: 'Regulatory Compliance Solutions',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634506/QubicGen/Energy%20and%20Utilities/standard-quality-control-concept-m_23-2150041857_aywknn.jpg',
+        background: 'https://img.freepik.com/free-photo/standard-quality-control-collage-concept_23-2149595842.jpg?t=st=1709632597~exp=1709636197~hmac=86d820bff0ff630ea41481b3da50aba411ae335e30d96139d80d8a9ed8ab3ffa&w=740',
         description: 'Assistance with regulatory compliance requirements, including reporting, auditing, and documentation, to ensure adherence to industry standards and regulations governing the energy and utilities sector.'
     }
 ]);
@@ -171,11 +153,11 @@ const [EnergyOffering, setEnergyOffering] = useState([
         <div className="row featurette" bis_skin_checked="1"  >
 
           <div className="col-md-7" bis_skin_checked="1">
-            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Driving the digital evolution of NextGen Utilities.</h1>
-            <p className="lead" id='leadtext'>QubicGen, an established solution provider in the Energy and Utility sectors encompassing Power, Water & Wastewater, Renewable, Electric Vehicle, Microgrid, Natural Resources, and Mining industries. We facilitate their growth trajectory through digital technology, business consultancy, infrastructure & enterprise security, platform & network services, etc., aiming to enhance service quality and productivity. Moreover, we tackle industry challenges by continually investing in innovative ideas and solutions.</p>
+            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Empower Your Business with Expert Guidance.</h1>
+            <p className="lead" id='leadtext'>At QubicGen, our professional services and consulting offerings encompass a wide range of industries and sectors. With a focus on strategic planning, implementation, and ongoing support, we are committed to helping clients achieve sustainable success in their respective markets. Our dedicated team of experts provides tailored solutions that drive efficiency, innovation, and growth, ensuring that our clients stay ahead of the curve in an ever-evolving business landscape.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709550867/QubicGen/illustration-windmills_433905-2221_ll2zju.jpg" alt="" />
+            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709626430/QubicGen/html-css-collage-concept-with-person_23-2150062008_ddmout.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -194,7 +176,7 @@ const [EnergyOffering, setEnergyOffering] = useState([
       <div className="container" ref={serveRef}>
         <div className="container text-center">
           <div className="row" style={{ display: 'flex', justifyContent: 'space-evenly' }} >
-            {EnergyServe.map((item) => {
+            {ProfessionalServe.map((item) => {
               return (
                 <div className="card" style={{ height: '350px', width: '307px', marginTop: '20px' }} >
                   <a className="card1" >
@@ -273,4 +255,4 @@ const [EnergyOffering, setEnergyOffering] = useState([
   )
 }
 
-export default Energylist
+export default Summarylist

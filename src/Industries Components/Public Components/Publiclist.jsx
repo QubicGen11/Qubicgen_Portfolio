@@ -38,49 +38,68 @@ const Publiclist = () => {
     
   ]);
 
+  const [PublicOffering, setPublicOffering] = useState([
+    {
+        title: 'E-Government Solutions',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634868/QubicGen/Public%20Sector/person-points-map-world-blue-background_828075-1495_pjq00h.jpg',
+        description: 'Development and implementation of e-government platforms and portals to enable online service delivery, citizen engagement, and digital transactions, including services such as tax filing, permit applications, and license renewals.'
+    },
+    {
+        title: 'Government Resource Planning (GRP)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709633176/QubicGen/Public%20Sector/close-up-people-chatting-table_23-2149304765_fiwkvy.jpg',
+        description: 'Implementation of GRP systems to automate and streamline government operations, including financial management, human resources, procurement, and budgeting, to improve transparency, accountability, and efficiency.'
+    },
+    {
+        title: 'Smart City Solutions',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709633451/QubicGen/Public%20Sector/busy-highway-traffic-light-trails-night_1359-38_h0jmae.jpg',
+        description: 'Design and deployment of smart city initiatives, including IoT sensors, data analytics platforms, and smart infrastructure, to improve urban planning, transportation, public safety, energy management, and environmental sustainability.'
+    },
+    {
+        title: 'Digital Identity and Authentication',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709633507/QubicGen/Public%20Sector/finger-print-verification-illustration_1284-26515_kyc4l8.jpg',
+        description: 'Provision of digital identity and authentication solutions to enable secure access to government services and online transactions, including biometric authentication, digital signatures, and identity verification systems.'
+    },
+    {
+        title: 'Open Data Platforms',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709633612/QubicGen/Public%20Sector/data-network-illustration_24908-57786_biosq4.jpg',
+        description: 'Development of open data platforms and APIs to publish government data and information in accessible and machine-readable formats, promoting transparency, innovation, and collaboration with the public and private sectors.'
+    },
+    {
+        title: 'Cybersecurity and Critical Infrastructure Protection',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709630218/QubicGen/cyber-security-concept_23-2148533308_lkosbr.jpg',
+        description: 'Providing cybersecurity services to protect government networks, systems, and critical infrastructure from cyber threats, including risk assessments, security audits, incident response, and threat intelligence.'
+    },
+    {
+        title: 'Geographic Information Systems (GIS)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634010/QubicGen/Public%20Sector/hand-tapping-tablet-with-map_23-2147732953_ftielj.jpg',
+        description: 'Implementation of GIS solutions to manage and analyze spatial data for applications such as urban planning, emergency management, land administration, and environmental monitoring.'
+    },
+    {
+        title: 'Government Cloud Services',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709633968/QubicGen/Public%20Sector/digital-world-banner-background-remixed-from-public-domain-by-nasa_53876-108505_hzqcyc.jpg',
+        description: 'Provision of government cloud services, including infrastructure as a service (IaaS), platform as a service (PaaS), and software as a service (SaaS), to enable cost-effective and scalable IT infrastructure for government agencies and departments.'
+    },
+    {
+        title: 'Digital Transformation Consulting',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634165/QubicGen/Public%20Sector/tech-devices-icons-connected-digital-planet-earth_117023-449_obccr9.jpg',
+        description: 'Offering consulting services to government organizations on digital transformation initiatives, including strategy development, change management, organizational readiness assessment, and technology adoption planning.'
+    },
+    {
+        title: 'Emergency Management Systems',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634326/QubicGen/Public%20Sector/young-doctor-supervising-monitors-oxygen-therapy-procedure-hyperbaric-chamber_637285-362_a4cixy.jpg',
+        description: 'Development and implementation of emergency management systems to support disaster preparedness, response, and recovery efforts, including situational awareness, resource coordination, and communication systems.'
+    },
+    {
+        title: 'Regulatory Compliance and Governance',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634583/QubicGen/Public%20Sector/standard-quality-control-collage_23-2149631014_vccnh6.jpg',
+        description: 'Assisting government agencies in understanding and complying with regulatory requirements, standards, and best practices related to data privacy, cybersecurity, accessibility, and IT governance.'
+    },
+    {
+        title: 'Training and Capacity Building',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634755/QubicGen/Public%20Sector/modern-classroom-interior-light-tones_241146-108_bqhv4p.jpg',
+        description: 'Providing training programs and capacity-building initiatives to enhance the digital skills and capabilities of government employees and stakeholders in leveraging technology effectively.'
+    },
 
-  const [EnergyOffering, setEnergyOffering] = useState([
-    {
-        title: 'Smart Grid Solutions',
-        background:'',
-        description: 'Development and implementation of smart grid technologies to modernize the electrical grid infrastructure, improve energy efficiency, enable real-time monitoring, and support integration of renewable energy sources.'
-    },
-    {
-        title: 'Meter Data Management',
-        description: 'Provision of meter data management solutions to collect, store, and analyze energy consumption data from smart meters, enabling utilities to optimize billing, forecasting, and demand-side management.'
-    },
-    {
-        title: 'Asset Management Systems',
-        description: 'Design and deployment of asset management systems to optimize maintenance schedules, monitor equipment health, and extend the lifespan of critical infrastructure assets such as power plants, substations, and distribution networks.'
-    },
-    {
-        title: 'Renewable Energy Integration',
-        description: 'Integration of renewable energy sources, such as solar, wind, and hydroelectric power, into the existing energy grid through advanced control systems, forecasting models, and grid balancing technologies.'
-    },
-    {
-        title: 'Energy Trading and Risk Management (ETRM)',
-        description: 'Development and implementation of ETRM solutions to manage energy trading activities, including procurement, scheduling, pricing, and hedging, while mitigating market risks and ensuring regulatory compliance.'
-    },
-    {
-        title: 'Customer Engagement Platforms',
-        description: 'Creation of customer engagement platforms to empower energy consumers with real-time access to their energy usage data, personalized recommendations for energy savings, and interactive tools for managing their accounts.'
-    },
-    {
-        title: 'Demand Response Solutions',
-        description: 'Deployment of demand response solutions to enable utilities to dynamically adjust energy consumption in response to grid conditions, customer preferences, and peak demand events, thereby improving grid stability and reliability.'
-    },
-    {
-        title: 'Grid Optimization and Analytics',
-        description: 'Utilization of advanced analytics and optimization techniques to analyze grid data, optimize energy distribution, predict equipment failures, and improve operational efficiency across the energy infrastructure.'
-    },
-    {
-        title: 'Cybersecurity Solutions',
-        description: 'Provision of cybersecurity services to protect energy infrastructure from cyber threats, including ransomware attacks, data breaches, and unauthorized access, through robust security measures, threat intelligence, and incident response capabilities.'
-    },
-    {
-        title: 'Regulatory Compliance Solutions',
-        description: 'Assistance with regulatory compliance requirements, including reporting, auditing, and documentation, to ensure adherence to industry standards and regulations governing the energy and utilities sector.'
-    }
 ]);
   // This is for rpa offering cards
 
@@ -205,7 +224,7 @@ const Publiclist = () => {
         <br />
         <div className="container">
           <div className="row">
-            {EnergyOffering.map((serve) => (
+            {PublicOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
                 <p>{serve.description}</p>
                 <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>

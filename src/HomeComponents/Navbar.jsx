@@ -140,12 +140,12 @@ navbar.style.backgroundColor = newColor;
                 <Link to="/energy" style={{ color: 'white', textDecoration: 'none' }}><li>Energy and Utilities</li></Link>
                 <Link to="/media" style={{ color: 'white', textDecoration: 'none' }}><li>Media and Entertainment</li></Link>
                 <Link to="/health" style={{ color: 'white', textDecoration: 'none' }}><li>Healthcare Life Sciences</li></Link>
-                <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Retail and Consumer Goods</li></Link>
+                <Link to="/retail" style={{ color: 'white', textDecoration: 'none' }}><li>Retail and Consumer Goods</li></Link>
                 <Link to="/travel" style={{ color: 'white', textDecoration: 'none' }}><li>Travel, Transportation, Hospitality and Logistics</li></Link>
                 <Link to="/public" style={{ color: 'white', textDecoration: 'none' }}><li>Public Sector and Government</li></Link>
-                <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Oil and Gas</li></Link>
+                <Link to="/oil" style={{ color: 'white', textDecoration: 'none' }}><li>Oil and Gas</li></Link>
                 <Link to="/manufacturing" style={{ color: 'white', textDecoration: 'none' }}><li>Manufacturing</li></Link>
-                <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Professional Services</li></Link>
+                <Link to="/summary" style={{ color: 'white', textDecoration: 'none' }}><li>Professional Services</li></Link>
     </ul>
   <br />
   <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{border:'none'}}>
@@ -244,16 +244,16 @@ navbar.style.backgroundColor = newColor;
           <div className="indus2">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}>
             </Link>
-            <Link to=""><li>Retail and Consumer Goods</li></Link>
+            <Link to="/retail"><li>Retail and Consumer Goods</li></Link>
             <Link to="/travel"><li>Travel, Transportation, Hospitality and Logistics</li></Link>
             <Link to="/public"><li>Public Sector and Government</li></Link>
           </div>
           <div className="indus3">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}>
             </Link>
-            <Link to=""><li>Oil and Gas</li></Link>
+            <Link to="/oil"><li>Oil and Gas</li></Link>
             <Link to="/manufacturing"><li>Manufacturing</li></Link>
-            <Link to=""><li>Professional Services</li></Link>
+            <Link to="/summary"><li>Professional Services</li></Link>
           </div>
         </div>
       </div>
