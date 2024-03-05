@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
 import Queries from './Queries';
 
-const Energylist = () => {
+const Publiclist = () => {
   const overviewRef = useRef(null);
   const serveRef = useRef(null);
   const caseStudiesRef = useRef(null);
@@ -21,44 +21,20 @@ const Energylist = () => {
 
   // This is for rpa offering cards
 
-  const[EnergyServe,setEnergyServe]=useState([
+  const[PublicServe,setPublicServe]=useState([
     {
-      title: 'Electricity',
-      description: 'At QubicGen, our developed solutions support the holistic growth of the power industry, spanning Electricity Generation, Transmission, Distribution, Retail, and catering to both commercial and residential sectors.'
+      title: 'Federal and State Governments',
+      description: 'Our Digital & Technology Transformation Solutions streamline governance and administration services for enhanced efficiency. With tailored offerings like MOVES for the Department of Motor Vehicles and GIST™ for Grants Management, we ensure seamless operations and customer-centric approaches. Trust our expertise to optimize processes and deliver impactful results in public budgeting and e-Governance initiatives.'
     },
     {
-      title: 'Renewables',
-      description: 'Delivers advanced monitoring and efficiency management platforms for solar and wind energy assets. Additionally, emphasizes the development of innovative technologies in renewable energy, including hydroelectric, wind, bioenergy, solar, and geothermal power.'
+      title: 'Child Support & HealthCare',
+      description: "We're experts in modernizing systems and technology for better Child Care and Health services. Our specialized solutions for the Child Support Enforcement (CSE) Community ensure streamlined operations and improved effectiveness. Count on us to deliver innovative approaches that support crucial child support enforcement efforts."
     },
     {
-      title: 'Water and Waste Management',
-      description: 'Our dedication lies in fostering enduring positive change, delivering enhanced value to water, wastewater utilities, and waste management sectors through the provision of seamless, efficient digital services to customers.'
+      title: 'Education',
+      description: 'Revolutionary digital technologies and virtualization solutions are employed to enhance education delivery, ensuring effectiveness and efficiency, while also fostering an enjoyable learning experience.'
     },
-    {
-      title: 'Gas',
-      description: 'We aid in addressing challenges concerning the seamless operations of gas distribution.'
-    },
-    {
-      title: 'Nuclear',
-      description: 'Tackling industry challenges like the rise of nuclear power through innovative solutions with AR and VR technologies, while also offering sustainable alternatives.'
-    },
-    {
-      title: 'Distributed Energy Resources',
-      description: 'Delivering comprehensive services for electric vehicle charging systems, constructing microgrids, and facilitating real-time data streaming and infrastructure monitoring. We collaborate closely with end-users, manufacturers, and utilities to ensure optimal operation and efficiency.'
-    },
-    {
-      title: 'Mining',
-      description: 'Industry-focused solutions prioritize safety, environmental compliance, project development planning, and operational excellence within the mining sector.'
-    },
-    {
-      title: 'Smart Cities',
-      description: 'An integrated system utilizing IoT, data analytics, and machine learning drives smart city transformation, offering solutions such as meter reading and energy management.'
-    },
-    {
-      title: "EPC's",
-      description: 'Emphasizing ERP solutions for asset management and digital core to enhance business process automation.'
-    },
-
+   
     
   ]);
 
@@ -137,7 +113,7 @@ const Energylist = () => {
       <div className="banking-main-list" >
         <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.9)", backdropFilter: "blur(20px)" }}>
           <li onClick={() => scrollToRef(overviewRef)}>Overview</li>
-          <li onClick={() => scrollToRef(serveRef)}>Industry Segments</li>
+          <li onClick={() => scrollToRef(serveRef)}>Who we serve</li>
           <li onClick={() => scrollToRef(caseStudiesRef)}>Service Offerings</li>
           <li onClick={() => scrollToRef(queriesRef)}>Queries</li>
           {/* <li onClick={() => scrollToRef(leadershipRef)}>Meet our leadership</li> */}
@@ -161,11 +137,11 @@ const Energylist = () => {
         <div className="row featurette" bis_skin_checked="1"  >
 
           <div className="col-md-7" bis_skin_checked="1">
-            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Driving the digital evolution of NextGen Utilities.</h1>
-            <p className="lead" id='leadtext'>QubicGen, an established solution provider in the Energy and Utility sectors encompassing Power, Water & Wastewater, Renewable, Electric Vehicle, Microgrid, Natural Resources, and Mining industries. We facilitate their growth trajectory through digital technology, business consultancy, infrastructure & enterprise security, platform & network services, etc., aiming to enhance service quality and productivity. Moreover, we tackle industry challenges by continually investing in innovative ideas and solutions.</p>
+            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Utilizing Digital & Information Technology to enhance the quality of life for citizens.</h1>
+            <p className="lead" id='leadtext'>QubicGen's specialized Public Sector Practice delivers comprehensive IT services and solutions tailored for Government, International Organizations, and higher education sectors worldwide. Our offerings encompass ERP Implementation, Business Transformation, Enterprise Portals, Business Intelligence, Data Warehousing, Enterprise Application Integration, Middleware solutions, Infrastructure support, Robotic Process Automation, Artificial Intelligence, Machine Learning, Advanced Analytics, Cloud Migration (AWS, Azure, IBM, Google), Geographical Information Systems, and Application Development and Maintenance Services (ADMS).</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709550867/QubicGen/illustration-windmills_433905-2221_ll2zju.jpg" alt="" />
+            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709619622/QubicGen/business-people-meeting-conference-seminar-sharing-strategy-concept_1_cqgmnq.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -184,10 +160,10 @@ const Energylist = () => {
       <div className="container" ref={serveRef}>
         <div className="container text-center">
           <div className="row" style={{ display: 'flex', justifyContent: 'space-evenly' }} >
-            {EnergyServe.map((item) => {
+            {PublicServe.map((item) => {
               return (
-                <div className="card" style={{ height: '350px', width: '307px', marginTop: '20px' }} >
-                  <a className="card1" >
+                <div className="card" style={{ height: '445px', width: '307px', marginTop: '20px' }} >
+                  <a className="card1" style={{ height: '400px', width: '307px'}}  >
                     <p style={{ fontSize: '30px', paddingBottom: "20px",lineHeight:'30px' }}>{item.title}</p>
                     <p style={{ fontSize: '13px',marginTop:'10px' }}>{item.description}</p>
                     <div className="go-corner">
@@ -249,7 +225,7 @@ const Energylist = () => {
 
       </div>
 
-      {/* This is who we server ends */}
+      {/* This is who we server ends */}  
       <div className="queries" ref={queriesRef}>
         <Queries />
       </div>
@@ -263,4 +239,4 @@ const Energylist = () => {
   )
 }
 
-export default Energylist
+export default Publiclist

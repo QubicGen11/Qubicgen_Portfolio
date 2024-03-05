@@ -21,6 +21,11 @@ import Web from "./Web Development Components/Web";
 import Training from "./Training Components/Training";
 import Banking from "./Industries Components/Banking Components/Banking";
 import Energy from "./Industries Components/Energy Components/Energy";
+import Public from "./Industries Components/Public Components/Public";
+import Health from "./Industries Components/Health Components/Health";
+import Media from "./Industries Components/Media Components/Media";
+import Manufacturing from "./Industries Components/Manufacturing Components/Manufacturing";
+import Travel from "./Industries Components/Travel Componets/Travel";
 
 
 
@@ -51,6 +56,11 @@ const App = () => {
           <Route path="/webdevelopment" element={<Web/>} />
           <Route path="/training" element={<Training/>} />
           <Route path="/energy" element={<Energy/>} />
+          <Route path="/public" element={<Public/>} />
+          <Route path="/health" element={<Health/>} />
+          <Route path="/media" element={<Media/>} />
+          <Route path="/manufacturing" element={<Manufacturing/>} />
+          <Route path="/travel" element={<Travel/>} />
           {/* <Route path="/blog" element={<Blog />} /> */}
         </Routes>
       </Router>

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
 import Queries from './Queries';
 
-const Energylist = () => {
+const Travellist = () => {
   const overviewRef = useRef(null);
   const serveRef = useRef(null);
   const caseStudiesRef = useRef(null);
@@ -21,46 +21,28 @@ const Energylist = () => {
 
   // This is for rpa offering cards
 
-  const[EnergyServe,setEnergyServe]=useState([
+  const[TravelServe,setTravelServe]=useState([
     {
-      title: 'Electricity',
-      description: 'At QubicGen, our developed solutions support the holistic growth of the power industry, spanning Electricity Generation, Transmission, Distribution, Retail, and catering to both commercial and residential sectors.'
+      title: 'Travel',
+      description: "Explore the world with confidence and convenience with our tailored travel solutions. From booking to adventure, we've got you covered every step of the way."
     },
     {
-      title: 'Renewables',
-      description: 'Delivers advanced monitoring and efficiency management platforms for solar and wind energy assets. Additionally, emphasizes the development of innovative technologies in renewable energy, including hydroelectric, wind, bioenergy, solar, and geothermal power.'
+      title: 'Transportation and Logistics',
+      description: "Efficiently navigate the complexities of transportation and logistics with our streamlined solutions. From supply chain optimization to seamless delivery, we ensure your goods reach their destination promptly and reliably."
     },
     {
-      title: 'Water and Waste Management',
-      description: 'Our dedication lies in fostering enduring positive change, delivering enhanced value to water, wastewater utilities, and waste management sectors through the provision of seamless, efficient digital services to customers.'
+      title: 'Hospitality',
+      description: "Experience unparalleled hospitality with our personalized services and attention to detail. From luxurious accommodations to memorable experiences, we create moments that exceed expectations."
     },
     {
-      title: 'Gas',
-      description: 'We aid in addressing challenges concerning the seamless operations of gas distribution.'
+        title: 'Maritime',
+        description: "Dive into the world of maritime excellence with our comprehensive solutions. From efficient cargo handling to vessel management, we navigate the seas with precision and reliability."
     },
     {
-      title: 'Nuclear',
-      description: 'Tackling industry challenges like the rise of nuclear power through innovative solutions with AR and VR technologies, while also offering sustainable alternatives.'
+        title: 'Rail',
+        description: "Embark on a journey of efficiency and reliability with our rail solutions. From commuter services to freight transportation, we keep the wheels of progress moving seamlessly."
     },
-    {
-      title: 'Distributed Energy Resources',
-      description: 'Delivering comprehensive services for electric vehicle charging systems, constructing microgrids, and facilitating real-time data streaming and infrastructure monitoring. We collaborate closely with end-users, manufacturers, and utilities to ensure optimal operation and efficiency.'
-    },
-    {
-      title: 'Mining',
-      description: 'Industry-focused solutions prioritize safety, environmental compliance, project development planning, and operational excellence within the mining sector.'
-    },
-    {
-      title: 'Smart Cities',
-      description: 'An integrated system utilizing IoT, data analytics, and machine learning drives smart city transformation, offering solutions such as meter reading and energy management.'
-    },
-    {
-      title: "EPC's",
-      description: 'Emphasizing ERP solutions for asset management and digital core to enhance business process automation.'
-    },
-
-    
-  ]);
+]);
 
 
   const [EnergyOffering, setEnergyOffering] = useState([
@@ -132,12 +114,12 @@ const Energylist = () => {
 
     <>
 
-      {/* This is rpalist starts */}
+      {/* This is rpalist starts */}  
 
       <div className="banking-main-list" >
         <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.9)", backdropFilter: "blur(20px)" }}>
           <li onClick={() => scrollToRef(overviewRef)}>Overview</li>
-          <li onClick={() => scrollToRef(serveRef)}>Industry Segments</li>
+          <li onClick={() => scrollToRef(serveRef)}>Who we serve</li>
           <li onClick={() => scrollToRef(caseStudiesRef)}>Service Offerings</li>
           <li onClick={() => scrollToRef(queriesRef)}>Queries</li>
           {/* <li onClick={() => scrollToRef(leadershipRef)}>Meet our leadership</li> */}
@@ -161,11 +143,11 @@ const Energylist = () => {
         <div className="row featurette" bis_skin_checked="1"  >
 
           <div className="col-md-7" bis_skin_checked="1">
-            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Driving the digital evolution of NextGen Utilities.</h1>
-            <p className="lead" id='leadtext'>QubicGen, an established solution provider in the Energy and Utility sectors encompassing Power, Water & Wastewater, Renewable, Electric Vehicle, Microgrid, Natural Resources, and Mining industries. We facilitate their growth trajectory through digital technology, business consultancy, infrastructure & enterprise security, platform & network services, etc., aiming to enhance service quality and productivity. Moreover, we tackle industry challenges by continually investing in innovative ideas and solutions.</p>
+            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Experience the future of travel, transportation, hospitality, and logistics with us.</h1>
+            <p className="lead" id='leadtext'>At QubicGen, we seamlessly integrate services across Travel, Transportation, Hospitality, and Logistics sectors, harnessing innovation to streamline operations and elevate customer experiences globally. From efficient logistics management to unforgettable hospitality services, we are your trusted partner in navigating the intricacies of modern-day travel and commerce.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709550867/QubicGen/illustration-windmills_433905-2221_ll2zju.jpg" alt="" />
+            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709625514/QubicGen/global-transportation-industry_190619-6_sg3ef7.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -176,7 +158,7 @@ const Energylist = () => {
       <br />
       <br />
       <br />
-      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}> Industry Segments</h1>
+      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}> Who we serve</h1>
       <br />
       <br />
       <br />
@@ -184,7 +166,7 @@ const Energylist = () => {
       <div className="container" ref={serveRef}>
         <div className="container text-center">
           <div className="row" style={{ display: 'flex', justifyContent: 'space-evenly' }} >
-            {EnergyServe.map((item) => {
+            {TravelServe.map((item) => {
               return (
                 <div className="card" style={{ height: '350px', width: '307px', marginTop: '20px' }} >
                   <a className="card1" >
@@ -263,4 +245,4 @@ const Energylist = () => {
   )
 }
 
-export default Energylist
+export default Travellist

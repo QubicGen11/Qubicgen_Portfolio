@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
 import Queries from './Queries';
 
-const Energylist = () => {
+const Healthlist = () => {
   const overviewRef = useRef(null);
   const serveRef = useRef(null);
   const caseStudiesRef = useRef(null);
@@ -137,7 +137,6 @@ const Energylist = () => {
       <div className="banking-main-list" >
         <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.9)", backdropFilter: "blur(20px)" }}>
           <li onClick={() => scrollToRef(overviewRef)}>Overview</li>
-          <li onClick={() => scrollToRef(serveRef)}>Industry Segments</li>
           <li onClick={() => scrollToRef(caseStudiesRef)}>Service Offerings</li>
           <li onClick={() => scrollToRef(queriesRef)}>Queries</li>
           {/* <li onClick={() => scrollToRef(leadershipRef)}>Meet our leadership</li> */}
@@ -161,11 +160,11 @@ const Energylist = () => {
         <div className="row featurette" bis_skin_checked="1"  >
 
           <div className="col-md-7" bis_skin_checked="1">
-            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Driving the digital evolution of NextGen Utilities.</h1>
-            <p className="lead" id='leadtext'>QubicGen, an established solution provider in the Energy and Utility sectors encompassing Power, Water & Wastewater, Renewable, Electric Vehicle, Microgrid, Natural Resources, and Mining industries. We facilitate their growth trajectory through digital technology, business consultancy, infrastructure & enterprise security, platform & network services, etc., aiming to enhance service quality and productivity. Moreover, we tackle industry challenges by continually investing in innovative ideas and solutions.</p>
+            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Bringing forth the next era of healthcare delivery.</h1>
+            <p className="lead" id='leadtext'>We collaborate with healthcare and life sciences enterprises worldwide to redefine their operational processes and enhance patient experiences significantly. Leveraging deep industry insights and technological proficiency, we continuously innovate to develop transformative solutions that revolutionize our clients' business methodologies.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709550867/QubicGen/illustration-windmills_433905-2221_ll2zju.jpg" alt="" />
+            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709623443/QubicGen/medical-banner-with-doctor-working-laptop_23-2149611211_mi7vnl.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -175,38 +174,8 @@ const Energylist = () => {
       <br />
       <br />
       <br />
-      <br />
-      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}> Industry Segments</h1>
-      <br />
-      <br />
-      <br />
+      
 
-      <div className="container" ref={serveRef}>
-        <div className="container text-center">
-          <div className="row" style={{ display: 'flex', justifyContent: 'space-evenly' }} >
-            {EnergyServe.map((item) => {
-              return (
-                <div className="card" style={{ height: '350px', width: '307px', marginTop: '20px' }} >
-                  <a className="card1" >
-                    <p style={{ fontSize: '30px', paddingBottom: "20px",lineHeight:'30px' }}>{item.title}</p>
-                    <p style={{ fontSize: '13px',marginTop:'10px' }}>{item.description}</p>
-                    <div className="go-corner">
-                      <div className="go-arrow">
-                        →
-                      </div>
-                    </div>
-                  </a>
-
-                </div>
-              )
-            })}
-
-
-
-          </div>
-        </div>
-
-      </div>
 
 
 
@@ -263,4 +232,4 @@ const Energylist = () => {
   )
 }
 
-export default Energylist
+export default Healthlist

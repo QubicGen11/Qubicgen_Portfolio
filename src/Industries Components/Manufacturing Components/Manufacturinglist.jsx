@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
 import Queries from './Queries';
 
-const Energylist = () => {
+const Manufacturinglist = () => {
   const overviewRef = useRef(null);
   const serveRef = useRef(null);
   const caseStudiesRef = useRef(null);
@@ -21,44 +21,20 @@ const Energylist = () => {
 
   // This is for rpa offering cards
 
-  const[EnergyServe,setEnergyServe]=useState([
+  const[ManufacturingServe,setManufacturingServe]=useState([
     {
-      title: 'Electricity',
-      description: 'At QubicGen, our developed solutions support the holistic growth of the power industry, spanning Electricity Generation, Transmission, Distribution, Retail, and catering to both commercial and residential sectors.'
+      title: 'Automotive',
+      description: 'We offer end-to-end digital transformation services and engineering solutions for the automotive industry, integrating technology expertise with a deep understanding of business needs. Our comprehensive services cover product development, supply chain, manufacturing, and after-sales support.'
     },
     {
-      title: 'Renewables',
-      description: 'Delivers advanced monitoring and efficiency management platforms for solar and wind energy assets. Additionally, emphasizes the development of innovative technologies in renewable energy, including hydroelectric, wind, bioenergy, solar, and geothermal power.'
+      title: 'Metals and Mining',
+      description: "QubicGen facilitates the digital transformation of Metals & Mining industries by empowering them to embrace innovative and sustainable solutions that enhance business value."
     },
     {
-      title: 'Water and Waste Management',
-      description: 'Our dedication lies in fostering enduring positive change, delivering enhanced value to water, wastewater utilities, and waste management sectors through the provision of seamless, efficient digital services to customers.'
+      title: 'Process',
+      description: 'QubicGen empowers process manufacturing clients to embrace Industry 4.0, leveraging advanced digital technologies such as IIoT, IT-OT integration, digital industrial networks, collaborative supply chains, analytics, and artificial intelligence (AI).'
     },
-    {
-      title: 'Gas',
-      description: 'We aid in addressing challenges concerning the seamless operations of gas distribution.'
-    },
-    {
-      title: 'Nuclear',
-      description: 'Tackling industry challenges like the rise of nuclear power through innovative solutions with AR and VR technologies, while also offering sustainable alternatives.'
-    },
-    {
-      title: 'Distributed Energy Resources',
-      description: 'Delivering comprehensive services for electric vehicle charging systems, constructing microgrids, and facilitating real-time data streaming and infrastructure monitoring. We collaborate closely with end-users, manufacturers, and utilities to ensure optimal operation and efficiency.'
-    },
-    {
-      title: 'Mining',
-      description: 'Industry-focused solutions prioritize safety, environmental compliance, project development planning, and operational excellence within the mining sector.'
-    },
-    {
-      title: 'Smart Cities',
-      description: 'An integrated system utilizing IoT, data analytics, and machine learning drives smart city transformation, offering solutions such as meter reading and energy management.'
-    },
-    {
-      title: "EPC's",
-      description: 'Emphasizing ERP solutions for asset management and digital core to enhance business process automation.'
-    },
-
+   
     
   ]);
 
@@ -137,7 +113,7 @@ const Energylist = () => {
       <div className="banking-main-list" >
         <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.9)", backdropFilter: "blur(20px)" }}>
           <li onClick={() => scrollToRef(overviewRef)}>Overview</li>
-          <li onClick={() => scrollToRef(serveRef)}>Industry Segments</li>
+          <li onClick={() => scrollToRef(serveRef)}>Who we serve</li>
           <li onClick={() => scrollToRef(caseStudiesRef)}>Service Offerings</li>
           <li onClick={() => scrollToRef(queriesRef)}>Queries</li>
           {/* <li onClick={() => scrollToRef(leadershipRef)}>Meet our leadership</li> */}
@@ -161,11 +137,11 @@ const Energylist = () => {
         <div className="row featurette" bis_skin_checked="1"  >
 
           <div className="col-md-7" bis_skin_checked="1">
-            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Driving the digital evolution of NextGen Utilities.</h1>
-            <p className="lead" id='leadtext'>QubicGen, an established solution provider in the Energy and Utility sectors encompassing Power, Water & Wastewater, Renewable, Electric Vehicle, Microgrid, Natural Resources, and Mining industries. We facilitate their growth trajectory through digital technology, business consultancy, infrastructure & enterprise security, platform & network services, etc., aiming to enhance service quality and productivity. Moreover, we tackle industry challenges by continually investing in innovative ideas and solutions.</p>
+            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Introducing the Next Generation of Manufacturing.</h1>
+            <p className="lead" id='leadtext'>At QubicGen, we specialize in providing comprehensive solutions in the manufacturing sector. From optimizing production processes to implementing cutting-edge technologies, we are dedicated to helping manufacturers achieve operational excellence, drive innovation, and stay ahead in a competitive market. With our tailored services, we empower companies to maximize efficiency, minimize costs, and elevate their overall performance.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709550867/QubicGen/illustration-windmills_433905-2221_ll2zju.jpg" alt="" />
+            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709625089/QubicGen/frame-body-manufacture-new-cars-workshop-automobile-industry-robotic-arm-fanuc-m2000ia_692702-24694_fk4cmk.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -176,7 +152,7 @@ const Energylist = () => {
       <br />
       <br />
       <br />
-      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}> Industry Segments</h1>
+      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}>Who we are</h1>
       <br />
       <br />
       <br />
@@ -184,7 +160,7 @@ const Energylist = () => {
       <div className="container" ref={serveRef}>
         <div className="container text-center">
           <div className="row" style={{ display: 'flex', justifyContent: 'space-evenly' }} >
-            {EnergyServe.map((item) => {
+            {ManufacturingServe.map((item) => {
               return (
                 <div className="card" style={{ height: '350px', width: '307px', marginTop: '20px' }} >
                   <a className="card1" >
@@ -263,4 +239,4 @@ const Energylist = () => {
   )
 }
 
-export default Energylist
+export default Manufacturinglist

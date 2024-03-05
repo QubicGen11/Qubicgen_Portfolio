@@ -41,6 +41,7 @@ const Bankinglist = () => {
   const [BankingOffering, setBankingOffering] = useState([
     {
       title: 'Core Banking Solutions',
+      background: 'https://images.unsplash.com/photo-1709432698326-b29e043c90b3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8',
       description: 'Development, implementation, and maintenance of core banking systems to manage day-to-day banking operations such as account management, transactions, and customer relationship management. '
     },
     {
@@ -52,7 +53,7 @@ const Bankinglist = () => {
       description: 'Development of payment processing systems, including online payment gateways, mobile payment apps, peer-to-peer payment solutions, and contactless payment technologies. '
     },
     {
-      title: 'Risk Management and Compliance Solutions',
+      title: 'Risk Management ',
       description: 'Implementation of risk assessment tools, fraud detection systems, and regulatory compliance solutions to ensure adherence to industry regulations and safeguard against financial risks. '
     },
     {
@@ -112,7 +113,7 @@ const Bankinglist = () => {
         <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.9)", backdropFilter: "blur(20px)" }}>
           <li onClick={() => scrollToRef(overviewRef)}>Overview</li>
           <li onClick={() => scrollToRef(caseStudiesRef)}>Who we serve</li>
-          <li onClick={() => scrollToRef(serveRef )}>Service Offerings</li>
+          <li onClick={() => scrollToRef(serveRef)}>Service Offerings</li>
           <li onClick={() => scrollToRef(queriesRef)}>Queries</li>
           {/* <li onClick={() => scrollToRef(leadershipRef)}>Meet our leadership</li> */}
         </nav>
@@ -121,7 +122,7 @@ const Bankinglist = () => {
       <br />
       <br />
 
-      <div className="container" style={{ color: 'white' }} data-aos="fade-up" ref={ overviewRef}>
+      <div className="container" style={{ color: 'white' }} data-aos="fade-up" ref={overviewRef}>
 
 
         <br />
@@ -185,6 +186,9 @@ const Bankinglist = () => {
 
 
 
+
+
+
       {/* This is rpa offering start */}
 
       {/* This is rpa offering ends */}
@@ -201,32 +205,32 @@ const Bankinglist = () => {
         <br />
         <br />
         <br />
-        <div className="container" >
-          <div className="row"   >
 
-            {
-              BankingOffering.map((serve) => {
-                return (
-                  <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
-                    <p>{serve.description}</p>
-                    <div className="cover">
-                      <p style={{ fontSize: '20px', padding: '20px' }}>{serve.title}</p>
-                    </div>
-                  </div>
-                )
-              })
-            }
+        {/* This is offering */}
+
+        <div className="container">
+          <div className="row">
+            {BankingOffering.map((serve) => (
+              <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
+                <p>{serve.description}</p>
+                <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>
+                  <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
+                  <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '15px' }}>{serve.title}</p>
+                </div>
 
 
+              </div>
 
 
-
-
-
+            ))}
           </div>
           <br />
-
         </div>
+
+        {/* This is offering ends */}
+
+
+
 
 
       </div>

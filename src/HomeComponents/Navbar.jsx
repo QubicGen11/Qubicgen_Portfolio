@@ -138,13 +138,13 @@ navbar.style.backgroundColor = newColor;
     <ul className="dropdown-menu" style={{backgroundColor:'#242424',width:'50vw'}} >
     <Link to="/banking" style={{ color: 'white', textDecoration: 'none' }}><li>Banking, Financial Services and Insurance</li></Link>
                 <Link to="/energy" style={{ color: 'white', textDecoration: 'none' }}><li>Energy and Utilities</li></Link>
-                <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Media and Entertainment</li></Link>
-                <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Healthcare Life Sciences</li></Link>
+                <Link to="/media" style={{ color: 'white', textDecoration: 'none' }}><li>Media and Entertainment</li></Link>
+                <Link to="/health" style={{ color: 'white', textDecoration: 'none' }}><li>Healthcare Life Sciences</li></Link>
                 <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Retail and Consumer Goods</li></Link>
-                <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Travel, Transportation, Hospitality and Logistics</li></Link>
-                <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Public Sector and Government</li></Link>
+                <Link to="/travel" style={{ color: 'white', textDecoration: 'none' }}><li>Travel, Transportation, Hospitality and Logistics</li></Link>
+                <Link to="/public" style={{ color: 'white', textDecoration: 'none' }}><li>Public Sector and Government</li></Link>
                 <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Oil and Gas</li></Link>
-                <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Manufacturing</li></Link>
+                <Link to="/manufacturing" style={{ color: 'white', textDecoration: 'none' }}><li>Manufacturing</li></Link>
                 <Link to="#" style={{ color: 'white', textDecoration: 'none' }}><li>Professional Services</li></Link>
     </ul>
   <br />
@@ -238,21 +238,21 @@ navbar.style.backgroundColor = newColor;
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
             <Link to="/banking"><li>Banking, Financial Services and Insurance</li></Link>
             <Link to="/energy"><li>Energy and Utilities</li></Link>
-            <Link to=""><li>Media and Entertainment</li></Link>
-            <Link to=""> <li>Healthcare Life Sciences</li></Link>
+            <Link to="/media"><li>Media and Entertainment</li></Link>
+            <Link to="/health"> <li>Healthcare Life Sciences</li></Link>
           </div>
           <div className="indus2">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}>
             </Link>
             <Link to=""><li>Retail and Consumer Goods</li></Link>
-            <Link to=""><li>Travel, Transportation, Hospitality and Logistics</li></Link>
-            <Link to=""><li>Public Sector and Government</li></Link>
+            <Link to="/travel"><li>Travel, Transportation, Hospitality and Logistics</li></Link>
+            <Link to="/public"><li>Public Sector and Government</li></Link>
           </div>
           <div className="indus3">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}>
             </Link>
             <Link to=""><li>Oil and Gas</li></Link>
-            <Link to=""><li>Manufacturing</li></Link>
+            <Link to="/manufacturing"><li>Manufacturing</li></Link>
             <Link to=""><li>Professional Services</li></Link>
           </div>
         </div>

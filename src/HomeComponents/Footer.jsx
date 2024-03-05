@@ -123,32 +123,11 @@ const Footer = () => {
               </ul>
             </div>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
-              <div className="text-center sm:text-left">
-                <p className="text-lg font-medium text-gray-900 dark:text-white">About Us</p>
-                <ul className="mt-8 space-y-4 text-sm">
-                  <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" href="#">
-                      Company History
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" href="#">
-                      Meet the Team
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" href="#">
-                      Employee Handbook
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" href="#">
-                      Careers
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="text-center sm:text-left">
+            
+
+
+              
+              {/* <div className="text-center sm:text-left">
                 <p className="text-lg font-medium text-gray-900 dark:text-white">Our Services</p>
                 <ul className="mt-8 space-y-4 text-sm">
                   <li>
@@ -172,7 +151,7 @@ const Footer = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
               <div className="text-center sm:text-left">
                 <p className="text-lg font-medium text-gray-900 dark:text-white">Helpful Links</p>
                 <ul className="mt-8 space-y-4 text-sm">
@@ -229,8 +208,22 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
+
+
+              <div className="text-center sm:text-left">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.1498649216232!2d77.61164921531011!3d14.64743296342421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb14b000140666b%3A0x8edcaad72813c8d8!2sQubicgen!5e0!3m2!1sen!2sin!4v1709601779988!5m2!1sen!2sin"
+        width="300"
+        height="250"
+        style={{ border: '0' }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
             </div>
           </div>
+          
           <div className="mt-12 border-t border-gray-100 pt-6 dark:border-gray-800">
             <div className="text-center sm:flex sm:justify-between sm:text-left">
               <p className="text-sm text-gray-500 dark:text-gray-400">
