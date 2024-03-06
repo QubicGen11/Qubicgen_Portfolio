@@ -123,8 +123,8 @@ const Bankinglist = () => {
       <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
   <Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
   <Link to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Who we serve</li></Link>
-  <Link to="serviceofferings" spy={true} smooth={true} offset={-150} duration={200}><li>Service Offerings</li></Link>
-  <Link to="querie" spy={true} smooth={true} offset={-150} duration={200}><li>Queries</li></Link>
+  <Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
+  <Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
 </nav>
 
       </div>
@@ -215,7 +215,7 @@ const Bankinglist = () => {
 
         {/* This is offering */}
 
-        <div className="container" style={{marginTop:'50px'}}  >
+        <div className="container" style={{marginTop:'80px'}}  >
           <div className="row">
             {BankingOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
@@ -243,7 +243,7 @@ const Bankinglist = () => {
       </div>
 
       {/* This is who we server ends */}
-      <div className="queries" id='querie'>
+      <div className="queries" id='querie' style={{marginTop:'50px'}}>
         <Queries />
       </div>
 
