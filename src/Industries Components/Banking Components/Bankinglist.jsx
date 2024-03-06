@@ -207,7 +207,7 @@ const Bankinglist = () => {
       
       </div>
 
-      <div style={{ color: 'white', marginLeft: '40px',marginTop:'100px'}} data-aos="zoom-in"  >
+      <div style={{ color: 'white', marginLeft: '40px',marginTop:'120px'}} data-aos="zoom-in"  >
         
         <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Service Offerings</h1>
     
