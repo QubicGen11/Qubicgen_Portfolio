@@ -45,48 +45,62 @@ const Travellist = () => {
 ]);
 
 
-  const [EnergyOffering, setEnergyOffering] = useState([
-    {
-        title: 'Smart Grid Solutions',
-        background:'',
-        description: 'Development and implementation of smart grid technologies to modernize the electrical grid infrastructure, improve energy efficiency, enable real-time monitoring, and support integration of renewable energy sources.'
-    },
-    {
-        title: 'Meter Data Management',
-        description: 'Provision of meter data management solutions to collect, store, and analyze energy consumption data from smart meters, enabling utilities to optimize billing, forecasting, and demand-side management.'
-    },
-    {
-        title: 'Asset Management Systems',
-        description: 'Design and deployment of asset management systems to optimize maintenance schedules, monitor equipment health, and extend the lifespan of critical infrastructure assets such as power plants, substations, and distribution networks.'
-    },
-    {
-        title: 'Renewable Energy Integration',
-        description: 'Integration of renewable energy sources, such as solar, wind, and hydroelectric power, into the existing energy grid through advanced control systems, forecasting models, and grid balancing technologies.'
-    },
-    {
-        title: 'Energy Trading and Risk Management (ETRM)',
-        description: 'Development and implementation of ETRM solutions to manage energy trading activities, including procurement, scheduling, pricing, and hedging, while mitigating market risks and ensuring regulatory compliance.'
-    },
-    {
-        title: 'Customer Engagement Platforms',
-        description: 'Creation of customer engagement platforms to empower energy consumers with real-time access to their energy usage data, personalized recommendations for energy savings, and interactive tools for managing their accounts.'
-    },
-    {
-        title: 'Demand Response Solutions',
-        description: 'Deployment of demand response solutions to enable utilities to dynamically adjust energy consumption in response to grid conditions, customer preferences, and peak demand events, thereby improving grid stability and reliability.'
-    },
-    {
-        title: 'Grid Optimization and Analytics',
-        description: 'Utilization of advanced analytics and optimization techniques to analyze grid data, optimize energy distribution, predict equipment failures, and improve operational efficiency across the energy infrastructure.'
-    },
-    {
-        title: 'Cybersecurity Solutions',
-        description: 'Provision of cybersecurity services to protect energy infrastructure from cyber threats, including ransomware attacks, data breaches, and unauthorized access, through robust security measures, threat intelligence, and incident response capabilities.'
-    },
-    {
-        title: 'Regulatory Compliance Solutions',
-        description: 'Assistance with regulatory compliance requirements, including reporting, auditing, and documentation, to ensure adherence to industry standards and regulations governing the energy and utilities sector.'
-    }
+const [TransportOffering, setTransportOffering] = useState([
+  {
+      title: 'Transportation Management Systems (TMS)',
+      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709704466/QubicGen/Transportation/vehicles-laptop-supply-chain-representation_23-2149853161_qge0hr.jpg',
+      description: 'Development and implementation of TMS solutions to optimize transportation operations, including route planning, load optimization, carrier selection, freight tracking, and performance analytics.'
+  },
+  {
+      title: 'Fleet Management Solutions',
+      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709704686/QubicGen/Transportation/supply-chain-representation-still-life_23-2150172465_uk6yir.jpg',
+      description: 'Provision of fleet management solutions to monitor and manage vehicle fleets, including GPS tracking, vehicle diagnostics, fuel management, maintenance scheduling, and driver performance monitoring.'
+  },
+  {
+      title: 'Warehouse Management Systems (WMS)',
+      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709704750/QubicGen/Transportation/warehouse-worker-logistics-manager-doing-products-audit-storage-room-storehouse-employees-managing-goods-parcels-quality-control-while-analyzing-data-clipboard-digital-tablet_482257-62415_rudi0o.jpg',
+      description: 'Implementation of WMS solutions to streamline warehouse operations, including inventory management, order fulfillment, picking and packing, receiving and shipping, and warehouse optimization.'
+  },
+  {
+      title: 'Supply Chain Visibility',
+      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709704994/QubicGen/Transportation/map-global-logistics-partnership-import-export-concept_161452-7090_zvnprd.jpg',
+      description: 'Development of supply chain visibility solutions to provide real-time visibility into the movement of goods across the supply chain, enabling proactive monitoring, exception management, and improved decision-making.'
+  },
+  {
+      title: 'Last-Mile Delivery Solutions',
+      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709705095/QubicGen/Transportation/isometric-fast-free-delivery-by-man-ride-scooter-concept-food-service-website-banner-vector-illustration_589019-2086_ffmrtj.jpg',
+      description: 'Deployment of last-mile delivery solutions to optimize the final leg of the delivery process, including route optimization, delivery scheduling, driver communication, and customer notifications, to improve delivery efficiency and customer satisfaction.'
+  },
+  {
+      title: 'Cold Chain Management',
+      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709705177/QubicGen/Transportation/role-logistics-globalised-5g-tecnology-concept_250469-9921_dhmyzy.jpg',
+      description: 'Implementation of cold chain management solutions to monitor and maintain temperature-sensitive goods throughout the transportation and storage process, ensuring compliance with temperature requirements and quality standards.'
+  },
+  {
+      title: 'Freight Brokerage Platforms',
+      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709705265/QubicGen/Transportation/silhouette-engineer-working-with-container-truck-freight-cargo-ship-importexport-commercial-logistic-transportation-business-concept-generative-ai_634053-3772_rdu1qp.jpg',
+      description: 'Development of freight brokerage platforms to facilitate the matching of shippers with carriers, automate freight booking and documentation processes, and optimize freight brokerage operations.'
+  },
+  {
+      title: 'Electronic Data Interchange (EDI)',
+      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709705457/QubicGen/Transportation/business-data-information-device-screen_53876-133711_lvikym.jpg',
+      description: 'Integration of EDI solutions to enable electronic exchange of business documents, such as orders, invoices, and shipping notices, between trading partners in the transportation and logistics ecosystem, improving efficiency and accuracy of data exchange.'
+  },
+  {
+      title: 'Route Optimization and Planning',
+      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709705570/QubicGen/Transportation/travel-agent-offering-trip-planning-clients_23-2149079484_pr6xfd.jpg',
+      description: 'Utilization of route optimization and planning software to optimize delivery routes, reduce transportation costs, minimize fuel consumption, and improve on-time delivery performance.'
+  },
+  {
+      title: 'Predictive Analytics and Demand Forecasting',
+      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709705635/QubicGen/Transportation/business-team-financial-data-analysis-meeting-report-paper-harmony-office_31965-92107_d132f4.jpg',
+      description: 'Utilization of predictive analytics and demand forecasting algorithms to analyze historical data, predict future demand patterns, and optimize inventory levels, transportation capacity, and resource allocation.'
+  },
+  {
+      title: 'Mobile Commerce and In-Store Technologies',
+      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709705944/QubicGen/Transportation/smart-store-management-systems-conceptmanager-using-digital-tablet-blurred-store-as-background_12892-128_inyhve.jpg',
+      description: 'Development of mobile commerce solutions and in-store technologies, such as mobile payment systems, digital signage, interactive kiosks, and augmented reality (AR) experiences, to enhance the shopping experience and drive engagement.'
+  }
 ]);
   // This is for rpa offering cards
 
@@ -211,7 +225,7 @@ const Travellist = () => {
         <br />
         <div className="container">
           <div className="row">
-            {EnergyOffering.map((serve) => (
+            {TransportOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
                 <p>{serve.description}</p>
                 <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>

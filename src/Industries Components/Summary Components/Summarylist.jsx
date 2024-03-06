@@ -46,56 +46,66 @@ const Summarylist = () => {
 
 
 
-const [EnergyOffering, setEnergyOffering] = useState([
+  const [ProfessionalOffering, setProfessionalOffering] = useState([
     {
-        title: 'Smart Grid Solutions',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623707/QubicGen/Energy%20and%20Utilities/ideas-reduce-carbon-dioxide-emissions-atmosphere_539854-1838_pbdccd.jpg',
-        description: 'Development and implementation of smart grid technologies to modernize the electrical grid infrastructure, improve energy efficiency, enable real-time monitoring, and support integration of renewable energy sources.'
+        title: 'IT Consulting',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709708245/QubicGen/Professional%20Services/people-office-analyzing-checking-finance-graphs_23-2150377131_qlqyhf.jpg',
+        description: 'Providing strategic guidance and advisory services to businesses on leveraging technology to address specific challenges, improve processes, and achieve business goals.'
     },
     {
-        title: 'Meter Data Management',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709631012/QubicGen/Energy%20and%20Utilities/businessman-analyse-sales-data-economic-growth-graphs_593195-427_lvcn5s.jpg',
-        description: 'Provision of meter data management solutions to collect, store, and analyze energy consumption data from smart meters, enabling utilities to optimize billing, forecasting, and demand-side management.'
+        title: 'Digital Transformation',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709064/QubicGen/Professional%20Services/97673271_qz2vzc.jpg',
+        description: 'Assisting organizations in adopting digital technologies and strategies to modernize their operations, enhance customer experiences, and stay competitive in the digital age.'
     },
     {
-        title: 'Asset Management Systems',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709631158/QubicGen/Energy%20and%20Utilities/top-view-business-people-working-with-ipad_23-2150103556_plpa9s.jpg',
-        description: 'Design and deployment of asset management systems to optimize maintenance schedules, monitor equipment health, and extend the lifespan of critical infrastructure assets such as power plants, substations, and distribution networks.'
+        title: 'Software Development',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709437/QubicGen/Professional%20Services/software-development-button_kwuwiq.jpg',
+        description: 'Designing, developing, and implementing customized software solutions tailored to the unique needs and requirements of businesses across various industries.'
     },
     {
-        title: 'Renewable Energy Integration',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623935/QubicGen/Energy%20and%20Utilities/view-bioengineering-advance-tech_23-2150640995_seaxgb.jpg',
-        description: 'Integration of renewable energy sources, such as solar, wind, and hydroelectric power, into the existing energy grid through advanced control systems, forecasting models, and grid balancing technologies.'
+        title: 'System Integration',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709473/QubicGen/Professional%20Services/Systems-Integration_q7wtwa.jpg',
+        description: 'Integrating disparate systems, applications, and technologies within an organization to enable seamless data exchange, workflow automation, and business process optimization.'
     },
     {
-        title: 'Energy Trading and Risk Management (ETRM)',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709624112/QubicGen/Energy%20and%20Utilities/abstraction-lit-light-bulb-graph-stock-indices-symbol-insight-idea-generative-ai_170984-5148_erhnoq.jpg',
-        description: 'Development and implementation of ETRM solutions to manage energy trading activities, including procurement, scheduling, pricing, and hedging, while mitigating market risks and ensuring regulatory compliance.'
+        title: 'Enterprise Architecture',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709403/QubicGen/Professional%20Services/building-design-diagram-line-scratch-high-render_664601-18271_nzswxk.jpg',
+        description: 'Designing and implementing comprehensive enterprise architecture frameworks to align IT initiatives with business objectives, optimize IT infrastructure, and support future growth.'
     },
     {
-        title: 'Customer Engagement Platforms',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709631548/QubicGen/Energy%20and%20Utilities/business-people-shaking-hands-greeting_53876-101876_ipaivh.jpg',
-        description: 'Creation of customer engagement platforms to empower energy consumers with real-time access to their energy usage data, personalized recommendations for energy savings, and interactive tools for managing their accounts.'
+        title: 'Project Management',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709144/QubicGen/Professional%20Services/furious-company-manager-asking-explications-from-multi-ethnic-coleagues-holding-finance-report-conference-room_482257-5049_dazz0n.jpg',
+        description: 'Managing IT projects from initiation to completion, including project planning, resource allocation, risk management, and quality assurance, to ensure successful project delivery within scope, budget, and timeline constraints.'
     },
     {
-        title: 'Demand Response Solutions',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709632941/QubicGen/Energy%20and%20Utilities/screen-with-graph-it-that-says-word-financial-it_188544-27324_rysvmg.jpg',
-        description: 'Deployment of demand response solutions to enable utilities to dynamically adjust energy consumption in response to grid conditions, customer preferences, and peak demand events, thereby improving grid stability and reliability.'
+        title: 'Cybersecurity Services',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709654/QubicGen/Professional%20Services/business-corporate-protection-safety-security-concept_53876-64964_zcssdq.jpg',
+        description: 'Assessing, implementing, and managing cybersecurity measures to protect businesses from cyber threats, including risk assessments, security audits, penetration testing, and incident response.'
     },
     {
-        title: 'Grid Optimization and Analytics',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709631926/QubicGen/Energy%20and%20Utilities/side-view-engineer-drawing-plan-outdoors_23-2149352262_z7jkuz.jpg',
-        description: 'Utilization of advanced analytics and optimization techniques to analyze grid data, optimize energy distribution, predict equipment failures, and improve operational efficiency across the energy infrastructure.'
+        title: 'Cloud Services',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709028/QubicGen/Professional%20Services/woman-scrolling-laptop_53876-167050_iqbsaj.jpg',
+        description: 'Providing cloud computing services, including cloud migration, architecture design, infrastructure management, and software-as-a-service (SaaS) solutions, to help businesses leverage the scalability, flexibility, and cost-efficiency of cloud platforms.'
     },
     {
-        title: 'Cybersecurity Solutions',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709629957/QubicGen/bfsi/person-working-html-computer_23-2150038856_s2dzhs.jpg',
-        description: 'Provision of cybersecurity services to protect energy infrastructure from cyber threats, including ransomware attacks, data breaches, and unauthorized access, through robust security measures, threat intelligence, and incident response capabilities.'
+        title: 'Data Analytics and Business Intelligence',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709708873/QubicGen/Professional%20Services/modern-equipped-computer-lab_23-2149241211_nu9gwg.jpg',
+        description: 'Analyzing data to extract valuable insights, trends, and patterns that can inform decision-making, drive business growth, and improve operational efficiency.'
     },
     {
-        title: 'Regulatory Compliance Solutions',
-        background: 'https://img.freepik.com/free-photo/standard-quality-control-collage-concept_23-2149595842.jpg?t=st=1709632597~exp=1709636197~hmac=86d820bff0ff630ea41481b3da50aba411ae335e30d96139d80d8a9ed8ab3ffa&w=740',
-        description: 'Assistance with regulatory compliance requirements, including reporting, auditing, and documentation, to ensure adherence to industry standards and regulations governing the energy and utilities sector.'
+        title: 'Training and Support',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709708821/QubicGen/Professional%20Services/colleagues-while-working-process_140725-7676_oxwcdq.jpg',
+        description: 'Offering training programs and ongoing support services to help businesses and their employees effectively utilize and maximize the value of IT solutions and technologies.'
+    },
+    {
+        title: 'Regulatory Compliance',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709708769/QubicGen/Professional%20Services/standard-quality-control-concept-m_23-2150041854_nhin3q.jpg',
+        description: 'Assisting businesses in understanding and complying with industry regulations and standards related to data privacy, cybersecurity, and IT governance.'
+    },
+    {
+        title: 'Managed IT Services',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709708630/QubicGen/Professional%20Services/two-business-coworkers-analyzing-plans-while-working-project-office-focus-is-businessman-drinking-coffee_637285-1079_ey0pw5.jpg',
+        description: 'Providing outsourced IT management and support services, including network monitoring, helpdesk support, software updates, and system maintenance, to ensure the reliability and security of IT infrastructure.'
     }
 ]);
   // This is for rpa offering cards
@@ -221,7 +231,7 @@ const [EnergyOffering, setEnergyOffering] = useState([
         <br />
         <div className="container">
           <div className="row">
-            {EnergyOffering.map((serve) => (
+            {ProfessionalOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
                 <p>{serve.description}</p>
                 <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>

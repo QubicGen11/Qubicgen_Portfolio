@@ -34,47 +34,56 @@ const Oillist = () => {
   ]);
 
 
-  const [EnergyOffering, setEnergyOffering] = useState([
+  const [OilOffering, setOilOffering] = useState([
     {
-        title: 'Smart Grid Solutions',
-        background:'',
-        description: 'Development and implementation of smart grid technologies to modernize the electrical grid infrastructure, improve energy efficiency, enable real-time monitoring, and support integration of renewable energy sources.'
+        title: 'Exploration and Production Software',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707444/QubicGen/Oil%20and%20Gas/person-using-ai-tool-job_23-2150711507_ngsldj.jpg',
+        description: 'Development and implementation of software solutions for reservoir modeling, seismic interpretation, well planning, drilling optimization, production monitoring, and reservoir management.'
     },
     {
-        title: 'Meter Data Management',
-        description: 'Provision of meter data management solutions to collect, store, and analyze energy consumption data from smart meters, enabling utilities to optimize billing, forecasting, and demand-side management.'
+        title: 'Asset Integrity Management',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707492/QubicGen/Oil%20and%20Gas/what_is_asset_integrity_lbngaw.png',
+        description: 'Provision of asset integrity management solutions to monitor and maintain the integrity of oil and gas assets, including pipelines, platforms, and equipment, through inspection, maintenance, and risk assessment.'
     },
     {
-        title: 'Asset Management Systems',
-        description: 'Design and deployment of asset management systems to optimize maintenance schedules, monitor equipment health, and extend the lifespan of critical infrastructure assets such as power plants, substations, and distribution networks.'
+        title: 'Integrated Operations Centers',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707503/QubicGen/Oil%20and%20Gas/smart_manufacturing_control_room_image_dgfiry.jpg',
+        description: 'Design and deployment of integrated operations centers (IOCs) to enable real-time monitoring, control, and decision-making across oil and gas operations, including drilling, production, and transportation.'
     },
     {
-        title: 'Renewable Energy Integration',
-        description: 'Integration of renewable energy sources, such as solar, wind, and hydroelectric power, into the existing energy grid through advanced control systems, forecasting models, and grid balancing technologies.'
+        title: 'Enterprise Resource Planning (ERP) Systems',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707545/QubicGen/Oil%20and%20Gas/1683272400288_gpp0lc.jpg',
+        description: 'Implementation of ERP systems tailored to the needs of the oil and gas industry to streamline business processes, including financial management, procurement, supply chain management, and human resources.'
     },
     {
-        title: 'Energy Trading and Risk Management (ETRM)',
-        description: 'Development and implementation of ETRM solutions to manage energy trading activities, including procurement, scheduling, pricing, and hedging, while mitigating market risks and ensuring regulatory compliance.'
+        title: 'Geographic Information Systems (GIS)',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707576/QubicGen/Oil%20and%20Gas/GIS_header-icon-art_qfeu7r.png',
+        description: 'Integration of GIS solutions to manage spatial data, including maps, satellite imagery, and geographic features, for applications such as land management, pipeline routing, environmental monitoring, and emergency response.'
     },
     {
-        title: 'Customer Engagement Platforms',
-        description: 'Creation of customer engagement platforms to empower energy consumers with real-time access to their energy usage data, personalized recommendations for energy savings, and interactive tools for managing their accounts.'
+        title: 'Health, Safety, and Environment (HSE) Solutions',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707609/QubicGen/Oil%20and%20Gas/health-safety-environment-hse-dark-blue-background_387612-470_jbjunr.jpg',
+        description: 'Development and implementation of HSE solutions to ensure compliance with health, safety, and environmental regulations, manage incidents, track environmental performance, and mitigate risks.'
     },
     {
-        title: 'Demand Response Solutions',
-        description: 'Deployment of demand response solutions to enable utilities to dynamically adjust energy consumption in response to grid conditions, customer preferences, and peak demand events, thereby improving grid stability and reliability.'
+        title: 'Remote Monitoring and Surveillance',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709708106/QubicGen/Oil%20and%20Gas/portrait-male-security-guard-with-uniform_23-2150368726_zw6aod.jpg',
+        description: 'Deployment of remote monitoring and surveillance systems using sensors, drones, and other technologies to monitor remote oil and gas assets, detect anomalies, and optimize operations.'
     },
     {
-        title: 'Grid Optimization and Analytics',
-        description: 'Utilization of advanced analytics and optimization techniques to analyze grid data, optimize energy distribution, predict equipment failures, and improve operational efficiency across the energy infrastructure.'
+        title: 'Data Analytics and Predictive Maintenance',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707792/QubicGen/Oil%20and%20Gas/Data-Analytics-for-PdM-800x445_et1etp.jpg',
+        description: 'Utilization of data analytics and predictive maintenance algorithms to analyze equipment performance data, predict equipment failures, and optimize maintenance schedules to minimize downtime and improve asset reliability.'
     },
     {
-        title: 'Cybersecurity Solutions',
-        description: 'Provision of cybersecurity services to protect energy infrastructure from cyber threats, including ransomware attacks, data breaches, and unauthorized access, through robust security measures, threat intelligence, and incident response capabilities.'
+        title: 'Cybersecurity and Industrial Control Systems (ICS) Security',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707969/QubicGen/Oil%20and%20Gas/organized-female-hacker-her-team-stealing-information-from-government-server-using-super-computers_482257-20619_rkh42i.jpg',
+        description: 'Provision of cybersecurity services to protect oil and gas assets and operations from cyber threats, including ransomware attacks, data breaches, and unauthorized access, through robust security measures and monitoring of industrial control systems.'
     },
     {
-        title: 'Regulatory Compliance Solutions',
-        description: 'Assistance with regulatory compliance requirements, including reporting, auditing, and documentation, to ensure adherence to industry standards and regulations governing the energy and utilities sector.'
+        title: 'Digital Twins and Simulation Modeling',
+        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709708024/QubicGen/Oil%20and%20Gas/digitaltwins_qzmbsn.jpg',
+        description: 'Development of digital twin solutions and simulation models to create virtual replicas of oil and gas assets, simulate operational scenarios, optimize performance, and support decision-making.'
     }
 ]);
   // This is for rpa offering cards
@@ -200,7 +209,7 @@ const Oillist = () => {
         <br />
         <div className="container">
           <div className="row">
-            {EnergyOffering.map((serve) => (
+            {OilOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
                 <p>{serve.description}</p>
                 <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>
