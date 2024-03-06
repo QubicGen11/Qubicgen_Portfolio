@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
-import Queries from './Queries';
+import Queries from '../Banking Components/Queries';
 import {Link} from 'react-scroll';
 
 const Publiclist = () => {
@@ -155,12 +155,12 @@ const Publiclist = () => {
       <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}}  >
 
         <div className="col-md-7" bis_skin_checked="1">
-          <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Guiding the course of change</h1>
-          <p className="lead" id='leadtext'>Harnessing fresh perspectives and cutting-edge strategies, our company is dedicated to revolutionizing the landscape of Retail Banking, Lending and Leasing, Cards and Payments, Asset and Wealth Management, Investment Banks, Stock Exchanges, as well as Life/General Insurances. Despite our newcomer status, we are committed to guiding these sectors through dynamic changes, presenting exciting opportunities to elevate product offerings, services, and prioritize customer satisfaction.</p>
-        </div>
-        <div className="col-md-5" bis_skin_checked="1">
-          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709535501/QubicGen/stack-money-coin-with-trading-graph_1_jjrd0p.jpg" alt="" />
-        </div>
+        <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Utilizing Digital & Information Technology to enhance the quality of life for citizens.</h1>
+            <p className="lead" id='leadtext'>QubicGen's specialized Public Sector Practice delivers comprehensive IT services and solutions tailored for Government, International Organizations, and higher education sectors worldwide. Our offerings encompass ERP Implementation, Business Transformation, Enterprise Portals, Business Intelligence, Data Warehousing, Enterprise Application Integration, Middleware solutions, Infrastructure support, Robotic Process Automation, Artificial Intelligence, Machine Learning, Advanced Analytics, Cloud Migration (AWS, Azure, IBM, Google), Geographical Information Systems, and Application Development and Maintenance Services (ADMS).</p>
+          </div>
+          <div className="col-md-5" bis_skin_checked="1">
+            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709619622/QubicGen/business-people-meeting-conference-seminar-sharing-strategy-concept_1_cqgmnq.jpg" alt="" />
+          </div>
       </div>
     </div>
 

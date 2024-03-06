@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
-import Queries from './Queries';
+import Queries from '../Banking Components/Queries';
 import { Link } from 'react-scroll';
 
 const Travellist = () => {
@@ -155,12 +155,11 @@ const [TransportOffering, setTransportOffering] = useState([
         <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}}  >
 
           <div className="col-md-7" bis_skin_checked="1">
-            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Guiding the course of change</h1>
-            <p className="lead" id='leadtext'>Harnessing fresh perspectives and cutting-edge strategies, our company is dedicated to revolutionizing the landscape of Retail Banking, Lending and Leasing, Cards and Payments, Asset and Wealth Management, Investment Banks, Stock Exchanges, as well as Life/General Insurances. Despite our newcomer status, we are committed to guiding these sectors through dynamic changes, presenting exciting opportunities to elevate product offerings, services, and prioritize customer satisfaction.</p>
+          <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Experience the future of travel, transportation, hospitality, and logistics with us.</h1>
+            <p className="lead" id='leadtext'>At QubicGen, we seamlessly integrate services across Travel, Transportation, Hospitality, and Logistics sectors, harnessing innovation to streamline operations and elevate customer experiences globally. From efficient logistics management to unforgettable hospitality services, we are your trusted partner in navigating the intricacies of modern-day travel and commerce.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709535501/QubicGen/stack-money-coin-with-trading-graph_1_jjrd0p.jpg" alt="" />
-          </div>
+          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709625514/QubicGen/global-transportation-industry_190619-6_sg3ef7.jpg" alt="" />          </div>
         </div>
       </div>
 

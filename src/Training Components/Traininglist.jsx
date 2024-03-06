@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
-import Queries from './Queries';
-
+import { Link } from 'react-scroll';
+import Queries from '../Industries Components/Banking Components/Queries';
 
 const Traininglist = () => {
   const overviewRef = useRef(null);
@@ -96,34 +96,32 @@ const[Ourtrainings,setOurtrainings]=useState([
   return (
     
     <>
-    
-{/* This is rpalist starts */}
-    
+
+    {/* This is rpalist starts */}
+
     <div className="banking-main-list" >
-    <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw',backgroundColor:"rgba(0, 0, 0, 0.9)",backdropFilter:"blur(20px)" }}>
-          <li onClick={() => scrollToRef(overviewRef)}>Overview</li>  
-          <li onClick={() => scrollToRef(serveRef)}>Our Offerings</li>
-          <li onClick={() => scrollToRef(caseStudiesRef)}>Who we serve</li>
-          <li onClick={() => scrollToRef(queriesRef)}>Queries</li>
-          {/* <li onClick={() => scrollToRef(leadershipRef)}>Meet our leadership</li> */}
-        </nav>
+    <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
+<Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
+<Link to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Who we serve</li></Link>
+<Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
+<Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
+</nav>
+
     </div>
     <hr />
-    <br />
-    <br />
+   
+   <div id='overview'>
     
-    <div className="container"  style={{color:'white'}}  data-aos = "fade-up" ref={overviewRef }>
+   </div>
 
-      
-    <br />
-      <br />
-     
-    <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Overview</h1>
-      <br />
-      <br />
-      <br />
-      <br />
-    <div className="row featurette" bis_skin_checked="1"  >
+    <div className="container" style={{ color: 'white',marginTop:'50px' }} data-aos="fade-up"  >
+    <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}  > Overview</h1>
+
+
+
+
+  
+    <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}}  >
    
       <div className="col-md-7" bis_skin_checked="1">
         <h1 className="featurette-heading fw-normal lh-1" style={{fontSize:'40px',padding:'20px',fontWeight:'bolder'}}>Unlock the Power of Digital Transformation with Expert Training in RPA, Cybersecurity, Data Science, and More. Empower Your Future with Cutting-Edge IT Skills</h1>
@@ -135,76 +133,75 @@ const[Ourtrainings,setOurtrainings]=useState([
     </div>
     </div>
 
-{/* This is rpalist ends */}
+    {/* This is rpalist ends */}
 
-
-   
-{/* This is rpa offering start */}
-
-{/* This is rpa offering ends */}
-
-
-{/* This is who we server starts */}
-<div style={{ color: 'white',marginLeft:'40px' }} ref={caseStudiesRef} data-aos = "zoom-in"  >
-<br />
-      <br />
-      <br />
-      <br />
-                    <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Our Trainings</h1>
-      <br />
-      <br />
-      <br />
-                    <br />
-                    <div className="container" >
-                        <div className="row"  >
-                            
-                                {
-                                    Ourtrainings.map((serve) => {
-                                        return (
-                                        <div className="col" >
-                                           <div className="card" >
-                                           <div className="card-inner">
-                        <div className="card-front" style={{ background: `url('${serve.background}') center/cover`, }}>
-                          <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
-                          <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>{serve.title}</p>
-                        </div>
-                        <div className="card-back" style={{ backgroundColor: '#2f2f2f', color: '#000', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }}>
-                          <p style={{ fontSize: '12px' }}>{serve.description}</p>
-                        </div>
-                      </div>
-</div>
-
-                                            <br />
-                            </div>
-                                        )
-                                    })
-                                }
-
-
-
-
-
-
-
-                        </div>
-                        <br />
-
-                    </div>
-</div>
-
-{/* This is who we server ends */}
-
-<div className="queries" ref={queriesRef}>
-  <Queries/>
-</div>
-
-
-     
-
-
-
+    <div id='whoweserve'>
     
-    </>
+    </div>
+  
+
+
+
+
+
+
+
+    {/* This is rpa offering start */}
+
+
+
+    {/* This is who we server starts */}
+     <div id='serviceofferings'>
+    
+    </div>
+
+    <div style={{ color: 'white', marginLeft: '40px',marginTop:'100px' }} ref={caseStudiesRef} data-aos="zoom-in"  >
+        
+        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Our Offerings</h1>
+     
+        <div className="container" style={{marginTop:'100px'}}>
+   <div className="row">
+      {/* Mapping over the 'Weserve' array */}
+      {Ourtrainings.map((serve) => {
+         return (
+            <div className="col">
+               {/* Card component */}
+               <div className="card">
+                  <div className="card-inner">
+                     {/* Front of the card with background image and overlay */}
+                     <div className="card-front" style={{ background: `url('${serve.background}') center/cover` }}>
+                        <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
+                        <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>{serve.title}</p>
+                     </div>
+                     {/* Back of the card with additional information */}
+                     <div className="card-back" style={{ backgroundColor: '#2f2f2f', color: '#000', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                        <p style={{ fontSize: '12px' }}>{serve.description}</p>
+                     </div>
+                  </div>
+               </div>
+               <br />
+            </div>
+         );
+      })}
+   </div>
+   <br />
+</div>
+
+          <br />
+
+        </div>
+
+    {/* This is who we server ends */}
+    <div className="queries" id='querie' style={{marginTop:'50px'}}>
+      <Queries />
+    </div>
+
+
+
+
+
+
+  </>
   )
 }
 

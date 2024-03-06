@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
-import Queries from './Queries';
+import Queries from '../Banking Components/Queries';
 
 import { Link } from 'react-scroll';
 
@@ -146,12 +146,11 @@ const Manufacturinglist = () => {
       <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}}  >
 
         <div className="col-md-7" bis_skin_checked="1">
-          <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Guiding the course of change</h1>
-          <p className="lead" id='leadtext'>Harnessing fresh perspectives and cutting-edge strategies, our company is dedicated to revolutionizing the landscape of Retail Banking, Lending and Leasing, Cards and Payments, Asset and Wealth Management, Investment Banks, Stock Exchanges, as well as Life/General Insurances. Despite our newcomer status, we are committed to guiding these sectors through dynamic changes, presenting exciting opportunities to elevate product offerings, services, and prioritize customer satisfaction.</p>
+        <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Introducing the Next Generation of Manufacturing.</h1>
+            <p className="lead" id='leadtext'>At QubicGen, we specialize in providing comprehensive solutions in the manufacturing sector. From optimizing production processes to implementing cutting-edge technologies, we are dedicated to helping manufacturers achieve operational excellence, drive innovation, and stay ahead in a competitive market. With our tailored services, we empower companies to maximize efficiency, minimize costs, and elevate their overall performance.</p>
         </div>
         <div className="col-md-5" bis_skin_checked="1">
-          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709535501/QubicGen/stack-money-coin-with-trading-graph_1_jjrd0p.jpg" alt="" />
-        </div>
+        <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709625089/QubicGen/frame-body-manufacture-new-cars-workshop-automobile-industry-robotic-arm-fanuc-m2000ia_692702-24694_fk4cmk.jpg" alt="" />        </div>
       </div>
     </div>
 

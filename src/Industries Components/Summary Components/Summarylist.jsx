@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
-import Queries from './Queries';
+import Queries from '../Banking Components/Queries';
 import { Link } from 'react-scroll';
 
 const Summarylist = () => {
@@ -161,12 +161,12 @@ const Summarylist = () => {
       <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}}  >
 
         <div className="col-md-7" bis_skin_checked="1">
-          <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Guiding the course of change</h1>
-          <p className="lead" id='leadtext'>Harnessing fresh perspectives and cutting-edge strategies, our company is dedicated to revolutionizing the landscape of Retail Banking, Lending and Leasing, Cards and Payments, Asset and Wealth Management, Investment Banks, Stock Exchanges, as well as Life/General Insurances. Despite our newcomer status, we are committed to guiding these sectors through dynamic changes, presenting exciting opportunities to elevate product offerings, services, and prioritize customer satisfaction.</p>
-        </div>
-        <div className="col-md-5" bis_skin_checked="1">
-          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709535501/QubicGen/stack-money-coin-with-trading-graph_1_jjrd0p.jpg" alt="" />
-        </div>
+        <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Empower Your Business with Expert Guidance.</h1>
+            <p className="lead" id='leadtext'>At QubicGen, our professional services and consulting offerings encompass a wide range of industries and sectors. With a focus on strategic planning, implementation, and ongoing support, we are committed to helping clients achieve sustainable success in their respective markets. Our dedicated team of experts provides tailored solutions that drive efficiency, innovation, and growth, ensuring that our clients stay ahead of the curve in an ever-evolving business landscape.</p>
+          </div>
+          <div className="col-md-5" bis_skin_checked="1">
+            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709626430/QubicGen/html-css-collage-concept-with-person_23-2150062008_ddmout.jpg" alt="" />
+          </div>
       </div>
     </div>
 
