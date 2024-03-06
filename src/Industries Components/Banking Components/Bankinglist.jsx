@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
 import Queries from './Queries';
+import { Link } from 'react-scroll';
 
 const Bankinglist = () => {
-  const overviewRef = useRef(null);
-  const serveRef = useRef(null);
-  const caseStudiesRef = useRef(null);
-  const queriesRef = useRef(null);
-  const [selectedItem, setSelectedItem] = useState(null);
+  // const overviewRef = useRef(null);
+  // const serveRef = useRef(null);
+  // const caseStudiesRef = useRef(null);
+  // const queriesRef = useRef(null);
+  // const [selectedItem, setSelectedItem] = useState(null);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -15,9 +16,9 @@ const Bankinglist = () => {
 
   const [isNavFixed, setIsNavFixed] = useState(false);
 
-  const scrollToRef = (ref) => {
-    ref.current.scrollIntoView({ behavior: 'smooth' });
-  };
+  // const scrollToRef = (ref) => {
+  //   ref.current.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   // This is for rpa offering cards
 
@@ -119,30 +120,28 @@ const Bankinglist = () => {
       {/* This is rpalist starts */}
 
       <div className="banking-main-list" >
-        <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.9)", backdropFilter: "blur(20px)" }}>
-          <li onClick={() => scrollToRef(overviewRef)}>Overview</li>
-          <li onClick={() => scrollToRef(caseStudiesRef)}>Who we serve</li>
-          <li onClick={() => scrollToRef(serveRef)}>Service Offerings</li>
-          <li onClick={() => scrollToRef(queriesRef)}>Queries</li>
-          {/* <li onClick={() => scrollToRef(leadershipRef)}>Meet our leadership</li> */}
-        </nav>
+      <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
+  <Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
+  <Link to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Who we serve</li></Link>
+  <Link to="serviceofferings" spy={true} smooth={true} offset={-150} duration={200}><li>Service Offerings</li></Link>
+  <Link to="querie" spy={true} smooth={true} offset={-150} duration={200}><li>Queries</li></Link>
+</nav>
+
       </div>
       <hr />
-      <br />
-      <br />
+     
+     <div id='overview'>
+      
+     </div>
 
-      <div className="container" style={{ color: 'white' }} data-aos="fade-up" ref={overviewRef}>
+      <div className="container" style={{ color: 'white',marginTop:'50px' }} data-aos="fade-up"  >
+      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}  > Overview</h1>
 
 
-        <br />
-        <br />
 
-        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Overview</h1>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="row featurette" bis_skin_checked="1"  >
+
+    
+        <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}}  >
 
           <div className="col-md-7" bis_skin_checked="1">
             <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Guiding the course of change</h1>
@@ -155,18 +154,19 @@ const Bankinglist = () => {
       </div>
 
       {/* This is rpalist ends */}
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }} > Who we Serve</h1>
-      <br />
-      <br />
-      <br />
 
-      <div className="container" ref={caseStudiesRef}>
-        <div className="container text-center">
+      <div id='whoweserve'>
+      
+      </div>
+    
+      
+
+      <div className="container"  style={{marginTop:'100px'}}   >
+
+      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}  > Who we Serve</h1>
+ 
+
+        <div className="container text-center" style={{marginTop:'50px'}}  >
           <div className="row" style={{ display: 'flex', justifyContent: 'space-evenly' }} >
             {BankingServe.map((item) => {
               return (
@@ -200,24 +200,22 @@ const Bankinglist = () => {
 
       {/* This is rpa offering start */}
 
-      {/* This is rpa offering ends */}
 
 
       {/* This is who we server starts */}
-      <div style={{ color: 'white', marginLeft: '40px' }} ref={serveRef} data-aos="zoom-in"  >
-        <br />
-        <br />
-        <br />
-        <br />
+       <div id='serviceofferings'>
+      
+      </div>
+
+      <div style={{ color: 'white', marginLeft: '40px',marginTop:'100px'}} data-aos="zoom-in"  >
+        
         <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Service Offerings</h1>
-        <br />
-        <br />
-        <br />
-        <br />
+    
+     
 
         {/* This is offering */}
 
-        <div className="container">
+        <div className="container" style={{marginTop:'50px'}}  >
           <div className="row">
             {BankingOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
@@ -245,7 +243,7 @@ const Bankinglist = () => {
       </div>
 
       {/* This is who we server ends */}
-      <div className="queries" ref={queriesRef}>
+      <div className="queries" id='querie'>
         <Queries />
       </div>
 
