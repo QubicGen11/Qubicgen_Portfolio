@@ -338,6 +338,9 @@
 
 }
 
+
+/* This is card code  */
+
 .card p {
   font-size: 17px;
   font-weight: 400;
@@ -538,6 +541,8 @@
   opacity: 1;
 }
 
+
+/* This is book */
 .book {
   position: relative;
   border-radius: 10px;

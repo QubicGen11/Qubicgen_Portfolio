@@ -161,36 +161,36 @@ const Bankinglist = () => {
     
       
 
-      <div className="container"  style={{marginTop:'100px'}}   >
+        <div className="container"  style={{marginTop:'130px'}}   >
 
-      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}  > Who we Serve</h1>
- 
+        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}  > Who we Serve</h1>
+  
 
-        <div className="container text-center" style={{marginTop:'50px'}}  >
-          <div className="row" style={{ display: 'flex', justifyContent: 'space-evenly' }} >
-            {BankingServe.map((item) => {
-              return (
-                <div className="card" style={{ height: '350px', width: '307px', marginTop: '20px' }} >
-                  <a className="card1" >
-                    <p style={{ fontSize: '30px', paddingBottom: "20px" }}>{item.title}</p>
-                    <p style={{ fontSize: '13px' }}>{item.description}</p>
-                    <div className="go-corner">
-                      <div className="go-arrow">
-                        →
+          <div className="container text-center" style={{marginTop:'50px'}}  >
+            <div className="row" style={{ display: 'flex', justifyContent: 'space-evenly' }} >
+              {BankingServe.map((item) => {
+                return (
+                  <div className="card" style={{ height: '350px', width: '307px', marginTop: '20px' }} >
+                    <a className="card1" >
+                      <p style={{ fontSize: '30px', paddingBottom: "20px" }}>{item.title}</p>
+                      <p style={{ fontSize: '13px' }}>{item.description}</p>
+                      <div className="go-corner">
+                        <div className="go-arrow">
+                          →
+                        </div>
                       </div>
-                    </div>
-                  </a>
+                    </a>
 
-                </div>
-              )
-            })}
-
+                  </div>
+                )
+              })}
 
 
+
+            </div>
           </div>
-        </div>
 
-      </div>
+        </div>
 
 
 
