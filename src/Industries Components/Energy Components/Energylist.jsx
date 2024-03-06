@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
 import Queries from './Queries';
+import { Link } from 'react-scroll';
 
 const Energylist = () => {
-  const overviewRef = useRef(null);
-  const serveRef = useRef(null);
-  const caseStudiesRef = useRef(null);
-  const queriesRef = useRef(null);
-  const [selectedItem, setSelectedItem] = useState(null);
+  // const overviewRef = useRef(null);
+  // const serveRef = useRef(null);
+  // const caseStudiesRef = useRef(null);
+  // const queriesRef = useRef(null);
+  // const [selectedItem, setSelectedItem] = useState(null);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -15,9 +16,9 @@ const Energylist = () => {
 
   const [isNavFixed, setIsNavFixed] = useState(false);
 
-  const scrollToRef = (ref) => {
-    ref.current.scrollIntoView({ behavior: 'smooth' });
-  };
+  // const scrollToRef = (ref) => {
+  //   ref.current.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   // This is for rpa offering cards
 
@@ -63,8 +64,7 @@ const Energylist = () => {
   ]);
 
 
-
-const [EnergyOffering, setEnergyOffering] = useState([
+  const [EnergyOffering, setEnergyOffering] = useState([
     {
         title: 'Smart Grid Solutions',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623707/QubicGen/Energy%20and%20Utilities/ideas-reduce-carbon-dioxide-emissions-atmosphere_539854-1838_pbdccd.jpg',
@@ -145,99 +145,102 @@ const [EnergyOffering, setEnergyOffering] = useState([
       {/* This is rpalist starts */}
 
       <div className="banking-main-list" >
-        <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.9)", backdropFilter: "blur(20px)" }}>
-          <li onClick={() => scrollToRef(overviewRef)}>Overview</li>
-          <li onClick={() => scrollToRef(serveRef)}>Industry Segments</li>
-          <li onClick={() => scrollToRef(caseStudiesRef)}>Service Offerings</li>
-          <li onClick={() => scrollToRef(queriesRef)}>Queries</li>
-          {/* <li onClick={() => scrollToRef(leadershipRef)}>Meet our leadership</li> */}
-        </nav>
+      <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
+  <Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
+  <Link to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Who we serve</li></Link>
+  <Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
+  <Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
+</nav>
+
       </div>
       <hr />
-      <br />
-      <br />
+     
+     <div id='overview'>
+      
+     </div>
 
-      <div className="container" style={{ color: 'white' }} data-aos="fade-up" ref={overviewRef}>
+      <div className="container" style={{ color: 'white',marginTop:'100px' }} data-aos="fade-up"  >
+      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}  > Overview</h1>
 
 
-        <br />
-        <br />
 
-        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Overview</h1>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="row featurette" bis_skin_checked="1"  >
+
+    
+        <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}}  >
 
           <div className="col-md-7" bis_skin_checked="1">
-            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Driving the digital evolution of NextGen Utilities.</h1>
-            <p className="lead" id='leadtext'>QubicGen, an established solution provider in the Energy and Utility sectors encompassing Power, Water & Wastewater, Renewable, Electric Vehicle, Microgrid, Natural Resources, and Mining industries. We facilitate their growth trajectory through digital technology, business consultancy, infrastructure & enterprise security, platform & network services, etc., aiming to enhance service quality and productivity. Moreover, we tackle industry challenges by continually investing in innovative ideas and solutions.</p>
+            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Guiding the course of change</h1>
+            <p className="lead" id='leadtext'>Harnessing fresh perspectives and cutting-edge strategies, our company is dedicated to revolutionizing the landscape of Retail Banking, Lending and Leasing, Cards and Payments, Asset and Wealth Management, Investment Banks, Stock Exchanges, as well as Life/General Insurances. Despite our newcomer status, we are committed to guiding these sectors through dynamic changes, presenting exciting opportunities to elevate product offerings, services, and prioritize customer satisfaction.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709550867/QubicGen/illustration-windmills_433905-2221_ll2zju.jpg" alt="" />
+            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709535501/QubicGen/stack-money-coin-with-trading-graph_1_jjrd0p.jpg" alt="" />
           </div>
         </div>
       </div>
 
       {/* This is rpalist ends */}
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}> Industry Segments</h1>
-      <br />
-      <br />
-      <br />
 
-      <div className="container" ref={serveRef}>
-        <div className="container text-center">
-          <div className="row" style={{ display: 'flex', justifyContent: 'space-evenly' }} >
-            {EnergyServe.map((item) => {
-              return (
-                <div className="card" style={{ height: '350px', width: '307px', marginTop: '20px' }} >
-                  <a className="card1" >
-                    <p style={{ fontSize: '30px', paddingBottom: "20px",lineHeight:'30px' }}>{item.title}</p>
-                    <p style={{ fontSize: '13px',marginTop:'10px' }}>{item.description}</p>
-                    <div className="go-corner">
-                      <div className="go-arrow">
-                        →
+      <div id='whoweserve'>
+      
+      </div>
+    
+      
+
+        <div className="container"  style={{marginTop:'130px'}}   >
+
+        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}  > Who we Serve</h1>
+  
+
+          <div className="container text-center" style={{marginTop:'50px'}}  >
+            <div className="row" style={{ display: 'flex', justifyContent: 'space-evenly' }} >
+              {EnergyServe.map((item) => {
+                return (
+                  <div className="card" style={{ height: '350px', width: '307px', marginTop: '20px' }} >
+                    <a className="card1" >
+                      <p style={{ fontSize: '30px', paddingBottom: "20px" }}>{item.title}</p>
+                      <p style={{ fontSize: '13px' }}>{item.description}</p>
+                      <div className="go-corner">
+                        <div className="go-arrow">
+                          →
+                        </div>
                       </div>
-                    </div>
-                  </a>
+                    </a>
 
-                </div>
-              )
-            })}
-
+                  </div>
+                )
+              })}
 
 
+
+            </div>
           </div>
+
         </div>
 
-      </div>
+
+
 
 
 
 
       {/* This is rpa offering start */}
 
-      {/* This is rpa offering ends */}
 
 
       {/* This is who we server starts */}
-      <div style={{ color: 'white', marginLeft: '40px' }} ref={caseStudiesRef} data-aos="zoom-in"  >
-        <br />
-        <br />
-        <br />
-        <br />
+       <div id='serviceofferings'>
+      
+      </div>
+
+      <div style={{ color: 'white', marginLeft: '40px',marginTop:'120px'}} data-aos="zoom-in"  >
+        
         <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Service Offerings</h1>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="container">
+    
+     
+
+        {/* This is offering */}
+
+        <div className="container" style={{marginTop:'80px'}}  >
           <div className="row">
             {EnergyOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
@@ -256,11 +259,16 @@ const [EnergyOffering, setEnergyOffering] = useState([
           <br />
         </div>
 
+        {/* This is offering ends */}
+
+
+
+
 
       </div>
 
       {/* This is who we server ends */}
-      <div className="queries" ref={queriesRef}>
+      <div className="queries" id='querie' style={{marginTop:'50px'}}>
         <Queries />
       </div>
 

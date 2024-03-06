@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
 import Queries from './Queries';
+import { Link } from 'react-scroll';
 
-const Healthlist = () => {
-  const overviewRef = useRef(null);
-  const serveRef = useRef(null);
-  const caseStudiesRef = useRef(null);
-  const queriesRef = useRef(null);
-  const [selectedItem, setSelectedItem] = useState(null);
+const Bankinglist = () => {
+  // const overviewRef = useRef(null);
+  // const serveRef = useRef(null);
+  // const caseStudiesRef = useRef(null);
+  // const queriesRef = useRef(null);
+  // const [selectedItem, setSelectedItem] = useState(null);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -15,52 +16,12 @@ const Healthlist = () => {
 
   const [isNavFixed, setIsNavFixed] = useState(false);
 
-  const scrollToRef = (ref) => {
-    ref.current.scrollIntoView({ behavior: 'smooth' });
-  };
+  // const scrollToRef = (ref) => {
+  //   ref.current.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   // This is for rpa offering cards
 
-  const[EnergyServe,setEnergyServe]=useState([
-    {
-      title: 'Electricity',
-      description: 'At QubicGen, our developed solutions support the holistic growth of the power industry, spanning Electricity Generation, Transmission, Distribution, Retail, and catering to both commercial and residential sectors.'
-    },
-    {
-      title: 'Renewables',
-      description: 'Delivers advanced monitoring and efficiency management platforms for solar and wind energy assets. Additionally, emphasizes the development of innovative technologies in renewable energy, including hydroelectric, wind, bioenergy, solar, and geothermal power.'
-    },
-    {
-      title: 'Water and Waste Management',
-      description: 'Our dedication lies in fostering enduring positive change, delivering enhanced value to water, wastewater utilities, and waste management sectors through the provision of seamless, efficient digital services to customers.'
-    },
-    {
-      title: 'Gas',
-      description: 'We aid in addressing challenges concerning the seamless operations of gas distribution.'
-    },
-    {
-      title: 'Nuclear',
-      description: 'Tackling industry challenges like the rise of nuclear power through innovative solutions with AR and VR technologies, while also offering sustainable alternatives.'
-    },
-    {
-      title: 'Distributed Energy Resources',
-      description: 'Delivering comprehensive services for electric vehicle charging systems, constructing microgrids, and facilitating real-time data streaming and infrastructure monitoring. We collaborate closely with end-users, manufacturers, and utilities to ensure optimal operation and efficiency.'
-    },
-    {
-      title: 'Mining',
-      description: 'Industry-focused solutions prioritize safety, environmental compliance, project development planning, and operational excellence within the mining sector.'
-    },
-    {
-      title: 'Smart Cities',
-      description: 'An integrated system utilizing IoT, data analytics, and machine learning drives smart city transformation, offering solutions such as meter reading and energy management.'
-    },
-    {
-      title: "EPC's",
-      description: 'Emphasizing ERP solutions for asset management and digital core to enhance business process automation.'
-    },
-
-    
-  ]);
 
 
   const [HealthOffering, setHealthOffering] = useState([
@@ -144,46 +105,48 @@ const Healthlist = () => {
       {/* This is rpalist starts */}
 
       <div className="banking-main-list" >
-        <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.9)", backdropFilter: "blur(20px)" }}>
-          <li onClick={() => scrollToRef(overviewRef)}>Overview</li>
-          <li onClick={() => scrollToRef(caseStudiesRef)}>Service Offerings</li>
-          <li onClick={() => scrollToRef(queriesRef)}>Queries</li>
-          {/* <li onClick={() => scrollToRef(leadershipRef)}>Meet our leadership</li> */}
-        </nav>
+      <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
+  <Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
+  <Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
+  <Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
+</nav>
+
       </div>
       <hr />
-      <br />
-      <br />
+     
+     <div id='overview'>
+      
+     </div>
 
-      <div className="container" style={{ color: 'white' }} data-aos="fade-up" ref={overviewRef}>
+      <div className="container" style={{ color: 'white',marginTop:'50px' }} data-aos="fade-up"  >
+      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}  > Overview</h1>
 
 
-        <br />
-        <br />
 
-        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Overview</h1>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="row featurette" bis_skin_checked="1"  >
+
+    
+        <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}}  >
 
           <div className="col-md-7" bis_skin_checked="1">
-            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Bringing forth the next era of healthcare delivery.</h1>
-            <p className="lead" id='leadtext'>We collaborate with healthcare and life sciences enterprises worldwide to redefine their operational processes and enhance patient experiences significantly. Leveraging deep industry insights and technological proficiency, we continuously innovate to develop transformative solutions that revolutionize our clients' business methodologies.</p>
+            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Guiding the course of change</h1>
+            <p className="lead" id='leadtext'>Harnessing fresh perspectives and cutting-edge strategies, our company is dedicated to revolutionizing the landscape of Retail Banking, Lending and Leasing, Cards and Payments, Asset and Wealth Management, Investment Banks, Stock Exchanges, as well as Life/General Insurances. Despite our newcomer status, we are committed to guiding these sectors through dynamic changes, presenting exciting opportunities to elevate product offerings, services, and prioritize customer satisfaction.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709623443/QubicGen/medical-banner-with-doctor-working-laptop_23-2149611211_mi7vnl.jpg" alt="" />
+            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709535501/QubicGen/stack-money-coin-with-trading-graph_1_jjrd0p.jpg" alt="" />
           </div>
         </div>
       </div>
 
       {/* This is rpalist ends */}
-      <br />
-      <br />
-      <br />
-      <br />
+
+      <div id='whoweserve'>
       
+      </div>
+    
+      
+
+    
+
 
 
 
@@ -191,21 +154,22 @@ const Healthlist = () => {
 
       {/* This is rpa offering start */}
 
-      {/* This is rpa offering ends */}
 
 
       {/* This is who we server starts */}
-      <div style={{ color: 'white', marginLeft: '40px' }} ref={caseStudiesRef} data-aos="zoom-in"  >
-        <br />
-        <br />
-        <br />
-        <br />
+       <div id='serviceofferings'>
+      
+      </div>
+
+      <div style={{ color: 'white', marginLeft: '40px',marginTop:'120px'}} data-aos="zoom-in"  >
+        
         <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Service Offerings</h1>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="container">
+    
+     
+
+        {/* This is offering */}
+
+        <div className="container" style={{marginTop:'80px'}}  >
           <div className="row">
             {HealthOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
@@ -224,11 +188,16 @@ const Healthlist = () => {
           <br />
         </div>
 
+        {/* This is offering ends */}
+
+
+
+
 
       </div>
 
       {/* This is who we server ends */}
-      <div className="queries" ref={queriesRef}>
+      <div className="queries" id='querie' style={{marginTop:'50px'}}>
         <Queries />
       </div>
 
@@ -241,4 +210,4 @@ const Healthlist = () => {
   )
 }
 
-export default Healthlist
+export default Bankinglist

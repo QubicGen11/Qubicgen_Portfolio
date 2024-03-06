@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
 import Queries from './Queries';
+import {Link} from 'react-scroll'
 
 const Retaillist = () => {
   const overviewRef = useRef(null);
@@ -118,64 +119,63 @@ const [RetailOffering, setRetailOffering] = useState([
 
     <>
 
-      {/* This is rpalist starts */}
+    {/* This is rpalist starts */}
 
-      <div className="banking-main-list" >
-        <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.9)", backdropFilter: "blur(20px)" }}>
-          <li onClick={() => scrollToRef(overviewRef)}>Overview</li>
-          <li onClick={() => scrollToRef(serveRef)}>Who we serve</li>
-          <li onClick={() => scrollToRef(caseStudiesRef)}>Service Offerings</li>
-          <li onClick={() => scrollToRef(queriesRef)}>Queries</li>
-          {/* <li onClick={() => scrollToRef(leadershipRef)}>Meet our leadership</li> */}
-        </nav>
-      </div>
-      <hr />
-      <br />
-      <br />
+    <div className="banking-main-list" >
+    <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
+<Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
+<Link to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Who we serve</li></Link>
+<Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
+<Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
+</nav>
 
-      <div className="container" style={{ color: 'white' }} data-aos="fade-up" ref={overviewRef}>
+    </div>
+    <hr />
+   
+   <div id='overview'>
+    
+   </div>
+
+    <div className="container" style={{ color: 'white',marginTop:'50px' }} data-aos="fade-up"  >
+    <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}  > Overview</h1>
 
 
-        <br />
-        <br />
 
-        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Overview</h1>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="row featurette" bis_skin_checked="1"  >
 
-          <div className="col-md-7" bis_skin_checked="1">
-            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Revolutionizing retail, one solution at a time.</h1>
-            <p className="lead" id='leadtext'>At QubicGen, we specialize in delivering tailored solutions for Retail and Consumer Goods industries, optimizing operations and enhancing customer experiences. From innovative storefront designs to efficient supply chain management, we empower businesses to excel in the ever-evolving marketplace.</p>
-          </div>
-          <div className="col-md-5" bis_skin_checked="1">
-            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709626058/QubicGen/electric-vehicle-plugged-charging-point_157027-3504_weapmb.jpg" alt="" />
-          </div>
+  
+      <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}}  >
+
+        <div className="col-md-7" bis_skin_checked="1">
+          <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Guiding the course of change</h1>
+          <p className="lead" id='leadtext'>Harnessing fresh perspectives and cutting-edge strategies, our company is dedicated to revolutionizing the landscape of Retail Banking, Lending and Leasing, Cards and Payments, Asset and Wealth Management, Investment Banks, Stock Exchanges, as well as Life/General Insurances. Despite our newcomer status, we are committed to guiding these sectors through dynamic changes, presenting exciting opportunities to elevate product offerings, services, and prioritize customer satisfaction.</p>
+        </div>
+        <div className="col-md-5" bis_skin_checked="1">
+          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709535501/QubicGen/stack-money-coin-with-trading-graph_1_jjrd0p.jpg" alt="" />
         </div>
       </div>
+    </div>
 
-      {/* This is rpalist ends */}
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}> Who we serve</h1>
-      <br />
-      <br />
-      <br />
+    {/* This is rpalist ends */}
 
-      <div className="container" ref={serveRef}>
-        <div className="container text-center">
+    <div id='whoweserve'>
+    
+    </div>
+  
+    
+
+      <div className="container"  style={{marginTop:'130px'}}   >
+
+      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}  > Who we Serve</h1>
+
+
+        <div className="container text-center" style={{marginTop:'50px'}}  >
           <div className="row" style={{ display: 'flex', justifyContent: 'space-evenly' }} >
             {RetailServe.map((item) => {
               return (
-                <div className="card" style={{ height: '400px', width: '307px', marginTop: '20px' }} >
-                  <a className="card1" style={{ height: '400px', width: '307px',  }} >
-                    <p style={{ fontSize: '30px', paddingBottom: "20px",lineHeight:'30px' }}>{item.title}</p>
-                    <p style={{ fontSize: '13px',marginTop:'10px' }}>{item.description}</p>
+                <div className="card" style={{ height: '350px', width: '307px', marginTop: '20px' }} >
+                  <a className="card1" >
+                    <p style={{ fontSize: '30px', paddingBottom: "20px" }}>{item.title}</p>
+                    <p style={{ fontSize: '13px' }}>{item.description}</p>
                     <div className="go-corner">
                       <div className="go-arrow">
                         →
@@ -197,55 +197,64 @@ const [RetailOffering, setRetailOffering] = useState([
 
 
 
-      {/* This is rpa offering start */}
-
-      {/* This is rpa offering ends */}
 
 
-      {/* This is who we server starts */}
-      <div style={{ color: 'white', marginLeft: '40px' }} ref={caseStudiesRef} data-aos="zoom-in"  >
-        <br />
-        <br />
-        <br />
-        <br />
-        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Service Offerings</h1>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="container">
-          <div className="row">
-            {RetailOffering.map((serve) => (
-              <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
-                <p>{serve.description}</p>
-                <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>
-                  <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
-                  <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '15px' }}>{serve.title}</p>
-                </div>
+
+    {/* This is rpa offering start */}
 
 
+
+    {/* This is who we server starts */}
+     <div id='serviceofferings'>
+    
+    </div>
+
+    <div style={{ color: 'white', marginLeft: '40px',marginTop:'120px'}} data-aos="zoom-in"  >
+      
+      <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Service Offerings</h1>
+  
+   
+
+      {/* This is offering */}
+
+      <div className="container" style={{marginTop:'80px'}}  >
+        <div className="row">
+          {RetailOffering.map((serve) => (
+            <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
+              <p>{serve.description}</p>
+              <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>
+                <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
+                <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '15px' }}>{serve.title}</p>
               </div>
 
 
-            ))}
-          </div>
-          <br />
+            </div>
+
+
+          ))}
         </div>
-
-
+        <br />
       </div>
 
-      {/* This is who we server ends */}
-      <div className="queries" ref={queriesRef}>
-        <Queries />
-      </div>
+      {/* This is offering ends */}
+
+
+
+
+
+    </div>
+
+    {/* This is who we server ends */}
+    <div className="queries" id='querie' style={{marginTop:'50px'}}>
+      <Queries />
+    </div>
 
 
 
 
 
 
-    </>
+  </>
   )
 }
 
