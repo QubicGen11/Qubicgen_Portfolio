@@ -42,38 +42,38 @@ const Cybersecuritylist = () => {
     
 ]);
 
-const[Cybersecurityserve,setCybersecurity]=useState([
+const[CyberSecurityServices,setCyberSecurityServices]=useState([
 
   {
   title:'Finance and Insurance',
   description: 'Cyber security in finance and insurance involves protecting sensitive financial data by implementing robust encryption, access controls, and fraud detection mechanisms to safeguard against cyber attacks targeting financial transactions and personal information.',
-  background: "https://img.freepik.com/free-photo/unrecognizable-businessman-pointing-printed-chart-showing-graph-colleagues-professional-content-partners-making-notes-statistics-cooperation-communication-partnership-concept_74855-14267.jpg?t=st=1709101279~exp=1709104879~hmac=9d53d1d3901256dff88c5f60fde96527158250c59d66a76aaa13721eab59cfc4&w=900"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796658/QubicGen/Cyber%20Security/unrecognizable-businessman-pointing-printed-chart-showing-graph-colleagues-professional-content-partners-making-notes-statistics-cooperation-communication-partnership-concept_74855-14267_lunmdz.jpg"
   },
   
   {
   title: 'Healthcare',
   description: 'In healthcare, cyber security focuses on protecting electronic health records (EHRs), medical devices, and patient confidentiality. This entails implementing strong authentication measures, encryption protocols, and intrusion detection systems to prevent data breaches and ensure compliance with regulations like HIPAA.',
-  background: "https://img.freepik.com/free-photo/doctor-giving-presentation-team-interim-doctors_107420-84783.jpg?t=st=1709101341~exp=1709104941~hmac=e5dffce83635b7ef2536d9124b9186a97b98d98711d8226b1d718d3e4d07ea4b&w=900"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796741/QubicGen/Cyber%20Security/doctor-giving-presentation-team-interim-doctors_107420-84783_dydilo.jpg"
   },
   {
   title: 'Energy and Utilities',
   description: 'Cyber security in the energy sector is crucial for safeguarding critical infrastructure by deploying advanced threat detection technologies, segmenting networks, and conducting regular security assessments to mitigate the risk of cyber attacks.',
-  background: "https://img.freepik.com/free-photo/aerial-shot-two-power-plant-sunset-vilnius_181624-15104.jpg?t=st=1709103814~exp=1709107414~hmac=76e752f29ec6e7a7f2711880f864903a300b14684cc9f6449869912edd2595e2&w=900"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796885/QubicGen/Cyber%20Security/aerial-shot-two-power-plant-sunset-vilnius_181624-15104_vtk9cp.jpg"
   },
   {
   title: 'Government',
   description: 'Encompasses protecting sensitive government data, citizen information, and national security interests from cyber threats. This includes establishing robust perimeter defenses, monitoring for suspicious activity, and collaborating with intelligence agencies to identify and neutralize cyber threats targeting government networks and systems.',
-  background: "https://img.freepik.com/free-photo/national-museum-history-romania_1268-14722.jpg?t=st=1709103919~exp=1709107519~hmac=c8577d7f9d0361eba35e61a114b4e7907d2e4ff29a935f9ee1d58bc331d72232&w=900"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796752/QubicGen/Cyber%20Security/national-museum-history-romania_1268-14722_oqutul.jpg"
   },
   {
   title: 'Retail',
   description :'Involves safeguarding customer payment data, online shopping platforms, and supply chain networks from cyber attacks. This requires implementing secure payment processing systems, conducting regular vulnerability assessments.',
-  background: "https://img.freepik.com/free-photo/abundance-healthy-food-choices-supermarket-aisle-generated-by-ai_188544-42447.jpg?t=st=1709104308~exp=1709107908~hmac=6b7cf59a6cd0c7e1a55d71b83d85eece657e761dc383687d3ccf2bdb394cc3c9&w=1060"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796968/QubicGen/Cyber%20Security/abundance-healthy-food-choices-supermarket-aisle-generated-by-ai_188544-42447_z9m7jx.jpg"
   },
   {
   title: 'Manufacturing',
   description: 'Focuses on protecting industrial control systems (ICS), production networks, and intellectual property from cyber threats. This includes implementing network segmentation, endpoint protection, and intrusion detection systems to prevent unauthorized access and ensure the integrity of manufacturing processes and product designs.',
-  background: "https://img.freepik.com/free-photo/factory-workshop-interior-machines-glass-production-background_645730-396.jpg?t=st=1709104730~exp=1709108330~hmac=cb89cfd3ebbff219b22610f56687568b04fe3666137040f34199db88d7367a77&w=996"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797002/QubicGen/Cyber%20Security/factory-workshop-interior-machines-glass-production-background_645730-396_x5leks.jpg"
   }
   
   ]);
@@ -206,7 +206,7 @@ const[Cybersecurityserve,setCybersecurity]=useState([
         <div className="container" style={{marginTop:'100px'}}>
    <div className="row">
       {/* Mapping over the 'Weserve' array */}
-      {Cybersecurityserve.map((serve) => {
+      {CyberSecurityServices.map((serve) => {
          return (
             <div className="col">
                {/* Card component */}

@@ -186,7 +186,7 @@ const Footer = () => {
                       <svg xmlns="http://www.w3.org/2000/svg" className="size-5 shrink-0 text-gray-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
-                      <span className="flex-1 text-gray-700 dark:text-gray-300"> services@qubicgen.com </span>
+                      <p className="flex-1 text-gray-700 dark:text-gray-300"><a href="mailto:someone@example.com"> services@qubicgen.com </a></p>
                     </a>
                   </li>
                   <li>
@@ -237,7 +237,7 @@ const Footer = () => {
                 </a>
               </p>
               <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0 dark:text-gray-400">
-                © 2024 QubicGen
+                © 2023 QubicGen
               </p>
             </div>
           </div>

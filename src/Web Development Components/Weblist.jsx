@@ -58,30 +58,30 @@ const[Webserve,setWebserve]=useState([
   {
   title:'HealthCare',
   description: 'Web development in healthcare includes patient portals, telemedicine platforms, and EHR systems for streamlined data management. It also encompasses HIE platforms, analytics dashboards, and medical education platforms for improved insights and learning experiences.',
-  background: "https://img.freepik.com/free-photo/doctor-using-stretoscope-virtual-projection_651396-925.jpg?w=996&t=st=1709114310~exp=1709114910~hmac=fc2512f59b3913b7678fac53ff3201cfb06521acc5a1095df61d5b54616fb712"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798087/QubicGen/Web%20Development/doctor-using-stretoscope-virtual-projection_651396-925_xuwd1x.jpg"
   },
   
   {
   title: 'Finance',
   description: 'Web development in the finance industry drives digital innovation, offering applications like online banking, mobile payments, and trading platforms. It enhances security, user experience, and business efficiency by providing personalized financial services.',
-  background: "https://img.freepik.com/free-photo/collage-finance-banner-concept_23-2150608824.jpg?w=360&t=st=1709114342~exp=1709114942~hmac=4a7159af6ae81f6d99da8fdaa8988b22e1337d1238e3a6ab04a83945a2068b28"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798120/QubicGen/Web%20Development/collage-finance-banner-concept_23-2150608824_fdflpm.jpg"
   },
   {
     title: 'Education',
     description: 'Web development in education drives transformative change, enabling seamless access to resources like online platforms, virtual classrooms, and learning analytics tools. It empowers educators with interactive tools by enhancing student engagement and experiential learning.',
-    background: "https://img.freepik.com/free-vector/geometric-science-education-background-vector-gradient-blue-digital-remix_53876-125993.jpg?t=st=1709113950~exp=1709117550~hmac=03ac687e455c69f4f495870d45d6882c54c32a4ed2d61270b467016373aa74a8&w=996"
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798181/QubicGen/Web%20Development/geometric-science-education-background-vector-gradient-blue-digital-remix_53876-125993_ajtjz9.jpg"
     },
   {
   title: 'Entertainment',
   description: 'Web development powers immersive experiences in entertainment, from streaming services to gaming platforms, enabling content delivery and user engagement. Leveraging HTML5, CSS3, and JavaScript, we create responsive websites for diverse audiences.',
-  background: "https://img.freepik.com/free-photo/top-view-clapperboard-movie-elements_23-2147775695.jpg?w=1380&t=st=1709114409~exp=1709115009~hmac=d4a0ccbdc2fcaf52df040fe80f79b4c95b249131279578332376f8834f720dd7"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798297/QubicGen/Web%20Development/top-view-clapperboard-movie-elements_23-2147775695_zbeqdx.jpg"
   },
   {
   title: 'Travel',
   description: 'Web development in the travel industry revolutionizes the way people plan, book, and experience trips. From online booking platforms to destination guides, we create user-friendly interfaces and integrate third-party services for seamless travel experiences. ',
-  background: "https://img.freepik.com/free-photo/high-angle-travel-items-arrangement_23-2149617688.jpg?w=996&t=st=1709114437~exp=1709115037~hmac=cebffffe68699b6665437608ff0eb7102fa08db2576be2a971ad85ab07d9ab15"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798538/QubicGen/Web%20Development/high-angle-travel-items-arrangement_23-2149617688_yzjf94.jpg"
   },
-    
+
     ]);
 
   // This is for rpa offering cards

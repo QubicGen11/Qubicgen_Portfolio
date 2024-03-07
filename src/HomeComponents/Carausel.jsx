@@ -14,7 +14,7 @@ const Carausel = () => {
   </div>
   <div className="carousel-inner">
     <div className="carousel-item active" data-bs-interval="3000" >
-      <img src= "https://res.cloudinary.com/defsu5bfc/image/upload/v1708354330/QubicGen/Slide1_1_ejspvq_e2vp5u.webp" id='slide1img' className="d-block w-100" alt="Image is still loading" loading="lazy" />
+      <img src= "https://res.cloudinary.com/defsu5bfc/image/upload/v1709803237/QubicGen/Home%20Page/Corossal/Slide1_1_ejspvq_e2vp5u_1_1_afehbj.jpg" id='slide1img' className="d-block w-100" alt="Image is still loading" loading="lazy" />
       <div className="carousel-caption">
         <h1 style={{color:'white'}}>Unlock</h1>
           <h1 style={{color:'white'}}>Your </h1>
@@ -22,14 +22,14 @@ const Carausel = () => {
       </div>
     </div>
     <div className="carousel-item" data-bs-interval="3000">
-      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354334/QubicGen/Slidethree_1_oyauhe_rsbljp.webp" id='slide3img' className="d-block w-100" alt="..." loading="lazy" />
+      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709803508/QubicGen/Home%20Page/Corossal/Slidethree_1_oyauhe_rsbljp_1_1_1_1_deornf.jpg" id='slide3img' className="d-block w-100" alt="..." loading="lazy" />
       <div className="carousel-caption" id='captiontrust' >
         <h1 style={{color:'white'}}>your trusted it partner </h1>
         <h1>for reliability and excellence.</h1>
       </div>
     </div>
     <div className="carousel-item" data-bs-interval="3000">
-      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354335/QubicGen/Slidetwo_v2l3e3_kunfm5.webp" id='slide2img' className="d-block w-100" alt="..." loading="lazy" />
+      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709803609/QubicGen/Home%20Page/Corossal/Slidetwo_v2l3e3_kunfm5_2_lswsgi.jpg" id='slide2img' className="d-block w-100" alt="..." loading="lazy" />
       <div className="carousel-caption2">
         <h1 style={{color:'white'}}>one stop solution </h1>
         <h1>for all your business ideas. </h1>

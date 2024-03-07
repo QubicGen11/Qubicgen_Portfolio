@@ -64,6 +64,7 @@ navbar.style.backgroundColor = newColor;
 
         <nav className={`nav ${isMobile ? "mobile" : ""}`}>
           <Link to="/" style={{ textDecoration: 'none' }}><li className="hover:cursor-pointer">Home</li></Link>
+          <Link to="/about" style={{ textDecoration: 'none' }}><li className="hover:cursor-pointer">About</li></Link>
           <div
             className="dropdown"
             // onMouseEnter={() => showSection("industries")}
