@@ -15,8 +15,8 @@ const Homemeetourteam = () => {
     <section className="bg-[#26282b] w-11/12 mx-auto rounded-md m-4 p-4" style={{width:'82vw'}}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white">Meet Our  <span className="text-[#ffd700]">Team</span></h2>
-          <p className="mt-4 text-white">Our team of experts will help you achieve your goals. </p>
+          <h2 className="text-3xl font-bold text-white" style={{fontSize:'40px'}}>Meet Our  <span className="text-[#ffd700]">Team</span></h2>
+          <p className="mt-4 text-white" style={{fontWeight:'400',fontSize:'15px'}}>Our team of experts will help you achieve your goals. </p>
         </div>
         <div className="mt-8 grid grid-cols-3 gap-8 md:grid-cols-3 lg:grid-cols-4">
           <div className="bg-white p-6 rounded-lg shadow-lg h-96">

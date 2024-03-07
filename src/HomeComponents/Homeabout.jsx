@@ -15,13 +15,13 @@ const Homeabout = () => {
               <div className="md:ml-12 text-center md:text-left">
                 
               
-              <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" id='wearequbic' style={{fontSize:'30px'}}>
+              <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" id='wearequbic' style={{fontSize:'40px'}}>
   <Typewriter
     options={{
       autoStart: true,
       loop:true,
       
-      delay: 2,
+      delay: 2, 
       strings: ['We are <span class="text-[#ffd700]">QubiGen</span>'],
       onComplete: (self) => {
         const textElement = self.el;
@@ -34,7 +34,7 @@ const Homeabout = () => {
 
 
 
-                <p className="mt-2 text-white" style={{fontSize:'13px'}}>
+                <p className="mt-2 text-white" style={{fontSize:'15px',fontWeight:'400'}}>
  
   QubiGen, situated in the dynamic and thriving city of Anantapur, Andhra Pradesh, India, stands as a beacon of knowledge and a catalyst for success. Our mission is to bridge the gap between learning and achievement, focusing on innovative where ideas flourish and ambitions are realizedWith a focus on innovation and excellence, QubiGen empowers individuals to unlock their potential and contribute meaningfully to their communities.Here, tradition meets technology, creating a unique synergy.|
 </p>

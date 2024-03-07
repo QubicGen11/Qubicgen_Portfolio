@@ -20,6 +20,7 @@
   
 #aboutusimage {
     border-radius: 30px;
+    height: 200px;
     transition: transform 0.5s ease-in-out; /* Add transition for a smooth effect */
   }
   

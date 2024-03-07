@@ -141,7 +141,7 @@ const[Webserve,setWebserve]=useState([
      <p className="lead" id='leadtext'>Our web development services are crafted to breathe life into your online vision, combining creativity with technical prowess to create stunning websites that captivate and inspire. From sleek and intuitive designs to robust functionality, we're here to transform your online presence and propel your business to new heights in the digital landscape.</p>
    </div>
    <div className="col-md-5" bis_skin_checked="1">
-     <img src="https://img.freepik.com/free-photo/medium-shot-woman-working-laptop_23-2150323516.jpg?t=st=1709113693~exp=1709117293~hmac=80464deac02031535b1286984e04dbee49f8f0ded7438d3e837ab5398be06f05&w=996"  alt="" />
+     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709795794/QubicGen/medium-shot-woman-working-laptop_23-2150323516_ms6dwf.jpg"  alt="" />
    </div>
  </div>
     </div>

@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Typewriter from 'typewriter-effect';
 import './Homewhatwedo.css'
+import { Link } from 'react-router-dom';
 
 
 const Homewhatwedo = () => {
@@ -17,7 +18,7 @@ const Homewhatwedo = () => {
         <div className="container mx-auto flex flex-col md:flex-row items-center" >
           <div className="md:ml-12 text-center md:text-left" id='lefttextabout' >
 
-          <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white">
+          <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" style={{fontSize:'40px'}}>
   <Typewriter
     options={{
       autoStart: true,
@@ -40,8 +41,9 @@ const Homewhatwedo = () => {
   className="mt-2 text-white"
   style={{
     position: 'relative',
-    right: '10px'
-  
+    right: '10px',
+    fontSize:'15px',
+    fontWeight:'400'
    
   }}
 >
@@ -59,16 +61,26 @@ const Homewhatwedo = () => {
 
 <div id="carouselExampleFade1" className="carousel slide carousel-fade" data-bs-ride="carousel">
   <div className="carousel-inner" style={{ height: '200px', width: '300px',borderRadius:'30px' }}>
-    <div className="carousel-item active" data-bs-interval="3000">
-    <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354331/QubicGen/robotic-arm-rpa-hologram_klywdu_qaw6xz.webp" className="d-block w-100" alt="..."  />    </div>
-    <div className="carousel-item" data-bs-interval="3000">
-      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354327/QubicGen/26761825_2111.i101.015.F.m004.c9.digital_transformation_digitization_isometric_jttcar_n7620j.webp" className="d-block w-100" alt="..."/>
+    <div className="carousel-item active" data-bs-interval="2000">
+  <Link to="/rpa">
+  <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354331/QubicGen/robotic-arm-rpa-hologram_klywdu_qaw6xz.webp" className="d-block w-100" alt="..."  /> </Link>    </div>
+    <div className="carousel-item" data-bs-interval="2000">
+    <Link to="/digitalization">
+    <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354327/QubicGen/26761825_2111.i101.015.F.m004.c9.digital_transformation_digitization_isometric_jttcar_n7620j.webp" className="d-block w-100" alt="..."/>
+
+    </Link>
     </div>
-    <div className="carousel-item" data-bs-interval="3000">
-      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354333/QubicGen/998_sap_etuzdj_m4s30u.webp" className="d-block w-100" alt="..."/>
+    <div className="carousel-item" data-bs-interval="2000">
+<Link to="/sap">
+<img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354333/QubicGen/998_sap_etuzdj_m4s30u.webp" className="d-block w-100" alt="..."/>
+
+</Link>
     </div>
-    <div className="carousel-item" data-bs-interval="3000">
+    <div className="carousel-item" data-bs-interval="2000">
+      <Link to="/cybersecurity">
       <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354332/QubicGen/3d-internet-secuirty-badge_lhwfci_s4vubk.webp" className="d-block w-100" alt="..."/>
+
+      </Link>
     </div>
   </div>
   <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade1" data-bs-slide="prev">

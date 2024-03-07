@@ -150,7 +150,7 @@ const [RetailOffering, setRetailOffering] = useState([
             <p className="lead" id='leadtext'>At QubicGen, we specialize in delivering tailored solutions for Retail and Consumer Goods industries, optimizing operations and enhancing customer experiences. From innovative storefront designs to efficient supply chain management, we empower businesses to excel in the ever-evolving marketplace.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709626058/QubicGen/electric-vehicle-plugged-charging-point_157027-3504_weapmb.jpg" alt="" />          </div>
+          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709625817/QubicGen/background-interior-supermarket-out-focus_123827-28040_wpfavj.jpg" alt="" />          </div>
       </div>
     </div>
 
