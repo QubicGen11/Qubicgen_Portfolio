@@ -57,42 +57,42 @@ const Digitalslist = () => {
     {
     title: 'Healthcare',
     description: 'Boost patient engagement and reach with targeted digital marketing strategies for healthcare providers.',
-    background: "https://img.freepik.com/free-photo/doctor-giving-presentation-team-interim-doctors_107420-84783.jpg?t=st=1709101341~exp=1709104941~hmac=e5dffce83635b7ef2536d9124b9186a97b98d98711d8226b1d718d3e4d07ea4b&w=900"
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709809875/QubicGen/Digital%20Marketing/What%20We%20Serve/medical-technology-concepts-medical-students-use-mobile-phones-search-information-modern-office-morning-desk_533890-529_ikulti.jpg"
     },
     {
     title: 'E-Commerce',
     description: 'Drive online sales and brand visibility with comprehensive digital marketing solutions for e-commerce businesses.',
-    background: "https://img.freepik.com/free-photo/laptop-shopping-bags-online-shopping-concept_1423-189.jpg?t=st=1709190042~exp=1709193642~hmac=7ef9b66995e43ecff674e0992bc5a72e3cb1828f8d88e346fea686d6f5867530&w=740"
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709809917/QubicGen/Digital%20Marketing/What%20We%20Serve/laptop-shopping-bags-online-shopping-concept_1423-189_dmrqcx.jpg"
     },
     {
     title: 'Education',
     description: 'Enhance student recruitment and enrollment with strategic digital marketing services for educational institutions.',
-    background: "https://img.freepik.com/free-photo/view-school-supplies-desk_23-2151110149.jpg?t=st=1709190136~exp=1709193736~hmac=a39c40063cc086b36e469ae583227a7ff5fa35c2ff0ece3b0037b8b2d617e3f5&w=740"
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709809963/QubicGen/Digital%20Marketing/What%20We%20Serve/view-school-supplies-desk_23-2151110149_flvhbn.jpg"
     },
     {
     title: 'Automobile',
     description: 'Maximize brand awareness and drive dealership traffic with tailored digital marketing solutions for the automobile industry.',
-    background: "https://img.freepik.com/free-photo/view-car-running-high-speed_23-2150635403.jpg?t=st=1709190376~exp=1709193976~hmac=82089b2f438b80412ab1faaac215f5cff816ca73f474745f09a4519a59036dac&w=826"
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709809969/QubicGen/Digital%20Marketing/What%20We%20Serve/view-car-running-high-speed_23-2150635403_tkm3dy.jpg"
     },
     {
     title: 'Media & Entertainment',
     description: 'Amplify audience engagement and content visibility with dynamic digital marketing strategies for the media and entertainment industry.',
-    background: "https://img.freepik.com/premium-photo/free-photo-social-media-marketing-concept-marketing_971974-1468.jpg?w=740"
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709810010/QubicGen/Digital%20Marketing/What%20We%20Serve/free-photo-social-media-marketing-concept-marketing_971974-1468_enouse.jpg"
     },
     {
     title: 'Social Media Marketing',
     description: 'Build brand loyalty and drive engagement with expert social media marketing services for businesses.',
-    background: "https://img.freepik.com/free-photo/social-media-marketing-concept-marketing-with-applications_23-2150063134.jpg?t=st=1709190459~exp=1709194059~hmac=97030e35a4dbbf1d4619a14dfd827a8ac8e27bd3717d231097894266ebe9b465&w=740"
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709810041/QubicGen/Digital%20Marketing/What%20We%20Serve/social-media-marketing-concept-marketing-with-applications_23-2150063134_irlpdf.jpg"
     },
     {
     title: 'SEO (Search Engine Optimization)',
     description: 'Improve online visibility and drive organic traffic with results-driven SEO services.',
-    background: "https://img.freepik.com/free-photo/top-view-cloud-with-word-seo_1134-68.jpg?t=st=1709190506~exp=1709194106~hmac=4a0b0a9027c99a9bc926be849d21f158e02fd76fce42a60c3c90ea374258c9cb&w=740"
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709810075/QubicGen/Digital%20Marketing/What%20We%20Serve/top-view-cloud-with-word-seo_1134-68_wv7fyb.jpg"
     },
     {
     title: 'Retail',
     description :'Increase foot traffic and online sales with tailored digital marketing strategies for retail businesses.',
-    background: "https://img.freepik.com/free-photo/smiling-girl-holding-shopping-bags_23-2148286179.jpg?t=st=1709190553~exp=1709194153~hmac=954dac8ab313c77a380810c2924baa6027c8067427da6f3122a946440ef37bb7&w=740"
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709810123/QubicGen/Digital%20Marketing/What%20We%20Serve/smiling-girl-holding-shopping-bags_23-2148286179_qe7fpo.jpg"
     }
     
     

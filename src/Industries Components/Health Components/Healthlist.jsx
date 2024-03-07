@@ -4,11 +4,7 @@ import Queries from '../Banking Components/Queries';
 import { Link } from 'react-scroll';
 
 const Bankinglist = () => {
-  // const overviewRef = useRef(null);
-  // const serveRef = useRef(null);
-  // const caseStudiesRef = useRef(null);
-  // const queriesRef = useRef(null);
-  // const [selectedItem, setSelectedItem] = useState(null);
+
 
   const handleItemClick = (item) => {
     setSelectedItem(item);

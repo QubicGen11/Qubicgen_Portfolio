@@ -1,345 +1,111 @@
 .bankinghead {
-    position: relative;
-    height: 70vh;
-    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709533884/QubicGen/future-artificial-intelligence-robot-cyborg_31965-16648_jaya0w.jpg");
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .bankinghead::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: black;
-    opacity: 0.7;
-    z-index: 1;
-  }
-
-  #bankingtit{
-    z-index: 5;
-    color: white;
-    position: absolute;
-    top: 200px;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    font-size: 40px;
-    font-weight: 900;
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  #bankingdesc{
-    z-index: 5;
-    color: white;
-    position: absolute;
-    top: 20%;
-    left: 34%;
-    transform: translate(-50%, -50%);
-    font-weight: 300;
-    font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
-    padding-top: 350px;
-    padding-left: 2rem;
-  }
-
-  
-
-  @media (min-width: 320px) and (max-width: 500px) {
-#bankingtit{
-  font-size: 30px;
-}
-
-#bankingdesc{
-  font-size: 12px;
-  top: 37%;
-  left: 30%;
-}
-.bankinghead {
   position: relative;
-  height: 50vh;
-    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709533884/QubicGen/future-artificial-intelligence-robot-cyborg_31965-16648_jaya0w.jpg");
-  background-size: cover;
+  height: 70vh;
+  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709533884/QubicGen/future-artificial-intelligence-robot-cyborg_31965-16648_jaya0w.jpg");  background-size: cover;
   background-position: center;
 }
-  }
-  @media (min-width: 501px) and (max-width: 768px) {
+
+.bankinghead::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.7;
+  z-index: 1;
+}
+
 #bankingtit{
-  font-size: 30px;
-}
-
-#bankingdesc{
-  font-size: 12px;
-  top: 25%;
-  left: 32%;
-}
-.bankinghead {
-  position: relative;
-  height: 40vh;
-    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709533884/QubicGen/future-artificial-intelligence-robot-cyborg_31965-16648_jaya0w.jpg");
-  background-size: cover;
-  background-position: center;
-}
-  }
-
-
-  /* This is offering cards css */
-  #offeringscards {
-    transition: transform 0.3s ease-in-out;
-
-  }
-  
-  #offeringscards:hover {
-    transform: scale(1.06);
-    box-shadow: 0px 0px 10px gold; /* Example: Add box shadow on hover */
-    opacity: 0.9; /* Example: Reduce opacity on hover */ 
-   }
-
-
-  
-  .card-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.999s;
-  }
-  
-  .card:hover .card-inner {
-    transform: rotateY(180deg);
-    box-shadow: 0px 0px 10px gold; /* Example: Add box shadow on hover */
-
-  }
-  
-  .card-front,
-  .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
-  
-  .card-front {
-    background : url("https://images.unsplash.com/photo-1589225643300-fbfd24356bc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHJwYXxlbnwwfHwwfHx8MA%3D%3D");
-    color: #fff;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    justify-content: center;
-    font-size: 24px;  
-    transform: rotateY(0deg);
-  }
-  
-  .card-back {
-    background-color: #242424;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    border: 10px solid #242424;
-    border-radius: 10px;
-    justify-content: center;
-    font-size: 13px;
-    transform: rotateY(180deg);
-  }
-  
- 
-.banklist nav li {
-    color: white;
-    list-style-type: none;
-    font-weight: 600;
-    font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
-    position: relative;
-    transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
-}
-
-.banklist nav li::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-color: transparent;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.banklist nav li:hover {
-    color: gold;
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-
-}
-
-
-
-.banklist nav {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 20px 0px 24px;
-    background-color: black;
-}
-
-#leadtext{
-    font-size: 8px;
-    padding: 20px;
-    font-weight: 300;
-    font-family: 'Montserrat', sans-serif;
-}
-
-/* Bankserve starts */
-
-.banklist li{
-    list-style-type: none;
-    font-size: 10px;
-    margin-top: 30px;
-    
-}
-.banklist li p{
-    list-style-type: none;
-    font-size: 30px;
-    margin-top: 20px;
-    
-}
-
-.banklist{
-    justify-content: space-evenly;
-}
-
-
-/* This is banklist nav */
-.banking-main-list nav li {
+  z-index: 5;
   color: white;
-  list-style-type: none;
-  font-weight: 600;
+  position: absolute;
+  /* top: 200px;
+  left: 20%;
+  transform: translate(-50%, -50%); */
+  font-size: 40px;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#bankingdesc{
+  z-index: 5;
+  color: white;
+  position: absolute;
+  /* top: 18%;
+  left: 29%;
+  transform: translate(-50%, -50%); */
+  font-weight: 300;
   font-size: 20px;
   font-family: 'Montserrat', sans-serif;
-  position: relative;
-  transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
-}
-
-.banking-main-list nav li::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background-color: transparent;
-  transform: scaleX(0);
-  transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
-}
-
-.banking-main-list nav li:hover {
-  color: gold;
-  transform: scale(1.3);
-}
-
-.banking-main-list nav li:hover::after {
-  transform: scaleX(1);
-  background-color: gold;
-}
-
-.banking-main-list nav {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 20px 0px 24px;
-  background-color: black;
-}
-
-#leadtext {
-  font-size: 16px;
-  padding: 20px;
-  font-weight: 300;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.banking-main-list li {
-  list-style-type: none;
-  font-size: 30px;
-  margin-top: 30px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.banking-main-list li:hover {
-  transform: scale(1.1);
-}
-
-.banking-main-list li p {
-  list-style-type: none;
-  font-size: 30px;
-  margin-top: 20px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.banking-main-list {
-  justify-content: space-evenly;
-}
-
-/* Bankserve ends */
-
-
-
-
-
-
-@media (max-width:600px) {
-    .banking-main-list{
-        display: none;
-    }
-  
-    
-    
 }
 
 
 
+@media (min-width: 320px) and (max-width: 590px) {
+#bankingtit{
+font-size: 20px;
+position: absolute;
+/* top:55%;
 
-@media (max-width:768px) {
-    .banklist nav li img {
-        height: 30px;
-    }
-    .banklist nav li p{
-        list-style-type: none;
-        font-size: 10px;
-        margin-top: 20px;
-        
-    }
-    #bankingprod p{
-        font-size: 10px;
-        padding: 10px;
-
-    }
-    .banking-main-list nav li{
-       font-size: 10px;
-    }
-  
-    
-    
+left: 40%; */
 }
 
-@media (min-width:768px) and (max-width:1024px){
-    .banklist nav li {
-        color: white;
-        list-style-type: none;
-        font-weight: 600;
-        font-size: 10px;
-        font-family: 'Montserrat', sans-serif;
-        position: relative;
-        transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
-    }
+#bankingdesc{
+font-size: 12px;
+margin-top: 60px;
+/* top: 37%;
+left: 30%; */
+}
+.bankinghead {
+position: relative;
+height: 50vh;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709533884/QubicGen/future-artificial-intelligence-robot-cyborg_31965-16648_jaya0w.jpg");background-size: cover;
+background-position: center;
+}
+}
+@media (min-width: 501px) and (max-width: 768px) {
+#bankingtit{
+font-size: 25px;
+position: absolute;
 
-    #leadtext{
-        font-size: 5px;
-    }
-    
-
+/* left: 32%; */
 }
 
+#bankingdesc{
+font-size: 12px;
+/* top: 20%;
+left: 32%; */
+}
+.bankinghead {
+position: relative;
+height: 40vh;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709533884/QubicGen/future-artificial-intelligence-robot-cyborg_31965-16648_jaya0w.jpg");background-size: cover;
+background-position: center;
+}
+}
+@media (min-width: 770px) and (max-width: 1024px) {
+#bankingtit{
+font-size: 25px;
+position: absolute;
 
-/* This is card code  */
+/* left: 32%; */
+}
+
+#bankingdesc{
+font-size: 12px;
+/* top: 20%;
+left: 32%; */
+}
+.bankinghead {
+position: relative;
+height: 40vh;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709533884/QubicGen/future-artificial-intelligence-robot-cyborg_31965-16648_jaya0w.jpg");background-size: cover;
+background-position: center;
+}
+}
+
 
 .card p {
   font-size: 17px;
@@ -541,8 +307,6 @@
   opacity: 1;
 }
 
-
-/* This is book */
 .book {
   position: relative;
   border-radius: 10px;

@@ -9,7 +9,7 @@ const Healthhead = () => {
         <h1 id="healthtit" className="mx-5">
             Healthcare Life Sciences
         </h1>
-        <p id="healthdesc" className="mx-5 my-12 xs-my-10">
+        <p id="healthdesc" className="mx-5 my-12 sm-my-10">
             We assist in redefining and transforming the delivery of care throughout the ecosystem.
         </p>
     </div>
