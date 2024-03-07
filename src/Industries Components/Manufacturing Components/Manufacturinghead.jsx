@@ -4,14 +4,19 @@ import 'aos/dist/aos.css';
 const Manufacturinghead = () => {
   return (
     <>
-       <div className="manufacturinghead" data-aos="fade-right">
 
-<h1 id='manufacturingtit'>
-Manufacturing</h1>
-<p id='manufacturingdesc'style={{marginLeft:'25px'}}>
-Pioneering solutions in the manufacturing sector, we specialize in optimizing processes and enhancing efficiency to drive sustainable growth and innovation.</p>
 
- </div>    
+   
+ <div className="manufacturinghead d-flex align-items-center justify-content-start" data-aos="fade-right">
+    <div className="text-start mx-5 ">
+        <h1 id="manufacturingtit">
+        Manufacturing      </h1>
+        <p id="manufacturingdesc" className='my-14 '>
+        Pioneering solutions in the manufacturing sector, we specialize in optimizing processes and enhancing efficiency to drive sustainable growth and innovation.
+        </p>
+    </div>
+    </div>
+
     
     </>
   )

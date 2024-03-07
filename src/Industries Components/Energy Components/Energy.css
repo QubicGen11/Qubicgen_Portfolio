@@ -1,11 +1,10 @@
 .energyhead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709550780/QubicGen/sunset-sky-powers-wind-solar-energy-generated-by-ai_1_a7mbbd.jpg");
-  background-size: cover;
-  background-position: center;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709550780/QubicGen/sunset-sky-powers-wind-solar-energy-generated-by-ai_1_a7mbbd.jpg");
+background-position: center;
+background-size: cover;
 }
-
 .energyhead::before {
   content: "";
   position: absolute;
@@ -18,78 +17,92 @@
   z-index: 1;
 }
 
-#energytit,
-#energydesc {
+#energytit{
   z-index: 5;
   color: white;
+  position: absolute;
+  /* top: 200px;
+  left: 20%;
+  transform: translate(-50%, -50%); */
+  font-size: 40px;
+  font-weight: 900;
   font-family: 'Montserrat', sans-serif;
 }
 
-#energytit {
+#energydesc{
+  z-index: 5;
+  color: white;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  font-weight: 900;
-}
-
-#energydesc {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* top: 18%;
+  left: 29%;
+  transform: translate(-50%, -50%); */
   font-weight: 300;
   font-size: 20px;
-  width: 80%; /* Adjust the width as needed */
-}
-
-@media (max-width: 500px) {
-  #energytit {
-    font-size: 30px;
-    top: 40%;
-  }
-
-  #energydesc {
-    font-size: 12px;
-    top: 60%;
-  }
-
-  .energyhead {
-    height: 50vh;
-  }
-}
-
-@media (min-width: 501px) and (max-width: 1024px) {
-  #energytit {
-    font-size: 30px;
-  }
-
-  #energydesc {
-    font-size: 12px;
-    top: 62%;
-  }
-
-  .energyhead {
-    height: 40vh;
-  }
-}
-@media (min-width: 501px) and (max-width: 700px) {
-  #energytit {
-    font-size: 20px;
-  }
-
-  #energydesc {
-    font-size: 12px;
-    top: 65%;
-  }
-
-  .energyhead {
-    height: 40vh;
-  }
+  font-family: 'Montserrat', sans-serif;
 }
 
 
+
+@media (min-width: 320px) and (max-width: 590px) {
+#energytit{
+font-size: 20px;
+position: absolute;
+/* top:55%;
+
+left: 40%; */
+}
+
+#energydesc{
+font-size: 12px;
+margin-top: 60px;
+/* top: 37%;
+left: 30%; */
+}
+.energyhead {
+position: relative;
+height: 50vh;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709550780/QubicGen/sunset-sky-powers-wind-solar-energy-generated-by-ai_1_a7mbbd.jpg");
+}
+@media (min-width: 501px) and (max-width: 768px) {
+#energytit{
+font-size: 25px;
+position: absolute;
+
+/* left: 32%; */
+}
+
+#energydesc{
+font-size: 12px;
+/* top: 20%;
+left: 32%; */
+}
+.energyhead {
+position: relative;
+height: 40vh;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709550780/QubicGen/sunset-sky-powers-wind-solar-energy-generated-by-ai_1_a7mbbd.jpg");
+background-position: center;
+}
+}
+@media (min-width: 770px) and (max-width: 1024px) {
+#energytit{
+font-size: 25px;
+position: absolute;
+
+/* left: 32%; */
+}
+
+#energydesc{
+font-size: 12px;
+/* top: 20%;
+left: 32%; */
+}
+.energyhead {
+position: relative;
+height: 40vh;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709550780/QubicGen/sunset-sky-powers-wind-solar-energy-generated-by-ai_1_a7mbbd.jpg");
+}
+}
+}
   /* This is offering cards css */
   #offeringscards {
     transition: transform 0.3s ease-in-out;
@@ -127,7 +140,7 @@
   }
   
   .card-front {
-    background : url("https://images.unsplash.com/photo-1589225643300-fbfd24356bc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHJwYXxlbnwwfHwwfHx8MA%3D%3D");
+    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709625023/QubicGen/smart-industry-robot-arms-digital-factory-production-technology_31965-8218_tv05go.jpg");
     color: #fff;
     display: flex;
     align-items: center;
@@ -216,7 +229,7 @@
 
 
 /* This is banklist nav */
-.banking-main-list nav li {
+.energy-main-list nav li {
   color: white;
   list-style-type: none;
   font-weight: 600;
@@ -226,7 +239,7 @@
   transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
 }
 
-.banking-main-list nav li::after {
+.energy-main-list nav li::after {
   content: '';
   position: absolute;
   left: 0;
@@ -238,17 +251,17 @@
   transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
-.banking-main-list nav li:hover {
+.energy-main-list nav li:hover {
   color: gold;
   transform: scale(1.3);
 }
 
-.banking-main-list nav li:hover::after {
+.energy-main-list nav li:hover::after {
   transform: scaleX(1);
   background-color: gold;
 }
 
-.banking-main-list nav {
+.energy-main-list nav {
   display: flex;
   justify-content: space-evenly;
   padding: 20px 0px 24px;
@@ -262,25 +275,25 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.banking-main-list li {
+.energy-main-list li {
   list-style-type: none;
   font-size: 30px;
   margin-top: 30px;
   transition: transform 0.3s ease-in-out;
 }
 
-.banking-main-list li:hover {
+.energy-main-list li:hover {
   transform: scale(1.1);
 }
 
-.banking-main-list li p {
+.energy-main-list li p {
   list-style-type: none;
   font-size: 30px;
   margin-top: 20px;
   transition: transform 0.3s ease-in-out;
 }
 
-.banking-main-list {
+.energy-main-list {
   justify-content: space-evenly;
 }
 
@@ -292,7 +305,7 @@
 
 
 @media (max-width:600px) {
-    .banking-main-list{
+    .energy-main-list{
         display: none;
     }
   
@@ -313,12 +326,12 @@
         margin-top: 20px;
         
     }
-    #bankingprod p{
+    #energyprod p{
         font-size: 10px;
         padding: 10px;
 
     }
-    .banking-main-list nav li{
+    .energy-main-list nav li{
        font-size: 10px;
     }
   

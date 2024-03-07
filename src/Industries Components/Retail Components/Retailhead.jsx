@@ -4,14 +4,17 @@ import 'aos/dist/aos.css';
 const Retailhead = () => {
   return (
     <>
-       <div className="retailhead" data-aos="fade-right">
+     
 
-<h1 id='retailtit'>
-Retail and Consumer Goods</h1>
-<p id='retaildesc'style={{marginLeft:'25px'}}>
-"Elevating retail experiences and optimizing consumer goods operations. From storefront to supply chain, we empower businesses to thrive in the dynamic retail landscape."</p>
-
- </div>    
+  <div className="retailhead d-flex align-items-center justify-content-start" data-aos="fade-right">
+    <div className="text-start mx-5 ">
+        <h1 id="retailtit">
+        Retail and Consumer Goods   </h1>
+        <p id="retaildesc" className='my-14 '>
+        "Elevating retail experiences and optimizing consumer goods operations. From storefront to supply chain, we empower businesses to thrive in the dynamic retail landscape."</p>
+    </div>
+    </div>
+  
     
     </>
   )

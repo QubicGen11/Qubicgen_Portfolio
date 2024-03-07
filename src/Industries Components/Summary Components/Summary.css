@@ -1,96 +1,104 @@
 .summaryhead {
-    position: relative;
-    height: 70vh;
-    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709626733/QubicGen/workaholic-businesswoman-pointing-financial-strategy-using-monitor-working-overtime-company-meeting-office-room_482257-2175_gpqswy.jpg");
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .summaryhead::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: black;
-    opacity: 0.7;
-    z-index: 1;
-  }
-
-  #summarytit{
-    z-index: 5;
-    color: white;
-    position: absolute;
-    top: 200px;
-    left: 23%;
-    transform: translate(-50%, -50%);
-    font-size: 40px;
-    font-weight: 900;
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  #summarydesc{
-    z-index: 5;
-    color: white;
-    position: absolute;
-    top: 20%;
-    left: 34%;
-    transform: translate(-50%, -50%);
-    font-weight: 300;
-    font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
-    padding-top: 350px;
-    padding-left: 2rem;
-  }
-
-  
-
-  @media (min-width: 320px) and (max-width: 500px) {
-#summarytit{
-  font-size: 30px;
+  position: relative;
+  height: 70vh;
+  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709626733/QubicGen/workaholic-businesswoman-pointing-financial-strategy-using-monitor-working-overtime-company-meeting-office-room_482257-2175_gpqswy.jpg");background-position: center;
+background-size: cover;
+}
+.summaryhead::before {
+  content: "";
   position: absolute;
-  top:55%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.7;
+  z-index: 1;
+}
 
-  left: 40%;
+#summarytit{
+  z-index: 5;
+  color: white;
+  position: absolute;
+  /* top: 200px;
+  left: 20%;
+  transform: translate(-50%, -50%); */
+  font-size: 40px;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #summarydesc{
-  font-size: 12px;
-  top: 37%;
-  left: 30%;
-}
-.summaryhead {
-  position: relative;
-  height: 50vh;
-    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709626733/QubicGen/workaholic-businesswoman-pointing-financial-strategy-using-monitor-working-overtime-company-meeting-office-room_482257-2175_gpqswy.jpg");
-  background-size: cover;
-  background-position: center;
-}
-  }
-  @media (min-width: 501px) and (max-width: 768px) {
-#summarytit{
-  font-size: 30px;
+  z-index: 5;
+  color: white;
   position: absolute;
+  /* top: 18%;
+  left: 29%;
+  transform: translate(-50%, -50%); */
+  font-weight: 300;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
 
-  left: 30%;
+
+
+@media (min-width: 320px) and (max-width: 590px) {
+#summarytit{
+font-size: 20px;
+position: absolute;
+/* top:55%;
+
+left: 40%; */
 }
 
 #summarydesc{
-  font-size: 12px;
-  top: 25%;
-  left: 32%;
+font-size: 12px;
+margin-top: 60px;
+/* top: 37%;
+left: 30%; */
 }
 .summaryhead {
-  position: relative;
-  height: 40vh;
-    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709626733/QubicGen/workaholic-businesswoman-pointing-financial-strategy-using-monitor-working-overtime-company-meeting-office-room_482257-2175_gpqswy.jpg");
-  background-size: cover;
-  background-position: center;
+position: relative;
+height: 50vh;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709626733/QubicGen/workaholic-businesswoman-pointing-financial-strategy-using-monitor-working-overtime-company-meeting-office-room_482257-2175_gpqswy.jpg");}
+@media (min-width: 501px) and (max-width: 768px) {
+#summarytit{
+font-size: 25px;
+position: absolute;
+
+/* left: 32%; */
 }
-  }
 
+#summarydesc{
+font-size: 12px;
+/* top: 20%;
+left: 32%; */
+}
+.summaryhead {
+position: relative;
+height: 40vh;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709626733/QubicGen/workaholic-businesswoman-pointing-financial-strategy-using-monitor-working-overtime-company-meeting-office-room_482257-2175_gpqswy.jpg");background-position: center;
+}
+}
+@media (min-width: 770px) and (max-width: 1024px) {
+#summarytit{
+font-size: 25px;
+position: absolute;
 
+/* left: 32%; */
+}
+
+#summarydesc{
+font-size: 12px;
+/* top: 20%;
+left: 32%; */
+}
+.summaryhead {
+position: relative;
+height: 40vh;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709626733/QubicGen/workaholic-businesswoman-pointing-financial-strategy-using-monitor-working-overtime-company-meeting-office-room_482257-2175_gpqswy.jpg");}
+}
+}
   /* This is offering cards css */
   #offeringscards {
     transition: transform 0.3s ease-in-out;
@@ -128,7 +136,7 @@
   }
   
   .card-front {
-    background : url("https://images.unsplash.com/photo-1589225643300-fbfd24356bc9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHJwYXxlbnwwfHwwfHx8MA%3D%3D");
+    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709625023/QubicGen/smart-industry-robot-arms-digital-factory-production-technology_31965-8218_tv05go.jpg");
     color: #fff;
     display: flex;
     align-items: center;
@@ -217,7 +225,7 @@
 
 
 /* This is banklist nav */
-.banking-main-list nav li {
+.summary-main-list nav li {
   color: white;
   list-style-type: none;
   font-weight: 600;
@@ -227,7 +235,7 @@
   transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
 }
 
-.banking-main-list nav li::after {
+.summary-main-list nav li::after {
   content: '';
   position: absolute;
   left: 0;
@@ -239,17 +247,17 @@
   transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
-.banking-main-list nav li:hover {
+.summary-main-list nav li:hover {
   color: gold;
   transform: scale(1.3);
 }
 
-.banking-main-list nav li:hover::after {
+.summary-main-list nav li:hover::after {
   transform: scaleX(1);
   background-color: gold;
 }
 
-.banking-main-list nav {
+.summary-main-list nav {
   display: flex;
   justify-content: space-evenly;
   padding: 20px 0px 24px;
@@ -263,25 +271,25 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.banking-main-list li {
+.summary-main-list li {
   list-style-type: none;
   font-size: 30px;
   margin-top: 30px;
   transition: transform 0.3s ease-in-out;
 }
 
-.banking-main-list li:hover {
+.summary-main-list li:hover {
   transform: scale(1.1);
 }
 
-.banking-main-list li p {
+.summary-main-list li p {
   list-style-type: none;
   font-size: 30px;
   margin-top: 20px;
   transition: transform 0.3s ease-in-out;
 }
 
-.banking-main-list {
+.summary-main-list {
   justify-content: space-evenly;
 }
 
@@ -293,7 +301,7 @@
 
 
 @media (max-width:600px) {
-    .banking-main-list{
+    .summary-main-list{
         display: none;
     }
   
@@ -314,12 +322,12 @@
         margin-top: 20px;
         
     }
-    #bankingprod p{
+    #summaryprod p{
         font-size: 10px;
         padding: 10px;
 
     }
-    .banking-main-list nav li{
+    .summary-main-list nav li{
        font-size: 10px;
     }
   
