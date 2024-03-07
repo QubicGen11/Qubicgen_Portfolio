@@ -17,25 +17,25 @@ const Homewhomweserve = () => {
   <div className="carousel-inner" style={{ height: '200px', width: '300px',borderRadius:'30px' }}>
     <div className="carousel-item active" data-bs-interval="2000">
     <a href="/health">
-              <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354326/QubicGen/ai-dna-gene-editing-technology-biotech-genetic-engineering_ietf9w_niphrh.webp" className="d-block w-100" alt="..." />
+              <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709804398/QubicGen/Home%20Page/To%20Whom%20We%20Serve/ai-dna-gene-editing-technology-biotech-genetic-engineering_1_1_1_1_1_rbuq7m.jpg" className="d-block w-100" alt="..." />
             </a>
         </div>
     <div className="carousel-item" data-bs-interval="2000">
       <a href="/manufacturing">
-      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354325/QubicGen/hightech-robot-arms-automated-manufacturing-plant_fdv51e_upx4ji.webp" style={{ height: '300px', width: '300px',borderRadius:'30px' }} className="d-block w-100" alt="..."/>
+      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709804709/QubicGen/Home%20Page/To%20Whom%20We%20Serve/hightech_msmomq.jpg" style={{ height: '300px', width: '300px',borderRadius:'30px' }} className="d-block w-100" alt="..."/>
 
       </a>
     </div>
     <div className="carousel-item" data-bs-interval="2000">
       <a href="/travel">
-      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354325/QubicGen/Gemini_Generated_Image_3_wl9ihw_ysvyrz.webp"/>
+      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709804753/QubicGen/Home%20Page/To%20Whom%20We%20Serve/Gemini_Generated_Image_3_ddb8jt.jpg"/>
 
 
       </a>
     </div>
     <div className="carousel-item" data-bs-interval="2000">
       <a href="/energy">
-      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709796312/QubicGen/solar-energy-pannel-big-solar-farm-warm-light-tone-generative-ai_36049-972_efzgeo.jpg" style={{height:'300px'}} className="d-block w-100" alt="..."/>
+      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709796312/QubicGen/Home%20Page/To%20Whom%20We%20Serve/solar-energy-pannel-big-solar-farm-warm-light-tone-generative-ai_36049-972_efzgeo.jpg" style={{height:'300px'}} className="d-block w-100" alt="..."/>
 
       </a>
     </div>
