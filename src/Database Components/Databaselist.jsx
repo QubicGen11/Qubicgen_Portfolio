@@ -52,55 +52,55 @@ const Databaselist = () => {
     }
   ]);
 
-const [DataBaseServe, setDataBaseServe] = useState([
-  {
-      title:'HealthCare',
-      description: 'Securely manage patient data with our healthcare-focused database solutions, ensuring compliance and privacy.',
-      background: "https://img.freepik.com/free-photo/successful-medical-team_329181-9252.jpg?t=st=1709119814~exp=1709123414~hmac=a2b7793627d2d2d4ee59b6ed4dee3c3783886802f52c45a15e021db296d3a8c4&w=740"
-      },
-      
-      {
-      title: 'Education',
-      description: 'Empower academic institutions with scalable database solutions for student management and learning platforms.',
-      background: "https://img.freepik.com/free-photo/person-with-books-digital-art-style-education-day_23-2151164358.jpg?t=st=1709119855~exp=1709123455~hmac=d4203c091526e85cff9741aea228390f0e483d1947c6df17070d4ce43ddf42f8&w=740"
-      },
-      {
-      title: 'Manufacturing',
-      description: 'Drive efficiency and innovation in manufacturing with our scalable database solutions for production control.',
-      background: "https://img.freepik.com/free-photo/smart-indian-engineer-man-wearing-safety-helmet-doing-stock-tick-check-cardboard-stock-product-management-factory-warehouse-background_609648-1445.jpg?t=st=1709119925~exp=1709123525~hmac=58a97f3dfc93d096638de57ab6dcac6e2a0420aa1866679a1cda695535812a1f&w=740"
-      },
-      {
-      title: 'Energy and Utilities',
-      description: 'Optimize grid operations and asset management with our reliable database solutions for the energy sector.',
-      background: "https://img.freepik.com/free-photo/turbine-green-energy-electricity-technology-concept_53876-31722.jpg?w=826&t=st=1709120004~exp=1709120604~hmac=8cb4bd897fd66735ae138d9db60a467539581591d0c45220afc6618aca88e775"
-      },
-      {
-      title: 'Banking',
-      description :'Ensure data integrity and compliance in financial transactions with our banking-focused database services.',
-      background: "https://img.freepik.com/premium-photo/online-banking-person-uses-system-selects-service-hologram-laptop_102583-7081.jpg?w=740"
-      },
-      {
-      title: 'Government',
-      description: 'Modernize citizen services and improve transparency with our government-focused database services.',
-      background: "https://img.freepik.com/free-photo/grey-marble-column-details-building_1359-886.jpg?t=st=1709109603~exp=1709113203~hmac=3c7a7385652c17affca217c4991154fc705e5deef262b54c84dd5ad40670ef14&w=740"
-      },
-      {
-      title: 'Media',
-      description: 'Deliver personalized content experiences with our media-focused database solutions for digital asset management.',
-      background: "https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-cinema-tickets-wooden-desk_23-2148188189.jpg?t=st=1709109656~exp=1709113256~hmac=af33f941cc0a2df0fd43470e2f487c91146d36b8ee356372296a23f66c0f4b9e&w=740"
-      },
-      {
-      title: 'Transportation',
-      description: 'Enhance fleet management and passenger safety with our transportation-focused database services.',
-      background: "https://img.freepik.com/free-photo/logistics-transportation-container-cargo-ship-cargo-plane-with-working-crane-bridge-shipyard-sunrise-logistic-import-export-transport-industry-background-ai-generative_123827-24177.jpg?t=st=1709120106~exp=1709123706~hmac=77cdedc3a3349f43f51317fc838a1aae925cf2690f0a7b998b1ea6c509867b5c&w=740"
-      },
-      {
-      title: 'Retail',
-      description: 'Optimize inventory management and customer engagement with our retail-focused database solutions.',
-      background: "https://img.freepik.com/free-photo/background-interior-supermarket-out-focus_123827-28040.jpg?t=st=1709120147~exp=1709123747~hmac=a2e2c1c8ddad348797742d1460189012a755a5e2aa5b01e10c727335057d19af&w=740"
-      }
-  
-  ]);
+  const [DataBaseServe, setDataBaseServe] = useState([
+    {
+        title:'HealthCare',
+        description: 'Securely manage patient data with our healthcare-focused database solutions, ensuring compliance and privacy.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807628/QubicGen/DataBase/What%20we%20serve/successful-medical-team_329181-9252_ra6ybo.jpg"
+        },
+        
+        {
+        title: 'Education',
+        description: 'Empower academic institutions with scalable database solutions for student management and learning platforms.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807661/QubicGen/DataBase/What%20we%20serve/person-with-books-digital-art-style-education-day_23-2151164358_dvaqvz.jpg"
+        },
+        {
+        title: 'Manufacturing',
+        description: 'Drive efficiency and innovation in manufacturing with our scalable database solutions for production control.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807696/QubicGen/DataBase/What%20we%20serve/smart-indian-engineer-man-wearing-safety-helmet-doing-stock-tick-check-cardboard-stock-product-management-factory-warehouse-background_609648-1445_pwe0re.jpg"
+        },
+        {
+        title: 'Energy and Utilities',
+        description: 'Optimize grid operations and asset management with our reliable database solutions for the energy sector.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807702/QubicGen/DataBase/What%20we%20serve/turbine-green-energy-electricity-technology-concept_53876-31722_uojffv.jpg"
+        },
+        {
+        title: 'Banking',
+        description :'Ensure data integrity and compliance in financial transactions with our banking-focused database services.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807742/QubicGen/DataBase/What%20we%20serve/online-banking-person-uses-system-selects-service-hologram-laptop_102583-7081_caaxcb.jpg"
+        },
+        {
+        title: 'Government',
+        description: 'Modernize citizen services and improve transparency with our government-focused database services.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807775/QubicGen/DataBase/What%20we%20serve/grey-marble-column-details-building_1359-886_h7fdsd.jpg"
+        },
+        {
+        title: 'Media',
+        description: 'Deliver personalized content experiences with our media-focused database solutions for digital asset management.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807802/QubicGen/DataBase/What%20we%20serve/clapperboard-popcorn-film-stripe-cinema-tickets-wooden-desk_23-2148188189_wj5kqq.jpg"
+        },
+        {
+        title: 'Transportation',
+        description: 'Enhance fleet management and passenger safety with our transportation-focused database services.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807834/QubicGen/DataBase/What%20we%20serve/logistics-transportation-container-cargo-ship-cargo-plane-with-working-crane-bridge-shipyard-sunrise-logistic-import-export-transport-industry-background-ai-generative_123827-24177_jou2y1.jpg"
+        },
+        {
+        title: 'Retail',
+        description: 'Optimize inventory management and customer engagement with our retail-focused database solutions.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807867/QubicGen/DataBase/What%20we%20serve/background-interior-supermarket-out-focus_123827-28040_zssyws.jpg"
+        }
+    
+    ]);
 
   // This is for rpa offering cards
 

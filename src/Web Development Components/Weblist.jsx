@@ -58,28 +58,28 @@ const[Webserve,setWebserve]=useState([
   {
   title:'HealthCare',
   description: 'Web development in healthcare includes patient portals, telemedicine platforms, and EHR systems for streamlined data management. It also encompasses HIE platforms, analytics dashboards, and medical education platforms for improved insights and learning experiences.',
-  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798087/QubicGen/Web%20Development/doctor-using-stretoscope-virtual-projection_651396-925_xuwd1x.jpg"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798087/QubicGen/Web%20Development/Who%20We%20Serve/doctor-using-stretoscope-virtual-projection_651396-925_xuwd1x.jpg"
   },
   
   {
   title: 'Finance',
   description: 'Web development in the finance industry drives digital innovation, offering applications like online banking, mobile payments, and trading platforms. It enhances security, user experience, and business efficiency by providing personalized financial services.',
-  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798120/QubicGen/Web%20Development/collage-finance-banner-concept_23-2150608824_fdflpm.jpg"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798120/QubicGen/Web%20Development/Who%20We%20Serve/collage-finance-banner-concept_23-2150608824_fdflpm.jpg"
   },
   {
     title: 'Education',
     description: 'Web development in education drives transformative change, enabling seamless access to resources like online platforms, virtual classrooms, and learning analytics tools. It empowers educators with interactive tools by enhancing student engagement and experiential learning.',
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798181/QubicGen/Web%20Development/geometric-science-education-background-vector-gradient-blue-digital-remix_53876-125993_ajtjz9.jpg"
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798181/QubicGen/Web%20Development/Who%20We%20Serve/geometric-science-education-background-vector-gradient-blue-digital-remix_53876-125993_ajtjz9.jpg"
     },
   {
   title: 'Entertainment',
   description: 'Web development powers immersive experiences in entertainment, from streaming services to gaming platforms, enabling content delivery and user engagement. Leveraging HTML5, CSS3, and JavaScript, we create responsive websites for diverse audiences.',
-  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798297/QubicGen/Web%20Development/top-view-clapperboard-movie-elements_23-2147775695_zbeqdx.jpg"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798297/QubicGen/Web%20Development/Who%20We%20Serve/top-view-clapperboard-movie-elements_23-2147775695_zbeqdx.jpg"
   },
   {
   title: 'Travel',
   description: 'Web development in the travel industry revolutionizes the way people plan, book, and experience trips. From online booking platforms to destination guides, we create user-friendly interfaces and integrate third-party services for seamless travel experiences. ',
-  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798538/QubicGen/Web%20Development/high-angle-travel-items-arrangement_23-2149617688_yzjf94.jpg"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798538/QubicGen/Web%20Development/Who%20We%20Serve/high-angle-travel-items-arrangement_23-2149617688_yzjf94.jpg"
   },
 
     ]);
