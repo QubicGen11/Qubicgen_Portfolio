@@ -1,86 +1,105 @@
 .rpahead {
-    position: relative;
-    height: 70vh;
-    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");
-    background-size: cover;
-    background-position: bottom;
-  }
-  
-  .rpahead::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: black;
-    opacity: 0.6;
-    z-index: 1;
-  }
+  position: relative;
+  height: 70vh;
+  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");
+background-size: cover;
+background-position: bottom;
+}
+.rpahead::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.7;
+  z-index: 1;
+}
 
-  #rpatit{
-    z-index: 5;
-    color: white;
-    position: absolute;
-    top: 200px;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    font-size: 40px;
-    font-weight: 900;
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  #rpadesc{
-    z-index: 5;
-    color: white;
-    position: absolute;
-    top: 20%;
-    left: 34%;
-    transform: translate(-50%, -50%);
-    font-weight: 300;
-    font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
-    padding-top: 350px;
-    padding-left: 2rem;
-  }
-  
-
-  @media (min-width: 320px) and (max-width: 500px) {
 #rpatit{
-  font-size: 30px;
+  z-index: 5;
+  color: white;
+  position: absolute;
+  /* top: 200px;
+  left: 20%;
+  transform: translate(-50%, -50%); */
+  font-size: 40px;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #rpadesc{
-  font-size: 12px;
-  top: 37%;
-  left: 30%;
+  z-index: 5;
+  color: white;
+  position: absolute;
+  /* top: 18%;
+  left: 29%;
+  transform: translate(-50%, -50%); */
+  font-weight: 300;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
-.rpahead {
-  position: relative;
-  height: 50vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");
-  background-size: cover;
-  background-position: center;
-}
-  }
-  @media (min-width: 501px) and (max-width: 768px) {
+
+
+
+@media (min-width: 320px) and (max-width: 590px) {
 #rpatit{
-  font-size: 30px;
+font-size: 20px;
+position: absolute;
+/* top:55%;
+
+left: 40%; */
 }
 
 #rpadesc{
-  font-size: 12px;
-  top: 25%;
-  left: 32%;
+font-size: 12px;
+margin-top: 60px;
+/* top: 37%;
+left: 30%; */
 }
 .rpahead {
-  position: relative;
-  height: 40vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");
-  background-size: cover;
-  background-position: center;
+position: relative;
+height: 50vh;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");}
+@media (min-width: 501px) and (max-width: 768px) {
+#rpatit{
+font-size: 25px;
+position: absolute;
+
+/* left: 32%; */
 }
-  }
+
+#rpadesc{
+font-size: 12px;
+/* top: 20%;
+left: 32%; */
+}
+.rpahead {
+position: relative;
+height: 40vh;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");background-position: center;
+}
+}
+@media (min-width: 770px) and (max-width: 1024px) {
+#rpatit{
+font-size: 25px;
+position: absolute;
+
+/* left: 32%; */
+}
+
+#rpadesc{
+font-size: 12px;
+/* top: 20%;
+left: 32%; */
+}
+.rpahead {
+position: relative;
+height: 40vh;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");}
+}
+}
 
 
   /* This is offering cards css */
