@@ -10,7 +10,7 @@ const Retailhead = () => {
     <div className="text-start mx-5 ">
         <h1 id="retailtit">
         Retail and Consumer Goods   </h1>
-        <p id="retaildesc" className='my-14 '>
+        <p id="retaildesc" className='my-14 ' style={{width:'70vw'}}>
         "Elevating retail experiences and optimizing consumer goods operations. From storefront to supply chain, we empower businesses to thrive in the dynamic retail landscape."</p>
     </div>
     </div>

@@ -11,7 +11,7 @@ const Manufacturinghead = () => {
     <div className="text-start mx-5 ">
         <h1 id="manufacturingtit">
         Manufacturing      </h1>
-        <p id="manufacturingdesc" className='my-14 '>
+        <p id="manufacturingdesc" className='my-14 ' style={{width:'70vw'}}>
         Pioneering solutions in the manufacturing sector, we specialize in optimizing processes and enhancing efficiency to drive sustainable growth and innovation.
         </p>
     </div>

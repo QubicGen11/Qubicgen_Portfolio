@@ -11,7 +11,7 @@ const Publichead = () => {
     <div className="text-start mx-5 ">
         <h1 id="publictit">
        Public , Sector and Government      </h1>
-        <p id="publicdesc" className='my-14 '>
+        <p id="publicdesc" className='my-14 ' style={{width:'60vw'}}>
         Empowering public sector and government entities with tailored solutions, we specialize in delivering high-quality services to meet the unique needs of the community.
         </p>
     </div>
