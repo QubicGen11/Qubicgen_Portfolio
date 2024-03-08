@@ -70,7 +70,6 @@ const Aboutfinal = () => {
               <img className="terms-conditions-link-child" alt="" src={rectangle71} />
               <div className="privacy-policy-link">
                 <img className="image-51-icon" loading="eager" alt="" src={image512} />
-                <img className="subtract-icon2" loading="eager" alt="" src={subtract2} />
               </div>
               <div className="footer-frame" >
                 <h2 className="our-mission">
@@ -81,11 +80,9 @@ const Aboutfinal = () => {
                 QubicGen has a dual mission: first, to develop urban talent through comprehensive training programs, preparing them to tackle the challenges posed by emerging technologies. Second, to empower organizations with high-quality IT consulting services that improve operations, increase efficiency, and foster innovation.
                 </div>
               </div>
-              <img className="subtract-icon3" loading="eager" alt="" src={subtract2} />
             </div>
           </div>
           <div className="case-studies-list1" data-aos="fade-left">
-            <img className="subtract-icon4" loading="eager" alt="" src={subtract}/>
             <div className="vector-parent">
               <img className="frame-child" alt="" src={rectangle71} />
               <div className="frame-wrapper">
@@ -101,9 +98,7 @@ const Aboutfinal = () => {
                   </div>
                 </div>
               </div>
-              <img className="subtract-icon5" loading="eager" alt="" src={subtract2} />
-              <img className="subtract-icon6" loading="eager" alt="" src={subtract2} />
-              <img className="image-52-icon" loading="eager" alt="" src= {image522} />
+              <img className="image-52-icon" loading="eager" alt=""  src= {image522} />
             </div>
           </div>
         </div>
@@ -158,20 +153,20 @@ const Aboutfinal = () => {
                 <div className="digitalbranding2">
                   <div className="rectangle-div" />
                   <div className="digitalbranding-child1" />
-                  <img className="arrow-icon" alt="" src={arrow12} />
+                  {/* <img className="arrow-icon" alt="" src={arrow12} /> */}
                   <img className="digitalbranding-child2" alt="" src={arrow11} />
                   <div className="qualitative-test">
-                    <p className="qualitative">Qualitative</p>
-                    <p className="test">test</p>
+                    <p className="qualitative" style={{fontSize:'17px',fontWeight:'500'}}>Qualitative</p>
+                    <p className="test"style={{fontSize:'17px',fontWeight:'500'}}>test</p>
                   </div>
-                  <div className="rectangle">
+                  {/* <div className="rectangle">
                     <div className="rectangle-child" />
                     <div className="rectangle-item" />
                     <div className="quantitative-test">
                       <p className="quantitative">Quantitative</p>
                       <p className="test1">test</p>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="contact-now">
                     <div className="resources" />
                     <div className="about-services-features-pricin" />
