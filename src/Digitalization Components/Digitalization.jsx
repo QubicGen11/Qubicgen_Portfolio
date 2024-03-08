@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '../HomeComponents/Navbar'
 import Footer from '../HomeComponents/Footer'
-import Queries from './Queries'
 import Digitalizationlist from './Digitalizationlist'
 import "./Digitalization.css"
 import Digitalizationhead from './Digitalizationhead'

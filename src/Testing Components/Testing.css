@@ -1,7 +1,8 @@
 .testinghead {
   position: relative;
   height: 70vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709117171/programming-background-with-person-working-with-codes-computer_1_yrb1au.jpg");background-position: center;
+  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709117171/programming-background-with-person-working-with-codes-computer_1_yrb1au.jpg");
+  background-position: center;
 background-size: cover;
 }
 .testinghead::before {
@@ -42,25 +43,26 @@ background-size: cover;
 
 
 
-@media (min-width: 320px) and (max-width: 750px) {
+@media (min-width: 320px) and (max-width: 590px) {
 #testingtit{
-font-size: 17px;
+font-size: 20px;
 position: absolute;
-/* top:55%;
 
-left: 40%; */
 }
 
 #testingdesc{
 font-size: 12px;
-margin-top: 60px;
 /* top: 37%;
 left: 30%; */
 }
 .testinghead {
 position: relative;
 height: 50vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709117171/programming-background-with-person-working-with-codes-computer_1_yrb1au.jpg");}
+  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709117171/programming-background-with-person-working-with-codes-computer_1_yrb1au.jpg");
+}
+
+
+}
 @media (min-width: 501px) and (max-width: 768px) {
 #testingtit{
 font-size: 25px;
@@ -77,9 +79,11 @@ left: 32%; */
 .testinghead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709117171/programming-background-with-person-working-with-codes-computer_1_yrb1au.jpg");background-position: center;
+  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709117171/programming-background-with-person-working-with-codes-computer_1_yrb1au.jpg");
+background-position: center;
 }
 }
+
 @media (min-width: 770px) and (max-width: 1024px) {
 #testingtit{
 font-size: 25px;
@@ -96,9 +100,10 @@ left: 32%; */
 .testinghead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709117171/programming-background-with-person-working-with-codes-computer_1_yrb1au.jpg");}
+  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709117171/programming-background-with-person-working-with-codes-computer_1_yrb1au.jpg");
 }
 }
+
   /* This is offering cards css */
   #offeringscards {
     transition: transform 0.3s ease-in-out;
