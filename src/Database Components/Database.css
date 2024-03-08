@@ -81,7 +81,7 @@ background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v170911
 }
 }
 
-@media (min-width: 770px) and (max-width: 1350px) {
+@media (min-width: 769px) and (max-width: 1475px) {
 #databasetit{
 font-size: 30px;
 position: absolute;
