@@ -51,56 +51,58 @@ const Digitalizationlist = () => {
     }
 ]);
 
-const [DigitalizationServe, setDigitalizationServe] = useState([
-  {
-      title:'HealthCare',
-      description: 'Drive better patient care with electronic health records, telemedicine, and data-driven personalized treatments.',
-      background: "https://img.freepik.com/free-photo/doctor-giving-presentation-team-interim-doctors_107420-84783.jpg?t=st=1709101341~exp=1709104941~hmac=e5dffce83635b7ef2536d9124b9186a97b98d98711d8226b1d718d3e4d07ea4b&w=900"
-      },
-      
-      {
-      title: 'Education',
-      description: 'Deliver engaging learning through e-learning platforms, virtual classrooms, and adaptive learning technologies.',
-      background: "https://img.freepik.com/free-photo/person-with-books-digital-art-style-education-day_23-2151164358.jpg?t=st=1709119855~exp=1709123455~hmac=d4203c091526e85cff9741aea228390f0e483d1947c6df17070d4ce43ddf42f8&w=740"
-      },
-      {
-      title: 'Manufacturing',
-      description: 'Optimize production with Industry 4.0 solutions like IoT, robotics, and predictive maintenance.',
-      background: "https://img.freepik.com/free-photo/smart-indian-engineer-man-wearing-safety-helmet-doing-stock-tick-check-cardboard-stock-product-management-factory-warehouse-background_609648-1445.jpg?t=st=1709119925~exp=1709123525~hmac=58a97f3dfc93d096638de57ab6dcac6e2a0420aa1866679a1cda695535812a1f&w=740"
-      },
-      {
-      title: 'Energy and Utilities',
-      description: 'Foster sustainability and efficiency with smart grids, renewable energy integration, and data-driven infrastructure management.',
-      background: "https://img.freepik.com/free-photo/turbine-green-energy-electricity-technology-concept_53876-31722.jpg?w=826&t=st=1709120004~exp=1709120604~hmac=8cb4bd897fd66735ae138d9db60a467539581591d0c45220afc6618aca88e775"
-      },
-      {
-      title: 'Finance',
-      description :'Streamline financial services through online banking, mobile payments, and AI-powered solutions.',
-      background: "https://img.freepik.com/premium-photo/online-banking-person-uses-system-selects-service-hologram-laptop_102583-7081.jpg?w=740"
-      },
-      {
-      title: 'Government',
-      description: 'Improve citizen engagement with online portals, digital identity systems, and smart city initiatives.',
-      background: "https://img.freepik.com/free-photo/grey-marble-column-details-building_1359-886.jpg?t=st=1709109603~exp=1709113203~hmac=3c7a7385652c17affca217c4991154fc705e5deef262b54c84dd5ad40670ef14&w=740"
-      },
-      {
-      title: 'Media & Entertainment',
-      description: 'Captivate audiences with streaming services, social media integration, and immersive experiences.',
-      background: "https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-cinema-tickets-wooden-desk_23-2148188189.jpg?t=st=1709109656~exp=1709113256~hmac=af33f941cc0a2df0fd43470e2f487c91146d36b8ee356372296a23f66c0f4b9e&w=740"
-      },
-      {
-      title: 'Transportation & Logistics',
-      description: 'Enhance efficiency with logistics management software, predictive maintenance, and intelligent transportation systems.',
-      background: "https://img.freepik.com/free-photo/logistics-transportation-container-cargo-ship-cargo-plane-with-working-crane-bridge-shipyard-sunrise-logistic-import-export-transport-industry-background-ai-generative_123827-24177.jpg?t=st=1709205555~exp=1709209155~hmac=3c5dd30f6e9f9b685a6a09aef132dd2acae8a246e14bfbb0741f2881d83cf473&w=740"
-      },
-      {
-      title: 'Retail',
-      description: 'Reimagine customer experiences with e-commerce platforms, omnichannel integration, and data-driven personalization.',
-      background: "https://img.freepik.com/free-photo/background-interior-supermarket-out-focus_123827-28040.jpg?t=st=1709120147~exp=1709123747~hmac=a2e2c1c8ddad348797742d1460189012a755a5e2aa5b01e10c727335057d19af&w=740"
-      }
-  
-  ]);
 
+
+
+  const [DigitalizationServe, setDigitalizationServe] = useState([
+    {
+        title:'HealthCare',
+        description: 'Drive better patient care with electronic health records, telemedicine, and data-driven personalized treatments.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709811455/QubicGen/Digitalization/Who%20We%20Serve/doctor-giving-presentation-team-interim-doctors_107420-84783_yywolk.jpg"
+        },
+        
+        {
+        title: 'Education',
+        description: 'Deliver engaging learning through e-learning platforms, virtual classrooms, and adaptive learning technologies.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710067854/QubicGen/Digitalization/Who%20We%20Serve/international-day-education-cartoon-style_23-2151007381_vybke9.jpg"
+        },
+        {
+        title: 'Manufacturing',
+        description: 'Optimize production with Industry 4.0 solutions like IoT, robotics, and predictive maintenance.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709811837/QubicGen/Digitalization/Who%20We%20Serve/metallic-robot-arm-modern-steel-factory-generated-by-ai_188544-17870_dxq7gj.jpg"
+        },
+        {
+        title: 'Energy and Utilities',
+        description: 'Foster sustainability and efficiency with smart grids, renewable energy integration, and data-driven infrastructure management.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710068041/QubicGen/Digitalization/Who%20We%20Serve/offshore-wind-turbines-wind-power-generative-ai-environmental-electricity_28914-14602_k9vguk.jpg"
+        },
+        {
+        title: 'Finance',
+        description :'Streamline financial services through online banking, mobile payments, and AI-powered solutions.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710068291/QubicGen/Digitalization/Who%20We%20Serve/stacks-coins-arranged-bar-graph_35913-2518_z8vbo5.jpg"
+        },
+        {
+        title: 'Government',
+        description: 'Improve citizen engagement with online portals, digital identity systems, and smart city initiatives.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710062561/QubicGen/Digitalization/Who%20We%20Serve/grey-marble-column-details-building_1359-886_loaaep.jpg"
+        },
+        {
+        title: 'Media & Entertainment',
+        description: 'Captivate audiences with streaming services, social media integration, and immersive experiences.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710067833/QubicGen/Digitalization/Who%20We%20Serve/3d-glasses-movies-tickets-flat-lay_23-2149558744_mjdvo5.jpg"
+        },
+        {
+        title: 'Transportation & Logistics',
+        description: 'Enhance efficiency with logistics management software, predictive maintenance, and intelligent transportation systems.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710068442/QubicGen/Digitalization/Who%20We%20Serve/vehicles-laptop-supply-chain-representation_23-2149853161_wmm3u3.jpg"
+        },
+        {
+        title: 'Retail',
+        description: 'Reimagine customer experiences with e-commerce platforms, omnichannel integration, and data-driven personalization.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710068595/QubicGen/Digitalization/Who%20We%20Serve/variety-merchandise-supermarket-store-shelves-generated-by-ai_188544-40842_j2z67o.jpg"
+        }
+    
+    ]);
   // This is for rpa offering cards
 
 

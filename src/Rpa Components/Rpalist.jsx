@@ -63,41 +63,41 @@ const Rpalist = () => {
   const [Weserve, setWeserve] = useState([ 
     { 
       title: "HealthCare",
-      background:"https://res.cloudinary.com/defsu5bfc/image/upload/v1709797183/QubicGen/RPA/rpa-robotic-process-automation-concept_yagj1c.webp", 
+      background:"https://res.cloudinary.com/defsu5bfc/image/upload/v1710063317/QubicGen/RPA/Who%20We%20Serve/rpa-robotic-process-automation-concept_yagj1c_tezko6.png", 
       description: "Harnessing the power of Robotic Process Automation (RPA), we streamline healthcare operations, from appointment scheduling to claims processing, to enhance efficiency and elevate patient care. Let us help you unlock the full potential of automation in healthcare." 
     }, 
     { 
       title: "Manufacturing", 
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797222/QubicGen/RPA/person-using-ai-tool-job_23-2150711477_nrtws6.jpg",
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797222/QubicGen/RPA/Who%20We%20Serve/person-using-ai-tool-job_23-2150711477_nrtws6.jpg",
       description: "Transform your manufacturing operations with our RPA solutions. From supply chain management to production planning, we automate processes to optimize efficiency and drive innovation in manufacturing." 
     }, 
     { 
       title: "Retail", 
-      background:"https://res.cloudinary.com/defsu5bfc/image/upload/v1709797308/QubicGen/RPA/grocery-store-aisle-filled-with-healthy-snacks-drinks-readytoeat-meals-vegans_124507-148724_rl5fey.jpg",
+      background:"https://res.cloudinary.com/defsu5bfc/image/upload/v1709797308/QubicGen/RPA/Who%20We%20Serve/grocery-store-aisle-filled-with-healthy-snacks-drinks-readytoeat-meals-vegans_124507-148724_rl5fey.jpg",
       description: "Empower your retail business with our RPA services. From inventory management to customer service, we automate tasks to streamline operations and deliver exceptional shopping experiences." 
     }, 
     { 
       title: "Government", 
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797371/QubicGen/RPA/business-people-working-together-table_2_kev6sw_vcjy2b.jpg",
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797371/QubicGen/RPA/Who%20We%20Serve/business-people-working-together-table_2_kev6sw_vcjy2b.jpg",
       description: "Modernize government processes with our RPA solutions. From citizen services to administrative tasks, we automate workflows to improve efficiency, transparency, and citizen satisfaction." 
     },
     {
       title: "Transportation", 
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797406/QubicGen/RPA/truck-with-white-trailer-that-says-scania-side_123827-23486_rspfvz.jpg",
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797406/QubicGen/RPA/Who%20We%20Serve/truck-with-white-trailer-that-says-scania-side_123827-23486_rspfvz.jpg",
       description: "Drive efficiency in transportation with our RPA services. From logistics management to fleet operations, we automate processes to optimize performance and enhance customer service." 
     }, 
     { 
       title: "BFSI", 
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797451/QubicGen/RPA/digital-rupee-inr-indian-currency-golden-coin-background_1017-41094_znzqpe.jpg",
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797451/QubicGen/RPA/Who%20We%20Serve/digital-rupee-inr-indian-currency-golden-coin-background_1017-41094_znzqpe.jpg",
       description: "Transform BFSI operations with our RPA solutions. From compliance management to customer support, we automate tasks to increase productivity, reduce costs, and ensure regulatory compliance." 
     }, 
     { 
       title: "Energy & Utilities", 
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797490/QubicGen/RPA/solar-panels-wind-mills-sunset-sustainable-energy-eco-environment_1268-27834_eurq4c.jpg",
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797490/QubicGen/RPA/Who%20We%20Serve/solar-panels-wind-mills-sunset-sustainable-energy-eco-environment_1268-27834_eurq4c.jpg",
       description: "Optimize energy and utility operations with our RPA services. From meter reading to billing processes, we automate tasks to improve accuracy, reduce errors, and enhance service delivery for utilities providers." 
     },{ 
       title: "Automation Testing" ,
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797531/QubicGen/RPA/standard-quality-control-collage-concept_23-2149595830_bhlji2.jpg",
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797531/QubicGen/RPA/Who%20We%20Serve/standard-quality-control-collage-concept_23-2149595830_bhlji2.jpg",
      description: "In the field of automation testing, our RPA services automate test case generation, execution, and reporting. By integrating RPA into testing processes, organizations can accelerate testing cycles, increase test coverage, and improve overall software quality." 
     } 
   
