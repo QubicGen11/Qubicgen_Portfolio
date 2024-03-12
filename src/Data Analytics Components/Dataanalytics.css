@@ -98,7 +98,7 @@ font-size: 12px;
 .dataanalyticshead {
 position: relative;
 height: 70vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709115507/QubicGen/revenue-operations-collage_nxlhqr.jpg");}
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709115507/QubicGen/Data%20Analytics/Hero%20Section/revenue-operations-collage_nxlhqr.jpg");}
 }
 
   /* This is offering cards css */
@@ -138,7 +138,7 @@ background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v170911
   }
   
   .card-front {
-    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709625023/QubicGen/smart-industry-robot-arms-digital-factory-production-technology_31965-8218_tv05go.jpg");
+    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709115507/QubicGen/Data%20Analytics/Hero%20Section/revenue-operations-collage_nxlhqr.jpg");
     color: #fff;
     display: flex;
     align-items: center;

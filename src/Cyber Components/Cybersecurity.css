@@ -1,7 +1,7 @@
 .cybersecurityhead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709111504/QubicGen/medium-shot-man-holding-device_1_ygosow.jpg");
+  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710140241/QubicGen/Cyber%20Security/Hero%20Section/medium-shot-man-holding-device_1_ygosow_2_pxfxa7.jpg");
     background-position: center;
 background-size: cover;
 }
@@ -58,7 +58,7 @@ left: 30%; */
 .cybersecurityhead {
 position: relative;
 height: 50vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709111504/QubicGen/medium-shot-man-holding-device_1_ygosow.jpg");}
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710140241/QubicGen/Cyber%20Security/Hero%20Section/medium-shot-man-holding-device_1_ygosow_2_pxfxa7.jpg");}
 
 }
 @media (min-width: 501px) and (max-width: 768px) {
@@ -77,7 +77,8 @@ left: 32%; */
 .cybersecurityhead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709111504/QubicGen/medium-shot-man-holding-device_1_ygosow.jpg");background-position: center;
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710140241/QubicGen/Cyber%20Security/Hero%20Section/medium-shot-man-holding-device_1_ygosow_2_pxfxa7.jpg");
+background-position: center;
 }
 }
 
@@ -96,7 +97,7 @@ font-size: 12px;
 .cybersecurityhead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709111504/QubicGen/medium-shot-man-holding-device_1_ygosow.jpg");}
+background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710140241/QubicGen/Cyber%20Security/Hero%20Section/medium-shot-man-holding-device_1_ygosow_2_pxfxa7.jpg");}
 }
   /* This is offering cards css */
   #offeringscards {

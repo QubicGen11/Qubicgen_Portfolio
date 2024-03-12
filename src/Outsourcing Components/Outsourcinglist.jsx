@@ -17,55 +17,54 @@ const Outsourcinglist = () => {
 
   // This is for rpa offering cards
 
-const [OutsourcingServe, setOutsourcingServe] = useState([
-  {
-      title:'IT Support and Help Desk Services',
-      description: 'Remote technical support and help desk assistance for efficient troubleshooting and user guidance, ensuring seamless operation of IT systems.',
-      background: "https://img.freepik.com/free-photo/colleagues-with-headphones-working-call-center-office_23-2149256154.jpg?t=st=1709277103~exp=1709280703~hmac=2fc1f610e173a6573060395f855f4881c80c81e1aadf4d145c92eca3a83b61bf&w=740"
-      },
-      
-      {
-      title: 'Software Development and Maintenance',
-      description: 'Outsourcing software development projects to skilled developers, coupled with ongoing maintenance and support services for sustained functionality and performance.',
-      background: "https://img.freepik.com/free-photo/diverse-programmers-discussing-about-html-code-compiling-discovers-errors-standing-front-multiple-screens-startup-office-software-developers-working-server-interface-development_482257-64363.jpg?t=st=1709277167~exp=1709280767~hmac=ea690ab69a415f5bba910b25d9280e64727d77afae8b9ee0002571346d0df12a&w=740"
-      },
-      {
-      title: 'Infrastructure Management',
-      description: 'Efficient management and maintenance of IT infrastructure components to ensure optimal performance and reliability, with proactive monitoring and timely upgrades.',
-      background: "https://img.freepik.com/free-photo/man-holding-smartphone-with-apartment-buildings-hologram_23-2149369107.jpg?t=st=1709277220~exp=1709280820~hmac=91f085a8adad1466aee665f783b3f5050719bc12efe7bd6d4b3caca1ea355de4&w=740"
-      },
-      {
-      title: 'Cloud Services',
-      description: 'Assistance in migrating to and managing cloud-based platforms, optimizing resources, and ensuring security for scalable and cost-effective IT solutions.',
-      background: "https://img.freepik.com/free-photo/saas-concept-collage_23-2149399281.jpg?t=st=1709277284~exp=1709280884~hmac=365e22cc657251c2e56fd4d0e4caf4d457cbe4f17e2588ea39240816e3679143&w=740"
-      },
-      {
-      title: 'Data Management and Analytics',
-      description :'Outsourcing data management tasks and providing analytics services to extract actionable insights, supporting informed decision-making and business growth.',
-      background: "https://img.freepik.com/free-photo/office-workers-using-finance-graphs_23-2150408661.jpg?t=st=1709277380~exp=1709280980~hmac=3e96931aa0395e1ab63d8246b095e2714dd2ade8af12823ef0f1f4698e56f547&w=740"
-      },
-      {
-      title: 'Business Process Outsourcing (BPO)',
-      description: 'Outsourcing non-core business processes such as customer support and finance to specialized providers, streamlining operations and enhancing efficiency.',
-      background: "https://img.freepik.com/premium-photo/emphasizing-night-shift-call-center-ambiance_1127216-861.jpg?w=826"
-      },
-      {
-      title: 'Quality Assurance and Testing',
-      description: 'Outsourcing software testing tasks for thorough quality assurance, ensuring reliability, usability, and performance of software applications.',
-      background: "https://img.freepik.com/free-photo/standard-quality-control-collage-concept_23-2149595834.jpg?t=st=1709278401~exp=1709282001~hmac=cbd70fcaa5e9e93c3d7b271cab619779670a9c73f4ebe5aa801aef593c85d2ec&w=740"
-      },
-      {
-      title: 'Project Management',
-      description: 'Outsourcing project management tasks to experienced professionals for efficient planning, execution, and delivery of IT projects, ensuring successful outcomes and client satisfaction.',
-      background: "https://img.freepik.com/free-photo/multiethnic-businesspeople-discussing-financial-company-solution-sitting-conference-table_482257-10542.jpg?t=st=1709278472~exp=1709282072~hmac=0fd8e564465adbbc0a9915bf1f457d4eab6880eaaa0ef84822f6a557507a3bfd&w=740"
-      },
-      {
-      title: 'IT Consulting and Advisory',
-      description: 'Strategic IT consulting services and advisory on technology trends and best practices to drive digital transformation and innovation, aligning technology initiatives with business objectives.',
-      background: "https://img.freepik.com/free-photo/business-people-working-using-technology-connect-with-others_23-2149369106.jpg?t=st=1709279021~exp=1709282621~hmac=3fbd141a2fe81c2341a16fddee3ca2b49a62f7bac8c7e8e9ce773bc09f678a3b&w=740"
-      }
-  
-  ]);
+  const [OutsourcingServe, setOutsourcingServe] = useState([
+    {
+        title:'IT Support and Help Desk Services',
+        description: 'Remote technical support and help desk assistance for efficient troubleshooting and user guidance, ensuring seamless operation of IT systems.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069614/QubicGen/Outsourcing/What%20We%20Serve/colleagues-with-headphones-working-call-center-office_23-2149256154_gthdix.jpg"
+        },        
+        {
+        title: 'Software Development and Maintenance',
+        description: 'Outsourcing software development projects to skilled developers, coupled with ongoing maintenance and support services for sustained functionality and performance.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069653/QubicGen/Outsourcing/What%20We%20Serve/diverse-programmers-discussing-about-html-code-compiling-discovers-errors-standing-front-multiple-screens-startup-office-software-developers-working-server-interface-development_482257-64363_zf1bd2.jpg"
+        },
+        {
+        title: 'Infrastructure Management',
+        description: 'Efficient management and maintenance of IT infrastructure components to ensure optimal performance and reliability, with proactive monitoring and timely upgrades.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069711/QubicGen/Outsourcing/What%20We%20Serve/man-holding-smartphone-with-apartment-buildings-hologram_23-2149369107_tiv7uv.jpg"
+        },
+        {
+        title: 'Cloud Services',
+        description: 'Assistance in migrating to and managing cloud-based platforms, optimizing resources, and ensuring security for scalable and cost-effective IT solutions.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069724/QubicGen/Outsourcing/What%20We%20Serve/saas-concept-collage_23-2149399281_g4y7wp.jpg"
+        },
+        {
+        title: 'Data Management and Analytics',
+        description :'Outsourcing data management tasks and providing analytics services to extract actionable insights, supporting informed decision-making and business growth.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069740/QubicGen/Outsourcing/What%20We%20Serve/office-workers-using-finance-graphs_23-2150408661_ybp6pw.jpg"
+        },
+        {
+        title: 'Business Process Outsourcing (BPO)',
+        description: 'Outsourcing non-core business processes such as customer support and finance to specialized providers, streamlining operations and enhancing efficiency.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069828/QubicGen/Outsourcing/What%20We%20Serve/emphasizing-night-shift-call-center-ambiance_1127216-861_izi6oe.jpg"
+        },
+        {
+        title: 'Quality Assurance and Testing',
+        description: 'Outsourcing software testing tasks for thorough quality assurance, ensuring reliability, usability, and performance of software applications.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069840/QubicGen/Outsourcing/What%20We%20Serve/standard-quality-control-collage-concept_23-2149595834_xfvauk.jpg"
+        },
+        {
+        title: 'Project Management',
+        description: 'Outsourcing project management tasks to experienced professionals for efficient planning, execution, and delivery of IT projects, ensuring successful outcomes and client satisfaction.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069912/QubicGen/Outsourcing/What%20We%20Serve/multiethnic-businesspeople-discussing-financial-company-solution-sitting-conference-table_482257-10542_wqntyr.jpg"
+        },
+        {
+        title: 'IT Consulting and Advisory',
+        description: 'Strategic IT consulting services and advisory on technology trends and best practices to drive digital transformation and innovation, aligning technology initiatives with business objectives.',
+        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069953/QubicGen/Outsourcing/What%20We%20Serve/business-people-working-using-technology-connect-with-others_23-2149369106_h6aeos.jpg"
+        }
+    
+    ]);
 
   // This is for rpa offering cards
 
@@ -123,7 +122,7 @@ const [OutsourcingServe, setOutsourcingServe] = useState([
      <p className="lead" id='leadtext'>Discover the power of seamless outsourcing solutions tailored to your business needs. From streamlining operations to expanding capabilities, we handle the heavy lifting so you can stay focused on driving success.</p>
    </div>
    <div className="col-md-5" bis_skin_checked="1">
-     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709281234/QubicGen/human-resources-concept-with-hand_fmwmbk.jpg"  alt="" />
+     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709281234/QubicGen/Outsourcing/Overview/human-resources-concept-with-hand_fmwmbk.jpg"  alt="" />
    </div>
  </div>
     </div>

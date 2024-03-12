@@ -12,7 +12,7 @@ const Cybersecurityhead = () => {
         <h1 id="cybersecuritytit"  >
         Safeguarding Your Digital Frontier: Elevate Your Cyber Security Defense with Us</h1>
         <p id="cybersecuritydesc" className='my-24  ' style={{width:'70vw'}}>
-        Navigate the cyber landscape fearlessly with our bespoke security solutions—your shield against unseen threats, your guardian in the digital realm.</p>
+        Navigate the cyber landscape fearlessly with our bespoke security solutions your shield against unseen threats, your guardian in the digital realm.</p>
     </div>
     </div>
     </>

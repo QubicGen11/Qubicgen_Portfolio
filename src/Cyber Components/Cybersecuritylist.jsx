@@ -47,33 +47,33 @@ const[CyberSecurityServices,setCyberSecurityServices]=useState([
   {
   title:'Finance and Insurance',
   description: 'Cyber security in finance and insurance involves protecting sensitive financial data by implementing robust encryption, access controls, and fraud detection mechanisms to safeguard against cyber attacks targeting financial transactions and personal information.',
-  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796658/QubicGen/Cyber%20Security/unrecognizable-businessman-pointing-printed-chart-showing-graph-colleagues-professional-content-partners-making-notes-statistics-cooperation-communication-partnership-concept_74855-14267_lunmdz.jpg"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796658/QubicGen/Cyber%20Security/Who%20We%20Serve/unrecognizable-businessman-pointing-printed-chart-showing-graph-colleagues-professional-content-partners-making-notes-statistics-cooperation-communication-partnership-concept_74855-14267_lunmdz.jpg"
   },
   
   {
   title: 'Healthcare',
   description: 'In healthcare, cyber security focuses on protecting electronic health records (EHRs), medical devices, and patient confidentiality. This entails implementing strong authentication measures, encryption protocols, and intrusion detection systems to prevent data breaches and ensure compliance with regulations like HIPAA.',
-  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796741/QubicGen/Cyber%20Security/doctor-giving-presentation-team-interim-doctors_107420-84783_dydilo.jpg"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710070221/QubicGen/Cyber%20Security/Who%20We%20Serve/medical-banner-with-stethoscope_23-2149611199_xwaslj.jpg"
   },
   {
   title: 'Energy and Utilities',
   description: 'Cyber security in the energy sector is crucial for safeguarding critical infrastructure by deploying advanced threat detection technologies, segmenting networks, and conducting regular security assessments to mitigate the risk of cyber attacks.',
-  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796885/QubicGen/Cyber%20Security/aerial-shot-two-power-plant-sunset-vilnius_181624-15104_vtk9cp.jpg"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796885/QubicGen/Cyber%20Security/Who%20We%20Serve/aerial-shot-two-power-plant-sunset-vilnius_181624-15104_vtk9cp.jpg"
   },
   {
   title: 'Government',
   description: 'Encompasses protecting sensitive government data, citizen information, and national security interests from cyber threats. This includes establishing robust perimeter defenses, monitoring for suspicious activity, and collaborating with intelligence agencies to identify and neutralize cyber threats targeting government networks and systems.',
-  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796752/QubicGen/Cyber%20Security/national-museum-history-romania_1268-14722_oqutul.jpg"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796752/QubicGen/Cyber%20Security/Who%20We%20Serve/national-museum-history-romania_1268-14722_oqutul.jpg"
   },
   {
   title: 'Retail',
   description :'Involves safeguarding customer payment data, online shopping platforms, and supply chain networks from cyber attacks. This requires implementing secure payment processing systems, conducting regular vulnerability assessments.',
-  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796968/QubicGen/Cyber%20Security/abundance-healthy-food-choices-supermarket-aisle-generated-by-ai_188544-42447_z9m7jx.jpg"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796968/QubicGen/Cyber%20Security/Who%20We%20Serve/abundance-healthy-food-choices-supermarket-aisle-generated-by-ai_188544-42447_z9m7jx.jpg"
   },
   {
   title: 'Manufacturing',
   description: 'Focuses on protecting industrial control systems (ICS), production networks, and intellectual property from cyber threats. This includes implementing network segmentation, endpoint protection, and intrusion detection systems to prevent unauthorized access and ensure the integrity of manufacturing processes and product designs.',
-  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797002/QubicGen/Cyber%20Security/factory-workshop-interior-machines-glass-production-background_645730-396_x5leks.jpg"
+  background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797002/QubicGen/Cyber%20Security/Who%20We%20Serve/factory-workshop-interior-machines-glass-production-background_645730-396_x5leks.jpg"
   }
   
   ]);
@@ -135,7 +135,7 @@ const[CyberSecurityServices,setCyberSecurityServices]=useState([
      <p className="lead" id='leadtext'>In a world where digital threats loom large, our cyber security services stand as your shield against unseen dangers. We offer comprehensive solutions tailored to safeguard your digital assets, ensuring peace of mind in an ever-evolving cyber landscape. From threat detection to incident response, trust us to fortify your defenses and keep your organization secure.</p>
    </div>
    <div className="col-md-5" bis_skin_checked="1">
-     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709112147/QubicGen/online-security-dark-background-3d-illustration_qgwvz8.jpg"  alt="" />
+     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709112147/QubicGen/Cyber%20Security/Overview/online-security-dark-background-3d-illustration_qgwvz8.jpg"  alt="" />
    </div>
  </div>
     </div>

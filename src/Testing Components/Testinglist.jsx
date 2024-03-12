@@ -52,22 +52,22 @@ const [TestingServe, setTestingServe] = useState([
   {
       title:'HealthCare',
       description: 'Ensure healthcare system reliability, security, and compliance with our testing services for electronic health records and telemedicine platforms.',
-      background: "https://img.freepik.com/free-photo/biotechnology-specialist-laboratory-conducting-experiments_23-2150468696.jpg?t=st=1709116107~exp=1709119707~hmac=0a4f1dfdb8c145ba8b9eb37165127138fccf7eaf0c80cb683429ee1c6053eeec&w=740"
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710141503/QubicGen/Testing/Who%20We%20Serve/biotechnology-specialist-laboratory-conducting-experiments_23-2150468696_bce5ur.jpg"
       },
       {
       title: 'Finance',
       description :'Mitigate risks and ensure financial system integrity through our thorough testing solutions for banking applications and trading platforms.',
-      background: "https://img.freepik.com/free-photo/screen-with-graph-it-that-says-word-financial-it_188544-27324.jpg?t=st=1709116200~exp=1709119800~hmac=683e4b193e0c46fade052cfbeee6eba6e37d3d91a742c3d78859b23b6dd7efdd&w=826"
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710141682/QubicGen/Testing/Who%20We%20Serve/blue-money-business-graph-finance-chart-diagram-economy-3d-coin-background-with-growth-financial-data-concept-investment-market-profit-bar-success-market-stock-technology-currency-report_79161-2359_hur7jd.jpg"
       },
       {
       title: 'Retail',
       description: 'Deliver seamless shopping experiences and drive customer satisfaction with our end-to-end testing services for e-commerce websites and mobile apps.',
-      background: "https://img.freepik.com/free-photo/clear-view-shopping-cart-with-supermarket-s-blurry-refrigerator-aisle-illuminated-by-bokeh-lights_91128-3496.jpg?t=st=1709116568~exp=1709120168~hmac=15610e5a526e6368eebe3d16d618e9ad55bf424f4d1b1c256d2e184468673fec&w=826"
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710141633/QubicGen/Testing/Who%20We%20Serve/clear-view-shopping-cart-with-supermarket-s-blurry-refrigerator-aisle-illuminated-by-bokeh-lights_91128-3496_pj0cms.jpg"
       },
       {
       title: 'Transportation',
       description: 'Optimize operations and ensure passenger safety with our comprehensive testing solutions for transportation ticketing systems and fleet management software.',
-      background: "https://img.freepik.com/free-photo/container-truck-ship-port-ai-generated-image_511042-612.jpg?t=st=1709116632~exp=1709120232~hmac=14f88a3f58e73f6adc1b2c4e185abdeeb21171bc3ae0ece7b5df87bb5a644405&w=826"
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710141660/QubicGen/Testing/Who%20We%20Serve/container-truck-ship-port-ai-generated-image_511042-612_iizmby.jpg"
       }
   
   ]);
@@ -129,7 +129,7 @@ const [TestingServe, setTestingServe] = useState([
      <p className="lead" id='leadtext'>Welcome to the epitome of quality assurance. Our testing services ensure that every aspect of your software or application is scrutinized, polished, and perfected. From functionality to performance, we leave no stone unturned, delivering solutions that exceed expectations and inspire confidence in your digital endeavors.</p>
    </div>
    <div className="col-md-5" bis_skin_checked="1">
-     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709117589/33533011_8058227_dpohqb.jpg"  alt="" />
+     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710141444/QubicGen/Testing/Overview/software-tester-concept-illustration_114360-12815_wgmqbp.jpg"  alt="" />
    </div>
  </div>
     </div>

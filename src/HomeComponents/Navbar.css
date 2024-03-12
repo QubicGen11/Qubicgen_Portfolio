@@ -9,6 +9,14 @@
   z-index: 1000;
 }
 
+.dropdown-toggle::after {
+  position: relative;
+  left: 40px;
+  bottom: 20px;
+  
+  
+}
+
 .toggle-button {
   display: none;
   cursor: pointer;
@@ -245,6 +253,7 @@
   color: gold;
 }
 
+
 .offcanvas-body li{
   padding-top: 30px;
   font-size: 14px;
@@ -254,13 +263,14 @@
 
 
 }
-.offcanvas-body li:hover{
+/* .offcanvas-body li:hover{
   color: gold;
 
-}
+} */
 #mainlogo{
   height: 70px;
 }
+
 
 @media (max-width: 1000px) {
   .head {
@@ -407,7 +417,10 @@
 
   #mainlogo{
     height: 40px;
+    position: relative;
+    right: 100px;
   }
+
 
   .navli li{
    font-size: 20px;
@@ -416,6 +429,7 @@
 }
 .dropdown-menu{
   width: 100px;
+  
 }
 }
 

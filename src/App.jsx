@@ -30,6 +30,8 @@ import Travel from "./Industries Components/Travel Componets/Travel";
 import Retail from "./Industries Components/Retail Components/Retail";
 import Oil from "./Industries Components/Oil Components/Oil";
 import Summary from "./Industries Components/Summary Components/Summary";
+import Contact from "./Contact Components/Contact";
+// import Contact from "./Contact";
 
 
 
@@ -69,7 +71,8 @@ const App = () => {
           <Route path="/retail" element={<Retail/>} />
           <Route path="/oil" element={<Oil/>} />
           <Route path="/summary" element={<Summary/>} />
-          {/* <Route path="/blog" element={<Blog />} /> */}
+          <Route path="/contact" element={<Contact/>} />
+         
         </Routes>
       </Router>
 

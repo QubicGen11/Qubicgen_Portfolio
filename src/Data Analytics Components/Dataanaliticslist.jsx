@@ -162,7 +162,7 @@ const[Dataanalyticsserve,setDataanalyticsserve]=useState([
      <p className="lead" id='leadtext'>Welcome to the forefront of data-driven innovation. Our data analytics services unlock the hidden potential within your data, transforming it into actionable insights that drive strategic decisions and fuel business growth. With advanced analytics techniques and tailored solutions, we empower organizations to stay ahead in today's dynamic market landscape, turning data into their most valuable asset.</p>
    </div>
    <div className="col-md-5" bis_skin_checked="1">
-     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709116239/QubicGen/revenue-operations-concept_a2u1ag.jpg"  alt="" />
+     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710141056/QubicGen/Data%20Analytics/Overview/revenue-operations-concept_a2u1ag_1_wwtcjf.jpg"  alt="" />
    </div>
  </div>
     </div>
