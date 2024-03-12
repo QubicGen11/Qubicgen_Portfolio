@@ -105,7 +105,7 @@ const Contact = () => {
               Project Form
             </button>
           </div>
-          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710237566/QubicGen/Contact%20Us/cropped_robot_yspx0x.jpg" style={{position: 'relative', right: '100px'}} className="image" alt="" />
+          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710237566/QubicGen/Contact%20Us/cropped_robot_yspx0x.jpg" style={{position: 'relative', right: '100px'}} className="imageone" alt="" />
         </div>
         <div className="panel right-panel">
           <div className="content">
@@ -118,7 +118,7 @@ const Contact = () => {
               Student Form
             </button>
           </div>
-          <img src="img/register.svg " id="register" style={{position: 'relative', right: '100px'}} className="image" alt="" />
+          <img src="img/register.svg " id="register" style={{position: 'relative', right: '100px'}} className="imageone" alt="" />
         </div>
       </div>
       

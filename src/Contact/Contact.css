@@ -47,7 +47,9 @@ input {
 
 }
 
-form {
+
+
+.sign-in-form{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +59,21 @@ form {
   overflow: hidden;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+
 }
+.sign-up-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0rem 5rem;
+  transition: all 0.2s 0.7s;
+  overflow: hidden;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+
+}
+
 
 #studsub{
     background-color: black;
@@ -202,7 +218,7 @@ form.sign-in-form {
   z-index: 6;
 }
 
-.image {
+.imageone {
   width: 70%;
   transition: transform 1.1s ease-in-out;
   transition-delay: 0.4s;
@@ -299,7 +315,7 @@ background-color: gold;
   right: 52%;
 }
 
-.containerone.sign-up-mode .left-panel .image,
+.containerone.sign-up-mode .left-panel .imageone,
 .containerone.sign-up-mode .left-panel .content {
   transform: translateX(-800px);
 }
@@ -358,7 +374,7 @@ form.sign-up-form {
 @media (max-width: 870px) {
   .containerone {
     min-height: 1000px;
-    height: 100vh;
+    height: 80vh;
   }
   .signin-signup {
     width: 50%;
