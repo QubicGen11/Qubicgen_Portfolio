@@ -1,9 +1,46 @@
-import React from 'react'
-import 'aos/dist/aos.css';
+import React, { useState } from 'react';
+import axios from 'axios';
 import Typewriter from 'typewriter-effect';
 
-
 const Queries = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    jobTitle: '',
+    company: '',
+    phone: '',
+    address: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:3000/api/queries', formData);
+      console.log('Form data submitted:', response.data);
+      // Reset form after successful submission if needed
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        jobTitle: '',
+        company: '',
+        phone: '',
+        address: ''
+      });
+    } catch (error) {
+      alert('Please try again')
+      console.error('Error submitting form:', error);
+    }
+  };
   return (
 
     <>
@@ -42,40 +79,39 @@ const Queries = () => {
     }}
   />        </h1>
 
-        <form action className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
-                <div className="pb-2 pt-4">
-                  <input type="text" name="email" id="email" placeholder="First Name" className="block w-full p-4 text-lg rounded-sm bg-black" style={{borderRadius:'40px',height:'70px'}} />
-                </div>
-                <div className="pb-2 pt-4">
-                  <input type="text" name="email" id="email" placeholder="Last Name" className="block w-full p-4 text-lg rounded-sm bg-black"  style={{borderRadius:'40px',height:'70px'}} />
-                </div>
-                <div className="pb-2 pt-4">
-                  <input type="email" name="email" id="email" placeholder="Email" className="block w-full p-4 text-lg rounded-sm bg-black"  style={{borderRadius:'40px',height:'70px'}} />
-                </div>
-                <div className="pb-2 pt-4">
-                  <input type="text" name="email" id="email" placeholder="Job Title" className="block w-full p-4 text-lg rounded-sm bg-black"  style={{borderRadius:'40px',height:'70px'}} />
-                </div>
-                <div className="pb-2 pt-4">
-                  <input type="text" name="email" id="Company / Organisation" placeholder="Company / Organisation" className="block w-full p-4 text-lg rounded-sm bg-black"  style={{borderRadius:'40px',height:'70px'}} />
-                </div>
-                <div className="pb-2 pt-4">
-                  <input className="block w-full p-4 text-lg rounded-sm bg-black" type="number" name="password" id="password" placeholder="Phone"  style={{borderRadius:'40px',height:'70px'}} />
-                </div>
-                <div className="pb-2 pt-4">
-                <textarea
-  className="block w-full p-4 text-lg rounded-md bg-black border border-gray-700 placeholder-gray-500 focus:outline-none focus:border-blue-500"
-  name="address"
-  id="address"
-  placeholder="Enter your Message..."
-  style={{ borderRadius: '40px', height: '200px' }}
-></textarea>
+                <form onSubmit={handleSubmit} className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+                  <div className="pb-2 pt-4">
+                    <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} placeholder="First Name" className="block w-full p-4 text-lg rounded-sm bg-black" style={{ borderRadius:'40px', height:'70px' }} />
+                  </div>
+                  <div className="pb-2 pt-4">
+                    <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Last Name" className="block w-full p-4 text-lg rounded-sm bg-black" style={{ borderRadius:'40px', height:'70px' }} />
+                  </div>
+                  <div className="pb-2 pt-4">
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" className="block w-full p-4 text-lg rounded-sm bg-black" style={{ borderRadius:'40px', height:'70px' }} />
+                  </div>
+                  <div className="pb-2 pt-4">
+                    <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleChange} placeholder="Job Title" className="block w-full p-4 text-lg rounded-sm bg-black" style={{ borderRadius:'40px', height:'70px' }} />
+                  </div>
+                  <div className="pb-2 pt-4">
+                    <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Company / Organisation" className="block w-full p-4 text-lg rounded-sm bg-black" style={{ borderRadius:'40px', height:'70px' }} />
+                  </div>
+                  <div className="pb-2 pt-4">
+                    <input type="number" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone" className="block w-full p-4 text-lg rounded-sm bg-black" style={{ borderRadius:'40px', height:'70px' }} />
+                  </div>
+                  <div className="pb-2 pt-4">
+                    <textarea
+                      className="block w-full p-4 text-lg rounded-md bg-black border border-gray-700 placeholder-gray-500 focus:outline-none focus:border-blue-500"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
+                      placeholder="Enter your Message..."
+                      style={{ borderRadius: '40px', height: '200px' }}
+                    ></textarea>
+                  </div>
+                  <div className="px-4 pb-2 pt-4">
+                    <button type="submit" className="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">Submit</button>
+                  </div>
 
-</div>
-
-               
-                <div className="px-4 pb-2 pt-4">
-                  <button className="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">Submit</button>
-                </div>
                 <div className="p-4 text-center right-0 left-0 flex justify-center space-x-4 mt-16 lg:hidden ">
                   <a href="#">
                     <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" /></svg>
