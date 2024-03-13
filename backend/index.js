@@ -1,4 +1,3 @@
-// /* eslint-disable no-undef */
 const dotenv = require('dotenv');
 const cors = require('cors');
 const mongoose = require('mongoose');

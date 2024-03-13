@@ -32,6 +32,7 @@ import Oil from "./Industries Components/Oil Components/Oil";
 import Summary from "./Industries Components/Summary Components/Summary";
 
 import Admin from "./Admin/Admin";
+import Contact from "./Contact Components/Contact";
 
 
 
@@ -73,6 +74,7 @@ const App = () => {
           <Route path="/oil" element={<Oil/>} />
           <Route path="/summary" element={<Summary/>} />
           <Route path="/admin" element={<Admin/>} />
+          <Route path="/contact" element={<Contact/>} />
          
         </Routes>
       </Router>
