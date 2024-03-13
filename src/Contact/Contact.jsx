@@ -43,7 +43,7 @@ const Contact = () => {
             </div>
             <div className="input-field">
               <i className="fas fa-caret-down" />
-              <select name="year" id="year">
+              <select name="year" id="year" style={{color:'black'}}>
                 <option value="select">Select a Course</option>
                 <option value="rpa">RPA</option>
                 <option value="year2">Web Development</option>
@@ -53,7 +53,7 @@ const Contact = () => {
               </select>
             </div>
             <div className="input-field" style={{height: '20vh'}}>
-              <i className="fas fa-" style={{position: 'relative', top: '20px'}} />
+              <i className="fas fa-" style={{position: 'relative', top: '20px',border:'none'}} />
               <input type="text" placeholder="Enter Message" />
             </div>
             <input type="submit" defaultValue="submit" className="btn solid" id='studsub' />
