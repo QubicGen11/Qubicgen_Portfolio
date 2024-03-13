@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './Contact.css'; // Assuming the CSS file is named Contact.css
 import Footer from '../HomeComponents/Footer';
 import Navbar from '../HomeComponents/Navbar';
+import 'aos/dist/aos.css';
+
 
 const Contact = () => {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false); // Updated initial state
@@ -25,7 +27,7 @@ const Contact = () => {
   return (
     <>
       <Navbar />
-      <div className="contact_one" style={{height:'800px'}}>
+      <div className="contact_one" style={{height:'800px'}} data-aos="fade-right">
         <div className={`containerone  ${isRightPanelActive ? 'right-panel-active' : ''} `} >
           {/* Sign Up */}
           <div className="container__form container--signup" >
@@ -37,12 +39,32 @@ const Contact = () => {
               <input type="text" placeholder="Job Title" className="input" />
               <input type="text" placeholder="Company/Organization" className="input" />
               <input type="text" placeholder="Message" className="input" />
-              <button className="btn">Submit</button>
+
+
+
+
+
+              <button className="btn-53" style={{marginTop:'20px',fontWeight:'500'}}>
+  <div className="original">SUBMIT</div>
+  <div className="letters">
+    
+    <span>S</span>
+    <span>U</span>
+    <span>B</span>
+    <span>M</span>
+    <span>I</span>
+    <span>T</span>
+  </div>
+</button>
+
+
+
+              
             </form>
           </div>
 
           {/* Sign In */}
-          <div className="container__form container--signin">
+          <div className="container__form container--signin" id='container-signin' >
             <form action="#" className="form" id="form2" onSubmit={handleSubmitForm2}>
               <h2 className="form__title" style={{fontWeight: 'bolder', fontSize: '40px'}}>Trainings</h2>
               <input type="name" placeholder="Enter Full Name" className="input" />
@@ -61,18 +83,42 @@ const Contact = () => {
                 <option value="user">Full Stack Development</option>
               </select>
               <input type="text" placeholder="Message" className="input" />
-              <button className="btn">Submit</button>
+              <button className="btn-53" style={{marginTop:'20px'}}>
+  <div className="original">SUBMIT</div>
+  <div className="letters">
+    
+    <span>S</span>
+    <span>U</span>
+    <span>B</span>
+    <span>M</span>
+    <span>I</span>
+    <span>T</span>
+  </div>
+</button>
             </form>
           </div>
 
           {/* Overlay */}
           <div className="container__overlay">
             <div className="overlay">
+
+
+                
+  
+             
+
+
+
               <div className="overlay__panel overlay--left">
-                <button className="btn" id="signIn" onClick={handleSignInClick}>Want to Learn Skills?</button>
+
+
+                
+
+
+                <button className="btnone" id="signIn" onClick={handleSignInClick}>Want to Learn Skills?</button>
               </div>
               <div className="overlay__panel overlay--right">
-                <button className="btn" id="signUp" onClick={handleSignUpClick}>Have any Project Ideas?</button>
+                <button className="btnone" id="signUp" onClick={handleSignUpClick}>Have any Project Ideas?</button>
               </div>
             </div>
           </div>
