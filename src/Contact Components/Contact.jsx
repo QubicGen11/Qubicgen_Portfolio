@@ -1,132 +1,147 @@
-import React, { useState } from 'react';
-import './Contact.css'; // Assuming the CSS file is named Contact.css
-import Footer from '../HomeComponents/Footer';
-import Navbar from '../HomeComponents/Navbar';
-import 'aos/dist/aos.css';
-
+import React, { useEffect, useRef } from 'react'
+import "./Contact.css"
+import Navbar from '../HomeComponents/Navbar'
+import Footer from '../HomeComponents/Footer'
 
 const Contact = () => {
-  const [isRightPanelActive, setIsRightPanelActive] = useState(false); // Updated initial state
+    const containeroneRef = useRef(null);
 
-  const handleSignInClick = () => {
-    setIsRightPanelActive(false); // Activate form2 on the right side
-  };
+    useEffect(() => {
+      const sign_in_btn = document.querySelector("#sign-in-btn");
+      const sign_up_btn = document.querySelector("#sign-up-btn");
 
-  const handleSignUpClick = () => {
-    setIsRightPanelActive(true); // Activate form1 on the left side
-  };
+      sign_up_btn.addEventListener("click", () => {
+        containeroneRef.current.classList.add("sign-up-mode");
+      });
 
-  const handleSubmitForm1 = (e) => {
-    e.preventDefault();
-  };
-
-  const handleSubmitForm2 = (e) => {
-    e.preventDefault();
-  };
+      sign_in_btn.addEventListener("click", () => {
+        containeroneRef.current.classList.remove("sign-up-mode");
+      });
+    }, []);
 
   return (
     <>
-      <Navbar />
-      <div className="contact_one" style={{height:'800px'}} data-aos="fade-right">
-        <div className={`containerone  ${isRightPanelActive ? 'right-panel-active' : ''} `} >
-          {/* Sign Up */}
-          <div className="container__form container--signup" >
-            <form action="#" className="form" id="form1" onSubmit={handleSubmitForm1} >
-              <h2 className="form__title" style={{fontWeight: 'bolder', fontSize: '40px'}}>Projects</h2>
-              <input type="name" placeholder="Enter Full Name" className="input" />
-              <input type="email" placeholder="Email" className="input" />
-              <input type="tel" placeholder="Mobile No." className="input" />
-              <input type="text" placeholder="Job Title" className="input" />
-              <input type="text" placeholder="Company/Organization" className="input" />
-              <input type="text" placeholder="Message" className="input" />
 
-
-
-
-
-              <button className="btn-53" style={{marginTop:'20px',fontWeight:'500'}}>
-  <div className="original">SUBMIT</div>
-  <div className="letters">
-    
-    <span>S</span>
-    <span>U</span>
-    <span>B</span>
-    <span>M</span>
-    <span>I</span>
-    <span>T</span>
-  </div>
-</button>
-
-
-
-              
-            </form>
-          </div>
-
-          {/* Sign In */}
-          <div className="container__form container--signin" id='container-signin' >
-            <form action="#" className="form" id="form2" onSubmit={handleSubmitForm2}>
-              <h2 className="form__title" style={{fontWeight: 'bolder', fontSize: '40px'}}>Trainings</h2>
-              <input type="name" placeholder="Enter Full Name" className="input" />
-              <input type="email" placeholder="Email" className="input" />
-              <input type="tel" placeholder="Mobile No." className="input" />
-              <select className="dropdownone" defaultValue="">
-                <option value="" disabled>Select Course</option>
-                <option value="admin">RPA</option>
-                <option value="user">Cyber Security</option>
-                <option value="user">Service Now</option>
-                <option value="user">Testing</option>
-                <option value="user">Prompt Engineering</option>
-                <option value="user">Azure Data Factory</option>
-                <option value="user">Data Science</option>
-                <option value="user">SQL</option>
-                <option value="user">Full Stack Development</option>
-              </select>
-              <input type="text" placeholder="Message" className="input" />
-              <button className="btn-53" style={{marginTop:'20px'}}>
-  <div className="original">SUBMIT</div>
-  <div className="letters">
-    
-    <span>S</span>
-    <span>U</span>
-    <span>B</span>
-    <span>M</span>
-    <span>I</span>
-    <span>T</span>
-  </div>
-</button>
-            </form>
-          </div>
-
-          {/* Overlay */}
-          <div className="container__overlay">
-            <div className="overlay">
-
-
-                
-  
-             
-
-
-
-              <div className="overlay__panel overlay--left">
-
-
-                
-
-
-                <button className="btnone" id="signIn" onClick={handleSignInClick}>Want to Learn Skills?</button>
-              </div>
-              <div className="overlay__panel overlay--right">
-                <button className="btnone" id="signUp" onClick={handleSignUpClick}>Have any Project Ideas?</button>
-              </div>
+    <Navbar/>
+     <div className="boxy">
+    <div className="containerone"  ref={containeroneRef}>
+      <div className="forms-container">
+        <div className="signin-signup">
+          <form action="#" className="sign-in-form">
+            <h2 className="title">Student Form</h2>
+            <div className="input-field">
+              <i className="fas fa-user" />
+              <input type="text" placeholder="Enter Full Name" />
             </div>
-          </div>
+            <div className="input-field">
+              <i className="fas fa-phone" />
+              <input type="number" placeholder="Enter Mobile" />
+            </div>
+            <div className="input-field">
+              <i className="fas fa-envelope" />
+              <input type="email" placeholder="Enter email" />
+            </div>
+            <div className="input-field">
+              <i className="fas fa-caret-down" />
+              <select name="year" id="year" style={{color:'black'}}>
+                <option value="select">Select a Course</option>
+                <option value="rpa">RPA</option>
+                <option value="year2">Web Development</option>
+                <option value="year2">SAP</option>
+                <option value="year2">Testing</option>
+                {/* Add more options as needed */}
+              </select>
+            </div>
+            
+            <div className="input-field" style={{height: '20vh'}}>
+              <i className="fas fa-" style={{position: 'relative', top: '20px',border:'none'}} />
+              <input type="text" placeholder="Enter Message" />
+            </div>
+
+        
+
+
+                        </form>
+
+
+          <form action="#" className="sign-up-form">
+            <h2 className="title" >Project Form</h2>
+            <div className="input-field">
+              <i className="fas fa-user" />
+              <input type="text" placeholder="Enter Full Name" />
+            </div>
+            <div className="input-field">
+              <i className="fas fa-envelope" />
+              <input type="email" placeholder="Email" />
+            </div>
+            <div className="input-field">
+              <i className="fas fa-phone" />
+              <input type="number" placeholder="Number" />
+            </div>
+            <div className="input-field">
+              <i className="fas fa-user" />
+              <input type="text" placeholder="Job title" />
+            </div>
+            <div className="input-field">
+              <i className="fas fa-building" />
+              <input type="text" placeholder="Enter Company" />
+            </div>
+            <div className="input-field" style={{height: '20vh'}}>
+              <i className="fas fa-address-book" style={{position: 'relative', top: '20px'}} />
+              <input type="text" placeholder="Enter Comments" />
+            </div>
+            <button className="btn-53" style={{marginTop:'20px'}}>
+  <div className="original">SUBMIT</div>
+  <div className="letters">
+    
+    <span>S</span>
+    <span>U</span>
+    <span>B</span>
+    <span>M</span>
+    <span>I</span>
+    <span>T</span>
+  </div>
+</button>         
+
+ </form>
         </div>
       </div>
-      <Footer />
-    </>
-  );
-};
 
-export default Contact;
+
+
+
+
+      <div className="panels-container">
+        <div className="panel left-panel">
+          <div className="content">
+            <h3 style={{fontSize:'45px'}}>Looking for Project ?</h3>
+
+            <button className="btnone" id="sign-up-btn" style={{width:'170px',position:'relative',left:'76px',height:'50px'}}>
+              Project Form
+            </button>
+
+            
+          </div>
+          {/* <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710237566/QubicGen/Contact%20Us/cropped_robot_yspx0x.jpg" style={{position: 'relative', right: '100px'}} className="imageone" alt="" /> */}
+        </div>
+        <div className="panel right-panel" style={{position:'relative',left:'-150px'}}>
+          <div className="content">
+            <h3 style={{fontSize:'45px'}}>Want to Learn Skills?</h3>
+         
+            <button className="btnone" id="sign-in-btn" style={{width:'170px',position:'relative',left:'140px',height:'50px'}}>
+              Student Form
+            </button>
+          </div>
+          {/* <img src="img/register.svg " id="register" style={{position: 'relative', right: '100px'}} className="imageone" alt="" /> */}
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <Footer/>
+    </>
+
+  )
+}
+
+export default Contact

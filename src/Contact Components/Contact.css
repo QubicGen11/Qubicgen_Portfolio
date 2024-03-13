@@ -1,989 +1,545 @@
-:root {
-	/* COLORS */
-	--white: #e9e9e9;
-	--gray: #333;
-	--blue: #0367a6;
-	--lightblue: #008997;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
-	/* RADII */
-	--button-radius: 0.7rem;
-
-	/* SIZES */
-	--max-width: 758px;
-	--max-height: 420px;
-
-	font-size: 16px;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.contact_one {
-	align-items: center;
-	background-color: var(--white);
-	background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710232910/QubicGen/Contact%20Us/robot-handshake-human-background-futuristic-digital-age_53876-129770_y17wm0.jpg");
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	display: grid;
-	height: 100vh;
-	place-items: center;
-}
-
-.form__title {
-	font-weight: 300;
-	margin: 0;
-	margin-bottom: 1.25rem;
-}
-
-.link {
-	color: var(--gray);
-	font-size: 0.9rem;
-	margin: 1.5rem 0;
-	text-decoration: none;
+body,
+input {
+  font-family: "Poppins", sans-serif;
 }
 
 .containerone {
-	background-color: var(--white);
-	border-radius: var(--button-radius);
-	box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
-		0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
-	height: var(--max-height);
-	max-width: var(--max-width);
-	overflow: hidden;
-	position: relative;
-	width: 2000px;
-    height: 700px;
-}
-
-.container__form {
-	height: 100%;
-	position: absolute;
-	top: 0;
-	transition: all 0.6s ease-in-out;
-}
-
-.container--signin {
-	left: 0;
-	width: 50%;
-	z-index: 2;
-}
-
-.containerone.right-panel-active .container--signin {
-	transform: translateX(100%);
-}
-
-.container--signup {
-    left: 0;
-    transform: translateX(-100%);
-    opacity: 0;
-    width: 50%;
-    z-index: 1;
-  }
-
-.containerone.right-panel-active .container--signup {
-	animation: show 0.6s;
-	opacity: 1;
-	transform: translateX(100%);
-	z-index: 5;
-}
-
-.container__overlay {
-	height: 100%;
-	left: 50%;
-	overflow: hidden;
-	position: absolute;
-	top: 0;
-	transition: transform 0.6s ease-in-out;
-	width: 50%;
-	z-index: 100;
-}
-
-.containerone.right-panel-active .container__overlay {
-	transform: translateX(-100%);
-}
-
-.overlay {
-	background-color: var(--lightblue);
-	background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710232910/QubicGen/Contact%20Us/robot-handshake-human-background-futuristic-digital-age_53876-129770_y17wm0.jpg");
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 100%;
-	left: -100%;
-	position: relative;
-	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-	width: 200%;
-}
-
-.containerone.right-panel-active .overlay {
-	transform: translateX(50%);
-}
-
-.overlay__panel {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	justify-content: center;
-	position: absolute;
-	text-align: center;
-	top: 0;
-	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-	width: 50%;
-}
-
-.overlay--left {
-	transform: translateX(-20%);
-}
-
-.containerone.right-panel-active .overlay--left {
-	transform: translateX(0);
-}
-
-.overlay--right {
-	right: 0;
-	transform: translateX(0);
-}
-
-.containerone.right-panel-active .overlay--right {
-	transform: translateX(20%);
-}
-
-.btnone {
-	background-color: var(--blue);
-	background-image: linear-gradient(90deg, var(--blue) 0%, var(--lightblue) 74%);
-	border-radius: 20px;
-	border: 1px solid var(--blue);
-	color: var(--white);
-	cursor: pointer;
-	font-size: 0.8rem;
-	font-weight: bold;
-	letter-spacing: 0.1rem;
-	padding: 0.9rem 4rem;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
-}
-
-.form > .btnone {
-	margin-top: 1.5rem;
-}
-
-.btnone:active {
-	transform: scale(0.95);
-}
-
-.btnone:focus {
-	outline: none;
-}
-
-.form {
-	background-color: var(--white);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 3rem;
-	height: 100%;
-	text-align: center;
-}
-
-.input {
-	background-color: #fff;
-	border: none;
-	padding: 0.9rem 0.9rem;
-	margin: 0.5rem 0;
-	width: 100%;
-}
-
-@keyframes show {
-	0%,
-	49.99% {
-		opacity: 0;
-		z-index: 1;
-	}
-
-	50%,
-	100% {
-		opacity: 1;
-		z-index: 5;
-	}
-}
-
-.dropdownone {
-    margin: 0.5rem 0;
-    padding: 0.5rem;
+    position: relative;
     width: 100%;
-    border: 1px solid #ccc; /* Example border style */
-    border-radius: 4px; /* Example border radius */
-    background-color: #fff; /* Example background color */
-    font-size: 16px; /* Example font size */
-}
-
-
-.btnone {
-    border: none;
-    width: 25em;
-    height: 5em;
-    border-radius: 3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    background: #1C1A1C;
-    cursor: pointer;
-    transition: all 450ms ease-in-out;
+    background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710232910/QubicGen/Contact%20Us/robot-handshake-human-background-futuristic-digital-age_53876-129770_y17wm0.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    overflow: hidden;
   }
   
-  .sparkle {
-    fill: #AAAAAA;
-    transition: all 800ms ease;
-  }
-  
-  .text {
-    font-weight: 600;
-    color: #AAAAAA;
-    font-size: medium;
-  }
-  
-  .btnone:hover {
-    /* background: linear-gradient(0deg,#A47CF3,#683FEA); */
-    background-color: gold;
-    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
-    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
-    0px 0px 180px 0px #9917FF;
-    transform: translateY(-2px);
-  }
-  
-  .btnone:hover .text {
-    color: white;
-  }
-  
-  .btnone:hover .sparkle {
-    fill: white;
-    transform: scale(1.2);
-  } 
-
-
-
-  /* This is submit btn  */
-
-  .btn-53,
-.btn-53 *,
-.btn-53 :after,
-.btn-53 :before,
-.btn-53:after,
-.btn-53:before {
-  border: 0 solid;
-  box-sizing: border-box;
-}
-
-.btn-53 {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: button;
-  background-color: gold;
-  background-image: none;
-  color: black;
-  cursor: pointer;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-size: 100%;
-  line-height: 1.5;
-  margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-  padding: 0;
-}
-
-.btn-53:disabled {
-  cursor: default;
-}
-
-.btn-53:-moz-focusring {
-  outline: auto;
-}
-
-.btn-53 svg {
-  display: block;
-  vertical-align: middle;
-}
-
-.btn-53 [hidden] {
-  display: none;
-}
-
-.btn-53 {
-  border: 1px solid;
-  border-radius: 999px;
-  box-sizing: border-box;
-  display: block;
-  font-weight: 900;
-  overflow: hidden;
-  padding: 1.2rem 3rem;
-  position: relative;
-  text-transform: uppercase;
-}
-
-.btn-53 .original {
-  background: black;
-  color: white;
-  display: grid;
-  inset: 0;
-  place-content: center;
-  position: absolute;
-  transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
-}
-
-.btn-53:hover .original {
-  transform: translateY(100%);
-}
-
-.btn-53 .letters {
-  display: inline-flex;
-}
-
-.btn-53 span {
-  opacity: 0;
-  transform: translateY(-15px);
-  transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.2s;
-}
-
-.btn-53 span:nth-child(2n) {
-  transform: translateY(15px);
-}
-
-.btn-53:hover span {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.btn-53:hover span:nth-child(2) {
-  transition-delay: 0.1s;
-}
-
-.btn-53:hover span:nth-child(3) {
-  transition-delay: 0.2s;
-}
-
-.btn-53:hover span:nth-child(4) {
-  transition-delay: 0.3s;
-}
-
-.btn-53:hover span:nth-child(5) {
-  transition-delay: 0.4s;
-}
-
-.btn-53:hover span:nth-child(6) {
-  transition-delay: 0.5s;
-}
-
-
-
-
-@media (max-width: 768px) {
- 
-.contact_one {
-	align-items: center;
-	background-color: var(--white);
-	background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710232910/QubicGen/Contact%20Us/robot-handshake-human-background-futuristic-digital-age_53876-129770_y17wm0.jpg");
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	display: grid;
-	height: 60vh;
-	place-items: center;
-}
-
-.form__title {
-	font-weight: 300;
-	margin: 0;
-	margin-bottom: 1.25rem;
-}
-
-.link {
-	color: var(--gray);
-	font-size: 0.9rem;
-	margin: 1.5rem 0;
-	text-decoration: none;
-}
-
-.containerone {
-	background-color: var(--white);
-	border-radius: var(--button-radius);
-	box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
-		0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
-	height: var(--max-height);
-	max-width: var(--max-width);
-	overflow: hidden;
-	position: relative;
-	width: 900px;
-    height: 700px;
-}
-
-.container__form {
-	height: 100%;
-	position: absolute;
-	top: 0;
-	transition: all 0.6s ease-in-out;
-}
-
-.container--signin {
-	left: 0;
-	width: 50%;
-	z-index: 2;
-}
-
-.containerone.right-panel-active .container--signin {
-	transform: translateX(100%);
-}
-
-.container--signup {
+  .containerone::before,
+  .containerone::after {
+    content: "";
+    position: absolute;
+    top: 0;
     left: 0;
-    transform: translateX(-100%);
-    opacity: 0;
-    width: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1); /* Adjust opacity here */
     z-index: 1;
   }
-
-.containerone.right-panel-active .container--signup {
-	animation: show 0.6s;
-	opacity: 1;
-	transform: translateX(100%);
-	z-index: 5;
-}
-
-.container__overlay {
-	height: 100%;
-	left: 50%;
-	overflow: hidden;
-	position: absolute;
-	top: 0;
-	transition: transform 0.6s ease-in-out;
-	width: 50%;
-	z-index: 100;
-}
-
-.containerone.right-panel-active .container__overlay {
-	transform: translateX(-100%);
-}
-
-.overlay {
-	background-color: var(--lightblue);
-	background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710232910/QubicGen/Contact%20Us/robot-handshake-human-background-futuristic-digital-age_53876-129770_y17wm0.jpg");
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 100%;
-	left: -100%;
-	position: relative;
-	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-	width: 200%;
-}
-
-.containerone.right-panel-active .overlay {
-	transform: translateX(50%);
-}
-
-.overlay__panel {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	justify-content: center;
-	position: absolute;
-	text-align: center;
-	top: 0;
-	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-	width: 50%;
-}
-
-.overlay--left {
-	transform: translateX(-20%);
-}
-
-.containerone.right-panel-active .overlay--left {
-	transform: translateX(0);
-}
-
-.overlay--right {
-	right: 0;
-	transform: translateX(0);
-}
-
-.containerone.right-panel-active .overlay--right {
-	transform: translateX(20%);
-}
-
-.btnone {
-	background-color: var(--blue);
-	background-image: linear-gradient(90deg, var(--blue) 0%, var(--lightblue) 74%);
-	border-radius: 20px;
-	border: 1px solid var(--blue);
-	color: var(--white);
-	cursor: pointer;
-	font-size: 0.8rem;
-	font-weight: bold;
-	letter-spacing: 0.1rem;
-	padding: 0.9rem 4rem;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
-}
-
-.form > .btnone {
-	margin-top: 1.5rem;
-}
-
-.btnone:active {
-	transform: scale(0.95);
-}
-
-.btnone:focus {
-	outline: none;
-}
-
-.form {
-	background-color: var(--white);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 3rem;
-	height: 100%;
-	text-align: center;
-}
-
-.input {
-	background-color: #fff;
-	border: none;
-	padding: 0.9rem 0.9rem;
-	margin: 0.5rem 0;
-	width: 100%;
-}
-.btnone {
-    border: none;
-    width: 25em;
-    height: 5em;
-    border-radius: 3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    background: #1C1A1C;
-    cursor: pointer;
-    transition: all 450ms ease-in-out;
+  
+  .containerone::after {
+    background: rgba(0, 0, 0, 0.5); /* Adjust opacity here */
+    z-index: 2; /* Ensure it's above the dark overlay */
   }
   
-  .sparkle {
-    fill: #AAAAAA;
-    transition: all 800ms ease;
-  }
-  
-  .text {
-    font-weight: 600;
-    color: #AAAAAA;
-    font-size: medium;
-  }
-  
-  .btnone:hover {
-    /* background: linear-gradient(0deg,#A47CF3,#683FEA); */
-    background-color: gold;
-    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
-    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
-    0px 0px 180px 0px #9917FF;
-    transform: translateY(-2px);
-  }
-  
-  .btnone:hover .text {
-    color: white;
-  }
-  
-  .btnone:hover .sparkle {
-    fill: white;
-    transform: scale(1.2);
-  } 
 
-
-
-  /* This is submit btn  */
-
-  .btn-53,
-.btn-53 *,
-.btn-53 :after,
-.btn-53 :before,
-.btn-53:after,
-.btn-53:before {
-  border: 0 solid;
-  box-sizing: border-box;
-}
-
-.btn-53 {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: button;
-  background-color: gold;
-  background-image: none;
-  color: black;
-  cursor: pointer;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-size: 100%;
-  line-height: 1.5;
-  margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-  padding: 0;
-}
-
-.btn-53:disabled {
-  cursor: default;
-}
-
-.btn-53:-moz-focusring {
-  outline: auto;
-}
-
-.btn-53 svg {
-  display: block;
-  vertical-align: middle;
-}
-
-.btn-53 [hidden] {
-  display: none;
-}
-
-.btn-53 {
-  border: 1px solid;
-  border-radius: 999px;
-  box-sizing: border-box;
-  display: block;
-  font-weight: 900;
-  overflow: hidden;
-  padding: 1.2rem 3rem;
-  position: relative;
-  text-transform: uppercase;
-}
-
-.btn-53 .original {
-  background: black;
-  color: white;
-  display: grid;
-  inset: 0;
-  place-content: center;
+.forms-container {
   position: absolute;
-  transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
-.btn-53:hover .original {
-  transform: translateY(100%);
+.signin-signup {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 75%;
+  width: 40%;
+  transition: 1s 0.7s ease-in-out;
+  display: grid;
+  grid-template-columns: 1fr;
+  z-index: 5;
+  background-color: hsla(0, 0%, 10%, 0.1);
+
+  backdrop-filter: blur(10px);
+  height: 80%;
+
 }
 
-.btn-53 .letters {
-  display: inline-flex;
+
+
+.sign-in-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0rem 5rem;
+  transition: all 0.2s 0.7s;
+  overflow: hidden;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+
+}
+.sign-up-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0rem 5rem;
+  transition: all 0.2s 0.7s;
+  overflow: hidden;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+
 }
 
-.btn-53 span {
+
+
+
+
+form.sign-up-form {
   opacity: 0;
-  transform: translateY(-15px);
-  transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.2s;
+  z-index: 1;
 }
 
-.btn-53 span:nth-child(2n) {
-  transform: translateY(15px);
+form.sign-in-form {
+  z-index: 2;
 }
 
-.btn-53:hover span {
-  opacity: 1;
-  transform: translateY(0);
+.title {
+  font-size: 2.2rem;
+  color: white;
+  margin-bottom: 10px;
 }
 
-.btn-53:hover span:nth-child(2) {
-  transition-delay: 0.1s;
+.input-field {
+  max-width: 380px;
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  height: 55px;
+  border-radius: 55px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
 }
 
-.btn-53:hover span:nth-child(3) {
-  transition-delay: 0.2s;
+.input-field i {
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  transition: 0.5s;
+  font-size: 1.1rem;
 }
 
-.btn-53:hover span:nth-child(4) {
-  transition-delay: 0.3s;
+.input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
 }
 
+.input-field input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+}
 
-.btn-53:hover span:nth-child(5) {
+.social-text {
+  padding: 0.7rem 0;
+  font-size: 1rem;
+  color: white;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icon {
+  height: 46px;
+  width: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.45rem;
+  color: gold;
+  border-radius: 50%;
+  border: 1px solid white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  color: #4481eb;
+  border-color: #4481eb;
+}
+
+.btnone {
+  width: 150px;
+
+  border: none;
+  outline: none;
+  height: 49px;
+  border-radius: 49px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;
+  background-color: black;
+}
+
+.btnone:hover {
+  background-color: gold;
+
+}
+.panels-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.containerone:before {
+  content: "";
+  position: absolute;
+  height: 2000px;
+  width: 2000px;
+  top: -10%;
+  right: 48%;
+  transform: translateY(-50%);
+  background-color: hsla(0, 0%, 10%, 0);
+  /* backdrop-filter: blur(20px); */
+
+  transition: 1.8s ease-in-out;
+  border-radius: 50%;
+  z-index: 6;
+}
+
+.imageone {
+  width: 70%;
+  transition: transform 1.1s ease-in-out;
   transition-delay: 0.4s;
 }
 
-.btn-53:hover span:nth-child(6) {
-  transition-delay: 0.5s;
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  text-align: center;
+  z-index: 6;
+}
+
+.input-field {
+  position: relative;
+}
+
+.dropdown-container {
+  position: absolute;
+  top: 100%; /* Position the dropdown below the parent */
+  left: 0;
+  width: 100%; /* Match the width of the parent */
+}
+
+.dropdown-container i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #acacac;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #acacac;
+  border-radius: 5px;
+  outline: none;
 }
 
 
+.left-panel {
+  pointer-events: all;
+  padding: 3rem 17% 2rem 12%;
+}
+
+.right-panel {
+  pointer-events: none;
+  padding: 3rem 12% 2rem 17%;
+}
+
+.panel .content {
+  color: #fff;
+  transition: transform 0.9s ease-in-out;
+  transition-delay: 0.6s;
+}
+
+.panel h3 {
+  font-weight: 600;
+  line-height: 1;
+  font-size: 1.5rem;
+}
+
+.panel p {
+  font-size: 0.95rem;
+  padding: 0.7rem 0;
+}
+
+.btnone.transparent {
+  margin: 0;
+  background:none;
+
+  border: 2px solid #fff;
+  width: 130px;
+  height: 41px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.btnone.transparent:hover{
+background-color: gold;
+}
+
+.right-panel .image,
+.right-panel .content {
+  transform: translateX(800px);
+}
+
+/* ANIMATION */
+
+.containerone.sign-up-mode:before {
+  transform: translate(100%, -50%);
+  right: 52%;
+}
+
+.containerone.sign-up-mode .left-panel .imageone,
+.containerone.sign-up-mode .left-panel .content {
+  transform: translateX(-800px);
+}
+
+.containerone.sign-up-mode .signin-signup {
+  left: 25%;
+}
+
+.containerone.sign-up-mode form.sign-up-form {
+  opacity: 1;
+  z-index: 2;
+}
+
+.containerone.sign-up-mode form.sign-in-form {
+  opacity: 0;
+  z-index: 1;
+}
+
+.containerone.sign-up-mode .right-panel .image,
+.containerone.sign-up-mode .right-panel .content {
+  transform: translateX(0%);
+}
+
+.containerone.sign-up-mode .left-panel {
+  pointer-events: none;
+}
+
+.containerone.sign-up-mode .right-panel {
+  pointer-events: all;
+}
+
+.input-field .fa-building {
+  color: #acacac;
+  font-size: 1.1rem;
+}
+
+.input-field input[type="text"] {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+}
+form.sign-up-form {
+  opacity: 0;
+  z-index: 1;
+  grid-template-columns: 1fr; /* Update the grid layout */
+}
+.signin-signup {
+  height: 90%; /* Adjust the height as needed */
 }
 
 
-@media (min-width: 320px) and (max-width:550px){
- 
-.contact_one {
-	align-items: center;
-	background-color: var(--white);
-	background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710232910/QubicGen/Contact%20Us/robot-handshake-human-background-futuristic-digital-age_53876-129770_y17wm0.jpg");
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	display: grid;
-	height: 60vh;
-	place-items: center;
+@media (max-width: 870px) {
+  .containerone {
+    min-height: 1000px;
+    height: 80vh;
+  }
+  .signin-signup {
+    width: 50%;
+    height: 65%;
+    top: 88%;
+    transform: translate(-50%, -100%);
+    transition: 1s 0.8s ease-in-out;
+  }
+
+  .signin-signup,
+  .containerone.sign-up-mode .signin-signup {
+    left: 40%;
+  }
+
+  .panels-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+  }
+
+  .panel {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2.5rem 8%;
+    grid-column: 1 / 2;
+  }
+
+  .right-panel {
+    grid-row: 3 / 4;
+  }
+
+  .left-panel {
+    grid-row: 1 / 2;
+  }
+
+  .image {
+    width: 500px;
+    transition: transform 0.9s ease-in-out;
+    transition-delay: 0.6s;
+  }
+
+  .panel .content {
+    padding-right: 15%;
+    transition: transform 0.9s ease-in-out;
+    transition-delay: 0.8s;
+  }
+
+  .panel h3 {
+    font-size: 1.2rem;
+  }
+
+  .panel p {
+    font-size: 0.7rem;
+    padding: 0.5rem 0;
+  }
+
+  .btnone.transparent {
+    width: 110px;
+    height: 35px;
+    font-size: 0.7rem;
+  }
+
+  .containerone:before {
+    width: 1500px;
+    height: 1500px;
+    transform: translateX(-50%);
+    left: 30%;
+    bottom: 68%;
+    right: initial;
+    top: initial;
+    transition: 2s ease-in-out;
+  }
+
+  .containerone.sign-up-mode:before {
+    transform: translate(-50%, 100%);
+    bottom: 32%;
+    right: initial;
+  }
+
+  .containerone.sign-up-mode .left-panel .image,
+  .containerone.sign-up-mode .left-panel .content {
+    transform: translateY(-300px);
+  }
+
+  .containerone.sign-up-mode .right-panel .image,
+  .containerone.sign-up-mode .right-panel .content {
+    transform: translateY(0px);
+  }
+
+  .right-panel .image,
+  .right-panel .content {
+    transform: translateY(300px);
+  }
+
+  .containerone.sign-up-mode .signin-signup {
+    top: 5%;
+    transform: translate(-50%, 0);
+  }
 }
 
-.overlay__panel{
+@media (max-width: 570px) {
+  form {
+    padding: 0 1.5rem;
+  }
 
+  .containerone {
+    min-height: 1000px;
+    height: auto; /* Adjusted to allow dynamic height based on content */
+  }
+
+  .signin-signup {
+    width: 100%; /* Adjusted width for better visibility */
+    height: 1000px; /* Adjusted to allow dynamic height based on content */
+    top: 54%; /* Adjusted to center the form */
+    transform: translate(-50%, -50%);
+    transition: 1s 0.8s ease-in-out;
+    
+  }
+
+  .signin-signup,
+  .containerone.sign-up-mode .signin-signup {
+    left: 50%;
+  }
+
+  .image {
     display: none;
-
-}
-
-.form__title {
-	font-weight: 300;
-	margin: 0;
-	margin-bottom: 1.25rem;
-}
-
-.link {
-	color: var(--gray);
-	font-size: 0.9rem;
-	margin: 1.5rem 0;
-	text-decoration: none;
-}
-
-.containerone {
-	background-color: var(--white);
-	border-radius: var(--button-radius);
-	box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
-		0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
-	height: var(--max-height);
-	max-width: var(--max-width);
-	overflow: hidden;
-	position: relative;
-	width: 390px;
-    height: 700px;
-}
-
-.container__form {
-	height: 100%;
-	position: absolute;
-	top: 0;
-	transition: all 0.6s ease-in-out;
-}
- 
-
-
-.container--signin {
-	left: 0;
-	width: 50%;
-	z-index: 2;
-}
-
-
-.containerone.right-panel-active .container--signin {
-	transform: translateX(100%);
-}
-
-.container--signup {
-    left: 0;
-    transform: translateX(-100%);
-    opacity: 0;
-    width: 50%;
-    z-index: 1;
   }
 
-.containerone.right-panel-active .container--signup {
-	animation: show 0.6s;
-	opacity: 1;
-	transform: translateX(100%);
-	z-index: 5;
-}
-
-.container__overlay {
-	height: 100%;
-	left: 50%;
-	overflow: hidden;
-	position: absolute;
-	top: 0;
-	transition: transform 0.6s ease-in-out;
-	width: 50%;
-	z-index: 100;
-}
-
-.containerone.right-panel-active .container__overlay {
-	transform: translateX(-100%);
-}
-
-.overlay {
-	background-color: var(--lightblue);
-	background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710232910/QubicGen/Contact%20Us/robot-handshake-human-background-futuristic-digital-age_53876-129770_y17wm0.jpg");
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 100%;
-	left: -100%;
-	position: relative;
-	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-	width: 200%;
-}
-
-.containerone.right-panel-active .overlay {
-	transform: translateX(50%);
-}
-
-.overlay__panel {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	justify-content: center;
-	position: absolute;
-	text-align: center;
-	top: 0;
-	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-	width: 50%;
-}
-
-.overlay--left {
-	transform: translateX(-20%);
-}
-
-.containerone.right-panel-active .overlay--left {
-	transform: translateX(0);
-}
-
-.overlay--right {
-	right: 0;
-	transform: translateX(0);
-}
-
-.containerone.right-panel-active .overlay--right {
-	transform: translateX(20%);
-}
-
-.btnone {
-	background-color: var(--blue);
-	background-image: linear-gradient(90deg, var(--blue) 0%, var(--lightblue) 74%);
-	border-radius: 20px;
-	border: 1px solid var(--blue);
-	color: var(--white);
-	cursor: pointer;
-	font-size: 0.8rem;
-	font-weight: bold;
-	letter-spacing: 0.1rem;
-	padding: 0.9rem 4rem;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
-}
-
-.form > .btnone {
-	margin-top: 1.5rem;
-}
-
-.btnone:active {
-	transform: scale(0.95);
-}
-
-.btnone:focus {
-	outline: none;
-}
-
-.form {
-	background-color: var(--white);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 3rem;
-	height: 100%;
-	text-align: center;
-}
-
-.input {
-	background-color: #fff;
-	border: none;
-	padding: 0.9rem 0.9rem;
-	margin: 0.5rem 0;
-	width: 40vw;
-}
-
-
-.dropdownone {
-    margin: 0.5rem 0;
-    padding: 0.5rem;
-    width: 40vw;
-    border: 1px solid #ccc; /* Example border style */
-    border-radius: 4px; /* Example border radius */
-    background-color: #fff; /* Example background color */
-    font-size: 16px; /* Example font size */
-}
-
-
-.btnone {
-    border: none;
-    width: 12em;
-    height: 9em;
-    font-size: 8px;
-    border-radius: 3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    background: #1C1A1C;
-    cursor: pointer;
-    transition: all 450ms ease-in-out;
+  .panel .content {
+    padding: 0.5rem 1rem;
   }
-  
-  .sparkle {
-    fill: #AAAAAA;
-    transition: all 800ms ease;
+
+  .containerone {
+    padding: 1.5rem;
   }
-  
-  .text {
-    font-weight: 600;
-    color: #AAAAAA;
-    font-size: medium;
+
+  .containerone:before {
+    bottom: 72%;
+    left: 50%;
   }
-  
-  .btnone:hover {
-    /* background: linear-gradient(0deg,#A47CF3,#683FEA); */
-    background-color: gold;
-    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
-    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
-    0px 0px 180px 0px #9917FF;
-    transform: translateY(-2px);
+
+  .containerone.sign-up-mode:before {
+    bottom: 28%;
+    left: 50%;
   }
-  
-  .btnone:hover .text {
-    color: white;
-  }
-  
-  .btnone:hover .sparkle {
-    fill: white;
-    transform: scale(1.2);
-  } 
+}
 
 
+@media (max-width: 1200px) {
 
-  /* This is submit btn  */
 
-  .btn-53,
+  .image {
+    display: none;
+  }
+
+}
+
+
+.btn-53,
 .btn-53 *,
 .btn-53 :after,
 .btn-53 :before,
@@ -1040,8 +596,8 @@
 }
 
 .btn-53 .original {
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   display: grid;
   inset: 0;
   place-content: center;
@@ -1084,7 +640,6 @@
   transition-delay: 0.3s;
 }
 
-
 .btn-53:hover span:nth-child(5) {
   transition-delay: 0.4s;
 }
@@ -1094,6 +649,46 @@
 }
 
 
-}
-
-
+.btnone {
+    border: none;
+    width: 20em;
+    height: 5em;
+    border-radius: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    cursor: pointer;
+    transition: all 450ms ease-in-out;
+    color: black;
+  }
+  
+  .sparkle {
+    fill: #AAAAAA;
+    transition: all 800ms ease;
+  }
+  
+  .text {
+    font-weight: 600;
+    color: #AAAAAA;
+    font-size: medium;
+  }
+  
+  .btnone:hover {
+    background: gold;
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+    0px 0px 180px 0px #9917FF;
+    transform: translateY(-2px);
+  }
+  
+  .btnone:hover .text {
+    color: white;
+  }
+  
+  .btnone:hover .sparkle {
+    fill: white;
+    transform: scale(1.2);
+  } 
