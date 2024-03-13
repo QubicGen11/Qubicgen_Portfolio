@@ -11,33 +11,98 @@ input {
   font-family: "Poppins", sans-serif;
 }
 
-.containerone {
+/* Contact.css */
+
+
+.boxy {
     position: relative;
     width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
     background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710232910/QubicGen/Contact%20Us/robot-handshake-human-background-futuristic-digital-age_53876-129770_y17wm0.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    min-height: 100vh;
-    overflow: hidden;
   }
   
-  .containerone::before,
-  .containerone::after {
+  .boxy::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.1); /* Adjust opacity here */
-    z-index: 1;
+    background: rgba(0, 0, 0, 0.5); /* Light black overlay */
   }
   
-  .containerone::after {
-    background: rgba(0, 0, 0, 0.5); /* Adjust opacity here */
-    z-index: 2; /* Ensure it's above the dark overlay */
+
+.btn-53 {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
   }
+  
+  .original {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    color: black;
+    display: grid;
+    place-content: center;
+    transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+  }
+  
+  .btn-53:hover .original {
+    transform: translateY(100%);
+  }
+  
+  .letters {
+    display: inline-flex;
+  }
+  
+  .letters span {
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.2s;
+  }
+  
+  .letters span:nth-child(2n) {
+    transform: translateY(15px);
+  }
+  
+  .btn-53:hover .letters span {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .btn-53:hover .letters span:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+  
+  .btn-53:hover .letters span:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+  
+  .btn-53:hover .letters span:nth-child(4) {
+    transition-delay: 0.3s;
+  }
+  
+  .btn-53:hover .letters span:nth-child(5) {
+    transition-delay: 0.4s;
+  }
+  
+  .btn-53:hover .letters span:nth-child(6) {
+    transition-delay: 0.5s;
+  }
+  
+
+
   
 
 .forms-container {
@@ -382,6 +447,15 @@ form.sign-up-form {
     min-height: 1000px;
     height: 80vh;
   }
+#lookingproject{
+  position: relative;
+  bottom: 20px;
+}
+  #studentskill{
+    position: relative;
+    left: 140px;
+      }
+
   .signin-signup {
     width: 50%;
     height: 65%;
@@ -486,6 +560,13 @@ form.sign-up-form {
     padding: 0 1.5rem;
   }
 
+  #studentskill{
+position: relative;
+left: 140px;
+top: 50px;
+  }
+  
+
   .containerone {
     min-height: 1000px;
     height: auto; /* Adjusted to allow dynamic height based on content */
@@ -493,7 +574,7 @@ form.sign-up-form {
 
   .signin-signup {
     width: 100%; /* Adjusted width for better visibility */
-    height: 1000px; /* Adjusted to allow dynamic height based on content */
+    height: 800px; /* Adjusted to allow dynamic height based on content */
     top: 54%; /* Adjusted to center the form */
     transform: translate(-50%, -50%);
     transition: 1s 0.8s ease-in-out;
@@ -691,4 +772,4 @@ form.sign-up-form {
   .btnone:hover .sparkle {
     fill: white;
     transform: scale(1.2);
-  } 
+  }

@@ -54,14 +54,26 @@ const Contact = () => {
             </div>
             
             <div className="input-field" style={{height: '20vh'}}>
-              <i className="fas fa-" style={{position: 'relative', top: '20px',border:'none'}} />
+              <i className="fas fa-mobile" style={{position: 'relative', top: '20px',border:'none'}} />
               <input type="text" placeholder="Enter Message" />
             </div>
 
-        
+            <button className="btn-53" style={{marginTop:'10px'}}>
+  <div className="original" >Submit</div>
+  <div className="letters">
+    
+    <span>S</span>
+    <span>U</span>
+    <span>B</span>
+    <span>M</span>
+    <span>I</span>
+    <span>T</span>
+  </div>
+</button>
 
 
-                        </form>
+
+            </form>
 
 
           <form action="#" className="sign-up-form">
@@ -103,7 +115,7 @@ const Contact = () => {
   </div>
 </button>         
 
- </form>
+           </form>
         </div>
       </div>
 
@@ -113,10 +125,10 @@ const Contact = () => {
 
       <div className="panels-container">
         <div className="panel left-panel">
-          <div className="content">
-            <h3 style={{fontSize:'45px'}}>Looking for Project ?</h3>
+          <div className="content" id='lookingproject'>
+            <h3 style={{fontSize:'45px'}} id=''>Looking for Project ?</h3>
 
-            <button className="btnone" id="sign-up-btn" style={{width:'170px',position:'relative',left:'76px',height:'50px'}}>
+            <button className="btnone" id="sign-up-btn" style={{width:'170px',position:'relative',left:'76px',height:'50px',marginTop:'30px'}}>
               Project Form
             </button>
 
@@ -125,7 +137,7 @@ const Contact = () => {
           {/* <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710237566/QubicGen/Contact%20Us/cropped_robot_yspx0x.jpg" style={{position: 'relative', right: '100px'}} className="imageone" alt="" /> */}
         </div>
         <div className="panel right-panel" style={{position:'relative',left:'-150px'}}>
-          <div className="content">
+          <div className="content" id='studentskill'>
             <h3 style={{fontSize:'45px'}}>Want to Learn Skills?</h3>
          
             <button className="btnone" id="sign-in-btn" style={{width:'170px',position:'relative',left:'140px',height:'50px'}}>
