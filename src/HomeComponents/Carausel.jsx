@@ -37,7 +37,7 @@ const Carausel = () => {
     </div>
    
     <div className="carousel-item" data-bs-interval="3000">
-      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1708354328/QubicGen/Slide3_hfsrsc_fryv1e.webp" id='slide4img' className="d-block w-100" alt="..." loading="lazy" />
+      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710313514/QubicGen/Home%20Page/Corossal/robot-hand-finger-ai-background-technology-graphics_tq7hs0.jpg" id='slide4img' className="d-block w-100" alt="..." loading="lazy" />
       <div className="carousel-caption">
         <h1 style={{color:'white'}}>Automate.</h1>
         <h1>Operate.</h1>

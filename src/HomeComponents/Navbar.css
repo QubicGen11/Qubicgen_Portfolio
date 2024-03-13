@@ -11,8 +11,8 @@
 
 .dropdown-toggle::after {
   position: relative;
-  left: 40px;
-  bottom: 20px;
+  left: 60px;
+  bottom: 22px;
   
   
 }
@@ -399,7 +399,7 @@
 
 
 
-@media (min-width:1400px) and (max-width:2000px) {
+@media (min-width:1001px) and (max-width:2000px) {
   #otherOffcanvasBtn{
     display: none;
   }
