@@ -57,7 +57,7 @@ left: 30%; */
 }
 .rpahead {
 position: relative;
-height: 80vh;
+height: 50vh;
 background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");}
 
 
@@ -77,7 +77,7 @@ left: 32%; */
 }
 .rpahead {
 position: relative;
-height: 70vh;
+height: 40vh;
 background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");background-position: center;
 }
 }
@@ -91,7 +91,7 @@ position: absolute;
 }
 
 #rpadesc{
-font-size: 19px;
+font-size: 12px;
 
 }
 .rpahead {

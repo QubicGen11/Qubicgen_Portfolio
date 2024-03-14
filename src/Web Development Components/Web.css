@@ -57,7 +57,7 @@ left: 30%; */
 }
 .webhead {
 position: relative;
-height: 90vh;
+height: 50vh;
 background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709808588/QubicGen/Web%20Development/Hero%20Section/html-system-website-concept_23-2150376770_bbaved.jpg");
 
 }
@@ -79,11 +79,11 @@ left: 32%; */
 }
 .webhead {
 position: relative;
-height: 70vh;
+height: 40vh;
 background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709808588/QubicGen/Web%20Development/Hero%20Section/html-system-website-concept_23-2150376770_bbaved.jpg");}
 }
 
-@media (min-width: 769px) and (max-width: 1400px) {
+@media (min-width: 769px) and (max-width: 1475px) {
 #webtit{
 font-size: 35px;
 position: absolute;
@@ -92,12 +92,12 @@ position: absolute;
 }
 
 #webdesc{
-font-size: 18px;
+font-size: 12px;
 
 }
 .webhead {
 position: relative;
-height: 100vh;
+height: 70vh;
 background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709808588/QubicGen/Web%20Development/Hero%20Section/html-system-website-concept_23-2150376770_bbaved.jpg");}
 }
 
