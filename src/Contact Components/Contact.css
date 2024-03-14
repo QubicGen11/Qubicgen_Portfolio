@@ -155,7 +155,7 @@ input {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
 
-}
+} 
 
 
 
@@ -177,16 +177,17 @@ form.sign-in-form {
 }
 
 .input-field {
-  max-width: 380px;
-  width: 100%;
+ width: 400px;
+ 
   background-color: #f0f0f0;
   margin: 10px 0;
   height: 55px;
-  border-radius: 55px;
+  border-radius: 8px;
   display: grid;
   grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
   position: relative;
+  
 }
 
 .input-field i {
@@ -493,11 +494,7 @@ form.sign-up-form {
     grid-row: 1 / 2;
   }
 
-  .image {
-    width: 500px;
-    transition: transform 0.9s ease-in-out;
-    transition-delay: 0.6s;
-  }
+
 
   .panel .content {
     padding-right: 15%;
@@ -589,9 +586,7 @@ top: 50px;
     left: 50%;
   }
 
-  .image {
-    display: none;
-  }
+
 
   .panel .content {
     padding: 0.5rem 1rem;
@@ -610,6 +605,13 @@ top: 50px;
     bottom: 28%;
     left: 50%;
   }
+
+  .input-field{
+    width: 250px;
+  }
+
+
+
 }
 
 @media(min-width:550px) and (max-width:870px){
@@ -617,6 +619,7 @@ top: 50px;
     width: 350px;
   }
 }
+
 
 
 

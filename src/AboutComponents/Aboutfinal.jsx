@@ -23,6 +23,7 @@ import './Aboutmain.css'
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom'
 
 
 
@@ -159,14 +160,7 @@ const Aboutfinal = () => {
                     <p className="qualitative" style={{fontSize:'17px',fontWeight:'500'}}>Qualitative</p>
                     <p className="test"style={{fontSize:'17px',fontWeight:'500'}}>test</p>
                   </div>
-                  {/* <div className="rectangle">
-                    <div className="rectangle-child" />
-                    <div className="rectangle-item" />
-                    <div className="quantitative-test">
-                      <p className="quantitative">Quantitative</p>
-                      <p className="test1">test</p>
-                    </div>
-                  </div> */}
+            
                   <div className="contact-now">
                     <div className="resources" />
                     <div className="about-services-features-pricin" />
@@ -215,10 +209,15 @@ const Aboutfinal = () => {
                       With extensive experience in catering to diverse sectors, we understand the unique challenges and opportunities specific to your industry. Our specialized knowledge enables us to provide targeted solutions that drive tangible results.                      </div>
                       <img className="subtract-icon7" loading="eager" alt="" src={subtract32} />
                     </div>
-                    <button className="project-discussions">
+                   
+                   <Link to="/contact">
+                   <button className="project-discussions">
                       <b className="discuss-for-projects">Discuss for Projects</b>
                       <img className="project-discussions-child" alt="" src={arrow7} />
                     </button>
+                    </Link> 
+
+
                   </div>
                 </div>
                 <div className="frames3">
@@ -235,10 +234,12 @@ const Aboutfinal = () => {
                       </div>
                       <img className="subtract-icon8" loading="eager" alt="" src={subtract32} />
                     </div>
-                    <button className="discuss-for-projects-parent">
-                      <b className="discuss-for-projects1">Discuss for Projects</b>
-                      <img className="frame-child1" alt="" src={arrow7} />
+                   <Link to="/contact">
+                   <button className="project-discussions">
+                      <b className="discuss-for-projects">Discuss for Projects</b>
+                      <img className="project-discussions-child" alt="" src={arrow7} />
                     </button>
+                    </Link> 
                   </div>
                 </div>
                 <div className="frames4">
@@ -255,10 +256,12 @@ const Aboutfinal = () => {
                       </div>
                       <img className="subtract-icon9" loading="eager" alt="" src={subtract32} />
                     </div>
-                    <button className="discuss-for-projects-group">
-                      <b className="discuss-for-projects2">Discuss for Projects</b>
-                      <img className="frame-child3" alt="" src={arrow7} />
+                    <Link to="/contact">
+                   <button className="project-discussions">
+                      <b className="discuss-for-projects">Discuss for Projects</b>
+                      <img className="project-discussions-child" alt="" src={arrow7} />
                     </button>
+                    </Link> 
                   </div>
                 </div>
                 <div className="frames5">
@@ -275,10 +278,12 @@ const Aboutfinal = () => {
                       </div>
                       <img className="subtract-icon10" loading="eager" alt="" src={subtract32} />
                     </div>
-                    <button className="discuss-for-projects-container">
-                      <b className="discuss-for-projects3">Discuss for Projects</b>
-                      <img className="frame-child6" alt="" src={arrow7} />
+                    <Link to="/contact">
+                   <button className="project-discussions">
+                      <b className="discuss-for-projects">Discuss for Projects</b>
+                      <img className="project-discussions-child" alt="" src={arrow7} />
                     </button>
+                    </Link> 
                   </div>
                 </div>
                 <div className="frames6">
@@ -295,10 +300,12 @@ const Aboutfinal = () => {
                       </div>
                       <img className="subtract-icon11" loading="eager" alt="" src={subtract42x} />
                     </div>
-                    <button className="frame-button">
-                      <b className="discuss-for-projects4">Discuss for Projects</b>
-                      <img className="frame-child9" alt="" src={arrow7} />
+                    <Link to="/contact">
+                   <button className="project-discussions">
+                      <b className="discuss-for-projects">Discuss for Projects</b>
+                      <img className="project-discussions-child" alt="" src={arrow7} />
                     </button>
+                    </Link> 
                   </div>
                 </div>
                 <div className="frames7">
@@ -315,10 +322,12 @@ const Aboutfinal = () => {
                       </div>
                       <img className="subtract-icon12" loading="eager" alt="" src={subtract42x} />
                     </div>
-                    <button className="discuss-for-projects-parent1">
-                      <b className="discuss-for-projects5">Discuss for Projects</b>
-                      <img className="frame-child12" alt="" src={arrow7} />
+                    <Link to="/contact">
+                   <button className="project-discussions">
+                      <b className="discuss-for-projects">Discuss for Projects</b>
+                      <img className="project-discussions-child" alt="" src={arrow7} />
                     </button>
+                    </Link> 
                   </div>
                 </div>
               </div>

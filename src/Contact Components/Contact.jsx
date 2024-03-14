@@ -104,7 +104,7 @@ const Contact = () => {
       loop:true,
       
       delay: 2, 
-      strings: ['Project<span class="text-[#ffd700]">Form</span>'],
+      strings: ['Project<span class="text-[#ffd700]"> Form</span>'],
       onComplete: (self) => {
         const textElement = self.el;
         const html = textElement.innerHTML;
@@ -115,8 +115,9 @@ const Contact = () => {
 </h2>
             <div className="input-field">
               <i className="fas fa-user" />
-              <input type="text" placeholder="Enter Full Name" />
+              <input type="text" placeholder="Enter Full Name"  />
             </div>
+            
             <div className="input-field">
               <i className="fas fa-envelope" />
               <input type="email" placeholder="Email" />
@@ -137,6 +138,10 @@ const Contact = () => {
               <i className="fas fa-address-book" style={{position: 'relative', top: '20px'}} />
               <input type="text" placeholder="Enter Comments" />
             </div>
+            
+
+     
+
             <button className="btn-53" style={{marginTop:'20px'}}>
   <div className="original">SUBMIT</div>
   <div className="letters">

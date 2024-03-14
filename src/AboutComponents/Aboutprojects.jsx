@@ -24,10 +24,7 @@ const Aboutprojects = () => {
                   <img className="paper-plane-icon" loading="eager" alt="" src={paperplane} />
                   <div className="contact-now1">
                     <h1 className="have-any-project">Have any project idea?</h1>
-                    <div className="amet-minim-mollit8">
-                      Amet minim mollit non deserunt ullamco est sit aliqua
-                      dolor do amet sint.
-                    </div>
+                  
                   </div>
                 </div>
                 <button className="contact-now-wrapper">
