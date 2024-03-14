@@ -2,6 +2,10 @@ import React, { useEffect, useRef } from 'react'
 import "./Contact.css"
 import Navbar from '../HomeComponents/Navbar'
 import Footer from '../HomeComponents/Footer'
+import Typewriter from 'typewriter-effect';
+import AOS from 'aos';
+
+
 
 const Contact = () => {
     const containeroneRef = useRef(null);
@@ -23,13 +27,27 @@ const Contact = () => {
     <>
 
     <Navbar/>
-     <div className="boxy">
+     <div className="boxy" data-aos = "fade-right">
     <div className="containerone"  ref={containeroneRef}>
       <div className="forms-container">
         <div className="signin-signup">
           <form action="#" className="sign-in-form">
-            <h2 className="title">Student Form</h2>
-            <div className="input-field">
+          <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" id='wearequbic' style={{fontSize:'40px'}}>
+  <Typewriter
+    options={{
+      autoStart: true,
+      loop:true,
+      
+      delay: 2, 
+      strings: ['Student<span class="text-[#ffd700]"> Form</span>'],
+      onComplete: (self) => {
+        const textElement = self.el;
+        const html = textElement.innerHTML;
+        textElement.innerHTML = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+      },
+    }}
+  />
+</h2>            <div className="input-field">
               <i className="fas fa-user" />
               <input type="text" placeholder="Enter Full Name" />
             </div>
@@ -77,7 +95,24 @@ const Contact = () => {
 
 
           <form action="#" className="sign-up-form">
-            <h2 className="title" >Project Form</h2>
+            
+
+            <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" id='wearequbic' style={{fontSize:'40px'}}>
+  <Typewriter
+    options={{
+      autoStart: true,
+      loop:true,
+      
+      delay: 2, 
+      strings: ['Project<span class="text-[#ffd700]">Form</span>'],
+      onComplete: (self) => {
+        const textElement = self.el;
+        const html = textElement.innerHTML;
+        textElement.innerHTML = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+      },
+    }}
+  />
+</h2>
             <div className="input-field">
               <i className="fas fa-user" />
               <input type="text" placeholder="Enter Full Name" />
