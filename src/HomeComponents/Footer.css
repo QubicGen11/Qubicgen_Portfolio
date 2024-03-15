@@ -8,4 +8,9 @@
       opacity: 1;
     }
   }
-  
+
+
+  .servicesfoot li a:hover{ 
+    color: gold;
+    
+  }

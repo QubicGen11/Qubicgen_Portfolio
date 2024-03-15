@@ -446,8 +446,8 @@ form.sign-up-form {
 
 @media (max-width: 870px) {
   .containerone {
-    min-height: 1000px;
-    height: 80vh;
+    min-height: 800px;
+    height: 100vh;
   }
 
   
