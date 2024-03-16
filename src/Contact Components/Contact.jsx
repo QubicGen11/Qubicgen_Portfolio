@@ -4,6 +4,7 @@ import Navbar from '../HomeComponents/Navbar'
 import Footer from '../HomeComponents/Footer'
 import Typewriter from 'typewriter-effect';
 import AOS from 'aos';
+import SEO from '../SEO';
 
 
 
@@ -25,6 +26,15 @@ const Contact = () => {
 
   return (
     <>
+    <SEO
+      title="QubiGen - Contact Us"
+      description="Connect with QubiGen and get in touch with our team. Learn how you can reach out to us for inquiries, collaborations, and partnerships. We are here to support your business needs."
+      type="website"
+      name="QubiGen Contact"
+      image="https://example.com/contact-og-image.jpg"
+      url="https://www.qubicgen.com/contact"
+      keywords="QubiGen, Contact Us, inquiries, collaborations, partnerships, support"
+  />
 
     <Navbar/>
      <div className="boxy" data-aos = "fade-right">

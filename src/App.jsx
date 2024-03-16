@@ -46,15 +46,11 @@ const App = () => {
           <ScrollToTop /> 
         <Routes>
           <Route path="/" element={<Home />} />
-          
-          {/* <Route path="/services" element={<Services />} /> */}
-          {/* <Route path="/industries" element={<Industries />} /> */}
           <Route path="/banking" element={<Banking/>} />
           <Route path="/about" element={<About />} />
           <Route path="/rpa" element={<Rpa/>} />
           <Route path="/sap" element={<Sap/>} />
           <Route path="/cybersecurity" element={<Cybersecurity/>} />
-          {/* <Route path="/webdevelopment" element={<Web/>} /> */}
           <Route path="/dataanalytics" element={<Dataanalytics/>} />
           <Route path="/testing" element={<Testing/>} />
           <Route path="/database" element={<Database/>} />

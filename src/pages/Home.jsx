@@ -18,7 +18,7 @@ const Home = () => {
         type="website"
         name="QubiGen"
         image="https://example.com/og-image.jpg"
-        url="https://example.com"
+        url="https://www.qubicgen.com/"
         keywords="QubiGen, Anantapur, Andhra Pradesh, India, education, innovation, success, technology, top tech company, Anatapur tech, Anatapur technology, Anatapur innovation, Anatapur success, Anatapur education"
       />
       <Navbar />
