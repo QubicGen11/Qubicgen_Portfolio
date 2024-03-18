@@ -1,17 +1,35 @@
-.content{
-    height: 100vh;
-
-}
-
-.text{
-    background-color: pink;
+.Careersmain {
     position: relative;
-    left: 500px;
-    top: 200px;
-    color: black;
-   height:20vh;
-   width: 400px;
-   text-align: center;
-    border-radius: 30px;
- 
+    width: 100%;
+    min-height: 80vh;
+    overflow: hidden;
+    background: url("https://images.unsplash.com/photo-1710104434504-0261d06fa832?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  
+  .Careersmain::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+  } 
+
+
+@media (min-width:320px) and (max-width:1114px){
+  
+  #careerstextone{
+    display: none;
+  }
+  #careerstexttwo{
+    display: none;
+  }
+  #careerstextthree{
+    display: none;
+  }
+  #careerstextfour{
+    display: none;
+  }
 }

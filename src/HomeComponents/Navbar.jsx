@@ -174,8 +174,11 @@ navbar.style.backgroundColor = newColor;
   
 </div>
 
-   
+   <Link to="/careers"><li className="hover:cursor-pointer mb-8">CAREERS</li></Link> 
    <Link to="/contact"><li className="hover:cursor-pointer">CONTACT US</li></Link> 
+   
+   
+
 
       
     <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8" >
