@@ -48,7 +48,6 @@
 .nav li {
   list-style: none;
   display: flex;
-  margin-left: auto;
   font-size: 17px;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;

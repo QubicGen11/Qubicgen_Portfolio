@@ -22,7 +22,7 @@ const Homeabout = () => {
       loop:true,
       
       delay: 2, 
-      strings: ['We are <span class="text-[#ffd700]">QubiGen</span>'],
+      strings: ['We are <span class="text-[#ffd700]">QubicGen</span>'],
       onComplete: (self) => {
         const textElement = self.el;
         const html = textElement.innerHTML;
