@@ -33,6 +33,7 @@ import Summary from "./Industries Components/Summary Components/Summary";
 
 import Admin from "./Admin/Admin";
 import Contact from "./Contact Components/Contact";
+import Careers from "./Career Components/Careers";
 
 
 
@@ -71,6 +72,7 @@ const App = () => {
           <Route path="/summary" element={<Summary/>} />
           <Route path="/admin" element={<Admin/>} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/careers" element={<Careers/>} />
          
         </Routes>
       </Router>

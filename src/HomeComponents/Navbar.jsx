@@ -81,7 +81,7 @@ navbar.style.backgroundColor = newColor;
           >
             <li className="hover:cursor-pointer">Services</li>
           </div>
-          <li className="hover:cursor-pointer">Careers</li>
+         <Link to="/careers"><li className="hover:cursor-pointer">Careers</li></Link> 
           <li className="hover:cursor-pointer">Blog</li>
 
         <Link to="/contact"><li className="hover:cursor-pointer">Contact</li></Link>  
