@@ -24,7 +24,7 @@ const Queries = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/queries', formData);
+      const response = await axios.post('https://qubic-gen-portfolio.onrender.com/api/queries', formData);
       console.log('Form data submitted:', response.data);
       // Reset form after successful submission if needed
       setFormData({
