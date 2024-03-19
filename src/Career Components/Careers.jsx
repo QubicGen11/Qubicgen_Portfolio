@@ -1,22 +1,24 @@
 import React, { useEffect } from 'react'
 import Navbar from '../HomeComponents/Navbar'
 import './Careers.css'
-import Careersherone from './Careersherone'
-import ExploreQubicgen from './ExploreQubicgen'
 import Footer from '../HomeComponents/Footer'
 import 'aos/dist/aos.css';
 import AOS from 'aos'
+import Carrernext from './Carrernext'
+
 
 
 
 const Careers = () => {
   useEffect(() => {
-    AOS.init({ duration: 3000 })
+    AOS.init({ duration: 2000 })
   }, [])
 
 
   return (
     <>
+
+    
     <Navbar/>
 
     <div className="careeesfull bg-black" data-aos="fade-right">
@@ -28,11 +30,9 @@ const Careers = () => {
 
     </div>
 
-  <Careersherone/>
-
-
-    <ExploreQubicgen/>
     </div>
+
+  <Carrernext/>
 
 
 

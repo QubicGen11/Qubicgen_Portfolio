@@ -18,6 +18,35 @@
   } 
 
 
+  .content {
+    position: relative;
+    width: 100%;
+  height: auto;
+    overflow: hidden;
+    background-size: cover;
+
+  }
+  
+  .content::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+  } 
+
+  .parallax-element {
+    transition: transform 0.5s ease; /* Example of CSS transition effect */
+  }
+  
+  .parallax-element:hover {
+    transform: translateY(-20px); /* Example of CSS transform effect */
+  }
+  
+
+
+
+
 @media (min-width:320px) and (max-width:1114px){
   
   #careerstextone{
