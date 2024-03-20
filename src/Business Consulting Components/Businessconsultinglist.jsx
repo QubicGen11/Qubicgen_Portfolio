@@ -89,7 +89,8 @@ const Businessconsultinglist = () => {
     <div className="banking-main-list" >
     <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
 <Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
-<Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
+<Link to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Service Offerings</li></Link>
+
 <Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
 </nav>
 
@@ -114,7 +115,7 @@ const Businessconsultinglist = () => {
   <p className="lead" id='leadtext'>Transform your business with our expert consulting services. We offer strategic guidance and tailored solutions to propel your growth, enhance efficiency, and foster innovation. From insightful analysis to actionable plans, we're committed to empowering your success every step of the way.</p>
 </div>
 <div className="col-md-5" bis_skin_checked="1">
-  <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709282493/QubicGen/three-businesspersons-meeting_f87y5a.jpg" alt="" />
+  <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710142264/QubicGen/Business%20Consulting/Overview/three-businesspersons-meeting_f87y5a_1_1_na6zih.jpg" alt="" />
 </div>
 </div>
     </div>
@@ -129,7 +130,7 @@ const Businessconsultinglist = () => {
 
     <div style={{ color: 'white', marginLeft: '40px' ,marginTop:'130px'}} data-aos="fade-up"  >
      
-     <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Our Offerings</h1>
+     <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Service Offerings</h1>
 
      <div className="container" style={{marginTop:'100px'}}>
        <div className="row" >

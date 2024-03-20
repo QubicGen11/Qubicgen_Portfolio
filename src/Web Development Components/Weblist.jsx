@@ -115,8 +115,8 @@ const[Webserve,setWebserve]=useState([
     <div className="banking-main-list" >
     <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
 <Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
-<Link to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Who we serve</li></Link>
-<Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
+<Link to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Service Offerings</li></Link>
+<Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Who we serve</li></Link>
 <Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
 </nav>
 
@@ -141,7 +141,7 @@ const[Webserve,setWebserve]=useState([
      <p className="lead" id='leadtext'>Our web development services are crafted to breathe life into your online vision, combining creativity with technical prowess to create stunning websites that captivate and inspire. From sleek and intuitive designs to robust functionality, we're here to transform your online presence and propel your business to new heights in the digital landscape.</p>
    </div>
    <div className="col-md-5" bis_skin_checked="1">
-     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709795794/QubicGen/medium-shot-woman-working-laptop_23-2150323516_ms6dwf.jpg"  alt="" />
+     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709795794/QubicGen/Web%20Development/Overview/medium-shot-woman-working-laptop_23-2150323516_ms6dwf.jpg"  alt="" />
    </div>
  </div>
     </div>
@@ -156,7 +156,7 @@ const[Webserve,setWebserve]=useState([
 
     <div style={{ color: 'white', marginLeft: '40px' ,marginTop:'130px'}} data-aos="fade-up"  >
      
-     <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Our Offerings</h1>
+     <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Service Offerings</h1>
 
      <div className="container" style={{marginTop:'100px'}}>
        <div className="row" >

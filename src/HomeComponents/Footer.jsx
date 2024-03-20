@@ -154,30 +154,30 @@ const Footer = () => {
                 </ul>
               </div> */}
             <div className="text-center sm:text-left">
-              <p className="text-lg font-medium text-gray-900 dark:text-white" style={{fontSize:'25px',color:'gold'}} >Services</p>
+              <p className="text-lg font-medium dark:text-white" style={{fontSize:'25px',color:'gold'}} >Services</p>
               <ul className="mt-8 space-y-4 text-sm servicesfoot">
                 <li>
-                  <Link className="text-gray-700 transition hover:text-gold dark:text-white dark:hover:text-gold/75" to="/rpa">
+                  <Link className="transition hover:text-gold dark:text-white dark:hover:text-gold/75" to="/rpa">
                     RPA
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" to="/cybersecurity">
+                  <Link className=" dark:text-white dark:hover:text-white/75" to="/cybersecurity">
                     Cyber Security
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" to="/sap">
+                  <Link className=" dark:text-white dark:hover:text-white/75" to="/sap">
                    SAP
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" to="/digitalmarketing">
+                  <Link className=" dark:text-white dark:hover:text-white/75" to="/digitalmarketing">
                     Digital Marketing
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" to="/webdevelopment">
+                  <Link className=" dark:text-white dark:hover:text-white/75" to="/webdevelopment">
                     Web Development
                   </Link>
                 </li>

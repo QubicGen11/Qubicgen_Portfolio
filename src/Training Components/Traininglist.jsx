@@ -17,59 +17,56 @@ const Traininglist = () => {
   // This is for rpa offering cards
 
 
-const[Ourtrainings,setOurtrainings]=useState([
+  const[Ourtrainings,setOurtrainings]=useState([
 
-  {
-  title:'RPA',
-  description: 'Master the art of automating repetitive tasks and processes with our RPA training, unlocking efficiency and productivity gains for your organization.',
-  background: "https://img.freepik.com/free-photo/robotic-hand-holograms-rpa-concept_23-2149311909.jpg?t=st=1709287933~exp=1709291533~hmac=94764907f68e02455bcec4dcd9122576abf1bf98649e1734f610c6809793db26&w=996"
-  },
-  
-  {
-  title: 'Cyber Security',
-  description: 'Protect your digital assets and mitigate risks with our cybersecurity training, equipping you with the skills to defend against evolving threats.',
-  background: "https://img.freepik.com/free-vector/data-security-technology-background-vector-blue-tone_53876-112201.jpg?t=st=1709288161~exp=1709291761~hmac=8e94a590d2469d28b79a97151067da0494834918b7d0a4a93662df827ee8ff1f&w=996"
-  },
-  {
-    title: 'ServiceNow',
-    description: 'Streamline your IT service management processes with our ServiceNow training, optimizing service delivery and enhancing user experience.',
-    background: "https://geeksforless.com/wp-content/uploads/2022/09/Frame-6.png"
+    {
+    title:'RPA',
+    description: 'Master the art of automating repetitive tasks and processes with our RPA training, unlocking efficiency and productivity gains for your organization.',
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710142879/QubicGen/Trainings/Our%20Trainings/robotic-hand-holograms-rpa-concept_23-2149311909_uflvil.jpg"
     },
-  {
-  title: 'Testing',
-  description: 'Ensure the reliability and quality of your software applications through rigorous testing methodologies with our comprehensive training program.',
-  background: "https://www.professionalqa.com/assets/images/software-testing.png"
-  },
-  {
-  title: 'Prompt Engineering',
-  description: ' Elevate your problem-solving skills and technical expertise with our Prompt Engineer training, preparing you for the challenges of dynamic IT environments.',
-  background: "https://dmexco-lightsails-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2023/07/20205343/Prompt-Engineering.jpg"
-  },
-  {
-    title: 'Azure Data Factory',
-    description: '  Harness the power of Microsoft Azure for data integration and analytics with our Azure Data Factory training, unlocking insights for informed decision-making.',
-    background: "https://datascientest.com/en/wp-content/uploads/sites/9/2023/09/illu_azure_factory-34-1024x562-1.jpg"
-  },
-  {
-    title: 'Data Science',
-    description: 'Dive into the world of data analysis and machine learning with our Data Science training, transforming raw data into actionable insights.',
-    background: "https://d1m75rqqgidzqn.cloudfront.net/wp-data/2019/09/11134058/What-is-data-science-2.jpg"
-  },
+    
+    {
+    title: 'Cyber Security',
+    description: 'Protect your digital assets and mitigate risks with our cybersecurity training, equipping you with the skills to defend against evolving threats.',
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710143969/QubicGen/Trainings/Our%20Trainings/data-security-technology-background-vector-blue-tone_53876-112201_r0itfq.jpg"
+    },
+    {
+      title: 'ServiceNow',
+      description: 'Streamline your IT service management processes with our ServiceNow training, optimizing service delivery and enhancing user experience.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710143985/QubicGen/Trainings/Our%20Trainings/Frame-6_njvduz.png"
+      },
+    {
+    title: 'Testing',
+    description: 'Ensure the reliability and quality of your software applications through rigorous testing methodologies with our comprehensive training program.',
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710148915/QubicGen/Trainings/Our%20Trainings/software-testing_zinlyu.png"
+    },
+    {
+    title: 'Prompt Engineering',
+    description: ' Elevate your problem-solving skills and technical expertise with our Prompt Engineer training, preparing you for the challenges of dynamic IT environments.',
+    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710148932/QubicGen/Trainings/Our%20Trainings/Prompt-Engineering_ve3jy4.jpg"
+    },
+    {
+      title: 'Azure Data Factory',
+      description: '  Harness the power of Microsoft Azure for data integration and analytics with our Azure Data Factory training, unlocking insights for informed decision-making.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710149063/QubicGen/Trainings/Our%20Trainings/illu_azure_factory-34-1024x562-1_socjfo.jpg"
+    },
+    {
+      title: 'Data Science',
+      description: 'Dive into the world of data analysis and machine learning with our Data Science training, transforming raw data into actionable insights.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710149073/QubicGen/Trainings/Our%20Trainings/What-is-data-science-2_xcx2wq.jpg"
+    },
+    {
+      title: 'SQL',
+      description: 'Unlock the potential of relational databases with our SQL Database training, gaining expertise in managing and querying data efficiently.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710149289/QubicGen/Trainings/Our%20Trainings/gradient-sql-illustration_52683-80408_ydkgpw.jpg"
+    },
+    {
+      title: 'Full Stack Development',
+      description: 'Become a proficient developer capable of building both client-side and server-side components with our Full Stack Development training, bridging the gap between front-end and back-end development.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710149446/QubicGen/Trainings/Our%20Trainings/fullstack_q9jggs.png"
+    },
 
-  {
-    title: 'SQL',
-    description: 'Unlock the potential of relational databases with our SQL Database training, gaining expertise in managing and querying data efficiently.',
-    background: "https://img.freepik.com/premium-vector/gradient-sql-illustration_52683-80408.jpg"
-  },
-  {
-    title: 'Full Stack Development',
-    description: 'Become a proficient developer capable of building both client-side and server-side components with our Full Stack Development training, bridging the gap between front-end and back-end development.',
-    background: "https://www.freecodecamp.org/news/content/images/2023/01/fullstack.png"
-  },
-
-
-    
-    ]);
+    ]);
 
   // This is for rpa offering cards
 
@@ -102,7 +99,7 @@ const[Ourtrainings,setOurtrainings]=useState([
     <div className="banking-main-list" >
     <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
 <Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
-<Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
+<Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Our Trainings</li></Link>
 <Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
 </nav>
 
@@ -156,7 +153,7 @@ const[Ourtrainings,setOurtrainings]=useState([
 
     <div style={{ color: 'white', marginLeft: '40px',marginTop:'100px' }} ref={caseStudiesRef} data-aos="zoom-in"  >
         
-        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Our Offerings</h1>
+        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Our Trainings</h1>
      
         <div className="container" style={{marginTop:'100px'}}>
    <div className="row">
