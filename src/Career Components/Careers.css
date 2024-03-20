@@ -18,7 +18,7 @@
   } 
 
 
-  .content {
+  .careerscontent {
     position: relative;
     width: 100%;
   height: auto;
@@ -27,7 +27,7 @@
 
   }
   
-  .content::before {
+  .careerscontent::before {
     content: "";
     position: absolute;
     width: 100%;

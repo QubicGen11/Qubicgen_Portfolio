@@ -618,6 +618,13 @@ top: 50px;
   .input-field{
     width: 350px;
   }
+
+  #projectheading{
+    font-size: 30px;
+  }
+  #studentheading{
+    font-size: 30px;
+  }
 }
 
 

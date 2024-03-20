@@ -1,21 +1,23 @@
 import React, { useEffect } from "react";
 import { Parallax } from "react-parallax";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import new4 from '../assets/new4.jpg';
 import Careersherone from "./Careersherone";
+import { motion } from "framer-motion";
 
 
-const Carrernext = () => {
+const Carrernext = () => { 
+
+  
   return (
     <div className="contenttwo" >
 
     <Parallax bgImage={new4} bgImageAlt="the cat" strength={800} >
-      <div className="content">
+      <div className="careerscontent">
     <Careersherone/>
-        <div className="text-2xl ml-4 sm:text-2xl sm:ml-6 md:ml-6 lg:text-4xl lg:ml-10 xl:text-5xl font-serif xl:mt-24 xl:font-bold  text-white" data-aos="fade-up" style={{ fontFamily: "'Montserrat', 'sans-serif'" }}>
+
+        <motion.div className="text-2xl ml-4 sm:text-2xl sm:ml-6 md:ml-6 lg:text-4xl lg:ml-10 xl:text-5xl font-serif xl:mt-24 xl:font-bold  text-white" data-aos="fade-up" style={{ fontFamily: "'Montserrat', 'sans-serif'" }}>
           Explore <span style={{ color: 'gold' }}>QubicGen </span>
-        </div>
+        </motion.div>
 
 
         <div className="maincareers md:flex lg:mt-6 xl:mt-16" data-aos="fade-up">

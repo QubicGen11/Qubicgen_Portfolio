@@ -194,7 +194,6 @@ const Contact = () => {
               Student Form
             </button>
           </div>
-          {/* <img src="img/register.svg " id="register" style={{position: 'relative', right: '100px'}} className="imageone" alt="" /> */}
         </div>
       </div>
 
