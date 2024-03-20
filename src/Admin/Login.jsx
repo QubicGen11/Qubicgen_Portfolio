@@ -17,7 +17,7 @@ export default function Login() {
     // set configurations
     const configuration = {
       method: "post",
-      url: "http://localhost:3000/api/login",
+      url: "https://qubic-gen-portfolio.onrender.com/api/login",
       data: {
         userName,
         password,
