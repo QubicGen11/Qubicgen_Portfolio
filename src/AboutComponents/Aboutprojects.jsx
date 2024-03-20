@@ -5,6 +5,7 @@ import paperplane from  "../assets/Aboutaboutassests/public/paper-plane@2x.png"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../AboutComponents/Aboutmain.css'
+import { Link } from 'react-router-dom';
 
 
 
@@ -27,9 +28,13 @@ const Aboutprojects = () => {
                   
                   </div>
                 </div>
+
+                <Link to="/contact">
                 <button className="contact-now-wrapper">
                   <b className="contact-now2">Contact Now</b>
                 </button>
+                </Link>
+              
               </div>
             </div>
             

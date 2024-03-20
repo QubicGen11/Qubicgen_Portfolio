@@ -11,13 +11,13 @@ const Databaselist = () => {
   const queriesRef = useRef(null);
 
   const [isNavFixed, setIsNavFixed] = useState(false);
-  
+
   const scrollToRef = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   // This is for rpa offering cards
-  const[Databaseofferings,setDatabaseofferings]=useState([
+  const [Databaseofferings, setDatabaseofferings] = useState([
     {
       title: 'Database Design and Development',
       description: 'Crafting databases tailored to our clients\' precise needs, meticulously creating schemas, tables, and relationships to efficiently organize and store data. Our expertise extends to implementing normalization and optimization techniques, ensuring peak performance for your database solution.'
@@ -54,53 +54,53 @@ const Databaselist = () => {
 
   const [DataBaseServe, setDataBaseServe] = useState([
     {
-        title:'HealthCare',
-        description: 'Securely manage patient data with our healthcare-focused database solutions, ensuring compliance and privacy.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807628/QubicGen/DataBase/What%20we%20serve/successful-medical-team_329181-9252_ra6ybo.jpg"
-        },
-        
-        {
-        title: 'Education',
-        description: 'Empower academic institutions with scalable database solutions for student management and learning platforms.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807661/QubicGen/DataBase/What%20we%20serve/person-with-books-digital-art-style-education-day_23-2151164358_dvaqvz.jpg"
-        },
-        {
-        title: 'Manufacturing',
-        description: 'Drive efficiency and innovation in manufacturing with our scalable database solutions for production control.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807696/QubicGen/DataBase/What%20we%20serve/smart-indian-engineer-man-wearing-safety-helmet-doing-stock-tick-check-cardboard-stock-product-management-factory-warehouse-background_609648-1445_pwe0re.jpg"
-        },
-        {
-        title: 'Energy and Utilities',
-        description: 'Optimize grid operations and asset management with our reliable database solutions for the energy sector.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807702/QubicGen/DataBase/What%20we%20serve/turbine-green-energy-electricity-technology-concept_53876-31722_uojffv.jpg"
-        },
-        {
-        title: 'Banking',
-        description :'Ensure data integrity and compliance in financial transactions with our banking-focused database services.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807742/QubicGen/DataBase/What%20we%20serve/online-banking-person-uses-system-selects-service-hologram-laptop_102583-7081_caaxcb.jpg"
-        },
-        {
-        title: 'Government',
-        description: 'Modernize citizen services and improve transparency with our government-focused database services.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807775/QubicGen/DataBase/What%20we%20serve/grey-marble-column-details-building_1359-886_h7fdsd.jpg"
-        },
-        {
-        title: 'Media',
-        description: 'Deliver personalized content experiences with our media-focused database solutions for digital asset management.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807802/QubicGen/DataBase/What%20we%20serve/clapperboard-popcorn-film-stripe-cinema-tickets-wooden-desk_23-2148188189_wj5kqq.jpg"
-        },
-        {
-        title: 'Transportation',
-        description: 'Enhance fleet management and passenger safety with our transportation-focused database services.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807834/QubicGen/DataBase/What%20we%20serve/logistics-transportation-container-cargo-ship-cargo-plane-with-working-crane-bridge-shipyard-sunrise-logistic-import-export-transport-industry-background-ai-generative_123827-24177_jou2y1.jpg"
-        },
-        {
-        title: 'Retail',
-        description: 'Optimize inventory management and customer engagement with our retail-focused database solutions.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807867/QubicGen/DataBase/What%20we%20serve/background-interior-supermarket-out-focus_123827-28040_zssyws.jpg"
-        }
-    
-    ]);
+      title: 'HealthCare',
+      description: 'Securely manage patient data with our healthcare-focused database solutions, ensuring compliance and privacy.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807628/QubicGen/DataBase/Who%20We%20Serve/successful-medical-team_329181-9252_ra6ybo.jpg"
+    },
+
+    {
+      title: 'Education',
+      description: 'Empower academic institutions with scalable database solutions for student management and learning platforms.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807661/QubicGen/DataBase/Who%20We%20Serve/person-with-books-digital-art-style-education-day_23-2151164358_dvaqvz.jpg"
+    },
+    {
+      title: 'Manufacturing',
+      description: 'Drive efficiency and innovation in manufacturing with our scalable database solutions for production control.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807696/QubicGen/DataBase/Who%20We%20Serve/smart-indian-engineer-man-wearing-safety-helmet-doing-stock-tick-check-cardboard-stock-product-management-factory-warehouse-background_609648-1445_pwe0re.jpg"
+    },
+    {
+      title: 'Energy and Utilities',
+      description: 'Optimize grid operations and asset management with our reliable database solutions for the energy sector.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807702/QubicGen/DataBase/Who%20We%20Serve/turbine-green-energy-electricity-technology-concept_53876-31722_uojffv.jpg"
+    },
+    {
+      title: 'Banking',
+      description: 'Ensure data integrity and compliance in financial transactions with our banking-focused database services.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807742/QubicGen/DataBase/Who%20We%20Serve/online-banking-person-uses-system-selects-service-hologram-laptop_102583-7081_caaxcb.jpg"
+    },
+    {
+      title: 'Government',
+      description: 'Modernize citizen services and improve transparency with our government-focused database services.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807775/QubicGen/DataBase/Who%20We%20Serve/grey-marble-column-details-building_1359-886_h7fdsd.jpg"
+    },
+    {
+      title: 'Media',
+      description: 'Deliver personalized content experiences with our media-focused database solutions for digital asset management.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710067270/QubicGen/DataBase/Who%20We%20Serve/3d-glasses-movies-clapper-board_23-2149558757_ktbfbu.jpg"
+    },
+    {
+      title: 'Transportation',
+      description: 'Enhance fleet management and passenger safety with our transportation-focused database services.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807834/QubicGen/DataBase/Who%20We%20Serve/logistics-transportation-container-cargo-ship-cargo-plane-with-working-crane-bridge-shipyard-sunrise-logistic-import-export-transport-industry-background-ai-generative_123827-24177_jou2y1.jpg"
+    },
+    {
+      title: 'Retail',
+      description: 'Optimize inventory management and customer engagement with our retail-focused database solutions.',
+      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807867/QubicGen/DataBase/Who%20We%20Serve/background-interior-supermarket-out-focus_123827-28040_zssyws.jpg"
+    }
+
+  ]);
 
   // This is for rpa offering cards
 
@@ -110,7 +110,7 @@ const Databaselist = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setIsNavFixed(scrollPosition >  600);
+      setIsNavFixed(scrollPosition > 600);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -119,157 +119,143 @@ const Databaselist = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  
- 
 
 
-  
+
+
+
   return (
-    
+
     <>
 
-    {/* This is rpalist starts */}
+      {/* This is rpalist starts */}
 
-    <div className="banking-main-list" >
-    <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
-<Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
-<Link to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Who we serve</li></Link>
-<Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
-<Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
-</nav>
+      <div className="banking-main-list" >
+        <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
+          <Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
+          <Link to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Who we serve</li></Link>
+          <Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
+          <Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
+        </nav>
 
-    </div>
-    <hr />
-   
-   <div id='overview'>
-    
-   </div>
+      </div>
+      <hr />
 
-    <div className="container" style={{ color: 'white',marginTop:'50px' }} data-aos="fade-up"  >
-    <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}  > Overview</h1>
+      <div id='overview'> 
 
+      </div>
 
-
-
-  
-    <div className="row featurette" bis_skin_checked="1"  >
-   
-   <div className="col-md-7" bis_skin_checked="1">
-     <h1 className="featurette-heading fw-normal lh-1" style={{fontSize:'40px',padding:'20px',fontWeight:'bolder'}}>Data Dynamo: Where Your Information Finds Its Power and Purpose</h1>
-     <p className="lead" id='leadtext'>Welcome to the nucleus of data empowerment. Our database services are the cornerstone of efficient data management, offering robust solutions tailored to your needs. From designing and optimizing databases to ensuring seamless integration and security, we empower businesses to unlock the full potential of their data and drive informed decisions.</p>
-   </div>
-   <div className="col-md-5" bis_skin_checked="1">
-     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709118916/3628676_556_ztwvm5.jpg"  alt="" />
-   </div>
- </div>
-    </div>
-
-    {/* This is rpalist ends */}
-
-    <div id='whoweserve'>
-    
-    </div>
-  
-    
-
-    <div style={{ color: 'white', marginLeft: '40px' ,marginTop:'130px'}} data-aos="fade-up"  >
-     
-     <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Our Offerings</h1>
-
-     <div className="container" style={{marginTop:'100px'}}>
-       <div className="row" >
-
-         {
-           Databaseofferings.map((item) => {
-             return (
-               <div className="col" >
-                 <div className="card" id='offeringscards' style={{ height: '14rem', width: '18rem', color: 'white' }}>
-                   <div className="card-body">
-                     <h5 className="card-title" style={{ fontSize: '20px' }}>{item.title}</h5>
-                     <h6 className="card-subtitle mb-2 text-body-secondary">{item.subtitle}</h6>
-                     <p className="card-text" style={{ fontSize: '13px' }}>{item.description}</p>
-
-                   </div>
-                 </div>
-                 <br />
-               </div>
-             )
-           })
-         }
+      <div className="container" style={{ color: 'white', marginTop: '50px' }} data-aos="fade-up"  >
+        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder', color: 'white' }}  > Overview</h1>
 
 
 
 
 
+        <div className="row featurette" bis_skin_checked="1"  >
 
+          <div className="col-md-7" bis_skin_checked="1">
+            <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Data Dynamo: Where Your Information Finds Its Power and Purpose</h1>
+            <p className="lead" id='leadtext'>Welcome to the nucleus of data empowerment. Our database services are the cornerstone of efficient data management, offering robust solutions tailored to your needs. From designing and optimizing databases to ensuring seamless integration and security, we empower businesses to unlock the full potential of their data and drive informed decisions.</p>
+          </div>
+          <div className="col-md-5" bis_skin_checked="1">
+            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709118916/3628676_556_ztwvm5.jpg" alt="" />
+          </div>
+        </div>
+      </div>
 
-       </div>
-       <br />
+      {/* This is rpalist ends */}
 
-     </div>
-   </div>
+      <div id='whoweserve'>
 
+      </div>
 
+           
 
+        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder',color:'white',marginTop:'20px' }}> Our Offerings</h1>
 
+        <div className="grid grid-flow-row auto-rows-max ml-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-24 ">
+           {
+              Databaseofferings.map((item) => {
+                return (
+                  <div className="col" >
+                    <div className="card" id='offeringscards' style={{ height: '17rem', width: '18rem', color: 'white' }}>
+                      <div className="card-body">
+                        <h5 className="card-title" style={{ fontSize: '20px' }}>{item.title}</h5>
+                        <h6 className="card-subtitle mb-2 text-body-secondary">{item.subtitle}</h6>
+                        <p className="card-text" style={{ fontSize: '13px' }}>{item.description}</p>
 
-
-    {/* This is rpa offering start */}
-
-
-
-    {/* This is who we server starts */}
-     <div id='serviceofferings'>
-    
-    </div>
-
-    <div style={{ color: 'white', marginLeft: '40px',marginTop:'100px' }} ref={caseStudiesRef} data-aos="zoom-in"  >
-        
-        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Who we Serve</h1>
-     
-        <div className="container" style={{marginTop:'100px'}}>
-   <div className="row">
-      {/* Mapping over the 'Weserve' array */}
-      {DataBaseServe.map((serve) => {
-         return (
-            <div className="col">
-               {/* Card component */}
-               <div className="card">
-                  <div className="card-inner">
-                     {/* Front of the card with background image and overlay */}
-                     <div className="card-front" style={{ background: `url('${serve.background}') center/cover` }}>
-                        <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
-                        <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>{serve.title}</p>
-                     </div>
-                     {/* Back of the card with additional information */}
-                     <div className="card-back" style={{ backgroundColor: '#2f2f2f', color: '#000', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                        <p style={{ fontSize: '12px' }}>{serve.description}</p>
-                     </div>
+                      </div>
+                    </div>
+                    <br />
                   </div>
-               </div>
-               <br />
-            </div>
-         );
-      })}
-   </div>
-   <br />
+                )
+              })
+            }
+         
 </div>
 
-          <br />
 
+
+
+
+
+      {/* This is rpa offering start */}
+
+
+
+      {/* This is who we server starts */}
+      <div id='serviceofferings'>
+
+      </div>
+
+      <div style={{ color: 'white', marginLeft: '40px', marginTop: '100px' }} ref={caseStudiesRef} data-aos="zoom-in"  >
+
+        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Who we Serve</h1>
+
+        <div className="container" style={{ marginTop: '100px' }}>
+          <div className="row">
+            {/* Mapping over the 'Weserve' array */}
+            {DataBaseServe.map((serve) => {
+              return (
+                <div className="col">
+                  {/* Card component */}
+                  <div className="card">
+                    <div className="card-inner">
+                      {/* Front of the card with background image and overlay */}
+                      <div className="card-front" style={{ background: `url('${serve.background}') center/cover` }}>
+                        <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
+                        <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>{serve.title}</p>
+                      </div>
+                      {/* Back of the card with additional information */}
+                      <div className="card-back" style={{ backgroundColor: '#2f2f2f', color: '#000', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                        <p style={{ fontSize: '12px' }}>{serve.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                </div>
+              );
+            })}
+          </div>
+          <br />
         </div>
 
-    {/* This is who we server ends */}
-    <div className="queries" id='querie' style={{marginTop:'50px'}}>
-      <Queries />
-    </div>
+        <br />
+
+      </div>
+
+      {/* This is who we server ends */}
+      <div className="queries" id='querie' style={{ marginTop: '50px' }}>
+        <Queries />
+      </div>
 
 
 
 
 
 
-  </>
+    </>
   )
 }
 

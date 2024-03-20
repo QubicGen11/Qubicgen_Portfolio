@@ -69,34 +69,31 @@ const Queries = () => {
       autoStart: true,
       loop:true,
       
-      delay: 2,
+      delay: 10,
       strings: ['Any <span class="text-[#ffd700]">Queries?</span>'],
-      onComplete: (self) => {
-        const textElement = self.el;
-        const html = textElement.innerHTML;
-        textElement.innerHTML = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-      },
+      
+    
     }}
   />        </h1>
 
                 <form onSubmit={handleSubmit} className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                   <div className="pb-2 pt-4">
-                    <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} placeholder="First Name" className="block w-full p-4 text-lg rounded-sm bg-black" style={{ borderRadius:'40px', height:'70px' }} />
+                    <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} placeholder="First Name" className="block w-full p-4 text-lg rounded-sm bg-black" required style={{ borderRadius:'40px', height:'70px' }} />
                   </div>
                   <div className="pb-2 pt-4">
-                    <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Last Name" className="block w-full p-4 text-lg rounded-sm bg-black" style={{ borderRadius:'40px', height:'70px' }} />
+                    <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Last Name" className="block w-full p-4 text-lg rounded-sm bg-black"required  style={{ borderRadius:'40px', height:'70px' }} />
                   </div>
                   <div className="pb-2 pt-4">
-                    <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" className="block w-full p-4 text-lg rounded-sm bg-black" style={{ borderRadius:'40px', height:'70px' }} />
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" className="block w-full p-4 text-lg rounded-sm bg-black" required style={{ borderRadius:'40px', height:'70px' }} />
                   </div>
                   <div className="pb-2 pt-4">
-                    <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleChange} placeholder="Job Title" className="block w-full p-4 text-lg rounded-sm bg-black" style={{ borderRadius:'40px', height:'70px' }} />
+                    <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleChange} placeholder="Job Title" className="block w-full p-4 text-lg rounded-sm bg-black" required style={{ borderRadius:'40px', height:'70px' }} />
                   </div>
                   <div className="pb-2 pt-4">
-                    <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Company / Organisation" className="block w-full p-4 text-lg rounded-sm bg-black" style={{ borderRadius:'40px', height:'70px' }} />
+                    <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Company / Organisation" className="block w-full p-4 text-lg rounded-sm bg-black"required  style={{ borderRadius:'40px', height:'70px' }} />
                   </div>
                   <div className="pb-2 pt-4">
-                    <input type="number" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone" className="block w-full p-4 text-lg rounded-sm bg-black" style={{ borderRadius:'40px', height:'70px' }} />
+                    <input type="number" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone" className="block w-full p-4 text-lg rounded-sm bg-black" required style={{ borderRadius:'40px', height:'70px' }} />
                   </div>
                   <div className="pb-2 pt-4">
                     <textarea

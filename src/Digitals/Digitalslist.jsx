@@ -221,37 +221,32 @@ const[DigitalMarketingServices,setDigitalMarketingServices]=useState([
      <div id='serviceofferings'>
     
     </div>
+        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder',color:'white' }} > Who we Serve</h1>
 
     <div style={{ color: 'white', marginLeft: '40px',marginTop:'100px' }} ref={caseStudiesRef} data-aos="zoom-in"  >
         
-        <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Who we Serve</h1>
-     
-        <div className="container" style={{marginTop:'100px'}}>
-   <div className="row">
-      {/* Mapping over the 'Weserve' array */}
-      {DigitalMarketingServices.map((serve) => {
-         return (
-            <div className="col">
-               {/* Card component */}
-               <div className="card">
-                  <div className="card-inner">
-                     {/* Front of the card with background image and overlay */}
-                     <div className="card-front" style={{ background: `url('${serve.background}') center/cover` }}>
+    <div className="grid grid-flow-row auto-rows-max ml-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-24 ">
+              {DigitalMarketingServices.map((serve) => {
+              return (
+                <div className="col">
+                  {/* Card component */}
+                  <div className="card">
+                    <div className="card-inner">
+                      {/* Front of the card with background image and overlay */}
+                      <div className="card-front" style={{ background: `url('${serve.background}') center/cover` }}>
                         <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
                         <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>{serve.title}</p>
-                     </div>
-                     {/* Back of the card with additional information */}
-                     <div className="card-back" style={{ backgroundColor: '#2f2f2f', color: '#000', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                      </div>
+                      {/* Back of the card with additional information */}
+                      <div className="card-back" style={{ backgroundColor: '#2f2f2f', color: '#000', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                         <p style={{ fontSize: '12px' }}>{serve.description}</p>
-                     </div>
+                      </div>
+                    </div>
                   </div>
-               </div>
-               <br />
-            </div>
-         );
-      })}
-   </div>
-   <br />
+                  <br />
+                </div>
+              );
+            })}
 </div>
 
           <br />

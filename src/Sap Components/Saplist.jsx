@@ -177,7 +177,7 @@ const [Sapserve, setSapserve] = useState([
            Sapoffers.map((item) => {
              return (
                <div className="col" >
-                 <div className="card" id='offeringscards' style={{ height: '14rem', width: '18rem', color: 'white' }}>
+                 <div className="card" id='offeringscards' style={{ height: '19rem', width: '18rem', color: 'white' }}>
                    <div className="card-body">
                      <h5 className="card-title" style={{ fontSize: '20px' }}>{item.title}</h5>
                      <h6 className="card-subtitle mb-2 text-body-secondary">{item.subtitle}</h6>
@@ -216,19 +216,14 @@ const [Sapserve, setSapserve] = useState([
      <div id='serviceofferings'>
     
     </div>
-
-    <div style={{ color: 'white', marginLeft: '40px',marginTop:'100px' }} ref={caseStudiesRef} data-aos="zoom-in"  >
-        
         <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }} > Who we Serve</h1>
-     
-        <div className="container" style={{marginTop:'100px'}}>
-   <div className="row">
-      {/* Mapping over the 'Weserve' array */}
-      {Sapserve.map((serve) => {
+
+        <div className="grid grid-flow-row auto-rows-max ml-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-24 ">
+          {Sapserve.map((serve) => {
          return (
             <div className="col">
                {/* Card component */}
-               <div className="card">
+               <div className="card mt-8">
                   <div className="card-inner">
                      {/* Front of the card with background image and overlay */}
                      <div className="card-front" style={{ background: `url('${serve.background}') center/cover` }}>
@@ -239,19 +234,13 @@ const [Sapserve, setSapserve] = useState([
                      <div className="card-back" style={{ backgroundColor: '#2f2f2f', color: '#000', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                         <p style={{ fontSize: '12px' }}>{serve.description}</p>
                      </div>
+                     <br />
                   </div>
                </div>
-               <br />
             </div>
          );
       })}
-   </div>
-   <br />
 </div>
-
-          <br />
-
-        </div>
 
     {/* This is who we server ends */}
     <div className="queries" id='querie' style={{marginTop:'50px'}}>

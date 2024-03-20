@@ -45,6 +45,10 @@ const Testinglist = () => {
         title: 'Automation Testing ',
         description: 'Automating repetitive test cases and scenarios using testing tools and frameworks to improve efficiency, consistency, and coverage. Automation testing includes functional automation, regression automation, and performance automation.'
     },
+    {
+      title: 'Integration Testing' ,
+description: 'Testing the interactions and compatibility between different modules, components, or systems to ensure seamless integration.'
+    }
     
 ]);
 
@@ -140,16 +144,15 @@ const [TestingServe, setTestingServe] = useState([
     
     </div>
   
+        
     
 
-    <div style={{ color: 'white', marginLeft: '40px' ,marginTop:'130px'}} data-aos="fade-up"  >
-     
-     <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Our Offerings</h1>
+     <h1 style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder',color:'white' }}> Our Offerings</h1>
 
-     <div className="container" style={{marginTop:'100px'}}>
-       <div className="row" >
 
-         {
+
+     <div className="grid grid-flow-row auto-rows-max ml-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-24 ">
+     {
            TestingOffers.map((item) => {
              return (
                <div className="col" >
@@ -165,22 +168,9 @@ const [TestingServe, setTestingServe] = useState([
                </div>
              )
            })
-         }
+         }  
 
-
-
-
-
-
-
-       </div>
-       <br />
-
-     </div>
-   </div>
-
-
-
+      </div>
 
 
 

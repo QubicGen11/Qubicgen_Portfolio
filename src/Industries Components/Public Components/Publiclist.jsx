@@ -25,7 +25,7 @@ const Publiclist = () => {
   const[PublicServe,setPublicServe]=useState([
     {
       title: 'Federal and State Governments',
-      description: 'Our Digital & Technology Transformation Solutions streamline governance and administration services for enhanced efficiency. With tailored offerings like MOVES for the Department of Motor Vehicles and GIST™ for Grants Management, we ensure seamless operations and customer-centric approaches. Trust our expertise to optimize processes and deliver impactful results in public budgeting and e-Governance initiatives.'
+      description: 'Our Digital & Technology Transformation Solutions streamline governance and administration services for enhanced efficiency. With tailored offerings like MOVES for the Department of Motor Vehicles and GIST™ for Grants Management, we ensure seamless operations and customer-centric approaches. Trust our expertise to optimize processes'
     },
     {
       title: 'Child Support & HealthCare',

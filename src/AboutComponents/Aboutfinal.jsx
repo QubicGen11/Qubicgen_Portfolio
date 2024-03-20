@@ -322,7 +322,7 @@ const Aboutfinal = () => {
                       </div>
                       <img className="subtract-icon12" loading="eager" alt="" src={subtract42x} />
                     </div>
-                    <Link to="/panels-container">
+                    <Link to="/contact">
                    <button className="project-discussions">
                       <b className="discuss-for-projects">Discuss for Projects</b>
                       <img className="project-discussions-child" alt="" src={arrow7} />
