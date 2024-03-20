@@ -4,20 +4,26 @@ import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "../components/ui/select"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "../components/ui/table"
-// import '../../app/globals.css'
 
 export function Admin() {
   const [data, setData] = useState([]);
+  const token = document.cookie.replace(/(?:(?:^|.*;\s*)TOKEN\s*=\s*([^;]*).*$)|^.*$/, "$1");
 
-    useEffect(() => {
-      fetch('https://qubic-gen-portfolio.onrender.com/api/fetchData')
-        .then(response => response.json())
-        .then(data => setData(data))
-        .catch(error => console.error('Error fetching data:', error));
-    }, []);
-
+  useEffect(() => {
+    
+    fetch('https://qubic-gen-portfolio.onrender.com/api/fetchData', {
+      method: 'get',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`, 
+      },
+    })
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
   return (
-    (<div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
+    token ? ( (<div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-yellow-100/40 lg:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-[60px] items-center border-b px-6">
@@ -102,6 +108,11 @@ export function Admin() {
         </main>
       </div>
     </div>)
+  ): (
+    <div>
+      You are not logged in. Go to /admin/login.
+    </div>
+  )
   );
 }
 
