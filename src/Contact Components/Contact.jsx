@@ -183,6 +183,8 @@ const Contact = () => {
                     <option value="year2">Web Development</option>
                     <option value="year2">SAP</option>
                     <option value="year2">Testing</option>
+                    <option value="year2">Testing</option>
+                    <option value="year2">Testing</option>
                     {/* Add more options as needed */}
                   </select>
                 </div>
