@@ -24,6 +24,7 @@
     "framer-motion": "^11.0.14",
     "gsap": "^3.12.5",
     "gsap-trial": "^3.12.5",
+    "intl-tel-input": "^20.0.5",
     "lucide-react": "^0.356.0",
     "radix-ui": "^1.0.1",
     "react": "^18.2.0",

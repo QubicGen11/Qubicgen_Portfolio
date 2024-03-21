@@ -4,13 +4,16 @@ import Navbar from '../HomeComponents/Navbar'
 import Footer from '../HomeComponents/Footer'
 import Typewriter from 'typewriter-effect';
 import AOS from 'aos';
+import 'intl-tel-input/build/css/intlTelInput.css';
+import intlTelInput from 'intl-tel-input';
 import SEO from '../SEO';
 
 
 
 const Contact = () => {
   const containeroneRef = useRef(null);
-
+  const mobileCodeInputRef1 = useRef(null); // Ref for first input field
+  const mobileCodeInputRef2 = useRef(null); //
   useEffect(() => {
     const sign_in_btn = document.querySelector("#sign-in-btn");
     const sign_up_btn = document.querySelector("#sign-up-btn");
@@ -23,6 +26,28 @@ const Contact = () => {
       containeroneRef.current.classList.remove("sign-up-mode");
     });
   }, []);
+
+  useEffect(() => {
+    const input1 = document.querySelector("#mobile_code1");
+    const iti1 = intlTelInput(input1, {
+      initialCountry: "in",
+      separateDialCode: true
+    });
+    mobileCodeInputRef1.current = iti1;
+
+    const input2 = document.querySelector("#mobile_code2");
+    const iti2 = intlTelInput(input2, {
+      initialCountry: "in",
+      separateDialCode: true
+    });
+    mobileCodeInputRef2.current = iti2;
+
+    return () => {
+      // Clean up the plugin when the component unmounts
+      iti1.destroy();
+      iti2.destroy();
+    };
+  }, []); 
 
   return (
     <>
@@ -70,10 +95,16 @@ const Contact = () => {
                   <i className="fas fa-envelope" />
                   <input type="email" placeholder="Email" />
                 </div>
-                <div className="input-field">
-                  <i className="fas fa-phone" />
-                  <input type="number" placeholder="Number" />
-                </div>
+                <div className="form-group">
+        <input
+          type="number"
+          id="mobile_code1"
+          className="input-field form-control"
+          placeholder="Phone Number"
+          name="name"
+          ref={mobileCodeInputRef1}
+        />
+      </div>
                 <div className="input-field">
                   <i className="fas fa-user" />
                   <input type="text" placeholder="Job title" />
@@ -126,10 +157,20 @@ const Contact = () => {
                   <i className="fas fa-user" />
                   <input type="text" placeholder="Enter Full Name" />
                 </div>
-                <div className="input-field">
-                  <i className="fas fa-phone" />
-                  <input type="number" placeholder="Enter Mobile" />
-                </div>
+
+
+                <div className="form-group">
+        <input
+          type="number"
+          id="mobile_code2"
+          className="input-field form-control"
+          placeholder="Phone Number"
+          name="name"
+          ref={mobileCodeInputRef2}
+        />
+      </div>
+
+
                 <div className="input-field">
                   <i className="fas fa-envelope" />
                   <input type="email" placeholder="Enter email" />
