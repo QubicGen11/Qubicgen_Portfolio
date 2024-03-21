@@ -65,7 +65,7 @@ const Aboutfinal = () => {
         </div>
         {/* <img className="subtract-icon" loading="eager" alt="" src={subtract} /> */}
         <div className="text-link">
-          <div className="case-studies-list" data-aos="fade-right">
+          <div className="case-studies-list"  data-aos="fade-right">
             {/* <img className="subtract-icon1" loading="eager" alt="" src={subtract2} style={{zIndex:'1'}}/> */}
             <div className="terms-conditions-link">
               <img className="terms-conditions-link-child" alt="" src={rectangle71} />
@@ -83,6 +83,10 @@ const Aboutfinal = () => {
               </div>
             </div>
           </div>
+
+
+
+
           <div className="case-studies-list1" data-aos="fade-left">
             <div className="vector-parent">
               <img className="frame-child" alt="" src={rectangle71} />
@@ -103,6 +107,17 @@ const Aboutfinal = () => {
             </div>
           </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+        
       </div>
       <div className="instance" >
         <div className="heading">

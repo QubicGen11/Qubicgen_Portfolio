@@ -100,6 +100,24 @@ height: 70vh;
 background-image: url("https://res.cloudinary.com/dightbmyi/image/upload/v1709277009/group-businesspeople-working-together-workplace_nx0srl.jpg");}
 }
 
+@media (min-width: 1476px) and (max-width: 1500px) {
+#Trainingtit{
+font-size: 36px;
+position: absolute;
+
+/* left: 32%; */
+}
+
+#Trainingdesc{
+font-size: 19px;
+
+}
+.Traininghead {
+position: relative;
+height: 80vh;
+background-image: url("https://res.cloudinary.com/dightbmyi/image/upload/v1709277009/group-businesspeople-working-together-workplace_nx0srl.jpg");}
+}
+
   /* This is offering cards css */
  #offeringscards {
     transition: transform 0.3s ease-in-out;

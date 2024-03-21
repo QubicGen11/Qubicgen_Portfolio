@@ -200,7 +200,7 @@ const Cybersecuritylist = () => {
 
  
 
-      <h1 className='text-white' style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Service Offerings</h1>
+      <h1 className='text-white' style={{ textAlign: 'center', fontSize: '50px', fontWeight: 'bolder' }}> Who We Serve</h1>
 
 
       <div className="grid grid-flow-row auto-rows-max ml-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-24 ">

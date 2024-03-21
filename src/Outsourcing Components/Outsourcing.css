@@ -388,7 +388,7 @@ background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v170928
   font-family: courier, sans;
 }
 
-.card1 {
+.card5 {
   display: block;
   position: relative;
   max-width: 262px;
@@ -403,7 +403,7 @@ background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v170928
   width: 400px;
 }
 
-.card1:before {
+.card5:before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -418,16 +418,16 @@ background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v170928
   transition: transform 0.25s ease-out;
 }
 
-.card1:hover:before {
+.card5:hover:before {
   transform: scale(21);
 }
 
-.card1:hover p {
+.card5:hover p {
   transition: all 0.3s ease-out;
   color: rgba(255, 255, 255, 0.8);
 }
 
-.card1:hover h3 {
+.card5:hover h3 {
   transition: all 0.3s ease-out;
   color: #fff;
 }

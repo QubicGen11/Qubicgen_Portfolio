@@ -132,17 +132,17 @@ const Rpalist = () => {
     {/* This is rpalist starts */}
 
     <div className="banking-main-list" >
+
     <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
-<Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
+<Link to="overview"  spy={true} smooth={true} offset={-150} duration={200}><li className="nav-item">Overview</li></Link>
 <Link to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Service Offerings</li></Link>
 <Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Who we serve </li></Link>
 <Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
 </nav>
-
     </div>
     <hr />
    
-   <div id='overview'>
+   <div id='overview' className='active'>
     
    </div>
 
@@ -182,7 +182,7 @@ const Rpalist = () => {
          {
            Cardsarr.map((item) => {
              return (
-               <div className="col" >
+               <div className="col -ml-14" >
                  <div className="card" id='offeringscards' style={{ height: '14rem', width: '18rem', color: 'white' }}>
                    <div className="card-body">
                      <h5 className="card-title" style={{ fontSize: '20px' }}>{item.title}</h5>

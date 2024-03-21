@@ -17,7 +17,6 @@ const Abouthero = () => {
   return (
     <div className="root" data-aos="fade-right" style={{width:'96vw'}} >
     <div className="frame-parent" >
-      <img className="frame-icon" alt="" src={framex2} />
 
                <h1 className="text-3xl font-bold mt-4 md:mt-0 text-white" style={{zIndex:1,fontSize:'45px'}}>
   <Typewriter
