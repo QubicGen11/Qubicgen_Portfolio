@@ -15,7 +15,7 @@ const Homewhatwedo = () => {
   return (
     <div>
       <section id='homwwhatwedo' className="bg-[#26282b] w-11/12 mx-auto rounded-md m-4 p-4" data-aos="fade-up" style={{width:'85vw'}}>
-        <div className="container mx-auto flex flex-col md:flex-row items-center" >
+        <div className="container mx-auto flex flex-col-reverse md:flex-row items-center" >
           <div className="md:ml-12 text-center md:text-left" id='lefttextabout' >
 
           <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" style={{fontSize:'40px'}}>

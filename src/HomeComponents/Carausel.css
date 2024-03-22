@@ -131,7 +131,7 @@
 
 
 
-@media only screen and (min-width: 200px) and (max-width: 600px) {
+@media only screen and (min-width: 200px) and (max-width: 768px) {
   .carousel-caption h1 {
     color: gold;
     text-align: left;

@@ -42,7 +42,7 @@ background-size: cover;
 
 
 
-@media (min-width: 320px) and (max-width: 590px) {
+@media (min-width: 320px) and (max-width: 1000px) {
 #saptit{
 font-size: 20px;
 position: absolute;
