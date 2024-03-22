@@ -103,7 +103,7 @@ const Carrernext = () => {
 
             <div className="careersleft mx-5 mt-1 md:w-auto">
               <img className='rounded-lg ' src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710786737/QubicGen/Careers/Benefits%20and%20Perks/group-young-people-casual-clothes-working-modern-office_146671-16433_ke8xyl.jpg" alt="" style={{ width: '80vw' }} />
-              <p className='careerstext text-center animate-bounce text-black w-28 flex items-center mr-auto mb-6 text-base relative bottom-20 right-3 ' style={{ height: '100px', backgroundColor: 'gold' }} id='careerstextfour'>Benfits & Perks</p>
+              <p className='careerstext text-center animate-bounce text-black w-28 flex items-center mr-auto mb-6 text-base relative bottom-20 right-3 ' style={{ height: '100px', backgroundColor: 'gold' }} id='careerstextfour'>Benefits & Perks</p>
 
             </div>
 

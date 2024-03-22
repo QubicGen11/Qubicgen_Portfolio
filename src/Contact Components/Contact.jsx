@@ -97,7 +97,7 @@ const Contact = () => {
                 </div>
                 <div className="form-group">
         <input
-          type="number"
+          type="text"
           id="mobile_code1"
           className="input-field form-control"
           placeholder="Phone Number"
@@ -161,7 +161,7 @@ const Contact = () => {
 
                 <div className="form-group">
         <input
-          type="number"
+          type="text"
           id="mobile_code2"
           className="input-field form-control"
           placeholder="Phone Number"
@@ -183,8 +183,7 @@ const Contact = () => {
                     <option value="year2">Web Development</option>
                     <option value="year2">SAP</option>
                     <option value="year2">Testing</option>
-                    <option value="year2">Testing</option>
-                    <option value="year2">Testing</option>
+                    
                     {/* Add more options as needed */}
                   </select>
                 </div>

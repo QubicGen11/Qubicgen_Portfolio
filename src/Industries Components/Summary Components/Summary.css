@@ -346,9 +346,7 @@ background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v170962
         transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
     }
 
-    #leadtext{
-        font-size: 5px;
-    }
+ 
     
 
 }
