@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Careerjobs.css"
 import Footer from '../HomeComponents/Footer'
 import Navbar from '../HomeComponents/Navbar'
@@ -10,6 +10,19 @@ import new4 from '../assets/new5.jpg';
 
 
 const Careerjobsx = () => {
+    const [step, setStep] = useState(1);
+    const [selectedJobRole, setSelectedJobRole] = useState(""); 
+    const [searchInput, setSearchInput] = useState(""); // 
+    const handleNext = () => {
+        setStep(step + 1);
+    };
+    const handleBack = () => {
+        setStep(step - 1);
+    };
+
+    useEffect(() => {
+        setStep(1); // Set step to 1 when the component mounts
+    }, []);
     const [JobsList, setJobsList] = useState([
         {
             title: 'Human Resource Manager',
@@ -55,152 +68,175 @@ const Careerjobsx = () => {
         }
 
     ]);
+
+    const filteredJobs = JobsList.filter(job =>
+        job.title.toLowerCase().includes(searchInput.toLowerCase())
+    );
     return (
 
         <>
-            <Navbar />
 
+            <Navbar />
             <div className='bg-black'>
                 <div className="careeesfull bg-black" data-aos="fade-right">
-
-                    {/* this is career mains starts */}
-
                     <div className="Careersjobsmain flex bg-center justify-center items-center sm:h-10 " style={{ background: "url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover', }}>
                         <div className="z-50 text-2xl ml-3 text-white sm:mx-6  md:text-4xl md:mr-80 lg:text-5xl lg:mb-10 h-36 md:w-96 lg:w-auto xl:w-auto flex flex-col justify-center items-center" >
                             <p className='text-xl md:text-2xl lg:text-3xl xl:text-5xl'>Discover Your Dream Job Here!</p>
                             <div>
-
-                                <input type="text" className='rounded-3xl text-xs font-bold text-black w-72 h-10 my-4' placeholder='Search your dream role' />
+                                <input
+                                    type="text"
+                                    className='rounded-3xl text-xs font-bold text-black w-72 h-10 my-4'
+                                    placeholder='Search your dream role'
+                                    value={searchInput}
+                                    onChange={(e) => setSearchInput(e.target.value)} // Update search input value
+                                />
                                 <FontAwesomeIcon icon={faSearch} className='text-black text-2xl relative -left-9 top-1' />
-
                             </div>
                         </div>
-
                     </div>
-
-                    {/* this is career mains ends */}
-
-                    <div>
-
                     <Parallax bgImage={new4} bgImageAlt="the cat" strength={800} >
-
                         <div className="careerrrr">
-                        {/* <div className="careersjob mt-6">
-                            <p className='text-xs sm:text-xl md:text-2xl lg:text-4xl xl:text-4xl mx-5 font-medium ' style={{ color: 'gold' }}>Explore exciting career opportunities at QubicGen.
-                                Discover roles that match your skills, passion, and ambition.
-                                Join our dynamic team and make a difference!</p>
-
-
-                            <p className='text-xs sm:text-xl md:text-xl lg:text-2xl xl:text-2xl mx-5 text-white mt-4 font-normal'>
-                                Welcome to QubicGen's career hub, your gateway to exciting opportunities!
-                                Dive into a diverse array of job listings curated to match your skills and ambitions.
-                                Whether you're a seasoned professional or just starting out, QubicGen offers positions that
-                                promise growth, challenge, and fulfillment. Join our innovative and supportive team
-                                environment, where you can shape the future while unlocking your potential.
-                                Explore, apply, and begin your rewarding journey with QubicGen today.
-                            </p>
-
-                        </div> */}
-
-                        {/* this is job text ends */}
-
-
-                        {/* Job starts */}
-
-                        <div className="jobsstart className='text-xs sm:text-xl md:text-2xl lg:text-4xl xl:text-4xl mx-5 font-medium mt-5 " style={{ color: 'gold' }}>
-                            <h4 className='z-40 text-5xl' >Latest Jobs</h4>
-
-                            <div className="container" >
-                                <div className="grid grid-flow-row auto-rows-max ml-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12 ">
-                                    {
-                                        JobsList.map((item) => {
-                                            return (
-                                                <div className="col -ml-14" >
-                                                    <div className="card-container">
-                                                        <div className="group" style={{ width: '260px' }}>
-                                                            <div className="card-box">
-                                                                <div id="Hegel" className="cardss">
-                                                                    <div className="contentss">
-                                                                        <p className="some">
-                                                                            <h1 className='text-xl font-bold' style={{ textDecoration: 'underline ' }}>Description:</h1>
-                                                                            {item.description}
-                                                                        </p>
+                            <div className="jobsstart className='text-xs sm:text-xl md:text-2xl lg:text-4xl xl:text-4xl mx-5 font-medium mt-5 " style={{ color: 'gold' }}>
+                                <h4 className='z-40 text-5xl'>Latest Jobs</h4>
+                                <div className="container">
+                                    <div className="grid grid-flow-row auto-rows-max ml-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12 ">
+                                        {filteredJobs.map((item, index) => (
+                                            <div key={index} className="col -ml-14" >
+                                                <div className="card-container">
+                                                    <div className="group" style={{ width: '260px' }}>
+                                                        <div className="card-box">
+                                                            <div id="Hegel" className="cardss">
+                                                                <div className="contentss">
+                                                                    <p className="some">
+                                                                        <h1 className='text-xl font-bold' style={{ textDecoration: 'underline ' }}>Description:</h1>
+                                                                        {item.description}
+                                                                    </p>
+                                                                </div>
+                                                                <div className="thumb flex flex-col items-start">
+                                                                    <h1 style={{ color: 'white', fontSize: '17px' }} className='ml-6 font-semibold'>{item.title} </h1>
+                                                                    <div>
+                                                                        <p style={{ color: 'white', fontSize: '13px' }} className='ml-7 mt-2 font-normal'>Qualification : {item.qual} </p>
+                                                                        <p style={{ color: 'white', fontSize: '13px' }} className='ml-7 mt-2 font-normal' >Experience : {item.exp} </p>
+                                                                        <p style={{ color: 'white', fontSize: '13px' }} className='ml-7 mt-2 font-normal'>Skills : {item.skills} </p>
                                                                     </div>
-                                                                    <div className="thumb flex flex-col items-start">
-                                                                        <h1 style={{ color: 'white', fontSize: '17px' }} className='ml-6 font-semibold'>{item.title} </h1>
-                                                                        <div>
-                                                                            <p style={{ color: 'white', fontSize: '13px' }} className='ml-7 mt-2 font-normal'>Qualification : {item.qual} </p>
-                                                                            <p style={{ color: 'white', fontSize: '13px' }} className='ml-7 mt-2 font-normal' >Experience : {item.exp} </p>
-                                                                            <p style={{ color: 'white', fontSize: '13px' }} className='ml-7 mt-2 font-normal'>Skills : {item.skills} </p>
-                                                                        </div>
-
-                                                                    </div>
-
-
-                                                                    <div className="detial">
-                                                                        <div className="titless">
-                                                                            <button className="buttonapply text-black">
-                                                                                Apply Now
-                                                                                <svg fill="currentColor" viewBox="0 0 24 24" className="icon">
-                                                                                    <path
-                                                                                        clip-rule="evenodd"
-                                                                                        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                                                        fill-rule="evenodd"
-                                                                                    ></path>
-                                                                                </svg>
-                                                                            </button>
-
-
-
-                                                                        </div>
-
-
+                                                                </div>
+                                                                <div className="detial">
+                                                                    <div className="titless">
+                                                                        <button className="buttonapply text-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={() => setSelectedJobRole(item.title)}>Apply Now</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
-                                                    <br />
                                                 </div>
-                                            )
-                                        })
-                                    }
-
-
-
-
-
-
-
-
-
+                                                <br />
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <br />
                                 </div>
-                                <br />
-
                             </div>
                         </div>
-
-
-                        </div>
-
-
-                    
-
                     </Parallax>
-
-
-
-                      
-                    </div>
-
-
-                    {/* this is job text starts */}
-                    {/* Job ends */}
-
                 </div>
-
             </div>
+            <Footer />
+            
+
+            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal-dialog custom-modal-dialog" style={{ zIndex: 2000 }}>
+        <div className="modal-content">
+            {step === 1 && (
+                <div>
+                    <div className="modal-header">
+                    <h1 className="modal-title fs-5 my-3" id="staticBackdropLabel">{selectedJobRole} Application</h1>                         
+                    <button className='btn-close ' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>  
+                    </div>
+                    <div className="modal-body relative bottom-12 ">
+                        <div className="flex flex-col items-center justify-center h-screen">
+                            <div className="w-full max-w-md bg-gray-400 rounded-lg shadow-md p-6">
+                            <h1 className="modal-title fs-5 my-3" id="staticBackdropLabel">Personal Details</h1>                         
+                                <form className="flex flex-col">
+                                    <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Full Name (As Per marks memo)" />
+                                    <input type="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Email" />
+                                    <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Phone Number" />
+                                    <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="LinkedIn Profile URL" />
+                                    <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Github Profile URL" />
+                                    <textarea name="Address" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Address" defaultValue={""} />
+                                    <input type="file" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Upload Resume" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="modal-footer relative bottom-28">
+                        <button type="button" class="bg-gray-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400  transition ease-in-out duration-200" data-bs-dismiss="modal" onClick={() => setStep(1)}>Close</button>
+                        <button type="button" onClick={handleNext} class="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4  hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
+
+                    </div>
+                </div>
+            )}
+            {step === 2 && (
+                <div>
+                    <div className="modal-header">
+                    <h1 className="modal-title fs-5 my-3" id="staticBackdropLabel">{selectedJobRole} Application</h1>  
+                                        <button className='btn-close ' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>  
+                       
+                    </div>
+                    <div className="modal-body relative bottom-24">
+                        <div className="flex flex-col items-center justify-center h-screen">
+                            <div className="w-full max-w-md bg-gray-400 rounded-lg shadow-md p-6">
+                                <h2 className="text-2xl font-bold text-gray-900 mb-4">Education</h2>
+                                <form className="flex flex-col">
+                                    {/* Form inputs */}
+                                    <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Highest Level of Education Attained*" />
+                                    <input type="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Name of institution*" />
+                                    <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Phone Number" />
+                                    <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Stream*" />
+                                    <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Year of Graduation*" />
+                                    <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="CGPA/Percentage*" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="modal-footer relative bottom-28">
+                    <button type="button" onClick={handleBack} class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
+                        <button type="button" onClick={handleNext} class="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4  hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
+
+                    </div>
+                </div>
+            )}
+            {step === 3 && (
+                <div>
+                    <div className="modal-header">
+                    <h1 className="modal-title fs-5 my-3" id="staticBackdropLabel">{selectedJobRole} Application</h1>                         
+                    <button className='btn-close ' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>  
+                    </div>
+                    <div className="modal-body relative bottom-48">
+                        <div className="flex flex-col items-center justify-center h-screen">
+                            <div className="w-full max-w-md bg-gray-400 rounded-lg shadow-md p-6">
+                                <h2 className="text-2xl font-bold text-gray-900 mb-4">Work Experience</h2>
+                                <form className="flex flex-col">
+                                    {/* Form inputs */}
+                                    <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Experience Level**" />
+                                    <input type="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Title*" />
+                                    <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Responsibilities/Achievements" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="modal-footer relative bottom-64">
+                    <button type="button" onClick={handleBack} class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
+                        <button type="button" onClick={handleNext} class="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4  hover:bg-yellow-400 transition ease-in-out duration-150">Submit</button>
+                    </div>
+                </div>
+            )}
+            {/* Add more steps as needed */}
+        </div>
+    </div>
+</div>
+
+
+
 
             <Footer />
 
