@@ -13,6 +13,8 @@ const Queries = () => {
     address: ''
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -23,6 +25,7 @@ const Queries = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
       const response = await axios.post('https://qubic-gen-portfolio.onrender.com/api/queries', formData);
       console.log('Form data submitted:', response.data);
@@ -36,7 +39,9 @@ const Queries = () => {
         phone: '',
         address: ''
       });
+      setLoading(false)
     } catch (error) {
+      setLoading(false)
       alert('Please try again')
       console.error('Error submitting form:', error);
     }
@@ -106,7 +111,18 @@ const Queries = () => {
                     ></textarea>
                   </div>
                   <div className="px-4 pb-2 pt-4">
-                    <button type="submit" className="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">Submit</button>
+                    <button type="submit" className="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none relative">
+                      {loading ? (
+                        <span className="animate-spin absolute inset-0 flex justify-center items-center">
+                          <svg className="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V2.83a1 1 0 00-1.7-.7l-4.58 4.59a1 1 0 00-.29.7V12H4zm2 7.17a1 1 0 001.7.7l4.59-4.59a1 1 0 00.29-.7V12h2a8 8 0 01-8 8v-2.17z"></path>
+                          </svg>
+                        </span>
+                      ) : (
+                        'Submit'
+                      )}
+                    </button>
                   </div>
 
                 <div className="p-4 text-center right-0 left-0 flex justify-center space-x-4 mt-16 lg:hidden ">

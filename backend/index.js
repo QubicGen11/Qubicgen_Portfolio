@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 
 dotenv.config();
 mongoose.connect(
-	`mongodb+srv://qubicgen:9y0VnyFK8W2weXzQ@cluster0.0glybyn.mongodb.net/`
+	`${process.env.MONGO_URI}`,
 );
 
 const app = express();
@@ -109,16 +109,48 @@ app.post('/api/login', (request, response) => {
 
 // Create a route for verifying the token and sending a boolean value
 
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+	host: 'smtp.hostinger.com',
+	port: 587,
+	secure: false, // true for 465, false for other ports
+	auth: {
+		user: `${process.env.EMAIL_SMTP}`,
+		pass: `${process.env.EMAIL_SMTP_PASS}`, // your password
+	},
+});
+
 app.post('/api/queries', async (req, res) => {
 	try {
-		console.log('heree', req.body);
+		console.log(req.body);
 		const newQuery = new Query(req.body);
 		const savedQuery = await newQuery.save();
+
+		// Send email to client
+		const clientMailOptions = {
+			from: 'services@qubicgen.com',
+			to: `${req.body.email}`,
+			subject: 'Query Received',
+			text: 'Your query has been received. We will get back to you shortly.',
+		};
+		await transporter.sendMail(clientMailOptions);
+
+		// Send email to yourself
+		// const selfMailOptions = {
+		//   from: 'services@qubicgen.com',
+		//   to: 'your_email@example.com', // your email
+		//   subject: 'New Query Received',
+		//   text: 'A new query has been received. Check your admin panel for details.'
+		// };
+		// await transporter.sendMail(selfMailOptions);
+
 		res.status(201).json(savedQuery);
 	} catch (error) {
 		res.status(400).json({ message: error.message });
 	}
 });
+
 app.get('/api/fetchData', async (req, res) => {
 	try {
 		const token = req.headers.authorization?.split('Bearer ')[1]; // Fix token extraction
