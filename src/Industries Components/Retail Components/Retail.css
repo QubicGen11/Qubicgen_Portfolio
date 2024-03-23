@@ -80,6 +80,8 @@ height: 40vh;
 background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709625858/QubicGen/beautiful-family-standing-cash-counter_171337-2410_zzln8u.jpg");background-position: center;
 }
 }
+
+
 @media (min-width: 770px) and (max-width: 1024px) {
 #retailtit{
 font-size: 25px;
@@ -198,7 +200,7 @@ background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v170962
 }
 
 #leadtext{
-    font-size: 8px;
+    font-size: 200px;
     padding: 20px;
     font-weight: 300;
     font-family: 'Montserrat', sans-serif;
@@ -346,9 +348,7 @@ background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v170962
         transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
     }
 
-    #leadtext{
-        font-size: 5px;
-    }
+
     
 
 }

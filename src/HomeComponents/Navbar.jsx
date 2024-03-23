@@ -4,10 +4,24 @@ import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import mainlogo from "./og.png"
 import { useEffect, useState } from "react";
+import dropydown from "../assets/dropdowns.png"
 
 const Navbar = () => {
   const [visibleSection, setVisibleSection] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+
+  const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+  const toggleIndustries = () => {
+    setIsIndustriesOpen(!isIndustriesOpen);
+    setIsServicesOpen(false); // Close the services dropdown
+  };
+  
+  const toggleServices = () => {
+    setIsServicesOpen(!isServicesOpen);
+    setIsIndustriesOpen(false); // Close the industries dropdown
+  };
 
   useEffect(() => {
     AOS.init(); // Initialize AOS library
@@ -82,7 +96,7 @@ navbar.style.backgroundColor = newColor;
             <li className="hover:cursor-pointer">Services</li>
           </div>
          <Link to="/careers"><li className="hover:cursor-pointer">Careers</li></Link> 
-          <a href="https://qubicgen.wixsite.com/qubicgen-blog" target="_blank"><li className="hover:cursor-pointer">Blog</li></a> 
+          <a href="https://qubicgen.blogspot.com/" target="_blank"><li className="hover:cursor-pointer">Blog</li></a> 
 
         <Link to="/contact"><li className="hover:cursor-pointer">Contact</li></Link>  
         </nav>
@@ -132,50 +146,106 @@ navbar.style.backgroundColor = newColor;
             X
           </button>
           </div>
-  <div className="offcanvas-body" style={{position:'relative',padding:'80px'}}>
-   <Link to="/"><li className="hover:cursor-pointer" style={{marginBottom:'20px'}}>HOME</li></Link> 
-   <Link to="/about"><li className="hover:cursor-pointer" style={{marginBottom:'20px'}}>ABOUT US</li></Link>
+  <div className="offcanvas-body" style={{padding:'80px'}}>
+   <Link to="/"><li className="serviceseclist hover:cursor-pointer mb-4"  >HOME</li></Link> 
+   <Link to="/about"><li className="serviceseclist hover:cursor-pointer mb-4 " >ABOUT US</li></Link>
 
+    <div>
+        <div onClick={toggleIndustries} className="serviceseclist hover:cursor-pointer mb-4">
+          INDUSTRIES <i class="fas fa-caret-down ml-3"></i>
+        </div>
+        {isIndustriesOpen && (
+          <ul id="industysec" className="relative right-11 w-72 ">
+            <li className="industyseclist">
+              <Link  to="/banking" style={{ color: 'white', textDecoration: 'none' }}>Banking, Financial Services and Insurance</Link>
+            </li>
+            <li className="industyseclist">
+              <Link  to="/energy" style={{ color: 'white', textDecoration: 'none' }}>Energy and Utilities</Link>
+            </li>
+            <li className="industyseclist">
+              <Link to="/media" style={{ color: 'white', textDecoration: 'none' }}>Media and Entertainment</Link>
+            </li>
+            <li className="industyseclist">
+              <Link to="/health" style={{ color: 'white', textDecoration: 'none' }}>Healthcare Life Sciences</Link>
+            </li>
+            <li className="industyseclist">
+              <Link to="/retail" style={{ color: 'white', textDecoration: 'none' }}>Retail and Consumer Goods</Link>
+            </li>
+            <li className="industyseclist">
+              <Link to="/travel" style={{ color: 'white', textDecoration: 'none' }}>Travel, Transportation, Hospitality and Logistics</Link>
+            </li>
+            <li className="industyseclist">
+              <Link to="/public" style={{ color: 'white', textDecoration: 'none' }}>Public Sector and Government</Link>
+            </li>
+            <li className="industyseclist">
+              <Link to="/oil" style={{ color: 'white', textDecoration: 'none' }}>Oil and Gas</Link>
+            </li>
+            <li className="industyseclist">
+              <Link to="/manufacturing" style={{ color: 'white', textDecoration: 'none' }}>Manufacturing</Link>
+            </li>
+            <li className="industyseclist">
+              <Link to="/summary" style={{ color: 'white', textDecoration: 'none' }}>Professional Services</Link>
+            </li>
+          </ul>
+        )}
 
-   <div className="dropdown" style={{position:'relative',right:'14px'}}>
-  <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{border:'none',position:'relative'}}>
-   <a href="/"><li className="hover:cursor-pointer">INDUSTRIES</li></a> 
-  </button>
-    <ul className="dropdown-menu" style={{backgroundColor:'#242424',width:'25vw'}} >
-    <a href="/banking" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Banking, Financial Services and Insurance</li></a>
-                <Link to="/energy" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Energy and Utilities</li></Link>
-                <Link to="/media" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Media and Entertainment</li></Link>
-                <Link to="/health" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Healthcare Life Sciences</li></Link>
-                <Link to="/retail" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Retail and Consumer Goods</li></Link>
-                <Link to="/travel" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Travel, Transportation, Hospitality and Logistics</li></Link>
-                <Link to="/public" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Public Sector and Government</li></Link>
-                <Link to="/oil" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Oil and Gas</li></Link>
-                <Link to="/manufacturing" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Manufacturing</li></Link>
-                <Link to="/summary" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Professional Services</li></Link>
-    </ul>
-  <br />
-  <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{border:'none'}}>
-   <Link to="/"><li className="hover:cursor-pointer">SERVICES</li></Link> 
-  </button>
-  <ul className="dropdown-menu" style={{backgroundColor:'#242424' ,width:'50vw'}}>
-  <Link to="/rpa" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Robotic Process Automation</li></Link>
-              <Link to="/webdevelopment" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Web Development</li></Link>
-              <Link to="/sap" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">SAP</li></Link>
-              <Link to="/database" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">DataBase</li></Link>
-              <Link to="/digitalmarketing" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Digital Marketing</li></Link>
-              <Link to="/digitalization" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Digitalization</li></Link>
-              <Link to="/outsourcing" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Outsourcing</li></Link>
-              <Link to="/cybersecurity" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Cyber Security</li></Link>
-              <Link to="/dataanalytics" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Data Analytics</li></Link>
-              <Link to="/testing" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Testing</li></Link>
-              <Link to="/businessconsulting" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Business Consulting</li></Link>
-              <Link to="/training" style={{ color: 'white', textDecoration: 'none' }}><li className="hover:cursor-pointer">Trainings and Certifications</li></Link>
+        <div onClick={toggleServices} className="serviceseclist hover:cursor-pointer mb-4" >
+          SERVICES <i className="fas fa-caret-down ml-3"></i> 
+        </div>
+        {isServicesOpen && (
+
+  <ul className="relative right-11 w-72 " id="serviceseclist" >
+  <li className="serviceseclist">
+    <Link  to="/rpa" style={{ color: 'white', textDecoration: 'none' }}>Robotic Process Automation</Link>
+  </li>
+  <li className="serviceseclist">
+    <Link to="/webdevelopment" style={{ color: 'white', textDecoration: 'none' }}>Web Development</Link>
+  </li>
+  <li className="serviceseclist">
+    <Link to="/sap" style={{ color: 'white', textDecoration: 'none' }}>SAP</Link>
+  </li>
+  <li className="serviceseclist">
+    <Link to="/database" style={{ color: 'white', textDecoration: 'none' }}>Database</Link>
+  </li>
+  <li className="serviceseclist">
+    <Link to="/digitalmarketing" style={{ color: 'white', textDecoration: 'none' }}>Digital Marketing</Link>
+  </li>
+  <li className="serviceseclist">
+    <Link to="/digitalization" style={{ color: 'white', textDecoration: 'none' }}>Digitalization</Link>
+  </li>
+  <li className="serviceseclist">
+    <Link to="/outsourcing" style={{ color: 'white', textDecoration: 'none' }}>Outsourcing</Link>
+  </li>
+  <li className="serviceseclist">
+    <Link to="/cybersecurity" style={{ color: 'white', textDecoration: 'none' }}>Cyber Security</Link>
+  </li>
+  <li className="serviceseclist">
+    <Link to="/dataanalytics" style={{ color: 'white', textDecoration: 'none' }}>Data Analytics</Link>
+  </li>
+  <li className="serviceseclist">
+    <Link to="/testing" style={{ color: 'white', textDecoration: 'none' }}>Testing</Link>
+  </li>
+  <li className="serviceseclist">
+    <Link to="/businessconsulting" style={{ color: 'white', textDecoration: 'none' }}>Business Consulting</Link>
+  </li>
+  <li className="serviceseclist">
+    <Link to="/training" style={{ color: 'white', textDecoration: 'none' }}>Trainings and Certifications</Link>
+  </li>
   </ul>
-  
-</div>
+          
+        )}
+      </div>
 
-   <Link to="/careers"><li className="hover:cursor-pointer mb-8">CAREERS</li></Link> 
-   <Link to="/contact"><li className="hover:cursor-pointer">CONTACT US</li></Link> 
+    
+
+   
+   
+
+
+
+
+   <Link to="/careers"><li className="serviceseclist hover:cursor-pointer mb-4">CAREERS</li></Link> 
+   <Link to="/contact"><li className="serviceseclist hover:cursor-pointer mb-4">CONTACT US</li></Link> 
    
    
 
@@ -191,7 +261,7 @@ navbar.style.backgroundColor = newColor;
                   </a>
                 </li>
                 <li className='falling-icon' data-aos-delay="0.2">
-                  <a href="#" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
+                  <a href="https://www.instagram.com/qubicgen/" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
                     <span className="sr-only">Instagram</span>
                     <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />

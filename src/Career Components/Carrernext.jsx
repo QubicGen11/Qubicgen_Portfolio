@@ -3,6 +3,7 @@ import { Parallax } from "react-parallax";
 import new4 from '../assets/new4.jpg';
 import Careersherone from "./Careersherone";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 
 const Carrernext = () => {
@@ -34,8 +35,21 @@ const Carrernext = () => {
                 perfect place to launch or elevate your career. Join us and unlock a world of possibilities.
               </p>
 
-            <button className="bg-yellow-400 w-28 h-10 rounded-3xl self-start ml-12">Explore more</button>
-            </div>
+<Link to="/Careerjobs"> 
+<button className="animated-button w-48 h-12 rounded-3xl self-start ml-12 font-black z-20" >
+        <svg xmlns="http://www.w3.org/2000/svg" className="arr-2" viewBox="0 0 24 24">
+          <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+        </svg>
+       <Link to="/Careerjobs"><span className="text font-medium text-black ">Explore More</span></Link> 
+        <span className="circle" />
+        <svg xmlns="http://www.w3.org/2000/svg" className="arr-1 " viewBox="0 0 24 24">
+          <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+        </svg>
+      </button>      </Link>
+                  
+      
+      
+      </div>
             
 
           </div>
@@ -95,7 +109,7 @@ const Carrernext = () => {
 
             <div className="careersleft mx-5 mt-1 md:w-auto">
               <img className='rounded-lg ' src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710786737/QubicGen/Careers/Benefits%20and%20Perks/group-young-people-casual-clothes-working-modern-office_146671-16433_ke8xyl.jpg" alt="" style={{ width: '80vw' }} />
-              <p className='careerstext text-center animate-bounce text-black w-28 flex items-center mr-auto mb-6 text-base relative bottom-20 right-3 ' style={{ height: '100px', backgroundColor: 'gold' }} id='careerstextfour'>Benfits & Perks</p>
+              <p className='careerstext text-center animate-bounce text-black w-28 flex items-center mr-auto mb-6 text-base relative bottom-20 right-3 ' style={{ height: '100px', backgroundColor: 'gold' }} id='careerstextfour'>Benefits & Perks</p>
 
             </div>
 

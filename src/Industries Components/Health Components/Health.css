@@ -242,11 +242,17 @@
   color: gold;
   transform: scale(1.3);
 }
+.banking-main-list nav li: {
+  color: gold;
+  transform: scale(1.3);
+}
 
 .banking-main-list nav li:hover::after {
   transform: scaleX(1);
   background-color: gold;
 }
+
+
 
 .banking-main-list nav {
   display: flex;
@@ -291,7 +297,7 @@
 
 
 
-@media (max-width:600px) {
+@media (max-width:8 00px) {
     .banking-main-list{
         display: none;
     }

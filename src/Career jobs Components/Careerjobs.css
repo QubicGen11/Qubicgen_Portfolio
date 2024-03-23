@@ -1,0 +1,367 @@
+.Careersjobsmain {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    overflow: hidden;
+    background: url("https://images.unsplash.com/photo-1710104434504-0261d06fa832?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  
+  .Careersjobsmain::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  } 
+
+
+  .careerrrr {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-size: cover;
+  }
+  
+  .careerrrr::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    ; /* Set z-index to make sure the background stays behind */
+  }
+  
+  /* Adjust z-index of the content to make it appear above the background */
+  .careerrrr .careersjob,
+  .careerrrr .jobsstart {
+    position: relative;
+    z-index: 1; /* Set z-index higher than the background */
+  }
+  
+  .parallax-element {
+    transition: transform 0.5s ease; /* Example of CSS transition effect */
+  }
+  
+  .parallax-element:hover {
+    transform: translateY(-20px); /* Example of CSS transform effect */
+  }
+  
+
+
+
+
+
+
+
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  border-radius: 100px;
+  font-weight: 600;
+  color: black;
+  box-shadow: 0 0 0 2px #ffffff;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: gold;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: gold;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #212121;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: black;
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
+
+/* This is card button starts */
+
+.cardss {
+    --card-width: 20em;
+    --primer-color: hsl(241, 100%, 70%);
+    --text-color: hsl(0, 0%, 100%);
+    --text-color-L2: hsl(0, 0%, 60%);
+    --transition: all 0.2s cubic-bezier(0.13, 0.78, 0.3, 0.99);
+    background: hsl(0, 0%, 10%);
+  
+    font-size: 12px;
+    line-height: 2;
+  
+    border-radius: 1em;
+    padding-bottom: 0.5em;
+    z-index: 20;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  
+    transition: all 0.2s ease-in;
+  }
+  .detial {
+    width: var(--card-width);
+    padding: 01em 1em;
+    color: var(--text-color);
+    transition: all 0.2s ease-in;
+  
+    z-index: 1;
+  }
+  .name {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+  .titless {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5em 0;
+  }
+  
+  .contentss {
+    color: var(--text-color);
+    width: var(--card-width);
+    position: absolute;
+    transform: rotate3D(0.4, 1, 0.4, 0deg) scale(0.4);
+    padding: 2em;
+    opacity: 0;
+    height: 20em;
+    overflow: hidden;
+  }
+  
+  .thumb {
+    width: var(--card-width);
+    height: 20em;
+    overflow: hidden;
+    transition: var(--transition);
+  
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .thumb svg {
+    transform: scale(7);
+    color: hsla(0, 0%, 100%, 0.2);
+  }
+  
+  .cardss:hover {
+    background-color: hsl(0, 0%, 15%);
+    box-shadow: 0px 20px 40px hsl(40, 60%, 0%, 0.4),
+      inset 1px 2px 4px rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+  }
+  .cardss:hover .detial {
+    padding: 1em 2em;
+  }
+  
+  .cardss:hover .thumb {
+    opacity: 0.2;
+    filter: blur(20px);
+    transform: scale(1.5);
+  }
+  .cardss:hover .contentss {
+    transform: none;
+    opacity: 1;
+    transition: var(--transition);
+  }
+  
+  .infomation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .propertion {
+    font-size: 0.8em;
+    color: var(--text-color-L2);
+  }
+  
+  .action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3em;
+    padding: 0 0.5em;
+    border-radius: 1em;
+    border: 1px solid transparent;
+    transition: var(--transition);
+  }
+  .action:hover {
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.6),
+      inset 0.5px 1px 2px rgba(255, 255, 255, 0.1);
+    background: hsla(0, 0%, 50%, 0.1);
+  }
+  
+  .mode {
+    color: var(--text-color-L2);
+    padding: 0.4em;
+    width: 2em;
+    height: 2em;
+    border-radius: 0.5em;
+    transition: var(--transition);
+  }
+  .mode:hover {
+    color: var(--text-color);
+    background: hsla(0, 0%, 50%, 0.15);
+    transform: scale(1.2);
+    box-shadow: 2px 4px 16px hsla(0, 0%, 100%, 0.1);
+  }
+  .mode:active {
+    background: hsla(0, 0%, 50%, 0.3);
+    transform: scale(1);
+  }
+  .mode.hide {
+    opacity: 0;
+    transition: var(--transition);
+  }
+  .action:hover .mode.hide {
+    opacity: 1;
+  }
+  
+  .level {
+    color: rgb(230, 204, 89);
+  }
+  
+/* This is card button ends */
+
+.buttonapply {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    padding-block: 0.5rem;
+    padding-inline: 1.25rem;
+    background-color: gold;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: ;
+    gap: 10px;
+    font-weight: bold;
+    border: 3px solid #ffffff4d;
+    outline: none;
+    overflow: hidden;
+    font-size: 15px;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .buttonapply:hover {
+    transform: scale(1.05);
+    border-color: #fff9;
+  }
+  
+  .buttonapply:hover .icon {
+    transform: translate(4px);
+  }
+  
+  .buttonapply:hover::before {
+    animation: shine 1.5s ease-out infinite;
+  }
+  
+  .buttonapply::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%
+    );
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+  }
+  
+  @keyframes shine {
+    0% {
+      left: -100px;
+    }
+  
+    60% {
+      left: 100%;
+    }
+  
+    to {
+      left: 100%;
+    }
+  }
+  
+
+

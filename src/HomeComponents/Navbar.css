@@ -9,6 +9,8 @@
   z-index: 1000;
 }
 
+
+
 .dropdown-toggle::after {
   position: relative;
   left: 60px;
@@ -254,7 +256,6 @@
 
 
 .offcanvas-body li{
-  padding-top: 30px;
   font-size: 14px;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
@@ -262,10 +263,39 @@
 
 
 }
-/* .offcanvas-body li:hover{
-  color: gold;
 
+/* #industysec:hover{
+  background-color:gold;
+  
 } */
+
+
+.industyseclist{
+  margin-top: 20px;
+  height: 40px;
+
+}
+
+.industyseclist:hover{
+  background-color: gold;
+  transition: 0.1s ease-in;
+  width: auto;
+
+}
+
+.serviceseclist{
+  margin-top: 20px;
+  height: 40px;
+
+}
+
+.serviceseclist:hover{
+  background-color: gold;
+  transition: 0.1s ease-in;
+  width: auto;
+
+}
+
 #mainlogo{
   height: 70px;
 }

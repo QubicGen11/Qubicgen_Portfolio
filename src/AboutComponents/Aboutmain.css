@@ -101,7 +101,31 @@
     position: relative;
     gap: 20px 0;
     max-width: 103%;
+
+    background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1711087895/frame_2x_cu4wtm.png");
+    opacity: 0.8;
   }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   .root {
     align-self: stretch;
     flex-direction: row;
@@ -367,7 +391,7 @@
     flex-direction: row;
     align-items: flex-start;
     position: relative;
-    min-width: 395px;
+    min-width: 300px;
   }
   .mission-and-vision,
   .text-link {
@@ -2108,7 +2132,6 @@
       gap: 0 55px;
     }
     .case-studies-list1 {
-      min-width: 100%;
     }
     .text-link {
       gap: 0 40px;

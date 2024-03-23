@@ -36,6 +36,7 @@ import Contact from "./Contact Components/Contact";
 import Careers from "./Career Components/Careers";
 import Blog from "./Career Components/Carrernext";
 import Admin from "./Admin/Admin";
+import Careerjobsx from "./Career jobs Components/Careerjobsx";
 
 
 
@@ -77,6 +78,7 @@ const App = () => {
           <Route path="/contact" element={<Contact/>} />
           <Route path="/careers" element={<Careers/>} />
           <Route path="/blogs" element={<Blog/>} />
+          <Route path="/Careerjobs" element={<Careerjobsx/>} />
          
         </Routes>
       </Router>

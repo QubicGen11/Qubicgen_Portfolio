@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import 'aos/dist/aos.css';
 import Queries from '../Banking Components/Queries';
 import {Link} from 'react-scroll'
+import "./Retail.css"
 
 const Retaillist = () => {
   const overviewRef = useRef(null);
