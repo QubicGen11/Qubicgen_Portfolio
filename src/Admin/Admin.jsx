@@ -110,7 +110,8 @@ export function Admin() {
     </div>)
   ): (
     <div>
-      You are not logged in. Go to /admin/login.
+      You are not logged in. Go to 
+      <a href="admin/login">Login</a>
     </div>
   )
   );
