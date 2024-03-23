@@ -148,11 +148,11 @@ const Careerjobsx = () => {
         <div className="modal-content">
             {step === 1 && (
                 <div>
-                    <div className="modal-header">
+                    <div className="modal-header ">
                     <h1 className="modal-title fs-5 my-3" id="staticBackdropLabel">{selectedJobRole} Application</h1>                         
                     <button className='btn-close ' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>  
                     </div>
-                    <div className="modal-body relative bottom-12 ">
+                    <div className="modal-body  ">
                         <div className="flex flex-col items-center justify-center h-screen">
                             <div className="w-full max-w-md bg-gray-400 rounded-lg shadow-md p-6">
                             <h1 className="modal-title fs-5 my-3" id="staticBackdropLabel">Personal Details</h1>                         
@@ -168,9 +168,10 @@ const Careerjobsx = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="modal-footer relative bottom-28">
+                    <div className="modal-footer ">
                         <button type="button" class="bg-gray-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400  transition ease-in-out duration-200" data-bs-dismiss="modal" onClick={() => setStep(1)}>Close</button>
                         <button type="button" onClick={handleNext} class="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4  hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
+                        
 
                     </div>
                 </div>
@@ -182,7 +183,7 @@ const Careerjobsx = () => {
                                         <button className='btn-close ' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>  
                        
                     </div>
-                    <div className="modal-body relative bottom-24">
+                    <div className="modal-body ">
                         <div className="flex flex-col items-center justify-center h-screen">
                             <div className="w-full max-w-md bg-gray-400 rounded-lg shadow-md p-6">
                                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Education</h2>
@@ -198,7 +199,7 @@ const Careerjobsx = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="modal-footer relative bottom-28">
+                    <div className="modal-footer ">
                     <button type="button" onClick={handleBack} class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
                         <button type="button" onClick={handleNext} class="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4  hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
 
@@ -211,7 +212,7 @@ const Careerjobsx = () => {
                     <h1 className="modal-title fs-5 my-3" id="staticBackdropLabel">{selectedJobRole} Application</h1>                         
                     <button className='btn-close ' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>  
                     </div>
-                    <div className="modal-body relative bottom-48">
+                    <div className="modal-body ">
                         <div className="flex flex-col items-center justify-center h-screen">
                             <div className="w-full max-w-md bg-gray-400 rounded-lg shadow-md p-6">
                                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Work Experience</h2>
@@ -224,7 +225,7 @@ const Careerjobsx = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="modal-footer relative bottom-64">
+                    <div className="modal-footer ">
                     <button type="button" onClick={handleBack} class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
                         <button type="button" onClick={handleNext} class="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4  hover:bg-yellow-400 transition ease-in-out duration-150">Submit</button>
                     </div>
