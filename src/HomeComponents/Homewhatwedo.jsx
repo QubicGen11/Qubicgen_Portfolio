@@ -47,7 +47,7 @@ const Homewhatwedo = () => {
    
   }}
 >
-  We provide consulting, training, and outsourcing. We encourage young talent by providing internships under RPA, SAP, .Net, etc... QubiGen, situated in the dynamic and thriving city of Anantapur, Andhra Pradesh, India, stands as a beacon of knowledge and a catalyst for success. Our mission is to bridge the gap between learning and achievement, fostering an environment where ideas flourish and ambitions are realized.
+  We provide consulting, training, and outsourcing. We encourage young talent by providing internships under RPA, SAP, .Net, etc... QubicGen, situated in the dynamic and thriving city of Anantapur, Andhra Pradesh, India, stands as a beacon of knowledge and a catalyst for success. Our mission is to bridge the gap between learning and achievement, fostering an environment where ideas flourish and ambitions are realized.
 </p>
 
             {/* <Link to="" className="inline-block bg-[#ffd700] text-black mt-4 px-6 py-2 rounded-full font-bold hover:bg-opacity-60 transition duration-300">Read More&apos;</Link> */}

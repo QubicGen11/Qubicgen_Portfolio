@@ -98,7 +98,7 @@ const Queries = () => {
                     <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Company / Organisation" className="block w-full p-4 text-lg rounded-sm bg-black"required  style={{ borderRadius:'40px', height:'70px' }} />
                   </div>
                   <div className="pb-2 pt-4">
-                    <input type="number" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone" className="block w-full p-4 text-lg rounded-sm bg-black" required style={{ borderRadius:'40px', height:'70px' }} />
+                    <input type="text" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone" className="block w-full p-4 text-lg rounded-sm bg-black" required style={{ borderRadius:'40px', height:'70px' }} />
                   </div>
                   <div className="pb-2 pt-4">
                     <textarea

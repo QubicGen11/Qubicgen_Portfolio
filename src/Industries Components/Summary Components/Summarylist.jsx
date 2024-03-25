@@ -189,7 +189,7 @@ const Summarylist = () => {
               return (
                 <div className="card" style={{ height: '350px', width: '307px', marginTop: '20px' }} >
                   <a className="card1" >
-                    <p style={{ fontSize: '30px', paddingBottom: "20px" ,lineHeight:'30px'}}>{item.title}</p>
+                    <p style={{ fontSize: '300px', paddingBottom: "20px" ,lineHeight:'30px'}}>{item.title}</p>
                     <p style={{ fontSize: '13px' }}>{item.description}</p>
                     <div className="go-corner">
                       <div className="go-arrow">

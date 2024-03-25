@@ -14,7 +14,7 @@ const Getintouch = () => {
     return (
         <div>
 
-            <div className="getintouch" data-aos="fade-right">
+            <div className="getintouch" data-aos="fade-right" >
                 <div className="contact-page">
                     <div className="frame-a" />
                     <section className="frame-b-wrapper">

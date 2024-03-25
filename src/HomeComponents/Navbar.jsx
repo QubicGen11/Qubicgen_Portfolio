@@ -96,7 +96,7 @@ navbar.style.backgroundColor = newColor;
             <li className="hover:cursor-pointer">Services</li>
           </div>
          <Link to="/careers"><li className="hover:cursor-pointer">Careers</li></Link> 
-          <a href="https://qubicgen.blogspot.com/" target="_blank"><li className="hover:cursor-pointer">Blog</li></a> 
+          <a href="https://qubic-gen.blogspot.com/" target="_blank"><li className="hover:cursor-pointer">Blog</li></a> 
 
         <Link to="/contact"><li className="hover:cursor-pointer">Contact</li></Link>  
         </nav>

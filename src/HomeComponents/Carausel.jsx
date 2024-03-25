@@ -30,7 +30,7 @@ const Carausel = () => {
     </div>
     <div className="carousel-item" data-bs-interval="3000">
       <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709803609/QubicGen/Home%20Page/Corossal/Slidetwo_v2l3e3_kunfm5_2_lswsgi.jpg" id='slide2img' className="d-block w-100" alt="..." loading="lazy" />
-      <div className="carousel-caption2">
+      <div className="carousel-caption">
         <h1 style={{color:'white'}}>one stop solution </h1>
         <h1>for all your business ideas. </h1>
       </div>
