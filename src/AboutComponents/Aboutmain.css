@@ -1,123 +1,33 @@
-.frame-icon {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    margin: 0 !important;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-radius: 10px;
-    max-width: 100%;
-    overflow: hidden;
-    max-height: 100%;
-    object-fit: cover;
-  }
-  .about-us {
-    margin: 0;
-    position: relative;
-    font-size: inherit;
-    line-height: 100%;
-    font-weight: 700;
-    font-family: inherit;
-    text-align: center;
-    z-index: 1;
-  }
-  .qubicgen {
-    color: var(--color-gold);
-  }
-  .we-are-qubicgen-container {
-    margin: 0;
-    width: 572px;
-    position: relative;
-    font-size: var(--font-size-21xl);
-    line-height: 58px;
-    text-transform: capitalize;
-    font-weight: 600;
-    font-family: inherit;
-    display: inline-block;
-    max-width: 100%;
-    z-index: 1;
-    color: var(--white-primary);
-  }
-  .contact-us,
-  .weekend-ux-is {
-    position: relative;
-    font-size: var(--paragraph-size);
-  }
-  .weekend-ux-is {
-    width: 572px;
-    line-height: 26px;
-    color: var(--black-bg);
-    display: inline-block;
-    max-width: 100%;
-    z-index: 1;
-  }
-  .contact-us {
-    font-weight: 500;
-    font-family: var(--font-inter);
-    color: var(--white-primary);
-    text-align: center;
-  }
-  .material-symbolsarrow-forward-icon {
-    height: 20px;
-    width: 20px;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-    min-height: 20px;
-  }
-  .button,
-  .frame-parent,
-  .root {
-    display: flex;
-    justify-content: flex-start;
-  }
-  .button {
-    cursor: pointer;
-    border: 0;
-    padding: var(--padding-base) var(--padding-xl);
-    background-color: #22b286;
-    border-radius: var(--br-81xl);
-    flex-direction: row;
-    align-items: flex-end;
-    gap: 0 6px;
-    white-space: nowrap;
-    z-index: 1;
-  }
-  .button:hover {
-    background-color: gold;
-  }
-  .frame-parent,
-  .root {
-    align-items: flex-start;
-    box-sizing: border-box;
-    flex-shrink: 0;
-  }
-  .frame-parent {
-    width: 1555px;
-    flex-direction: column;
-    padding: 186px 204px 267px;
-    position: relative;
-    gap: 20px 0;
-    max-width: 103%;
+.Aboutmain {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  overflow: hidden;
+  background: url("https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
-    background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1711087895/frame_2x_cu4wtm.png");
-    opacity: 0.8;
-  }
 
+
+.Aboutmain::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+
+@media (min-width:1200px) and (max-width:2000px) {
+
+  .Aboutmain {
+ 
+    background-position:center;
+  }
   
-
-
-
-
-
-
-
-
-
-
-
+  
+}
 
 
 
@@ -126,12 +36,7 @@
 
 
   
-  .root {
-    align-self: stretch;
-    flex-direction: row;
-    padding: 0;
-    max-width: 100%;
-  }
+ 
   .about-us-section-child {
     width: 1274px;
     height: 671px;
@@ -199,6 +104,7 @@
     max-height: 100%;
     object-fit: cover;
     z-index: 1;
+  
   }
   .subtract-icon2 {
     width: 64.8px;
@@ -265,7 +171,6 @@
     align-items: flex-start;
     justify-content: flex-start;
     position: relative;
-    max-width: 100%;
   }
   .terms-conditions-link {
     background-color: var(--color-gray-100);
@@ -1930,7 +1835,7 @@
     box-sizing: border-box;
   }
   .image {
-    width: 1459px;
+   
     flex-direction: row;
     align-items: flex-start;
     padding: 0 var(--padding-16xl);
@@ -2037,6 +1942,7 @@
     .Typewriter{
       font-size: 20px;
     }
+
 
   }
   @media (min-width:430px) and (max-width: 1050px) {
@@ -2268,12 +2174,21 @@
       top: 20px;
       left: 20px;
     }
+.image-51-icon{
+  display:none
+}
+
+.privacy-policy-link{
+  display:none
+}
+
+.mission-and-vision{
+  position:relative ;
+  right:30px;
+}
   }
   
-  body {
-    margin: 0;
-    line-height: normal;
-  }
+
   
   :root {
     /* fonts */

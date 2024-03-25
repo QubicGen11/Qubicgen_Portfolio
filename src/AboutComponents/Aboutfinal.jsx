@@ -64,8 +64,14 @@ const Aboutfinal = () => {
        
         </div>
         {/* <img className="subtract-icon" loading="eager" alt="" src={subtract} /> */}
-        <div className="text-link">
-          <div className="case-studies-list"  data-aos="fade-right">
+        
+
+
+<div class="container text-center">
+  <div class="row">
+    
+    <div class="col w-60">
+    <div className="case-studies-list"  data-aos="fade-right">
             {/* <img className="subtract-icon1" loading="eager" alt="" src={subtract2} style={{zIndex:'1'}}/> */}
             <div className="terms-conditions-link">
               <img className="terms-conditions-link-child" alt="" src={rectangle71} />
@@ -73,43 +79,45 @@ const Aboutfinal = () => {
                 <img className="image-51-icon" loading="eager" alt="" src={image512} />
               </div>
               <div className="footer-frame" >
-                <h2 className="our-mission">
+                <h2 className="our-mission text-white text-3xl flex items-center">
                   <span>OUR </span>
                   <span className="mission">MISSION</span>
                 </h2>
-                <div className="to-focus-on">
+                <div className="to-focus-on text-white text-left">
                 QubicGen has a dual mission: first, to develop urban talent through comprehensive training programs, preparing them to tackle the challenges posed by emerging technologies. Second, to empower organizations with high-quality IT consulting services that improve operations, increase efficiency, and foster innovation.
                 </div>
               </div>
             </div>
           </div>
-
-
-
-
-          <div className="case-studies-list1" data-aos="fade-left">
-            <div className="vector-parent">
-              <img className="frame-child" alt="" src={rectangle71} />
-              <div className="frame-wrapper">
-                <div className="our-vision-parent">
-                  <h2 className="our-vision">
-                    <span>OUR </span>
-                    <span className="vision">VISION</span>
-                  </h2>
-                  <div className="button1">
-                    <div className="to-be-a" style={{position:"relative",top:"-30px",textAlign:'left'}}>
-                    Guiding businesses on their digital transformation paths with strategic insights and premier technical proficiency, our IT firm places utmost importance on meeting client requirements. Utilizing agile methodologies in project development guarantees punctual delivery and smooth system integration.
-                    </div>
-                  </div>
-                </div>
               </div>
-              <img className="image-52-icon" loading="eager" alt=""  src= {image522} />
+
+
+
+
+    <div class="col ">
+<div className="case-studies-list "  data-aos="fade-right">
+            {/* <img className="subtract-icon1" loading="eager" alt="" src={subtract2} style={{zIndex:'1'}}/> */}
+            <div className="terms-conditions-link">
+              <img className="terms-conditions-link-child" alt="" src={rectangle71} />
+              <div className="privacy-policy-link">
+                <img className="image-51-icon" loading="eager" alt="" src={image522} />
+              </div>
+              <div className="footer-frame" >
+                <h2 className="our-mission text-white text-3xl flex items-center">
+                  <span>OUR </span>
+                  <span className="mission">VISION</span>
+                </h2>
+                <div className="to-focus-on text-white text-left">
+                Guiding businesses on their digital transformation paths with strategic insights and premier technical proficiency, our IT firm places utmost importance on meeting client requirements. Utilizing agile methodologies in project development guarantees punctual delivery and smooth system integration and innovations                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </div> 
 
-
-
+          
+             </div>
+  </div>
+  
+</div>
 
 
 

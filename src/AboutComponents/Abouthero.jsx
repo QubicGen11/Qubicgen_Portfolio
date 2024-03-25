@@ -15,10 +15,12 @@ const Abouthero = () => {
   }, [])
 
   return (
-    <div className="root" data-aos="fade-right" style={{width:'96vw'}} >
-    <div className="frame-parent" >
+    <>
+    
+    <div className="Aboutmain flex bg-center justify-left items-center sm:h-10 " >
+      <div className="z-50 text-2xl ml-3 flex flex-col mb-56 text-white sm:mx-6  md:text-4xl md:mr-80 lg:text-5xl lg:mb-10 h-36 md:w-96 lg:w-auto xl:w-auto " >
 
-               <h1 className="text-3xl font-bold mt-4 md:mt-0 text-white" style={{zIndex:1,fontSize:'45px'}}>
+      <h1 className="text-3xl font-bold mt-4 md:mt-0 text-white" style={{zIndex:1,fontSize:'45px', marginBottom:'20px'}}>
   <Typewriter
     options={{
       autoStart: true,
@@ -33,23 +35,17 @@ const Abouthero = () => {
       },
     }}
   />
-</h1>
-     
+</h1>        <p className=' text-xs font-medium w-72 sm:w-auto md:w-auto md:text-sm '> Continuing our commitment to excellence, QubicGen envisions a future where technological innovation seamlessly integrates with human expertise, fostering a dynamic landscape for business growth. Our vision is to lead transformative changes across industries, pioneering advancements in Intelligent Automation, Web Development, SAP, Database Management, Cybersecurity, Testing, Digitization, and Digital Marketing. We aim to be the catalyst for innovation, empowering businesses to adapt and thrive in the evolving digital era. By pushing technology boundaries and harnessing urban talent, we aspire to be the go-to partner for organizations seeking tailored solutions for sustainable growth. QubicGen serves as a platform for talent cultivation, facilitating collaboration and progress in diverse sectors.</p>
 
-      
-      <div className="weekend-ux-is">
-      Continuing our commitment to excellence, QubicGen envisions a future where technological innovation seamlessly integrates with human expertise, fostering a dynamic landscape for business growth. Our vision is to lead transformative changes across industries, pioneering advancements in Intelligent Automation, Web Development, SAP, Database Management, Cybersecurity, Testing, Digitization, and Digital Marketing. We aim to be the catalyst for innovation, empowering businesses to adapt and thrive in the evolving digital era. By pushing technology boundaries and harnessing urban talent, we aspire to be the go-to partner for organizations seeking tailored solutions for sustainable growth. QubicGen serves as a platform for talent cultivation, facilitating collaboration and progress in diverse sectors.
       </div>
-
-      <Link to="/contact" className=' z-20'>
-      <button className="button">
-        <div className="contact-us">Join Us</div>
-        <img className="material-symbolsarrow-forward-icon" alt="" src={materialsym} />
-      </button>
-      </Link>
-      
     </div>
-  </div>
+
+    
+    </>
+
+
+
+
   )
 }
 
