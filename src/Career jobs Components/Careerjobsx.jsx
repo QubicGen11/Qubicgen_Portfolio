@@ -81,7 +81,7 @@ const Careerjobsx = () => {
             <Navbar />
             <div className='bg-black'>
                 <div className="careeesfull bg-black" data-aos="fade-right">
-                    <div className="Careersjobsmain flex bg-center justify-center items-center sm:h-10 " style={{ background: "url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                    <div className="Careersjobsmain flex bg-center justify-center items-center sm:h-10 " style={{ background: "url('https://res.cloudinary.com/defsu5bfc/image/upload/v1711394885/photo-1542744173-8e7e53415bb0_shbafj.jpg')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <div className="z-50 text-2xl ml-3 text-white sm:mx-6  md:text-4xl md:mr-80 lg:text-5xl lg:mb-10 h-36 md:w-96 lg:w-auto xl:w-auto flex flex-col justify-center items-center" >
                             <p className='text-xl md:text-2xl lg:text-3xl xl:text-5xl'>Discover Your Dream Job Here!</p>
 
