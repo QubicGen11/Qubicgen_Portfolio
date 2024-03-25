@@ -43,57 +43,57 @@ const Publiclist = () => {
     {
         title: 'E-Government Solutions',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634868/QubicGen/Public%20Sector/person-points-map-world-blue-background_828075-1495_pjq00h.jpg',
-        description: 'Development and implementation of e-government platforms and portals to enable online service delivery, citizen engagement, and digital transactions, including services such as tax filing, permit applications, and license renewals.'
+        description: 'Development and implementation of e-government platforms and portals to enable online service delivery, citizen engagement and digital transactions, including services such as tax filing, permit applications and license renewals.'
     },
     {
         title: 'Government Resource Planning (GRP)',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709633176/QubicGen/Public%20Sector/close-up-people-chatting-table_23-2149304765_fiwkvy.jpg',
-        description: 'Implementation of GRP systems to automate and streamline government operations, including financial management, human resources, procurement, and budgeting, to improve transparency, accountability, and efficiency.'
+        description: 'Implementation of GRP systems to automate and streamline government operations, including financial management, human resources, procurement and budgeting, to improve transparency, accountability and efficiency.'
     },
     {
         title: 'Smart City Solutions',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709633451/QubicGen/Public%20Sector/busy-highway-traffic-light-trails-night_1359-38_h0jmae.jpg',
-        description: 'Design and deployment of smart city initiatives, including IoT sensors, data analytics platforms, and smart infrastructure, to improve urban planning, transportation, public safety, energy management, and environmental sustainability.'
+        description: 'Design and deployment of smart city initiatives, including IoT sensors, data analytics platforms and smart infrastructure, to improve urban planning, transportation, public safety, energy management and environmental sustainability.'
     },
     {
         title: 'Digital Identity and Authentication',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709633507/QubicGen/Public%20Sector/finger-print-verification-illustration_1284-26515_kyc4l8.jpg',
-        description: 'Provision of digital identity and authentication solutions to enable secure access to government services and online transactions, including biometric authentication, digital signatures, and identity verification systems.'
+        description: 'Provision of digital identity and authentication solutions to enable secure access to government services and online transactions, including biometric authentication, digital signatures and identity verification systems.'
     },
     {
         title: 'Open Data Platforms',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709633612/QubicGen/Public%20Sector/data-network-illustration_24908-57786_biosq4.jpg',
-        description: 'Development of open data platforms and APIs to publish government data and information in accessible and machine-readable formats, promoting transparency, innovation, and collaboration with the public and private sectors.'
+        description: 'Development of open data platforms and APIs to publish government data and information in accessible and machine-readable formats, promoting transparency, innovation and collaboration with the public and private sectors.'
     },
     {
         title: 'Cybersecurity and Critical Infrastructure Protection',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709630218/QubicGen/cyber-security-concept_23-2148533308_lkosbr.jpg',
-        description: 'Providing cybersecurity services to protect government networks, systems, and critical infrastructure from cyber threats, including risk assessments, security audits, incident response, and threat intelligence.'
+        description: 'Providing cybersecurity services to protect government networks, systems and critical infrastructure from cyber threats, including risk assessments, security audits, incident response and threat intelligence.'
     },
     {
         title: 'Geographic Information Systems (GIS)',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634010/QubicGen/Public%20Sector/hand-tapping-tablet-with-map_23-2147732953_ftielj.jpg',
-        description: 'Implementation of GIS solutions to manage and analyze spatial data for applications such as urban planning, emergency management, land administration, and environmental monitoring.'
+        description: 'Implementation of GIS solutions to manage and analyze spatial data for applications such as urban planning, emergency management, land administration and environmental monitoring.'
     },
     {
         title: 'Government Cloud Services',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709633968/QubicGen/Public%20Sector/digital-world-banner-background-remixed-from-public-domain-by-nasa_53876-108505_hzqcyc.jpg',
-        description: 'Provision of government cloud services, including infrastructure as a service (IaaS), platform as a service (PaaS), and software as a service (SaaS), to enable cost-effective and scalable IT infrastructure for government agencies and departments.'
+        description: 'Provision of government cloud services, including infrastructure as a service (IaaS), platform as a service (PaaS) and software as a service (SaaS), to enable cost-effective and scalable IT infrastructure for government agencies and departments.'
     },
     {
         title: 'Digital Transformation Consulting',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634165/QubicGen/Public%20Sector/tech-devices-icons-connected-digital-planet-earth_117023-449_obccr9.jpg',
-        description: 'Offering consulting services to government organizations on digital transformation initiatives, including strategy development, change management, organizational readiness assessment, and technology adoption planning.'
+        description: 'Offering consulting services to government organizations on digital transformation initiatives, including strategy development, change management, organizational readiness assessment and technology adoption planning.'
     },
     {
         title: 'Emergency Management Systems',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634326/QubicGen/Public%20Sector/young-doctor-supervising-monitors-oxygen-therapy-procedure-hyperbaric-chamber_637285-362_a4cixy.jpg',
-        description: 'Development and implementation of emergency management systems to support disaster preparedness, response, and recovery efforts, including situational awareness, resource coordination, and communication systems.'
+        description: 'Development and implementation of emergency management systems to support disaster preparedness, response and recovery efforts, including situational awareness, resource coordination and communication systems.'
     },
     {
         title: 'Regulatory Compliance and Governance',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634583/QubicGen/Public%20Sector/standard-quality-control-collage_23-2149631014_vccnh6.jpg',
-        description: 'Assisting government agencies in understanding and complying with regulatory requirements, standards, and best practices related to data privacy, cybersecurity, accessibility, and IT governance.'
+        description: 'Assisting government agencies in understanding and complying with regulatory requirements, standards and best practices related to data privacy, cybersecurity, accessibility and IT governance.'
     },
     {
         title: 'Training and Capacity Building',
@@ -156,7 +156,7 @@ const Publiclist = () => {
 
         <div className="col-md-7" bis_skin_checked="1">
         <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Utilizing Digital & Information Technology to enhance the quality of life for citizens.</h1>
-            <p className="lead" id='leadtext'>QubicGen's specialized Public Sector Practice delivers comprehensive IT services and solutions tailored for Government, International Organizations, and higher education sectors worldwide. Our offerings encompass ERP Implementation, Business Transformation, Enterprise Portals, Business Intelligence, Data Warehousing, Enterprise Application Integration, Middleware solutions, Infrastructure support, Robotic Process Automation, Artificial Intelligence, Machine Learning, Advanced Analytics, Cloud Migration (AWS, Azure, IBM, Google), Geographical Information Systems, and Application Development and Maintenance Services (ADMS).</p>
+            <p className="lead" id='leadtext'>QubicGen's specialized Public Sector Practice delivers comprehensive IT services and solutions tailored for Government, International Organizations and higher education sectors worldwide. Our offerings encompass ERP Implementation, Business Transformation, Enterprise Portals, Business Intelligence, Data Warehousing, Enterprise Application Integration, Middleware solutions, Infrastructure support, Robotic Process Automation, Artificial Intelligence, Machine Learning, Advanced Analytics, Cloud Migration (AWS, Azure, IBM, Google), Geographical Information Systems and Application Development and Maintenance Services (ADMS).</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
             <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709619622/QubicGen/business-people-meeting-conference-seminar-sharing-strategy-concept_1_cqgmnq.jpg" alt="" />

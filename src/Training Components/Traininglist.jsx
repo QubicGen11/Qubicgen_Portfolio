@@ -120,7 +120,7 @@ const Traininglist = () => {
     <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}}  >
    
       <div className="col-md-7" bis_skin_checked="1">
-        <h1 className="featurette-heading fw-normal lh-1" style={{fontSize:'40px',padding:'20px',fontWeight:'bolder'}}>Unlock the Power of Digital Transformation with Expert Training in RPA, Cybersecurity, Data Science, and More. Empower Your Future with Cutting-Edge IT Skills</h1>
+        <h1 className="featurette-heading fw-normal lh-1" style={{fontSize:'40px',padding:'20px',fontWeight:'bolder'}}>Unlock the Power of Digital Transformation with Expert Training in RPA, Cybersecurity, Data Science and More. Empower Your Future with Cutting-Edge IT Skills</h1>
         <p className="lead" id='leadtext'>We offer comprehensive training programs in a wide range of cutting-edge technologies, empowering individuals and organizations to stay ahead in today's rapidly evolving digital landscape. From Robotic Process Automation (RPA) to Cybersecurity, ServiceNow, Testing, Prompt Engineering, Azure Data Factory, Data Science, RPA with UI Path, Dot.Net, SQL Database, to Full Stack Development, we cover all facets of modern IT skills. Our expert-led courses are designed to equip learners with practical knowledge and hands-on experience, enabling them to thrive in their respective fields and drive innovation.</p>
       </div>
       <div className="col-md-5" bis_skin_checked="1">

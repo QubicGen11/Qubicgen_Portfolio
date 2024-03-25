@@ -26,27 +26,27 @@ const Rpalist = () => {
     {
       title: 'Process Automation',
       subtitle: 'Card subtitle',
-      description: 'Automating manual, rule-based tasks such as data entry, form filling, report generation, and data migration using RPA tools.',
+      description: 'Automating manual, rule-based tasks such as data entry, form filling, report generation and data migration using RPA tools.',
     },
     {
       title: 'Integration Services',
       subtitle: 'Card subtitle',
-      description: 'Integrating RPA solutions with existing systems, applications, and databases to enable seamless data exchange and automation across multiple platforms.',
+      description: 'Integrating RPA solutions with existing systems, applications and databases to enable seamless data exchange and automation across multiple platforms.',
     },
     {
       title: 'Bot Monitoring and Maintenance',
       subtitle: 'Card subtitle',
-      description: 'Monitoring bot performance, handling exceptions, troubleshooting issues, and ensuring the smooth functioning of RPA solutions.',
+      description: 'Monitoring bot performance, handling exceptions, troubleshooting issues and ensuring the smooth functioning of RPA solutions.',
     },
     {
       title: 'Process Reengineering',
       subtitle: 'Card subtitle',
-      description: 'Redesigning processes to optimize efficiency and maximize the benefits of RPA implementation. This may involve redefining workflows, eliminating bottlenecks, and standardizing procedures.',
+      description: 'Redesigning processes to optimize efficiency and maximize the benefits of RPA implementation. This may involve redefining workflows, eliminating bottlenecks and standardizing procedures.',
     },
     {
       title: 'Analytics and Reporting',
       subtitle: 'Card subtitle',
-      description: 'Utilizing RPA-generated data to generate insights, track performance metrics, and produce reports that help in decision-making and process improvement.',
+      description: 'Utilizing RPA-generated data to generate insights, track performance metrics and produce reports that help in decision-making and process improvement.',
     },
     {
       title: 'Cognitive Automation',
@@ -79,7 +79,7 @@ const Rpalist = () => {
     { 
       title: "Government", 
       background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797371/QubicGen/RPA/Who%20We%20Serve/business-people-working-together-table_2_kev6sw_vcjy2b.jpg",
-      description: "Modernize government processes with our RPA solutions. From citizen services to administrative tasks, we automate workflows to improve efficiency, transparency, and citizen satisfaction." 
+      description: "Modernize government processes with our RPA solutions. From citizen services to administrative tasks, we automate workflows to improve efficiency, transparency and citizen satisfaction." 
     },
     {
       title: "Transportation", 
@@ -89,16 +89,16 @@ const Rpalist = () => {
     { 
       title: "BFSI", 
       background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797451/QubicGen/RPA/Who%20We%20Serve/digital-rupee-inr-indian-currency-golden-coin-background_1017-41094_znzqpe.jpg",
-      description: "Transform BFSI operations with our RPA solutions. From compliance management to customer support, we automate tasks to increase productivity, reduce costs, and ensure regulatory compliance." 
+      description: "Transform BFSI operations with our RPA solutions. From compliance management to customer support, we automate tasks to increase productivity, reduce costs and ensure regulatory compliance." 
     }, 
     { 
       title: "Energy & Utilities", 
       background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797490/QubicGen/RPA/Who%20We%20Serve/solar-panels-wind-mills-sunset-sustainable-energy-eco-environment_1268-27834_eurq4c.jpg",
-      description: "Optimize energy and utility operations with our RPA services. From meter reading to billing processes, we automate tasks to improve accuracy, reduce errors, and enhance service delivery for utilities providers." 
+      description: "Optimize energy and utility operations with our RPA services. From meter reading to billing processes, we automate tasks to improve accuracy, reduce errors and enhance service delivery for utilities providers." 
     },{ 
       title: "Automation Testing" ,
       background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797531/QubicGen/RPA/Who%20We%20Serve/standard-quality-control-collage-concept_23-2149595830_bhlji2.jpg",
-     description: "In the field of automation testing, our RPA services automate test case generation, execution, and reporting. By integrating RPA into testing processes, organizations can accelerate testing cycles, increase test coverage, and improve overall software quality." 
+     description: "In the field of automation testing, our RPA services automate test case generation, execution and reporting. By integrating RPA into testing processes, organizations can accelerate testing cycles, increase test coverage and improve overall software quality." 
     } 
   
   ]);
@@ -157,7 +157,7 @@ const Rpalist = () => {
 
         <div className="col-md-7" bis_skin_checked="1">
           <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Automate, Optimize, Excel: Welcome to RPA Innovation</h1>
-          <p className="lead" id='leadtext'>Embrace the transformative power of Robotic Process Automation (RPA) to unlock your business potential. With RPA, streamline workflows, enhance efficiency, and propel your organization towards accelerated growth and success.</p>
+          <p className="lead" id='leadtext'>Embrace the transformative power of Robotic Process Automation (RPA) to unlock your business potential. With RPA, streamline workflows, enhance efficiency and propel your organization towards accelerated growth and success.</p>
         </div>
         <div className="col-md-5" bis_skin_checked="1">
           <img src="https://img.freepik.com/free-photo/rpa-concept-with-screen-bright-light_23-2149311912.jpg?t=st=1708944002~exp=1708947602~hmac=1c12623ab682bb1c20b79a27522355531983153c0795f02f9c7f3cea9053de66&w=740    " alt="" />

@@ -23,7 +23,7 @@ const Businessconsultinglist = () => {
     },
     {
       title: 'Business Process Improvement',
-      description: 'Analyzing and optimizing existing processes to streamline operations, enhance productivity, and drive efficiency.'
+      description: 'Analyzing and optimizing existing processes to streamline operations, enhance productivity and drive efficiency.'
     },
     {
       title: 'Digital Transformation',
@@ -39,7 +39,7 @@ const Businessconsultinglist = () => {
     },
     {
       title: 'IT Service Management (ITSM)',
-      description: 'Implementing best practices and processes to enhance IT service delivery, improve customer satisfaction, and drive operational excellence.'
+      description: 'Implementing best practices and processes to enhance IT service delivery, improve customer satisfaction and drive operational excellence.'
     },
     {
       title: 'Change Management',
@@ -47,7 +47,7 @@ const Businessconsultinglist = () => {
     },
     {
       title: 'Vendor Management',
-      description: 'Selecting and managing IT vendors to optimize value, mitigate risks, and ensure quality service delivery.'
+      description: 'Selecting and managing IT vendors to optimize value, mitigate risks and ensure quality service delivery.'
     },
     {
       title: 'Business Continuity Planning',
@@ -111,8 +111,8 @@ const Businessconsultinglist = () => {
     <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}}  >
 
 <div className="col-md-7" bis_skin_checked="1">
-  <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Empower Your Business with Strategic Guidance. Our Consulting Services Offer Tailored Solutions to Drive Growth, Efficiency, and Innovation. </h1>
-  <p className="lead" id='leadtext'>Transform your business with our expert consulting services. We offer strategic guidance and tailored solutions to propel your growth, enhance efficiency, and foster innovation. From insightful analysis to actionable plans, we're committed to empowering your success every step of the way.</p>
+  <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Empower Your Business with Strategic Guidance. Our Consulting Services Offer Tailored Solutions to Drive Growth, Efficiency and Innovation. </h1>
+  <p className="lead" id='leadtext'>Transform your business with our expert consulting services. We offer strategic guidance and tailored solutions to propel your growth, enhance efficiency and foster innovation. From insightful analysis to actionable plans, we're committed to empowering your success every step of the way.</p>
 </div>
 <div className="col-md-5" bis_skin_checked="1">
   <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710142264/QubicGen/Business%20Consulting/Overview/three-businesspersons-meeting_f87y5a_1_1_na6zih.jpg" alt="" />

@@ -20,7 +20,7 @@ const Weblist = () => {
   const [Webofferings, setWebofferings] = useState([
     {
         title: 'Custom Website Development',
-        description: 'Creating tailor-made websites from scratch based on client requirements, incorporating unique designs, features, and functionalities.'
+        description: 'Creating tailor-made websites from scratch based on client requirements, incorporating unique designs, features and functionalities.'
     },
     {
         title: 'Full-Stack Development',
@@ -32,23 +32,23 @@ const Weblist = () => {
     },
     {
         title: 'E-commerce Development',
-        description: 'Creating online stores and e-commerce platforms with features such as product catalogs, shopping carts, payment gateways, order management, and customer accounts using platforms like WooCommerce, Shopify, Magento, or custom solutions.'
+        description: 'Creating online stores and e-commerce platforms with features such as product catalogs, shopping carts, payment gateways, order management and customer accounts using platforms like WooCommerce, Shopify, Magento, or custom solutions.'
     },
     {
         title: 'Responsive Web Design',
-        description: 'Designing websites that are optimized for various devices and screen sizes, ensuring a consistent and seamless user experience across desktops, laptops, tablets, and smartphones.'
+        description: 'Designing websites that are optimized for various devices and screen sizes, ensuring a consistent and seamless user experience across desktops, laptops, tablets and smartphones.'
     },
     {
         title: 'Web Application Development',
-        description: 'Developing dynamic and interactive web applications with advanced functionalities such as user authentication, real-time updates, APIs integration, and data processing using frameworks like React.js, Angular, Vue.js, or Ember.js.'
+        description: 'Developing dynamic and interactive web applications with advanced functionalities such as user authentication, real-time updates, APIs integration and data processing using frameworks like React.js, Angular, Vue.js, or Ember.js.'
     },
     {
         title: 'Web Maintenance and Support',
-        description: 'Providing ongoing maintenance, updates, and technical support services to ensure the security, performance, and reliability of websites, including bug fixes, security patches, and software upgrades.'
+        description: 'Providing ongoing maintenance, updates and technical support services to ensure the security, performance and reliability of websites, including bug fixes, security patches and software upgrades.'
     },
     {
         title: 'Search Engine Optimization (SEO)',
-        description: 'Optimizing websites for search engines to improve visibility, ranking, and organic traffic through techniques such as keyword optimization, content creation, link building, and site performance optimization.'
+        description: 'Optimizing websites for search engines to improve visibility, ranking and organic traffic through techniques such as keyword optimization, content creation, link building and site performance optimization.'
     },
     
 ]);
@@ -57,28 +57,28 @@ const[Webserve,setWebserve]=useState([
 
   {
   title:'HealthCare',
-  description: 'Web development in healthcare includes patient portals, telemedicine platforms, and EHR systems for streamlined data management. It also encompasses HIE platforms, analytics dashboards, and medical education platforms for improved insights and learning experiences.',
+  description: 'Web development in healthcare includes patient portals, telemedicine platforms and EHR systems for streamlined data management. It also encompasses HIE platforms, analytics dashboards and medical education platforms for improved insights and learning experiences.',
   background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798087/QubicGen/Web%20Development/Who%20We%20Serve/doctor-using-stretoscope-virtual-projection_651396-925_xuwd1x.jpg"
   },
   
   {
   title: 'Finance',
-  description: 'Web development in the finance industry drives digital innovation, offering applications like online banking, mobile payments, and trading platforms. It enhances security, user experience, and business efficiency by providing personalized financial services.',
+  description: 'Web development in the finance industry drives digital innovation, offering applications like online banking, mobile payments and trading platforms. It enhances security, user experience and business efficiency by providing personalized financial services.',
   background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798120/QubicGen/Web%20Development/Who%20We%20Serve/collage-finance-banner-concept_23-2150608824_fdflpm.jpg"
   },
   {
     title: 'Education',
-    description: 'Web development in education drives transformative change, enabling seamless access to resources like online platforms, virtual classrooms, and learning analytics tools. It empowers educators with interactive tools by enhancing student engagement and experiential learning.',
+    description: 'Web development in education drives transformative change, enabling seamless access to resources like online platforms, virtual classrooms and learning analytics tools. It empowers educators with interactive tools by enhancing student engagement and experiential learning.',
     background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798181/QubicGen/Web%20Development/Who%20We%20Serve/geometric-science-education-background-vector-gradient-blue-digital-remix_53876-125993_ajtjz9.jpg"
     },
   {
   title: 'Entertainment',
-  description: 'Web development powers immersive experiences in entertainment, from streaming services to gaming platforms, enabling content delivery and user engagement. Leveraging HTML5, CSS3, and JavaScript, we create responsive websites for diverse audiences.',
+  description: 'Web development powers immersive experiences in entertainment, from streaming services to gaming platforms, enabling content delivery and user engagement. Leveraging HTML5, CSS3 and JavaScript, we create responsive websites for diverse audiences.',
   background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798297/QubicGen/Web%20Development/Who%20We%20Serve/top-view-clapperboard-movie-elements_23-2147775695_zbeqdx.jpg"
   },
   {
   title: 'Travel',
-  description: 'Web development in the travel industry revolutionizes the way people plan, book, and experience trips. From online booking platforms to destination guides, we create user-friendly interfaces and integrate third-party services for seamless travel experiences. ',
+  description: 'Web development in the travel industry revolutionizes the way people plan, book and experience trips. From online booking platforms to destination guides, we create user-friendly interfaces and integrate third-party services for seamless travel experiences. ',
   background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709798538/QubicGen/Web%20Development/Who%20We%20Serve/high-angle-travel-items-arrangement_23-2149617688_yzjf94.jpg"
   },
 

@@ -24,7 +24,7 @@ const Bankinglist = () => {
     {
         title: 'Electronic Health Records (EHR) Systems',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637205/QubicGen/HealthCare/project-manager-working-update-tasks-with-gantt-chart-scheduling-diagram-hospital-success-smart-medical-doctor-working-with-smart-medical-doctor-as-conceptxa_71455-1228_gssxrw.jpg',
-        description: 'Development, implementation, and customization of electronic health records (EHR) systems to digitize patient health information, streamline clinical workflows, and improve care coordination among healthcare providers.'
+        description: 'Development, implementation and customization of electronic health records (EHR) systems to digitize patient health information, streamline clinical workflows and improve care coordination among healthcare providers.'
     },
     {
         title: 'Health Information Exchange (HIE)',
@@ -34,42 +34,42 @@ const Bankinglist = () => {
     {
         title: 'Telemedicine and Telehealth Solutions',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637324/QubicGen/HealthCare/telemedicine-service-online-video-call-doctor-actively-chat-with-patient_31965-62472_dtrzf7.jpg',
-        description: 'Design and deployment of telemedicine and telehealth solutions, including video conferencing platforms, remote patient monitoring systems, and virtual care platforms, to enable remote consultations, monitoring, and care delivery.'
+        description: 'Design and deployment of telemedicine and telehealth solutions, including video conferencing platforms, remote patient monitoring systems and virtual care platforms, to enable remote consultations, monitoring and care delivery.'
     },
     {
         title: 'Medical Imaging and Picture Archiving and Communication Systems (PACS)',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637423/QubicGen/HealthCare/portrait-mature-biologist-woman-working-computer-modern-equipment-microbiological-laboratory_482257-34412_icmwwa.jpg',
-        description: 'Development and implementation of PACS solutions to manage medical imaging data, including storage, retrieval, and distribution of radiology images, enabling timely diagnosis and treatment planning.'
+        description: 'Development and implementation of PACS solutions to manage medical imaging data, including storage, retrieval and distribution of radiology images, enabling timely diagnosis and treatment planning.'
     },
     {
         title: 'Healthcare Analytics and Business Intelligence',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637543/QubicGen/HealthCare/scientific-data-processing-with-human-body-scope-scanning-with-male-doctor-writing_1134-11878_hyy9ci.jpg',
-        description: 'Utilization of healthcare analytics tools and business intelligence solutions to analyze clinical, operational, and financial data, identify trends, and make data-driven decisions to improve patient outcomes and optimize resource utilization.'
+        description: 'Utilization of healthcare analytics tools and business intelligence solutions to analyze clinical, operational and financial data, identify trends and make data-driven decisions to improve patient outcomes and optimize resource utilization.'
     },
     {
         title: 'Revenue Cycle Management (RCM)',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637572/QubicGen/HealthCare/top-view-businesspeople-working-with-icons-painted-table_1134-100_tqeic3.jpg',
-        description: 'Provision of revenue cycle management services to healthcare organizations, including billing, coding, claims management, and accounts receivable management, to optimize revenue capture and ensure timely reimbursement.'
+        description: 'Provision of revenue cycle management services to healthcare organizations, including billing, coding, claims management and accounts receivable management, to optimize revenue capture and ensure timely reimbursement.'
     },
     {
         title: 'Population Health Management',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637618/QubicGen/HealthCare/close-up-picture-doctor-s-hands-posting-symbol-home-family-member-model_1150-26706_rvtk8g.jpg',
-        description: 'Development and implementation of population health management platforms to analyze patient populations, identify at-risk individuals, and implement targeted interventions to improve health outcomes and reduce healthcare costs.'
+        description: 'Development and implementation of population health management platforms to analyze patient populations, identify at-risk individuals and implement targeted interventions to improve health outcomes and reduce healthcare costs.'
     },
     {
         title: 'Healthcare Interoperability and Standards Compliance',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637659/QubicGen/HealthCare/medical-infographic-with-photo_23-2148368620_xpdhcg.jpg',
-        description: 'Assistance with healthcare interoperability initiatives and compliance with industry standards such as HL7, FHIR, and DICOM to ensure seamless data exchange and interoperability among healthcare systems and applications.'
+        description: 'Assistance with healthcare interoperability initiatives and compliance with industry standards such as HL7, FHIR and DICOM to ensure seamless data exchange and interoperability among healthcare systems and applications.'
     },
     {
         title: 'Cybersecurity and Data Privacy',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637761/QubicGen/HealthCare/cyber-security-concept_23-2148532223_xyfk62.jpg',
-        description: 'Provision of cybersecurity services to protect sensitive healthcare data from cyber threats, including ransomware attacks, data breaches, and unauthorized access, through robust security measures, encryption, and access controls.'
+        description: 'Provision of cybersecurity services to protect sensitive healthcare data from cyber threats, including ransomware attacks, data breaches and unauthorized access, through robust security measures, encryption and access controls.'
     },
     {
         title: 'Compliance and Regulatory Consulting',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637813/QubicGen/HealthCare/standard-quality-control-collage-concept_23-2149595850_aqwrio.jpg',
-        description: 'Consulting and advisory services to help healthcare organizations navigate regulatory requirements, including HIPAA, HITECH, GDPR, and Meaningful Use, and implement compliance programs to safeguard patient privacy and data security.'
+        description: 'Consulting and advisory services to help healthcare organizations navigate regulatory requirements, including HIPAA, HITECH, GDPR and Meaningful Use and implement compliance programs to safeguard patient privacy and data security.'
     }
 ]);
   // This is for rpa offering cards

@@ -21,23 +21,23 @@ const Cybersecuritylist = () => {
   const [Cyberoffers, setCyberoffers] = useState([
     {
       title: 'Vulnerability Assessment and Penetration Testing (VAPT) ',
-      description: 'Identifying weaknesses and vulnerabilities in networks, systems, and applications through assessments and conducting controlled attacks to test their security posture.'
+      description: 'Identifying weaknesses and vulnerabilities in networks, systems and applications through assessments and conducting controlled attacks to test their security posture.'
     },
     {
       title: 'Security Information and Event Management (SIEM) ',
-      description: 'Implementing SIEM solutions to collect, analyze, and correlate security events and logs from various sources to detect and respond to security incidents in real-time.'
+      description: 'Implementing SIEM solutions to collect, analyze and correlate security events and logs from various sources to detect and respond to security incidents in real-time.'
     },
     {
       title: 'Intrusion Detection and Prevention Systems (IDPS)',
-      description: 'Deploying IDPS solutions to monitor network traffic and detect and block malicious activities, including unauthorized access, malware infections, and insider threats.'
+      description: 'Deploying IDPS solutions to monitor network traffic and detect and block malicious activities, including unauthorized access, malware infections and insider threats.'
     },
     {
       title: 'Firewall Management',
-      description: 'Managing and configuring firewall devices to enforce access controls, filter network traffic, and protect against unauthorized access and cyber-attacks.'
+      description: 'Managing and configuring firewall devices to enforce access controls, filter network traffic and protect against unauthorized access and cyber-attacks.'
     },
     {
       title: 'Identity and Access Management (IAM) ',
-      description: 'Implementing IAM solutions to manage user identities, roles, and permissions, enforce access controls, and ensure that only authorized users have access to resources and data.'
+      description: 'Implementing IAM solutions to manage user identities, roles and permissions, enforce access controls and ensure that only authorized users have access to resources and data.'
     },
 
   ]);
@@ -46,33 +46,33 @@ const Cybersecuritylist = () => {
 
     {
       title: 'Finance and Insurance',
-      description: 'Cyber security in finance and insurance involves protecting sensitive financial data by implementing robust encryption, access controls, and fraud detection mechanisms to safeguard against cyber attacks targeting financial transactions and personal information.',
+      description: 'Cyber security in finance and insurance involves protecting sensitive financial data by implementing robust encryption, access controls and fraud detection mechanisms to safeguard against cyber attacks targeting financial transactions and personal information.',
       background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796658/QubicGen/Cyber%20Security/Who%20We%20Serve/unrecognizable-businessman-pointing-printed-chart-showing-graph-colleagues-professional-content-partners-making-notes-statistics-cooperation-communication-partnership-concept_74855-14267_lunmdz.jpg"
     },
 
     {
       title: 'Healthcare',
-      description: 'In healthcare, cyber security focuses on protecting electronic health records (EHRs), medical devices, and patient confidentiality. This entails implementing strong authentication measures, encryption protocols, and intrusion detection systems to prevent data breaches and ensure compliance with regulations like HIPAA.',
+      description: 'In healthcare, cyber security focuses on protecting electronic health records (EHRs), medical devices and patient confidentiality. This entails implementing strong authentication measures, encryption protocols and intrusion detection systems to prevent data breaches and ensure compliance with regulations like HIPAA.',
       background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710070221/QubicGen/Cyber%20Security/Who%20We%20Serve/medical-banner-with-stethoscope_23-2149611199_xwaslj.jpg"
     },
     {
       title: 'Energy and Utilities',
-      description: 'Cyber security in the energy sector is crucial for safeguarding critical infrastructure by deploying advanced threat detection technologies, segmenting networks, and conducting regular security assessments to mitigate the risk of cyber attacks.',
+      description: 'Cyber security in the energy sector is crucial for safeguarding critical infrastructure by deploying advanced threat detection technologies, segmenting networks and conducting regular security assessments to mitigate the risk of cyber attacks.',
       background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796885/QubicGen/Cyber%20Security/Who%20We%20Serve/aerial-shot-two-power-plant-sunset-vilnius_181624-15104_vtk9cp.jpg"
     },
     {
       title: 'Government',
-      description: 'Encompasses protecting sensitive government data, citizen information, and national security interests from cyber threats. This includes establishing robust perimeter defenses, monitoring for suspicious activity, and collaborating with intelligence agencies to identify and neutralize cyber threats targeting government networks and systems.',
+      description: 'Encompasses protecting sensitive government data, citizen information and national security interests from cyber threats. This includes establishing robust perimeter defenses, monitoring for suspicious activity and collaborating with intelligence agencies to identify and neutralize cyber threats targeting government networks and systems.',
       background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796752/QubicGen/Cyber%20Security/Who%20We%20Serve/national-museum-history-romania_1268-14722_oqutul.jpg"
     },
     {
       title: 'Retail',
-      description: 'Involves safeguarding customer payment data, online shopping platforms, and supply chain networks from cyber attacks. This requires implementing secure payment processing systems, conducting regular vulnerability assessments.',
+      description: 'Involves safeguarding customer payment data, online shopping platforms and supply chain networks from cyber attacks. This requires implementing secure payment processing systems, conducting regular vulnerability assessments.',
       background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709796968/QubicGen/Cyber%20Security/Who%20We%20Serve/abundance-healthy-food-choices-supermarket-aisle-generated-by-ai_188544-42447_z9m7jx.jpg"
     },
     {
       title: 'Manufacturing',
-      description: 'Focuses on protecting industrial control systems (ICS), production networks, and intellectual property from cyber threats. This includes implementing network segmentation, endpoint protection, and intrusion detection systems to prevent unauthorized access and ensure the integrity of manufacturing processes and product designs.',
+      description: 'Focuses on protecting industrial control systems (ICS), production networks and intellectual property from cyber threats. This includes implementing network segmentation, endpoint protection and intrusion detection systems to prevent unauthorized access and ensure the integrity of manufacturing processes and product designs.',
       background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709797002/QubicGen/Cyber%20Security/Who%20We%20Serve/factory-workshop-interior-machines-glass-production-background_645730-396_x5leks.jpg"
     },  {
       title: 'Cold Chain Management',

@@ -25,7 +25,7 @@ const Summarylist = () => {
   const[ProfessionalServe,setProfessionalServe]=useState([
     {
       title: 'Audit, Accounting and Tax',
-      description: 'Comprehensive audit, accounting, and tax services tailored to your business needs. Ensure compliance and optimize financial performance with our expert guidance.'
+      description: 'Comprehensive audit, accounting and tax services tailored to your business needs. Ensure compliance and optimize financial performance with our expert guidance.'
     },
     {
       title: 'Consulting and Advisory',
@@ -37,7 +37,7 @@ const Summarylist = () => {
     },
     {
         title: 'Legal,Risk and Compliance',
-        description: "Comprehensive legal, risk, and compliance solutions tailored to your business needs. Ensure regulatory adherence and mitigate risks with our expert guidance."
+        description: "Comprehensive legal, risk and compliance solutions tailored to your business needs. Ensure regulatory adherence and mitigate risks with our expert guidance."
     },
     {
         title: 'Technology and Platforms',
@@ -51,47 +51,47 @@ const Summarylist = () => {
     {
         title: 'IT Consulting',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709708245/QubicGen/Professional%20Services/people-office-analyzing-checking-finance-graphs_23-2150377131_qlqyhf.jpg',
-        description: 'Providing strategic guidance and advisory services to businesses on leveraging technology to address specific challenges, improve processes, and achieve business goals.'
+        description: 'Providing strategic guidance and advisory services to businesses on leveraging technology to address specific challenges, improve processes and achieve business goals.'
     },
     {
         title: 'Digital Transformation',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709064/QubicGen/Professional%20Services/97673271_qz2vzc.jpg',
-        description: 'Assisting organizations in adopting digital technologies and strategies to modernize their operations, enhance customer experiences, and stay competitive in the digital age.'
+        description: 'Assisting organizations in adopting digital technologies and strategies to modernize their operations, enhance customer experiences and stay competitive in the digital age.'
     },
     {
         title: 'Software Development',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709437/QubicGen/Professional%20Services/software-development-button_kwuwiq.jpg',
-        description: 'Designing, developing, and implementing customized software solutions tailored to the unique needs and requirements of businesses across various industries.'
+        description: 'Designing, developing and implementing customized software solutions tailored to the unique needs and requirements of businesses across various industries.'
     },
     {
         title: 'System Integration',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709473/QubicGen/Professional%20Services/Systems-Integration_q7wtwa.jpg',
-        description: 'Integrating disparate systems, applications, and technologies within an organization to enable seamless data exchange, workflow automation, and business process optimization.'
+        description: 'Integrating disparate systems, applications and technologies within an organization to enable seamless data exchange, workflow automation and business process optimization.'
     },
     {
         title: 'Enterprise Architecture',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709403/QubicGen/Professional%20Services/building-design-diagram-line-scratch-high-render_664601-18271_nzswxk.jpg',
-        description: 'Designing and implementing comprehensive enterprise architecture frameworks to align IT initiatives with business objectives, optimize IT infrastructure, and support future growth.'
+        description: 'Designing and implementing comprehensive enterprise architecture frameworks to align IT initiatives with business objectives, optimize IT infrastructure and support future growth.'
     },
     {
         title: 'Project Management',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709144/QubicGen/Professional%20Services/furious-company-manager-asking-explications-from-multi-ethnic-coleagues-holding-finance-report-conference-room_482257-5049_dazz0n.jpg',
-        description: 'Managing IT projects from initiation to completion, including project planning, resource allocation, risk management, and quality assurance, to ensure successful project delivery within scope, budget, and timeline constraints.'
+        description: 'Managing IT projects from initiation to completion, including project planning, resource allocation, risk management and quality assurance, to ensure successful project delivery within scope, budget and timeline constraints.'
     },
     {
         title: 'Cybersecurity Services',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709654/QubicGen/Professional%20Services/business-corporate-protection-safety-security-concept_53876-64964_zcssdq.jpg',
-        description: 'Assessing, implementing, and managing cybersecurity measures to protect businesses from cyber threats, including risk assessments, security audits, penetration testing, and incident response.'
+        description: 'Assessing, implementing and managing cybersecurity measures to protect businesses from cyber threats, including risk assessments, security audits, penetration testing and incident response.'
     },
     {
         title: 'Cloud Services',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709709028/QubicGen/Professional%20Services/woman-scrolling-laptop_53876-167050_iqbsaj.jpg',
-        description: 'Providing cloud computing services, including cloud migration, architecture design, infrastructure management, and software-as-a-service (SaaS) solutions, to help businesses leverage the scalability, flexibility, and cost-efficiency of cloud platforms.'
+        description: 'Providing cloud computing services, including cloud migration, architecture design, infrastructure management and software-as-a-service (SaaS) solutions, to help businesses leverage the scalability, flexibility and cost-efficiency of cloud platforms.'
     },
     {
         title: 'Data Analytics and Business Intelligence',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709708873/QubicGen/Professional%20Services/modern-equipped-computer-lab_23-2149241211_nu9gwg.jpg',
-        description: 'Analyzing data to extract valuable insights, trends, and patterns that can inform decision-making, drive business growth, and improve operational efficiency.'
+        description: 'Analyzing data to extract valuable insights, trends and patterns that can inform decision-making, drive business growth and improve operational efficiency.'
     },
     {
         title: 'Training and Support',
@@ -101,12 +101,12 @@ const Summarylist = () => {
     {
         title: 'Regulatory Compliance',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709708769/QubicGen/Professional%20Services/standard-quality-control-concept-m_23-2150041854_nhin3q.jpg',
-        description: 'Assisting businesses in understanding and complying with industry regulations and standards related to data privacy, cybersecurity, and IT governance.'
+        description: 'Assisting businesses in understanding and complying with industry regulations and standards related to data privacy, cybersecurity and IT governance.'
     },
     {
         title: 'Managed IT Services',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709708630/QubicGen/Professional%20Services/two-business-coworkers-analyzing-plans-while-working-project-office-focus-is-businessman-drinking-coffee_637285-1079_ey0pw5.jpg',
-        description: 'Providing outsourced IT management and support services, including network monitoring, helpdesk support, software updates, and system maintenance, to ensure the reliability and security of IT infrastructure.'
+        description: 'Providing outsourced IT management and support services, including network monitoring, helpdesk support, software updates and system maintenance, to ensure the reliability and security of IT infrastructure.'
     }
 ]);
   // This is for rpa offering cards
@@ -162,7 +162,7 @@ const Summarylist = () => {
 
         <div className="col-md-7" bis_skin_checked="1">
         <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Empower Your Business with Expert Guidance.</h1>
-            <p className="lead" id='leadtext'>At QubicGen, our professional services and consulting offerings encompass a wide range of industries and sectors. With a focus on strategic planning, implementation, and ongoing support, we are committed to helping clients achieve sustainable success in their respective markets. Our dedicated team of experts provides tailored solutions that drive efficiency, innovation, and growth, ensuring that our clients stay ahead of the curve in an ever-evolving business landscape.</p>
+            <p className="lead" id='leadtext'>At QubicGen, our professional services and consulting offerings encompass a wide range of industries and sectors. With a focus on strategic planning, implementation and ongoing support, we are committed to helping clients achieve sustainable success in their respective markets. Our dedicated team of experts provides tailored solutions that drive efficiency, innovation and growth, ensuring that our clients stay ahead of the curve in an ever-evolving business landscape.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
             <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709626430/QubicGen/html-css-collage-concept-with-person_23-2150062008_ddmout.jpg" alt="" />

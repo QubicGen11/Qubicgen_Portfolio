@@ -19,7 +19,7 @@ const Testinglist = () => {
   const [TestingOffers, setTestingOffers] = useState([
     {
         title: 'Functional Testing',
-        description: 'Verifying that the software functions as intended and meets specified requirements. This includes testing individual features, user interfaces, and business processes to validate expected behavior.'
+        description: 'Verifying that the software functions as intended and meets specified requirements. This includes testing individual features, user interfaces and business processes to validate expected behavior.'
     },
     {
         title: 'Regression Testing',
@@ -31,19 +31,19 @@ const Testinglist = () => {
     },
     {
         title: 'Performance Testing',
-        description: 'Assessing the responsiveness, scalability, and stability of the software under various workload conditions. This includes load testing, stress testing, and scalability testing to identify performance bottlenecks and optimize system performance.'
+        description: 'Assessing the responsiveness, scalability and stability of the software under various workload conditions. This includes load testing, stress testing and scalability testing to identify performance bottlenecks and optimize system performance.'
     },
     {
         title: 'Security Testing',
-        description: 'Identifying vulnerabilities and weaknesses in the software that could be exploited by malicious actors. This includes conducting security assessments, penetration testing, and vulnerability scanning to ensure that sensitive data and systems are protected from unauthorized access and attacks.'
+        description: 'Identifying vulnerabilities and weaknesses in the software that could be exploited by malicious actors. This includes conducting security assessments, penetration testing and vulnerability scanning to ensure that sensitive data and systems are protected from unauthorized access and attacks.'
     },
     {
         title: 'Compatibility Testing ',
-        description: "Evaluating the software's compatibility with different operating systems, web browsers, devices, and network environments. This ensures that the software functions correctly across various platforms and configurations."
+        description: "Evaluating the software's compatibility with different operating systems, web browsers, devices and network environments. This ensures that the software functions correctly across various platforms and configurations."
     },
     {
         title: 'Automation Testing ',
-        description: 'Automating repetitive test cases and scenarios using testing tools and frameworks to improve efficiency, consistency, and coverage. Automation testing includes functional automation, regression automation, and performance automation.'
+        description: 'Automating repetitive test cases and scenarios using testing tools and frameworks to improve efficiency, consistency and coverage. Automation testing includes functional automation, regression automation and performance automation.'
     },
     {
       title: 'Integration Testing' ,
@@ -55,7 +55,7 @@ description: 'Testing the interactions and compatibility between different modul
 const [TestingServe, setTestingServe] = useState([
   {
       title:'HealthCare',
-      description: 'Ensure healthcare system reliability, security, and compliance with our testing services for electronic health records and telemedicine platforms.',
+      description: 'Ensure healthcare system reliability, security and compliance with our testing services for electronic health records and telemedicine platforms.',
       background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710141503/QubicGen/Testing/Who%20We%20Serve/biotechnology-specialist-laboratory-conducting-experiments_23-2150468696_bce5ur.jpg"
       },
       {
@@ -130,7 +130,7 @@ const [TestingServe, setTestingServe] = useState([
    
    <div className="col-md-7" bis_skin_checked="1">
      <h1 className="featurette-heading fw-normal lh-1" style={{fontSize:'40px',padding:'20px',fontWeight:'bolder'}}>Testing Unleashed: Elevate Your Software with Assurance Beyond Measure</h1>
-     <p className="lead" id='leadtext'>Welcome to the epitome of quality assurance. Our testing services ensure that every aspect of your software or application is scrutinized, polished, and perfected. From functionality to performance, we leave no stone unturned, delivering solutions that exceed expectations and inspire confidence in your digital endeavors.</p>
+     <p className="lead" id='leadtext'>Welcome to the epitome of quality assurance. Our testing services ensure that every aspect of your software or application is scrutinized, polished and perfected. From functionality to performance, we leave no stone unturned, delivering solutions that exceed expectations and inspire confidence in your digital endeavors.</p>
    </div>
    <div className="col-md-5" bis_skin_checked="1">
      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710141444/QubicGen/Testing/Overview/software-tester-concept-illustration_114360-12815_wgmqbp.jpg"  alt="" />

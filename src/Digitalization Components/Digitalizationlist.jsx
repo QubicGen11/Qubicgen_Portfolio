@@ -19,7 +19,7 @@ const Digitalizationlist = () => {
   const[Digitizationofferings,setDigitizationofferings]=useState([
     {
       title: "Digital Strategy Development",
-      description: "Tailored strategies to digitize processes, boost productivity, and elevate customer experiences, aligning digital initiatives with business goals."
+      description: "Tailored strategies to digitize processes, boost productivity and elevate customer experiences, aligning digital initiatives with business goals."
     },
     {
       title: "Business Process Automation",
@@ -27,11 +27,11 @@ const Digitalizationlist = () => {
     },
     {
       title: "Document Management Systems",
-      description: "Centralized repositories for digitized documents, ensuring secure access, compliance, and efficient document handling."
+      description: "Centralized repositories for digitized documents, ensuring secure access, compliance and efficient document handling."
     },
     {
       title: "Enterprise Resource Planning (ERP) Systems",
-      description: "Integrated solutions to centralize data, streamline processes, and enhance visibility, customized to meet specific business needs."
+      description: "Integrated solutions to centralize data, streamline processes and enhance visibility, customized to meet specific business needs."
     },
     {
       title: "Customer Relationship Management (CRM) Systems",
@@ -57,48 +57,48 @@ const Digitalizationlist = () => {
   const [DigitalizationServe, setDigitalizationServe] = useState([
     {
         title:'HealthCare',
-        description: 'Drive better patient care with electronic health records, telemedicine, and data-driven personalized treatments.',
+        description: 'Drive better patient care with electronic health records, telemedicine and data-driven personalized treatments.',
         background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709811455/QubicGen/Digitalization/Who%20We%20Serve/doctor-giving-presentation-team-interim-doctors_107420-84783_yywolk.jpg"
         },
         
         {
         title: 'Education',
-        description: 'Deliver engaging learning through e-learning platforms, virtual classrooms, and adaptive learning technologies.',
+        description: 'Deliver engaging learning through e-learning platforms, virtual classrooms and adaptive learning technologies.',
         background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710067854/QubicGen/Digitalization/Who%20We%20Serve/international-day-education-cartoon-style_23-2151007381_vybke9.jpg"
         },
         {
         title: 'Manufacturing',
-        description: 'Optimize production with Industry 4.0 solutions like IoT, robotics, and predictive maintenance.',
+        description: 'Optimize production with Industry 4.0 solutions like IoT, robotics and predictive maintenance.',
         background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709811837/QubicGen/Digitalization/Who%20We%20Serve/metallic-robot-arm-modern-steel-factory-generated-by-ai_188544-17870_dxq7gj.jpg"
         },
         {
         title: 'Energy and Utilities',
-        description: 'Foster sustainability and efficiency with smart grids, renewable energy integration, and data-driven infrastructure management.',
+        description: 'Foster sustainability and efficiency with smart grids, renewable energy integration and data-driven infrastructure management.',
         background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710068041/QubicGen/Digitalization/Who%20We%20Serve/offshore-wind-turbines-wind-power-generative-ai-environmental-electricity_28914-14602_k9vguk.jpg"
         },
         {
         title: 'Finance',
-        description :'Streamline financial services through online banking, mobile payments, and AI-powered solutions.',
+        description :'Streamline financial services through online banking, mobile payments and AI-powered solutions.',
         background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710068291/QubicGen/Digitalization/Who%20We%20Serve/stacks-coins-arranged-bar-graph_35913-2518_z8vbo5.jpg"
         },
         {
         title: 'Government',
-        description: 'Improve citizen engagement with online portals, digital identity systems, and smart city initiatives.',
+        description: 'Improve citizen engagement with online portals, digital identity systems and smart city initiatives.',
         background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710062561/QubicGen/Digitalization/Who%20We%20Serve/grey-marble-column-details-building_1359-886_loaaep.jpg"
         },
         {
         title: 'Media & Entertainment',
-        description: 'Captivate audiences with streaming services, social media integration, and immersive experiences.',
+        description: 'Captivate audiences with streaming services, social media integration and immersive experiences.',
         background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710067833/QubicGen/Digitalization/Who%20We%20Serve/3d-glasses-movies-tickets-flat-lay_23-2149558744_mjdvo5.jpg"
         },
         {
         title: 'Transportation & Logistics',
-        description: 'Enhance efficiency with logistics management software, predictive maintenance, and intelligent transportation systems.',
+        description: 'Enhance efficiency with logistics management software, predictive maintenance and intelligent transportation systems.',
         background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710068442/QubicGen/Digitalization/Who%20We%20Serve/vehicles-laptop-supply-chain-representation_23-2149853161_wmm3u3.jpg"
         },
         {
         title: 'Retail',
-        description: 'Reimagine customer experiences with e-commerce platforms, omnichannel integration, and data-driven personalization.',
+        description: 'Reimagine customer experiences with e-commerce platforms, omnichannel integration and data-driven personalization.',
         background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710068595/QubicGen/Digitalization/Who%20We%20Serve/variety-merchandise-supermarket-store-shelves-generated-by-ai_188544-40842_j2z67o.jpg"
         }
     
@@ -157,7 +157,7 @@ const Digitalizationlist = () => {
    
       <div className="col-md-7" bis_skin_checked="1">
         <h1 className="featurette-heading fw-normal lh-1" style={{fontSize:'40px',padding:'20px',fontWeight:'bolder'}}>Navigating Tomorrow's World Today: Embark on Your Digitalization Journey with Us!</h1>
-        <p className="lead" id='leadtext'>Digitalization is more than just adopting technology; it's about reshaping the future of business. Our digitalization services offer tailored solutions to transform your operations, optimize processes, and stay ahead in a rapidly evolving digital landscape.</p>
+        <p className="lead" id='leadtext'>Digitalization is more than just adopting technology; it's about reshaping the future of business. Our digitalization services offer tailored solutions to transform your operations, optimize processes and stay ahead in a rapidly evolving digital landscape.</p>
       </div>
       <div className="col-md-5" bis_skin_checked="1">
         <img src="https://res.cloudinary.com/dightbmyi/image/upload/v1709276230/person-working-with-floating-screens_ydma9t.jpg"  alt="" />

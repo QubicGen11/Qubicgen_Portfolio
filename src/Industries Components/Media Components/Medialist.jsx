@@ -25,15 +25,15 @@ const Medialist = () => {
   const[EnergyServe,setEnergyServe]=useState([
     {
       title: 'Electricity',
-      description: 'At QubicGen, our developed solutions support the holistic growth of the power industry, spanning Electricity Generation, Transmission, Distribution, Retail, and catering to both commercial and residential sectors.'
+      description: 'At QubicGen, our developed solutions support the holistic growth of the power industry, spanning Electricity Generation, Transmission, Distribution, Retail and catering to both commercial and residential sectors.'
     },
     {
       title: 'Renewables',
-      description: 'Delivers advanced monitoring and efficiency management platforms for solar and wind energy assets. Additionally, emphasizes the development of innovative technologies in renewable energy, including hydroelectric, wind, bioenergy, solar, and geothermal power.'
+      description: 'Delivers advanced monitoring and efficiency management platforms for solar and wind energy assets. Additionally, emphasizes the development of innovative technologies in renewable energy, including hydroelectric, wind, bioenergy, solar and geothermal power.'
     },
     {
       title: 'Water and Waste Management',
-      description: 'Our dedication lies in fostering enduring positive change, delivering enhanced value to water, wastewater utilities, and waste management sectors through the provision of seamless, efficient digital services to customers.'
+      description: 'Our dedication lies in fostering enduring positive change, delivering enhanced value to water, wastewater utilities and waste management sectors through the provision of seamless, efficient digital services to customers.'
     },
     {
       title: 'Gas',
@@ -45,15 +45,15 @@ const Medialist = () => {
     },
     {
       title: 'Distributed Energy Resources',
-      description: 'Delivering comprehensive services for electric vehicle charging systems, constructing microgrids, and facilitating real-time data streaming and infrastructure monitoring. We collaborate closely with end-users, manufacturers, and utilities to ensure optimal operation and efficiency.'
+      description: 'Delivering comprehensive services for electric vehicle charging systems, constructing microgrids and facilitating real-time data streaming and infrastructure monitoring. We collaborate closely with end-users, manufacturers and utilities to ensure optimal operation and efficiency.'
     },
     {
       title: 'Mining',
-      description: 'Industry-focused solutions prioritize safety, environmental compliance, project development planning, and operational excellence within the mining sector.'
+      description: 'Industry-focused solutions prioritize safety, environmental compliance, project development planning and operational excellence within the mining sector.'
     },
     {
       title: 'Smart Cities',
-      description: 'An integrated system utilizing IoT, data analytics, and machine learning drives smart city transformation, offering solutions such as meter reading and energy management.'
+      description: 'An integrated system utilizing IoT, data analytics and machine learning drives smart city transformation, offering solutions such as meter reading and energy management.'
     },
     {
       title: "EPC's",
@@ -68,12 +68,12 @@ const Medialist = () => {
     {
         title: 'Content Management Systems (CMS)',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635106/QubicGen/Media%20and%20Entertainment/person-working-html-computer_23-2150038849_ewha3z.jpg',
-        description: 'Development and customization of content management systems tailored to the needs of media and entertainment companies, enabling efficient organization, storage, and retrieval of digital assets such as videos, images, and articles.'
+        description: 'Development and customization of content management systems tailored to the needs of media and entertainment companies, enabling efficient organization, storage and retrieval of digital assets such as videos, images and articles.'
     },
     {
         title: 'Streaming Platforms',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635243/QubicGen/Media%20and%20Entertainment/full-shot-woman-looking-floating-screen_23-2150300996_uwqaui.jpg',
-        description: 'Design and development of streaming platforms for live and on-demand content delivery, including video streaming services, music streaming apps, and podcast platforms, to reach audiences across multiple devices and platforms.'
+        description: 'Design and development of streaming platforms for live and on-demand content delivery, including video streaming services, music streaming apps and podcast platforms, to reach audiences across multiple devices and platforms.'
     },
     {
         title: 'Digital Rights Management (DRM)',
@@ -83,17 +83,17 @@ const Medialist = () => {
     {
         title: 'Content Distribution Networks (CDN)',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635450/QubicGen/Media%20and%20Entertainment/world-map-with-global-technology-social-connection-network-with-nodes-links-vector-illustration_1284-1968_npdt7p.jpg',
-        description: 'Deployment of content distribution networks to optimize the delivery of media content to end-users, reducing latency, buffering, and downtime while improving scalability and reliability of content delivery.'
+        description: 'Deployment of content distribution networks to optimize the delivery of media content to end-users, reducing latency, buffering and downtime while improving scalability and reliability of content delivery.'
     },
     {
         title: 'Advertising Technology (AdTech)',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635556/QubicGen/Media%20and%20Entertainment/corporate-management-strategy-solution-branding-concept_53876-167088_v3pfuq.jpg',
-        description: 'Development of advertising technology solutions, including ad serving platforms, programmatic advertising systems, and ad targeting algorithms, to optimize ad placement, targeting, and monetization across digital channels.'
+        description: 'Development of advertising technology solutions, including ad serving platforms, programmatic advertising systems and ad targeting algorithms, to optimize ad placement, targeting and monetization across digital channels.'
     },
     {
         title: 'Data Analytics and Personalization',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709622700/QubicGen/bfsi/revenue-operations-collage_23-2150847854_j10r9b.jpg',
-        description: 'Utilization of data analytics and machine learning algorithms to analyze user behavior, preferences, and engagement patterns, enabling personalized content recommendations, targeted advertising, and audience segmentation.'
+        description: 'Utilization of data analytics and machine learning algorithms to analyze user behavior, preferences and engagement patterns, enabling personalized content recommendations, targeted advertising and audience segmentation.'
     },
     {
         title: 'User Experience (UX) Design',
@@ -103,17 +103,17 @@ const Medialist = () => {
     {
         title: 'Social Media Integration',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635894/QubicGen/Media%20and%20Entertainment/hands-holding-smartphone-social-media-concept_23-2150208264_ojh5o0.jpg',
-        description: 'Integration of social media platforms into media and entertainment applications to facilitate social sharing, user-generated content creation, and community engagement, enhancing brand visibility and audience interaction.'
+        description: 'Integration of social media platforms into media and entertainment applications to facilitate social sharing, user-generated content creation and community engagement, enhancing brand visibility and audience interaction.'
     },
     {
         title: 'Virtual Reality (VR) and Augmented Reality (AR)',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709636013/QubicGen/Media%20and%20Entertainment/medium-shot-woman-wearing-vr-glasses_23-2150394453_y6xhge.jpg',
-        description: 'Development of immersive VR and AR experiences for gaming, storytelling, live events, and interactive marketing campaigns, leveraging cutting-edge technologies to create memorable and engaging content experiences.'
+        description: 'Development of immersive VR and AR experiences for gaming, storytelling, live events and interactive marketing campaigns, leveraging cutting-edge technologies to create memorable and engaging content experiences.'
     },
     {
         title: 'Monetization Strategies',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709636200/QubicGen/Media%20and%20Entertainment/happy-business-woman-money-rain-made-dollars-isolated-black-wall_231208-11727_bybnqs.jpg',
-        description: 'Consulting and advisory services to help media and entertainment companies develop effective monetization strategies, including subscription models, pay-per-view options, advertising revenue, sponsorships, and merchandising opportunities.'
+        description: 'Consulting and advisory services to help media and entertainment companies develop effective monetization strategies, including subscription models, pay-per-view options, advertising revenue, sponsorships and merchandising opportunities.'
     }
 ]);
   // This is for rpa offering cards
@@ -169,7 +169,7 @@ const Medialist = () => {
 
         <div className="col-md-7" bis_skin_checked="1">
         <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>QubicGen's cutting edge Solutions.</h1>
-            <p className="lead" id='leadtext'> Investors, management, and boards prioritize building an extensive content library over immediate operational profits to boost subscriptions and ad revenues. As media houses and new-age media companies transition, their strategic emphasis will soon pivot from content creation to content monetization. Positioned within the evolving value chain, media houses can drive profitability forward with QubicGen's innovative solutions.</p>
+            <p className="lead" id='leadtext'> Investors, management and boards prioritize building an extensive content library over immediate operational profits to boost subscriptions and ad revenues. As media houses and new-age media companies transition, their strategic emphasis will soon pivot from content creation to content monetization. Positioned within the evolving value chain, media houses can drive profitability forward with QubicGen's innovative solutions.</p>
         </div>
         <div className="col-md-5" bis_skin_checked="1">
         <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709620134/QubicGen/creative-digital-picture-gallery-blue-background-photo-album-media-technology-concept_670147-2557_gsqy9v.jpg" alt="" />        </div>

@@ -155,7 +155,7 @@ const[DigitalMarketingServices,setDigitalMarketingServices]=useState([
    
    <div className="col-md-7" bis_skin_checked="1">
      <h1 className="featurette-heading fw-normal lh-1" style={{fontSize:'40px',padding:'20px',fontWeight:'bolder'}}>Navigate the Digital Landscape: Propel Your Brand with Digital Marketing Mastery!</h1>
-     <p className="lead" id='leadtext'>Digital marketing encompasses a range of strategies and tactics aimed at promoting businesses and their products or services online. From search engine optimization (SEO) to social media marketing, email campaigns, and content creation, our digital marketing services harness the power of the internet to drive brand awareness, engagement, and conversions. With tailored strategies and expert execution, we help businesses thrive in the competitive digital landscape, reaching their target audiences effectively and maximizing their online presence.</p>
+     <p className="lead" id='leadtext'>Digital marketing encompasses a range of strategies and tactics aimed at promoting businesses and their products or services online. From search engine optimization (SEO) to social media marketing, email campaigns and content creation, our digital marketing services harness the power of the internet to drive brand awareness, engagement and conversions. With tailored strategies and expert execution, we help businesses thrive in the competitive digital landscape, reaching their target audiences effectively and maximizing their online presence.</p>
    </div>
    <div className="col-md-5" bis_skin_checked="1">
      <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709809779/QubicGen/Digital%20Marketing/Overview/hand-holding-smartphone-social-media-concept_23-2150208245_s252be.jpg"  alt="" />

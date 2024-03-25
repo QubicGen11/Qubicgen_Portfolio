@@ -20,11 +20,11 @@ const Databaselist = () => {
   const [Databaseofferings, setDatabaseofferings] = useState([
     {
       title: 'Database Design and Development',
-      description: 'Crafting databases tailored to our clients\' precise needs, meticulously creating schemas, tables, and relationships to efficiently organize and store data. Our expertise extends to implementing normalization and optimization techniques, ensuring peak performance for your database solution.'
+      description: 'Crafting databases tailored to our clients\' precise needs, meticulously creating schemas, tables and relationships to efficiently organize and store data. Our expertise extends to implementing normalization and optimization techniques, ensuring peak performance for your database solution.'
     },
     {
       title: 'Database Administration',
-      description: 'Our team handles routine maintenance tasks, monitors performance, and optimizes configurations to guarantee seamless operation. We manage user access and permissions with precision, prioritizing data security and integrity at every step.'
+      description: 'Our team handles routine maintenance tasks, monitors performance and optimizes configurations to guarantee seamless operation. We manage user access and permissions with precision, prioritizing data security and integrity at every step.'
     },
     {
       title: 'Data Migration and Integration',
@@ -32,11 +32,11 @@ const Databaselist = () => {
     },
     {
       title: 'Database Security',
-      description: 'We implement robust security measures, conducting assessments and audits to identify vulnerabilities and mitigate risks. Through encryption, access controls, and authentication mechanisms, we safeguard your sensitive data from unauthorized access and cyber threats.'
+      description: 'We implement robust security measures, conducting assessments and audits to identify vulnerabilities and mitigate risks. Through encryption, access controls and authentication mechanisms, we safeguard your sensitive data from unauthorized access and cyber threats.'
     },
     {
       title: 'Performance Tuning and Optimization',
-      description: 'Our experts analyze performance issues, optimize configurations, and fine-tune resource allocation for optimal efficiency. By optimizing queries, indexing strategies, and hardware configurations, we ensure your database operates at its peak potential.'
+      description: 'Our experts analyze performance issues, optimize configurations and fine-tune resource allocation for optimal efficiency. By optimizing queries, indexing strategies and hardware configurations, we ensure your database operates at its peak potential.'
     },
     {
       title: 'Disaster Recovery and High Availability',

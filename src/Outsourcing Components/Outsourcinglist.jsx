@@ -35,7 +35,7 @@ const Outsourcinglist = () => {
         },
         {
         title: 'Cloud Services',
-        description: 'Assistance in migrating to and managing cloud-based platforms, optimizing resources, and ensuring security for scalable and cost-effective IT solutions.',
+        description: 'Assistance in migrating to and managing cloud-based platforms, optimizing resources and ensuring security for scalable and cost-effective IT solutions.',
         background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069724/QubicGen/Outsourcing/What%20We%20Serve/saas-concept-collage_23-2149399281_g4y7wp.jpg"
         },
         {
@@ -50,12 +50,12 @@ const Outsourcinglist = () => {
         },
         {
         title: 'Quality Assurance and Testing',
-        description: 'Outsourcing software testing tasks for thorough quality assurance, ensuring reliability, usability, and performance of software applications.',
+        description: 'Outsourcing software testing tasks for thorough quality assurance, ensuring reliability, usability and performance of software applications.',
         background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069840/QubicGen/Outsourcing/What%20We%20Serve/standard-quality-control-collage-concept_23-2149595834_xfvauk.jpg"
         },
         {
         title: 'Project Management',
-        description: 'Outsourcing project management tasks to experienced professionals for efficient planning, execution, and delivery of IT projects, ensuring successful outcomes and client satisfaction.',
+        description: 'Outsourcing project management tasks to experienced professionals for efficient planning, execution and delivery of IT projects, ensuring successful outcomes and client satisfaction.',
         background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069912/QubicGen/Outsourcing/What%20We%20Serve/multiethnic-businesspeople-discussing-financial-company-solution-sitting-conference-table_482257-10542_wqntyr.jpg"
         },
         {
