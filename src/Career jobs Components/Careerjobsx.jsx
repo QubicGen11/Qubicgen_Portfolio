@@ -11,6 +11,7 @@ import new4 from '../assets/new5.jpg';
 
 const Careerjobsx = () => {
     const [step, setStep] = useState(1);
+    const [isLoading, setIsLoading] = useState(false);
     const [selectedJobRole, setSelectedJobRole] = useState("");
     const [searchInput, setSearchInput] = useState("");
     const [loading, setLoading] = useState(true);
@@ -133,12 +134,15 @@ const Careerjobsx = () => {
           selectedJobRole,
           ...formData
         };
+        setIsLoading(true);
         const response = await axios.post('https://qubic-gen-portfolio.onrender.com/api/job-application', jobApplicationData);
         console.log(response.data);
         alert('Job application submitted successfully!');
         window.location.reload();
       } catch (error) {
         console.error(error);
+      }finally {
+        setIsLoading(false); 
       }
     };
   
@@ -300,8 +304,10 @@ const Careerjobsx = () => {
                   <textarea name="workExperience[responsibilities]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Responsibilities/Achievements" value={formData.workExperience.responsibilities} onChange={handleInputChange}></textarea>
                   <div className="modal-footer">
                     <button type="button" onClick={handleBack} className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
-                    <button type="submit" className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150">Submit</button>
-                  </div>
+                    <button type="submit" className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150" disabled={isLoading}>
+                      {isLoading ? 'Submitting...' : 'Submit'}
+                    </button>
+                   </div>
                 </form>
               </div>
             </div>

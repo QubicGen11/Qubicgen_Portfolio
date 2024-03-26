@@ -14,6 +14,7 @@ const Getintouch = () => {
         email: '',
         message: ''
     });
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
@@ -29,6 +30,7 @@ const Getintouch = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         try {
             await axios.post('https://qubic-gen-portfolio.onrender.com/api/getInTouch', formData);
             // Reset form after successful submission
@@ -42,6 +44,7 @@ const Getintouch = () => {
             window.location.reload();
 
         } catch (error) {
+            setIsLoading(false);
             console.error('Error submitting form:', error);
         }
     };
@@ -108,9 +111,8 @@ const Getintouch = () => {
                                         />
                                     </div>
                                 </div>
-                                <button className="send-button" onClick={handleSubmit}>
-                                    <b className="send-message">Send Message</b>
-                                    <img className="send-icon" alt="" src={sendgetin} />
+                                <button className="send-button" onClick={handleSubmit}  disabled={isLoading}> 
+                                        {isLoading ? 'Submitting...' : 'Submit'}
                                 </button>
                             </div>
                         </div>

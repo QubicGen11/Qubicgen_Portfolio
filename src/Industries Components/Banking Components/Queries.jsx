@@ -39,6 +39,8 @@ const Queries = () => {
         phone: '',
         address: ''
       });
+      alert('Your message has been sent successfully')
+      window.location.reload()
       setLoading(false)
     } catch (error) {
       setLoading(false)

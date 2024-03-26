@@ -12,6 +12,7 @@ import SEO from '../SEO';
 
 
 const Contact = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const containeroneRef = useRef(null);
   const mobileCodeInputRef1 = useRef(null); // Ref for first input field
   const mobileCodeInputRef2 = useRef(null); //
@@ -36,6 +37,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await axios.post('https://qubic-gen-portfolio.onrender.com/api/contact', formData);
       console.log('Form data submitted:', response.data);
@@ -48,7 +50,11 @@ const Contact = () => {
         course:'',
         message: ''
       });
+      alert('Your message has been sent successfully')
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
+      alert('Something went wrong')
       console.error('Error submitting form:', error);
     }
   };
@@ -162,16 +168,31 @@ const Contact = () => {
 
 
 
-                <button className="btn-53" style={{ marginTop: '20px' }}>
-                  <div className="original">SUBMIT</div>
+                <button type="submit" className="btn-53" style={{ marginTop: '20px' }} disabled={isLoading}>
+                  <div className="original"> {isLoading ? 'Submitting...' : 'Submit'}</div>
                   <div className="letters">
-
-                    <span>S</span>
-                    <span>U</span>
+                    
+                      isLoading ? (
+                        <span>S</span>
+                        <span>U</span>
                     <span>B</span>
                     <span>M</span>
                     <span>I</span>
                     <span>T</span>
+                    <span>I</span>
+                    <span>N</span>
+                    <span>G</span>
+                    <span>.</span>
+                    <span>.</span>
+                      ) : (
+                        <span>S</span>
+                        <span>U</span>
+                    <span>B</span>
+                    <span>M</span>
+                    <span>I</span>
+                    <span>T</span>
+                      )
+                    
                   </div>
                 </button>
 
