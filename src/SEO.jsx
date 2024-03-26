@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const SEO = ({ title, description, type, name, image, url, keywords }) => {
+const SEO = ({ title, description, type, name, url, keywords }) => {
+  const image = 'https://res.cloudinary.com/defsu5bfc/image/upload/v1711438314/QubicGen/SEO/Robotic-process-automation_s1nuei.png';
   return (
     <Helmet>
       {/* Standard metadata tags */}
