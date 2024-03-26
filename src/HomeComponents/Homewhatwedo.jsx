@@ -3,6 +3,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import './Homewhatwedo.css';
+import Typewriter from 'typewriter-effect';
+
 
 const Homewhatwedo = () => {
   useEffect(() => {
@@ -24,9 +26,22 @@ const Homewhatwedo = () => {
       <section id='homwwhatwedo' className="bg-[#26282b] w-11/12 mx-auto rounded-md m-4 p-4" data-aos="fade-up" style={{width:'85vw'}}>
         <div className="container mx-auto flex flex-col-reverse md:flex-row items-center">
           <div className="md:ml-12 text-center md:text-left" id='lefttextabout'>
-            <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" style={{fontSize:'40px'}}>
-              What we <span className="text-[#ffd700]">Do</span>
-            </h2>
+          <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" style={{fontSize:'40px'}}>
+  <Typewriter
+    options={{
+      autoStart: true,
+      loop:true,
+      
+      delay: 2,
+      strings: [' What we <span class="text-[#ffd700]">do</span>'],
+      onComplete: (self) => {
+        const textElement = self.el;
+        const html = textElement.innerHTML;
+        textElement.innerHTML = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+      },
+    }}
+  />
+</h2>          
             <p
               id='whatwedotext'
               className="mt-2 text-white"
@@ -41,6 +56,8 @@ const Homewhatwedo = () => {
             </p>
           </div>
           <br />
+
+          
           <div id="carouselExampleFade1" className="carousel slide carousel-fade" data-bs-ride="carousel">
             <div className="carousel-inner" style={{ height: '200px', width: '300px', borderRadius:'30px' }}>
               <div className="carousel-item active" data-bs-interval="2000">

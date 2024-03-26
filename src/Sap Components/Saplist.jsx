@@ -180,7 +180,6 @@ const [Sapserve, setSapserve] = useState([
                  <div className="card" id='offeringscards' style={{ height: '19rem', width: '18rem', color: 'white' }}>
                    <div className="card-body">
                      <h5 className="card-title" style={{ fontSize: '20px' }}>{item.title}</h5>
-                     <h6 className="card-subtitle mb-2 text-body-secondary">{item.subtitle}</h6>
                      <p className="card-text" style={{ fontSize: '13px' }}>{item.description}</p>
 
                    </div>
