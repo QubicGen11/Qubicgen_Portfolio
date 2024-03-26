@@ -13,6 +13,7 @@ const Careerjobsx = () => {
     const [step, setStep] = useState(1);
     const [selectedJobRole, setSelectedJobRole] = useState("");
     const [searchInput, setSearchInput] = useState("");
+    const [loading, setLoading] = useState(true);
     const [JobsList, setJobsList] = useState([
       {
         title: "Human Resource Manager",
@@ -132,9 +133,10 @@ const Careerjobsx = () => {
           selectedJobRole,
           ...formData
         };
-        console.log(jobApplicationData, "before submit");
-        const response = await axios.post('http://localhost:3000/api/job-application', jobApplicationData);
+        const response = await axios.post('https://qubic-gen-portfolio.onrender.com/api/job-application', jobApplicationData);
         console.log(response.data);
+        alert('Job application submitted successfully!');
+        window.location.reload();
       } catch (error) {
         console.error(error);
       }

@@ -16,7 +16,7 @@ export default function AuthComponent() {
     // set configurations for the API call here
     const configuration = {
       method: "get",
-      url: "http://localhost:300/auth-endpoint",
+      url: "https://qubic-gen-portfolio.onrender.com/auth-endpoint",
       headers: {
         Authorization: `Bearer ${token}`,
       },

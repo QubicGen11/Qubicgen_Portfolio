@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import axios from 'axios';
 import "./Contact.css"
 import Navbar from '../HomeComponents/Navbar'
 import Footer from '../HomeComponents/Footer'
@@ -14,6 +15,44 @@ const Contact = () => {
   const containeroneRef = useRef(null);
   const mobileCodeInputRef1 = useRef(null); // Ref for first input field
   const mobileCodeInputRef2 = useRef(null); //
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    jobTitle: '',
+    company: '',
+    phone: '',
+    address: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+        ...formData,
+        [name]: value
+    });
+};
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('https://qubic-gen-portfolio.onrender.com/api/contact', formData);
+      console.log('Form data submitted:', response.data);
+      // Reset form after successful submission if needed
+      setFormData({
+       fullName: '',
+       phone: '',
+        email: '',
+        jobTitle: '',
+        course:'',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+
   useEffect(() => {
     const sign_in_btn = document.querySelector("#sign-in-btn");
     const sign_up_btn = document.querySelector("#sign-up-btn");
@@ -67,7 +106,7 @@ const Contact = () => {
           <div className="forms-container">
             <div className="signin-signup">
 
-              <form action="#" className="sign-in-form">
+              <form onSubmit={handleSubmit} className="sign-in-form">
 
 
                 <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" id='wearequbic' style={{ fontSize: '40px' }}>
@@ -88,12 +127,12 @@ const Contact = () => {
                 </h2>
                 <div className="input-field">
                   <i className="fas fa-user" />
-                  <input type="text" placeholder="Enter Full Name" />
+                  <input type="text" placeholder="Enter Full Name" name="fullName" onChange={handleChange} value={formData.fullName} />
                 </div>
 
                 <div className="input-field">
                   <i className="fas fa-envelope" />
-                  <input type="email" placeholder="Email" />
+                  <input type="email" placeholder="Email" name="email" onChange={handleChange} value={formData.email} />
                 </div>
                 <div className="form-group">
         <input
@@ -101,21 +140,23 @@ const Contact = () => {
           id="mobile_code1"
           className="input-field form-control"
           placeholder="Phone Number"
-          name="name"
+          name="phone"
           ref={mobileCodeInputRef1}
+          onChange={handleChange}
+          value={formData.phone}
         />
       </div>
                 <div className="input-field">
                   <i className="fas fa-user" />
-                  <input type="text" placeholder="Job title" />
+                  <input type="text" placeholder="Job title" name="jobTitle" onChange={handleChange} value={formData.jobTitle} />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-building" />
-                  <input type="text" placeholder="Enter Company" />
+                  <input type="text" placeholder="Enter Company" name="course" onChange={handleChange} value={formData.course} />
                 </div>
                 <div className="input-field" style={{ height: '20vh' }}>
                   <i className="fas fa-address-book" style={{ position: 'relative', top: '20px' }} />
-                  <input type="text" placeholder="Enter Comments" />
+                  <input type="text" placeholder="Enter Comments" name="message" onChange={handleChange} value={formData.message}/>
                 </div>
 
 
@@ -137,7 +178,7 @@ const Contact = () => {
               </form>
 
 
-              <form action="#" className="sign-up-form">
+              <form onSubmit={handleSubmit} className="sign-up-form">
                 <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" id='wearequbic' style={{ fontSize: '40px' }}>
                   <Typewriter
                     options={{
@@ -155,7 +196,7 @@ const Contact = () => {
                   />
                 </h2>            <div className="input-field">
                   <i className="fas fa-user" />
-                  <input type="text" placeholder="Enter Full Name" />
+                  <input type="text" placeholder="Enter Full Name" name="fullName" onChange={handleChange} value={formData.fullName} />
                 </div>
 
 
@@ -165,32 +206,32 @@ const Contact = () => {
           id="mobile_code2"
           className="input-field form-control"
           placeholder="Phone Number"
-          name="name"
+          name="phone"
           ref={mobileCodeInputRef2}
+          onChange={handleChange}
+          value={formData.phone}
         />
       </div>
 
 
                 <div className="input-field">
                   <i className="fas fa-envelope" />
-                  <input type="email" placeholder="Enter email" />
+                  <input type="email" placeholder="Enter email" name="email" onChange={handleChange} value={formData.email} />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-caret-down" />
-                  <select name="year" id="year" style={{ color: 'black' }}>
+                  <select name="year" id="year" style={{ color: 'black' }} onChange={handleChange} value={formData.course}>
                     <option value="select">Select a Course</option>
                     <option value="rpa">RPA</option>
                     <option value="year2">Web Development</option>
                     <option value="year2">SAP</option>
                     <option value="year2">Testing</option>
-                    
-                    {/* Add more options as needed */}
                   </select>
                 </div>
 
                 <div className="input-field" style={{ height: '20vh' }}>
                   <i className="fas fa-mobile" style={{ position: 'relative', top: '20px', border: 'none' }} />
-                  <input type="text" placeholder="Enter Message" />
+                  <input type="text" placeholder="Enter Message"  name="message"  onChange={handleChange} value={formData.message}/>
                 </div>
 
                 <button className="btn-53" style={{ marginTop: '10px' }}>
