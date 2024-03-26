@@ -250,7 +250,7 @@ navbar.style.backgroundColor = newColor;
    
 
 
-      
+{/*       
     <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8" >
                 <li className='falling-icon' data-aos-delay="0">
                   <a href="#" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
@@ -292,7 +292,7 @@ navbar.style.backgroundColor = newColor;
                     </svg>
                   </a>
                 </li>
-              </ul>
+              </ul> */}
   </div>
 </div>
 

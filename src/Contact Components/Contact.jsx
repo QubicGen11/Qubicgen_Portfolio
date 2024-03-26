@@ -153,7 +153,7 @@ const Contact = () => {
         />
       </div>
                 <div className="input-field">
-                  <i className="fas fa-user" />
+                  <i className="fas fa-briefcase" />
                   <input type="text" placeholder="Job title" name="jobTitle" onChange={handleChange} value={formData.jobTitle} />
                 </div>
                 <div className="input-field">
@@ -161,8 +161,8 @@ const Contact = () => {
                   <input type="text" placeholder="Enter Company" name="course" onChange={handleChange} value={formData.course} />
                 </div>
                 <div className="input-field" style={{ height: '20vh' }}>
-                  <i className="fas fa-address-book" style={{ position: 'relative', top: '20px' }} />
-                  <input type="text" placeholder="Enter Comments" name="message" onChange={handleChange} value={formData.message}/>
+                  <i className="fas fa-comment  flex justify-center items-center"  />
+                  <input type="text" placeholder="Comments" name="message" onChange={handleChange} value={formData.message}/>
                 </div>
 
 
@@ -240,7 +240,7 @@ const Contact = () => {
                   <input type="email" placeholder="Enter email" name="email" onChange={handleChange} value={formData.email} />
                 </div>
                 <div className="input-field">
-                  <i className="fas fa-caret-down" />
+                  <i className="fas fa-check" />
                   <select name="year" id="year" style={{ color: 'black' }} onChange={handleChange} value={formData.course}>
                     <option value="select">Select a Course</option>
                     <option value="rpa">RPA</option>
@@ -251,8 +251,8 @@ const Contact = () => {
                 </div>
 
                 <div className="input-field" style={{ height: '20vh' }}>
-                  <i className="fas fa-mobile" style={{ position: 'relative', top: '20px', border: 'none' }} />
-                  <input type="text" placeholder="Enter Message"  name="message"  onChange={handleChange} value={formData.message}/>
+                  <i className="fas fa-comment flex justify-center items-center"  />
+                  <input type="text" placeholder="Comments" name="message" onChange={handleChange} value={formData.message}/>
                 </div>
 
                 <button className="btn-53" style={{ marginTop: '10px' }}>
