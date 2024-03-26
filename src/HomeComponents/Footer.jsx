@@ -191,7 +191,7 @@ const Footer = () => {
               <p className="text-lg font-medium" style={{fontSize:'25px',color:'gold'}} >Contact Us</p>
               <ul className="mt-8 space-y-4 text-sm">
                 <li>
-                  <a className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end" href="#">
+                  <a className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end" href="mailto:someone@example.com">
                     <svg xmlns="http://www.w3.org/2000/svg" className="size-5 shrink-0 text-gray-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
