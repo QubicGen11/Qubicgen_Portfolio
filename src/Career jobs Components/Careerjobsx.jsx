@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 import "./Careerjobs.css"
 import Footer from '../HomeComponents/Footer'
 import Navbar from '../HomeComponents/Navbar'
@@ -8,72 +9,141 @@ import { Parallax } from 'react-parallax';
 import new4 from '../assets/new5.jpg';
 
 
-
 const Careerjobsx = () => {
     const [step, setStep] = useState(1);
     const [selectedJobRole, setSelectedJobRole] = useState("");
-    const [searchInput, setSearchInput] = useState(""); // 
-    const handleNext = () => {
-        setStep(step + 1);
-    };
-    const handleBack = () => {
-        setStep(step - 1);
-    };
-
-    
-
-    useEffect(() => {
-        setStep(1); // Set step to 1 when the component mounts
-    }, []);
+    const [searchInput, setSearchInput] = useState("");
     const [JobsList, setJobsList] = useState([
-        {
-            title: 'Human Resource Manager',
-            qual: 'MBA',
-            exp: 'Fresher',
-            skills: 'Communication and Management',
-            description: 'Seeking HR Manager: Lead our HR department to success! Manage recruitment, employee relations, training, and compliance. Bring your leadership skills and drive positive change. '
-        },
-        {
-            title: 'RPA Developer',
-            qual: 'B.Tech / Degree',
-            exp: 'Fresher',
-            skills: 'UiPath',
-            description: 'RPA Developer Wanted: Join us in automating processes! Design, develop, and implement RPA solutions. Skills in UiPath needed. Ready to innovate? '
-        },
-        {
-            title: 'Web Developer',
-            qual: 'B.Tech / Degree',
-            exp: 'Fresher',
-            skills: 'HTML, CSS, JavaScript',
-            description: 'Seeking Web Developer: Join our team to craft exceptional online experiences! Design and develop dynamic websites and web applications using HTML, CSS, and JavaScript. Bring creativity and technical expertise to drive our digital presence forward.'
-        },
-        {
-            title: 'SAP Developer',
-            qual: 'B.Tech / Degree',
-            exp: 'Fresher',
-            skills: 'HANA',
-            description: "Join us as an SAP Developer and unleash your potential in transforming businesses with cutting-edge technology! You'll design, develop, and customize SAP applications and solutions using ABAP and other programming languages. Bring your passion for innovation and problem-solving to drive our digital transformation forward."
-        },
-        {
-            title: 'Cyber Security Analyst',
-            qual: 'B.Tech / Degree',
-            exp: 'Fresher',
-            skills: 'Cyber Security',
-            description: "Join our team as a Cyber Security Analyst and play a pivotal role in safeguarding our organization against cyber threats! You'll be responsible for monitoring, analyzing, and responding to security incidents, conducting threat assessments, and implementing proactive measures to protect our systems and data."
-        },
-        {
-            title: 'Digital Marketing Manager',
-            qual: 'B.Tech / Degree',
-            exp: 'Fresher',
-            skills: 'Digital and Social Media Marketing',
-            description: "Join us as a Digital Marketing Manager and lead our online presence to new heights! In this role, you'll oversee digital marketing strategies, manage campaigns, and analyze performance metrics to drive business growth."
-        }
-
+      {
+        title: "Human Resource Manager",
+        qual: "MBA",
+        exp: "Fresher",
+        skills: "Communication and Management",
+        description:
+          "Seeking HR Manager: Lead our HR department to success! Manage recruitment, employee relations, training, and compliance. Bring your leadership skills and drive positive change. ",
+      },
+      {
+        title: "RPA Developer",
+        qual: "B.Tech / Degree",
+        exp: "Fresher",
+        skills: "UiPath",
+        description:
+          "RPA Developer Wanted: Join us in automating processes! Design, develop, and implement RPA solutions. Skills in UiPath needed. Ready to innovate? ",
+      },
+      {
+        title: "Web Developer",
+        qual: "B.Tech / Degree",
+        exp: "Fresher",
+        skills: "HTML, CSS, JavaScript",
+        description:
+          "Seeking Web Developer: Join our team to craft exceptional online experiences! Design and develop dynamic websites and web applications using HTML, CSS, and JavaScript. Bring creativity and technical expertise to drive our digital presence forward.",
+      },
+      {
+        title: "SAP Developer",
+        qual: "B.Tech / Degree",
+        exp: "Fresher",
+        skills: "HANA",
+        description:
+          "Join us as an SAP Developer and unleash your potential in transforming businesses with cutting-edge technology! You'll design, develop, and customize SAP applications and solutions using ABAP and other programming languages. Bring your passion for innovation and problem-solving to drive our digital transformation forward.",
+      },
+      {
+        title: "Cyber Security Analyst",
+        qual: "B.Tech / Degree",
+        exp: "Fresher",
+        skills: "Cyber Security",
+        description:
+          "Join our team as a Cyber Security Analyst and play a pivotal role in safeguarding our organization against cyber threats! You'll be responsible for monitoring, analyzing, and responding to security incidents, conducting threat assessments, and implementing proactive measures to protect our systems and data.",
+      },
+      {
+        title: "Digital Marketing Manager",
+        qual: "B.Tech / Degree",
+        exp: "Fresher",
+        skills: "Digital and Social Media Marketing",
+        description:
+          "Join us as a Digital Marketing Manager and lead our online presence to new heights! In this role, you'll oversee digital marketing strategies, manage campaigns, and analyze performance metrics to drive business growth.",
+      },
     ]);
-
-    const filteredJobs = JobsList.filter(job =>
-        job.title.toLowerCase().includes(searchInput.toLowerCase())
+    const [formData, setFormData] = useState({
+      fullName: '',
+      email: '',
+      phoneNumber: '',
+      linkedInURL: '',
+      githubURL: '',
+      address: '',
+      resume: null,
+      education: {
+        level: '',
+        institution: '',
+        stream: '',
+        graduationYear: '',
+        cgpaPercentage: '',
+      },
+      workExperience: {
+        experienceLevel: '',
+        jobTitle: '',
+        responsibilities: ''
+      }
+    });
+  
+    useEffect(() => {
+      setStep(1);
+    }, []);
+  
+    const handleNext = () => {
+      setStep(step + 1);
+    };
+  
+    const handleBack = () => {
+      setStep(step - 1);
+    };
+  
+    const handleFileChange = (e) => {
+      setFormData({
+        ...formData,
+        resume: e.target.files[0]
+      });
+    };
+  
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        // Handling nested state updates for education and workExperience fields
+        if (name.includes('[')) {
+          const [key, nestedKey] = name.split(/\[|\]/).filter(Boolean);
+          setFormData((prevState) => ({
+            ...prevState,
+            [key]: {
+              ...prevState[key],
+              [nestedKey]: value,
+            },
+          }));
+        } else {
+          // Handling flat state updates
+          setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+          }));
+        }
+      };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const jobApplicationData = {
+          selectedJobRole,
+          ...formData
+        };
+        console.log(jobApplicationData, "before submit");
+        const response = await axios.post('http://localhost:3000/api/job-application', jobApplicationData);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    const filteredJobs = JobsList.filter((job) =>
+      job.title.toLowerCase().includes(searchInput.toLowerCase())
     );
+
     return (
 
         <>
@@ -148,104 +218,94 @@ const Careerjobsx = () => {
 
 
             <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div className="modal-dialog custom-modal-dialog" style={{ zIndex: 2000 }}>
-                    <div className="modal-content" >
-                        {step === 1 && (
-                            <div>
-                                <div className="modal-header ">
-                                    <h1 className="modal-title fs-5 my-3 text-white z-30" id="staticBackdropLabel">{selectedJobRole} Application</h1>
-                                    <button className='btn-close z-30' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>
-                                </div>
-                                <div className="modal-body  ">
-                                    <div className="flex flex-col items-center justify-center h-screen" style={{height:'auto'}}>
-                                        <div className="w-full max-w-md  rounded-lg shadow-md p-6">
-                                            <h1 className="modal-title fs-5 my-3 text-white" id="staticBackdropLabel">Job Role</h1>
-
-                                            <div className="joberoles bg-white h-12 flex items-center rounded-lg pl-2" >
-
-                                                {selectedJobRole}
-                                            </div>
-
-                                            <h1 className="modal-title fs-5 my-3 text-white" id="staticBackdropLabel">Personal Details</h1>
-                                            <form className="flex flex-col h-au">
-                                                <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Full Name (As Per marks memo)" />
-                                                <input type="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Email" />
-                                                <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Phone Number" />
-                                                <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="LinkedIn Profile URL" />
-                                                <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Github Profile URL" />
-                                                <textarea name="Address" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Address" defaultValue={""} />
-                                                <h1 className='text-white mb-2'>Upload resume</h1>
-                                                <input type="file" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Upload Resume" />
-                                            </form>
-                                            <div className="modal-footer z-50 ">
-                                                <button type="button" className="bg-gray-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400  transition ease-in-out duration-200" data-bs-dismiss="modal" onClick={() => setStep(1)}>Close</button>
-                                                <button type="button" onClick={handleNext} class="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4  hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+  <div className="modal-dialog custom-modal-dialog" style={{ zIndex: 2000 }}>
+    <div className="modal-content">
+      {step === 1 && (
+        <div>
+          <div className="modal-header">
+            <h1 className="modal-title fs-5 my-3 text-white z-30" id="staticBackdropLabel">{selectedJobRole} Application</h1>
+            <button className='btn-close z-30' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>
+          </div>
+          <div className="modal-body">
+            <div className="flex flex-col items-center justify-center h-screen" style={{height:'auto'}}>
+              <div className="w-full max-w-md rounded-lg shadow-md p-6">
+                <h1 className="modal-title fs-5 my-3 text-white" id="staticBackdropLabel">Job Role</h1>
+                <div className="joberoles bg-white h-12 flex items-center rounded-lg pl-2">
+                  {selectedJobRole}
+                </div>
+                <h1 className="modal-title fs-5 my-3 text-white" id="staticBackdropLabel">Personal Details</h1>
+                <form className="flex flex-col h-au" onSubmit={handleSubmit}>
+                  {/* Update input fields with name attributes and bind them to formData */}
+                  <input type="text" name="fullName" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Full Name (As Per marks memo)" value={formData.fullName} onChange={handleInputChange} />
+                  <input type="email" name="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Email" value={formData.email} onChange={handleInputChange} />
+                  <input type="text" name="phoneNumber" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Phone Number" value={formData.phoneNumber} onChange={handleInputChange} />
+                  <input type="text" name="linkedInURL" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="LinkedIn Profile URL" value={formData.linkedInURL} onChange={handleInputChange} />
+                  <input type="text" name="githubURL" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Github Profile URL" value={formData.githubURL} onChange={handleInputChange} />
+                  <textarea name="address" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Address" value={formData.address} onChange={handleInputChange} />
+                  {/* Assuming handleFileChange is defined to handle file inputs */}
+                  <input type="file" name="resume" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" onChange={handleFileChange} />
+                  <div className="modal-footer z-50">
+                    <button type="button" className="bg-gray-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-200" data-bs-dismiss="modal">Close</button>
+<button type="button" onClick={handleNext} className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
                         )}
-                        {step === 2 && (
-                            <div>
-                                <div className="modal-header">
-                                    <h1 className="modal-title fs-5 my-3 text-white z-30" id="staticBackdropLabel">{selectedJobRole} Application</h1>
-                                    <button className='btn-close z-3    0' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>
-
-                                </div>
-                                <div className="modal-body ">
-                                    <div className="flex flex-col items-center justify-center h-screen">
-                                        <div className="w-full max-w-md rounded-lg shadow-md p-6">
-                                            <h2 className="text-2xl font-bold text-white mb-4" >Education</h2>
-                                            <form className="flex flex-col">
-                                                {/* Form inputs */}
-                                                <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Highest Level of Education Attained*" />
-                                                <input type="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Name of institution*" />
-                                                <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Phone Number" />
-                                                <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Stream*" />
-                                                <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Year of Graduation*" />
-                                                <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="CGPA/Percentage*" />
-                                            </form>
-                                        </div>
-                                        <div className="modal-footer ">
-                                            <button type="button" onClick={handleBack} className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
-                                            <button type="button" onClick={handleNext} className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4  hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        )}
-                        {step === 3 && (
-                            <div>
-                                <div className="modal-header">
-                                    <h1 className="modal-title fs-5 my-3 text-white z-40" id="staticBackdropLabel">{selectedJobRole} Application</h1>
-                                    <button className='btn-close z-40 ' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>
-                                </div>
-                                <div className="modal-body ">
-                                    <div className="flex flex-col items-center justify-center h-screen">
-                                        <div className="w-full max-w-md  rounded-lg shadow-md p-6">
-                                            <h2 className="text-2xl font-bold text-white mb-4">Work Experience</h2>
-                                            <form className="flex flex-col">
-                                                {/* Form inputs */}
-                                                <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Experience Level**" />
-                                                <input type="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Title*" />
-                                                <input type="text" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Responsibilities/Achievements" />
-                                            </form>
-                                        </div>
-                                        <div className="modal-footer ">
-                                            <button type="button" onClick={handleBack} class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
-                                            <button type="button" onClick={handleNext} class="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4  hover:bg-yellow-400 transition ease-in-out duration-150">Submit</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        )}
+                         {step === 2 && (
+        <div>
+          <div className="modal-header">
+            <h1 className="modal-title fs-5 my-3 text-white z-30" id="staticBackdropLabel">{selectedJobRole} Application</h1>
+            <button className='btn-close z-30' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>
+          </div>
+          <div className="modal-body">
+            <div className="flex flex-col items-center justify-center h-screen">
+              <div className="w-full max-w-md rounded-lg shadow-md p-6">
+                <h2 className="text-2xl font-bold text-white mb-4">Education</h2>
+                <form className="flex flex-col" onSubmit={handleSubmit}>
+                  {/* Education Inputs */}
+                  <input type="text" name="education[level]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Highest Level of Education Attained*" value={formData.education.level} onChange={handleInputChange} />
+                  <input type="text" name="education[institution]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Name of Institution*" value={formData.education.institution} onChange={handleInputChange} />
+                  <input type="text" name="education[stream]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Stream*" value={formData.education.stream} onChange={handleInputChange} />
+                  <input type="text" name="education[graduationYear]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Year of Graduation*" value={formData.education.graduationYear} onChange={handleInputChange} />
+                  <input type="text" name="education[cgpaPercentage]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="CGPA/Percentage*" value={formData.education.cgpaPercentage} onChange={handleInputChange} />
+                  <div className="modal-footer">
+                    <button type="button" onClick={handleBack} className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
+                    <button type="button" onClick={handleNext} className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {step === 3 && (
+        <div>
+          <div className="modal-header">
+            <h1 className="modal-title fs-5 my-3 text-white z-40" id="staticBackdropLabel">{selectedJobRole} Application</h1>
+            <button className='btn-close z-40' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>
+          </div>
+          <div className="modal-body">
+            <div className="flex flex-col items-center justify-center h-screen">
+              <div className="w-full max-w-md rounded-lg shadow-md p-6">
+                <h2 className="text-2xl font-bold text-white mb-4">Work Experience</h2>
+                <form className="flex flex-col" onSubmit={handleSubmit}>
+                  {/* Work Experience Inputs */}
+                  <input type="text" name="workExperience[experienceLevel]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Experience Level**" value={formData.workExperience.experienceLevel} onChange={handleInputChange} />
+                  <input type="text" name="workExperience[jobTitle]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Title*" value={formData.workExperience.jobTitle} onChange={handleInputChange} />
+                  <textarea name="workExperience[responsibilities]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Responsibilities/Achievements" value={formData.workExperience.responsibilities} onChange={handleInputChange}></textarea>
+                  <div className="modal-footer">
+                    <button type="button" onClick={handleBack} className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
+                    <button type="submit" className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
                         {/* Add more steps as needed */}
                     </div>
                 </div>

@@ -152,7 +152,7 @@ navbar.style.backgroundColor = newColor;
 
     <div>
         <div onClick={toggleIndustries} className="serviceseclist hover:cursor-pointer mb-4">
-          INDUSTRIES <i class="fas fa-caret-down ml-3"></i>
+          INDUSTRIES <i className="fas fa-caret-down ml-3"></i>
         </div>
         {isIndustriesOpen && (
           <ul id="industysec" className="relative right-11 w-72 ">
