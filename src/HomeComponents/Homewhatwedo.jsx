@@ -52,8 +52,7 @@ const Homewhatwedo = () => {
                 fontWeight:'400'
               }}
             >
-              We provide consulting, training, and outsourcing. We encourage young talent by providing internships under RPA, SAP, .Net, etc... QubicGen, situated in the dynamic and thriving city of Anantapur, Andhra Pradesh, India, stands as a beacon of knowledge and a catalyst for success. Our mission is to bridge the gap between learning and achievement, fostering an environment where ideas flourish and ambitions are realized.
-            </p>
+At QubicGen, we specialize in powering businesses through digital transformation with our comprehensive suite of software services. From automating processes with RPA, crafting bespoke web solutions, and implementing robust SAP systems to fortifying cyber security, managing databases, and driving digital marketing strategies, we cover all bases. Our expertise extends into digitalization, data analytics, rigorous testing, strategic outsourcing, and insightful business consulting to navigate today’s challenges and unlock tomorrow’s opportunities. Partnering with us means choosing a future where technology fuels growth, efficiency, and innovation.            </p>
           </div>
           <br />
 
