@@ -11,7 +11,7 @@ export function Admin() {
 
   useEffect(() => {
     
-    fetch('https://qubic-gen-portfolio.onrender.com/api/fetchData', {
+    fetch('http://77.37.45.21:3000/api/fetchData', {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',
