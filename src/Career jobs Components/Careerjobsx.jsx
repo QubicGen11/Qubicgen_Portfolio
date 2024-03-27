@@ -135,7 +135,7 @@ const Careerjobsx = () => {
           ...formData
         };
         setIsLoading(true);
-        const response = await axios.post('https://qubic-gen-portfolio.onrender.com/api/job-application', jobApplicationData);
+        const response = await axios.post('http://localhost:3000/api/job-application', jobApplicationData);
         console.log(response.data);
         alert('Job application submitted successfully!');
         window.location.reload();
