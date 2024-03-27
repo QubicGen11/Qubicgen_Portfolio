@@ -20,28 +20,45 @@ const Homewhatwedo = () => {
     // Cleanup function to clear the interval when the component unmounts
     return () => clearInterval(intervalId);
   }, []);
+  const [text, setText] = useState('');
+  const [isTyping, setIsTyping] = useState(true);
+  const phrases = ['What we do'];
+
+  useEffect(() => {
+    let currentIndex = 0;
+    let currentPhrase = '';
+    let typingSpeed = 50; // Adjust typing speed (milliseconds per character)
+
+    const typeText = () => {
+      if (currentIndex < phrases[0].length) {
+        currentPhrase += phrases[0].charAt(currentIndex);
+        setText(currentPhrase);
+        currentIndex++;
+        setTimeout(typeText, typingSpeed);
+      } else {
+        setIsTyping(false);
+      }
+    };
+
+    typeText();
+
+    return () => {
+      // Clean up any ongoing timeouts when component unmounts
+      clearTimeout(typeText);
+    };
+  }, []);
+
 
   return (
     <div>
       <section id='homwwhatwedo' className="bg-[#26282b] w-11/12 mx-auto rounded-md m-4 p-4" data-aos="fade-up" style={{width:'85vw'}}>
         <div className="container mx-auto flex flex-col-reverse md:flex-row items-center">
           <div className="md:ml-12 text-center md:text-left" id='lefttextabout'>
-          <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" style={{fontSize:'40px'}}>
-  <Typewriter
-    options={{
-      autoStart: true,
-      loop:true,
-      
-      delay: 2,
-      strings: [' What we <span class="text-[#ffd700]">do</span>'],
-      onComplete: (self) => {
-        const textElement = self.el;
-        const html = textElement.innerHTML;
-        textElement.innerHTML = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-      },
-    }}
-  />
-</h2>          
+          <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" style={{ fontSize: '40px' }}>
+      {text}
+      {isTyping && <span>|</span>} {/* Show cursor while typing */}
+    </h2>
+ 
             <p
               id='whatwedotext'
               className="mt-2 text-white"
