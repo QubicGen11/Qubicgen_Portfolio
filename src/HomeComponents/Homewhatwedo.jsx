@@ -32,7 +32,7 @@ const Homewhatwedo = () => {
     const typeText = () => {
       if (currentIndex < phrases[0].length) {
         currentPhrase += phrases[0].charAt(currentIndex);
-        setText(currentPhrase);
+        setText(currentPhrase); 
         currentIndex++;
         setTimeout(typeText, typingSpeed);
       } else {
