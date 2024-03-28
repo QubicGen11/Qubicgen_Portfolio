@@ -8,7 +8,7 @@ const Carausel = () => {
     const intervalId = setInterval(() => {
       const nextIndex = (currentIndex + 1) % 4;
       setCurrentIndex(nextIndex);
-    }, 3000); // Change interval to 5 seconds
+    }, 4000); // Change interval to 5 seconds
   
     return () => clearInterval(intervalId);
   }, [currentIndex]);
@@ -50,7 +50,7 @@ const Carausel = () => {
               <h1>for reliability and excellence.</h1>
             </div>
           </div>
-          <div className={currentIndex === 2 ? "carousel-item active" : "carousel-item"} >
+          <div className={currentIndex === 2? "carousel-item active" : "carousel-item"} >
             <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709803609/QubicGen/Home%20Page/Corossal/Slidetwo_v2l3e3_kunfm5_2_lswsgi.jpg" id='slide2img' className="d-block w-100" alt="..." loading="lazy" />
             <div className="carousel-caption">
               <h1 style={{color:'white'}}>one stop solution </h1>
