@@ -32,7 +32,7 @@ const Getintouch = () => {
         e.preventDefault();
         setIsLoading(true);
         try {
-            await axios.post('http://localhost:3000/api/getInTouch', formData);
+            await axios.post('http://api.qubicgen.com:3000/api/getInTouch', formData);
             // Reset form after successful submission
             setFormData({
                 fullName: '',

@@ -25,7 +25,7 @@ export default function Login() {
     // set configurations
     const configuration = {
       method: "post",
-      url: "http://localhost:3000/api/login",
+      url: "http://api.qubicgen.com:3000/api/login",
       data: {
         userName,
         password,
