@@ -1,35 +1,48 @@
 import { useState, useEffect } from 'react';
 // import a from "next/a"
 import { Input } from "../components/ui/input"
+import axios from 'axios';
 import { Label } from "../components/ui/label"
-import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "../components/ui/select"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "../components/ui/table"
 
-export function Admin() {
-  const [data, setData] = useState([]);
+function Admin() {
+  const [data, setData] = useState({ queries: [], jobApplications: [], contacts: [], getInTouches: [] });
+  const [selectedDataType, setSelectedDataType] = useState('queries');
   const token = document.cookie.replace(/(?:(?:^|.*;\s*)TOKEN\s*=\s*([^;]*).*$)|^.*$/, "$1");
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://api.qubicgen.com:3000/api/fetchData', {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`, 
+          },
+        });
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
     
-    fetch('http://77.37.45.21:3000/api/fetchData', {
-      method: 'get',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`, 
-      },
-    })
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.error('Error fetching data:', error));
+    fetchData();
   }, []);
+
+  console.log(data);
+ 
+
+  const handleDataTypeChange = (event) => {
+    setSelectedDataType(event.target.value);
+  };
   return (
-    token ? ( (<div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
+    token ? ( (
+    <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-yellow-100/40 lg:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-[60px] items-center border-b px-6">
             <a className="flex items-center gap-2 font-semibold" href="#">
               <UsersIcon className="h-6 w-6" />
-              <span className="">Contact Form Data</span>
+              <span className="">All Forms Data</span>
             </a>
           </div>
           <div className="flex-1 overflow-auto py-2">
@@ -43,16 +56,13 @@ export function Admin() {
                   type="search" />
               </div>
               <div className="mt-4">
-                <Label htmlFor="filter">Filter by Type</Label>
-                <Select className="mt-2" id="filter">
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="clients">Clients</SelectItem>
-                    <SelectItem value="students">Students</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Label htmlFor="filter" className="text-xl font-semibold">Filter by Type</Label>
+                <select id="dataType" value={selectedDataType} onChange={handleDataTypeChange} className="w-full mt-2 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option value="queries">Queries</option>
+                  <option value="jobApplications">Job Applications</option>
+                  <option value="contacts">Contacts</option>
+                  <option value="getInTouches">Get In Touches</option>
+                </select>
               </div>
             </nav>
           </div>
@@ -85,24 +95,22 @@ export function Admin() {
                 <TableRow>
                   <TableHead>Name</TableHead>
                   <TableHead>Email</TableHead>
-                  {/* <TableHead></TableHead> */}
                   <TableHead>Phone Number</TableHead>
                   <TableHead>Location</TableHead>
-                  <TableHead>Type</TableHead>
+                  <TableHead> Message</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-  { data.map((item, index) => (
-    <TableRow key={index}>
-      <TableCell className="font-medium">{item.lastName}</TableCell>
-      <TableCell>{item.email}</TableCell>
-      {/* <TableCell>{item.firstName}</TableCell> */}
-      <TableCell>{item.phone}</TableCell>
-      <TableCell>{item.address}</TableCell>
-      <TableCell>{item.jobTitle}</TableCell>
-    </TableRow>
-  ))}
-</TableBody>
+            {data[selectedDataType].map((item) => (
+              <TableRow key={item._id}>
+               <TableCell>{item.firstName && item.lastName ? `${item.firstName} ${item.lastName}` : item.fullName}</TableCell>
+                <TableCell>{item.email}</TableCell>
+                <TableCell>{item.phone}</TableCell>
+                <TableCell>{item.address}</TableCell>
+                <TableCell>{item.message ? `${item.message} ` : item.details}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
             </Table>
           </div>
         </main>

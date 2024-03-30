@@ -25,7 +25,7 @@ export default function Login() {
     // set configurations
     const configuration = {
       method: "post",
-      url: "http://77.37.45.21:3000/api/login",
+      url: "http://localhost:3000/api/login",
       data: {
         userName,
         password,

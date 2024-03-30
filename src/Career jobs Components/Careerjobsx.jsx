@@ -13,6 +13,7 @@ const Careerjobsx = () => {
     const [step, setStep] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
     const [selectedJobRole, setSelectedJobRole] = useState("");
+    const [resume, selectedResume] = useState();
     const [searchInput, setSearchInput] = useState("");
     const [loading, setLoading] = useState(true);
     const [JobsList, setJobsList] = useState([
@@ -68,11 +69,11 @@ const Careerjobsx = () => {
     const [formData, setFormData] = useState({
       fullName: '',
       email: '',
-      phoneNumber: '',
+      phone: '',
       linkedInURL: '',
       githubURL: '',
       address: '',
-      resume: null,
+      resumeId: '',
       education: {
         level: '',
         institution: '',
@@ -98,13 +99,29 @@ const Careerjobsx = () => {
     const handleBack = () => {
       setStep(step - 1);
     };
-  
     const handleFileChange = (e) => {
-      setFormData({
-        ...formData,
-        resume: e.target.files[0]
-      });
+      const selectedFile = e.target.files[0];
+      selectedResume(selectedFile);
     };
+    
+    const uploadResume = async (resume) => {
+      try {
+        const formData = new FormData();
+        formData.append('resume', resume);
+    
+        const response = await axios.post('http://localhost:3000/api/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        console.log('Upload response:', response.data);
+        return response.data.fileId; 
+        // Optionally, you can handle the response from the upload endpoint here
+      } catch (error) {
+        console.error('Upload error:', error);
+      }
+    };
+    
   
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -130,12 +147,21 @@ const Careerjobsx = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
+        const resume1 = resume;
+        const resumeId = await uploadResume(resume1);
+        console.log(resumeId,"resumeId");
         const jobApplicationData = {
-          selectedJobRole,
-          ...formData
+          selectedJobRole, ...formData, resumeId:resumeId
         };
+        console.log(jobApplicationData);
         setIsLoading(true);
-        const response = await axios.post('http://localhost:3000/api/job-application', jobApplicationData);
+        const response = await axios.post('http://localhost:3000/api/job-application', jobApplicationData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    
+    
         console.log(response.data);
         alert('Job application submitted successfully!');
         window.location.reload();
@@ -240,11 +266,11 @@ const Careerjobsx = () => {
                   {selectedJobRole}
                 </div>
                 <h1 className="modal-title fs-5 my-3 text-white" id="staticBackdropLabel">Personal Details</h1>
-                <form className="flex flex-col h-au" onSubmit={handleSubmit}>
+                <form className="flex flex-col h-au" onSubmit={handleSubmit} encType="multipart/form-data">
                   {/* Update input fields with name attributes and bind them to formData */}
                   <input type="text" name="fullName" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Full Name (As Per marks memo)" value={formData.fullName} onChange={handleInputChange} />
                   <input type="email" name="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Email" value={formData.email} onChange={handleInputChange} />
-                  <input type="text" name="phoneNumber" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Phone Number" value={formData.phoneNumber} onChange={handleInputChange} />
+                  <input type="text" name="phone" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} />
                   <input type="text" name="linkedInURL" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="LinkedIn Profile URL" value={formData.linkedInURL} onChange={handleInputChange} />
                   <input type="text" name="githubURL" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Github Profile URL" value={formData.githubURL} onChange={handleInputChange} />
                   <textarea name="address" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Address" value={formData.address} onChange={handleInputChange} />
@@ -270,7 +296,7 @@ const Careerjobsx = () => {
             <div className="flex flex-col items-center justify-center h-screen">
               <div className="w-full max-w-md rounded-lg shadow-md p-6">
                 <h2 className="text-2xl font-bold text-white mb-4">Education</h2>
-                <form className="flex flex-col" onSubmit={handleSubmit}>
+                <form className="flex flex-col" onSubmit={handleSubmit} encType="multipart/form-data">
                   {/* Education Inputs */}
                   <input type="text" name="education[level]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Highest Level of Education Attained*" value={formData.education.level} onChange={handleInputChange} />
                   <input type="text" name="education[institution]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Name of Institution*" value={formData.education.institution} onChange={handleInputChange} />
@@ -297,7 +323,7 @@ const Careerjobsx = () => {
             <div className="flex flex-col items-center justify-center h-screen">
               <div className="w-full max-w-md rounded-lg shadow-md p-6">
                 <h2 className="text-2xl font-bold text-white mb-4">Work Experience</h2>
-                <form className="flex flex-col" onSubmit={handleSubmit}>
+                <form className="flex flex-col" onSubmit={handleSubmit} encType="multipart/form-data">
                   {/* Work Experience Inputs */}
                   <input type="text" name="workExperience[experienceLevel]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Experience Level**" value={formData.workExperience.experienceLevel} onChange={handleInputChange} />
                   <input type="text" name="workExperience[jobTitle]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Title*" value={formData.workExperience.jobTitle} onChange={handleInputChange} />
