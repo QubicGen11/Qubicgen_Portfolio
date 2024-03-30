@@ -58,6 +58,7 @@ const Contact = () => {
         course: '',
         phone:'',
         message: '',
+        company: '',
         type: ''
       });
       alert('Your message has been sent successfully');
@@ -144,7 +145,7 @@ const Contact = () => {
                   <input type="text" placeholder="Comments" name="message" onChange={handleChange} value={formData.message} />
                 </div>
 
-                <button type="submit" className="btn-53" style={{ marginTop: '20px' }} disabled={isLoading}>
+                <button className="btn-53" style={{ marginTop: '10px' }}>
                   <div className="original"> {isLoading ? 'Submitting...' : 'Submit'}</div>
                   <div className="letters">
                     {isLoading ? (
@@ -223,10 +224,10 @@ const Contact = () => {
                   <i className="fas fa-comment flex justify-center items-center" />
                   <input type="text" placeholder="Comments" name="message" onChange={handleChange} value={formData.message} />
                 </div>
-                <button type="submit" className="btn-53" style={{ marginTop: '20px' }} disabled={isLoading}>
+                <button className="btn-53" style={{ marginTop: '10px' }}>
                   <div className="original"> {isLoading ? 'Submitting...' : 'Submit'}</div>
                   <div className="letters">
-                    {isLoading ? (
+                  {isLoading ? (
                       <>
                         <span>S</span>
                         <span>U</span>
