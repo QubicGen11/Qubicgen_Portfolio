@@ -4,20 +4,21 @@ import './Contact.css';
 import Navbar from '../HomeComponents/Navbar';
 import Footer from '../HomeComponents/Footer';
 import Typewriter from 'typewriter-effect';
-import AOS from 'aos';
 import 'intl-tel-input/build/css/intlTelInput.css';
-import intlTelInput from 'intl-tel-input';
 import SEO from '../SEO';
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const  [activeTab, setActiveTab] = useState('');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     jobTitle: '',
     course: '',
+    company: '',
     phone:'',
-    message: ''
+    message: '',
+    type: ''
   });
 
   const handleChange = (e) => {
@@ -27,14 +28,27 @@ const Contact = () => {
       [name]: value
     });
   };
+  const handleClick = (tab) => {
+    setActiveTab(tab); 
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const payload = {
+      fullName: formData.fullName,
+      email: formData.email,
+      jobTitle: formData.jobTitle,
+      course: formData.course,
+      company: formData.company,
+      phone: formData.phone,
+      message: formData.message,
+      type: activeTab
+    };
     setIsLoading(true);
     try {
-      formData.type = activeTab;
+      // formData.type = activeTab;
       setIsLoading(true);
-      const response = await axios.post('http://api.qubicgen.com:3000/api/contact', formData);
+      const response = await axios.post('http://localhost:3000/api/contact', payload);
       console.log('Form data submitted:', response.data);
       // Reset form after successful submission if needed
       setFormData({
@@ -43,7 +57,8 @@ const Contact = () => {
         jobTitle: '',
         course: '',
         phone:'',
-        message: ''
+        message: '',
+        type: ''
       });
       alert('Your message has been sent successfully');
       setIsLoading(false);
@@ -122,7 +137,7 @@ const Contact = () => {
                 </div>
                 <div className="input-field">
                   <i className="fas fa-building" />
-                  <input type="text" placeholder="Enter Company" name="course" onChange={handleChange} value={formData.course} />
+                  <input type="text" placeholder="Enter Company" name="company" onChange={handleChange} value={formData.company} />
                 </div>
                 <div className="input-field" style={{ height: '20vh' }}>
                   <i className="fas fa-comment  flex justify-center items-center" />
@@ -189,27 +204,52 @@ const Contact = () => {
                 </div>
                 <div className="input-field">
                   <i className="fas fa-check" />
-                  <select name="year" id="year" style={{ color: 'black' }} onChange={handleChange} value={formData.course}>
-                    <option value="select">Select a Course</option>
+                  <select
+                    name="course"
+                    id="course"
+                    style={{ color: 'black' }}
+                    onChange={handleChange}
+                    value={formData.course}
+                  >
+                    <option value="select" hidden>Select a Course</option>
                     <option value="rpa">RPA</option>
-                    <option value="year2">Web Development</option>
-                    <option value="year2">SAP</option>
-                    <option value="year2">Testing</option>
+                    <option value="web">Web Development</option>
+                    <option value="sap">SAP</option>
+                    <option value="testing">Testing</option>
                   </select>
+
                 </div>
                 <div className="input-field" style={{ height: '20vh' }}>
                   <i className="fas fa-comment flex justify-center items-center" />
                   <input type="text" placeholder="Comments" name="message" onChange={handleChange} value={formData.message} />
                 </div>
-                <button className="btn-53" style={{ marginTop: '10px' }}>
-                  <div className="original">Submit</div>
+                <button type="submit" className="btn-53" style={{ marginTop: '20px' }} disabled={isLoading}>
+                  <div className="original"> {isLoading ? 'Submitting...' : 'Submit'}</div>
                   <div className="letters">
-                    <span>S</span>
-                    <span>U</span>
-                    <span>B</span>
-                    <span>M</span>
-                    <span>I</span>
-                    <span>T</span>
+                    {isLoading ? (
+                      <>
+                        <span>S</span>
+                        <span>U</span>
+                        <span>B</span>
+                        <span>M</span>
+                        <span>I</span>
+                        <span>T</span>
+                        <span>I</span>
+                        <span>N</span>
+                        <span>G</span>
+                        <span>.</span>
+                        <span>.</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>S</span>
+                        <span>U</span>
+                        <span>B</span>
+                        <span>M</span>
+                        <span>I</span>
+                        <span>T</span>
+                      </>
+                    )}
                   </div>
                 </button>
               </form>
@@ -219,7 +259,7 @@ const Contact = () => {
             <div className="panel left-panel">
               <div className="content" id="lookingproject">
                 <h3 style={{ fontSize: '45px' }}>Want to Learn Skills?</h3>
-                <button className="btnone" id="sign-up-btn" style={{ width: '170px', position: 'relative', left: '76px', height: '50px', marginTop: '30px' }}>
+                <button className="btnone" id="sign-up-btn" onClick={() => handleClick('student')} style={{ width: '170px', position: 'relative', left: '76px', height: '50px', marginTop: '30px' }}>
                   Student Form
                 </button>
               </div>
@@ -229,7 +269,7 @@ const Contact = () => {
                 <h3 style={{ fontSize: '45px' }} id="">
                   Looking for Project ?
                 </h3>
-                <button className="btnone" id="sign-in-btn" style={{ width: '170px', position: 'relative', left: '140px', height: '50px' }}>
+                <button className="btnone" id="sign-in-btn"  onClick={() => handleClick('project')} style={{ width: '170px', position: 'relative', left: '140px', height: '50px' }}>
                   Project Form
                 </button>
               </div>
