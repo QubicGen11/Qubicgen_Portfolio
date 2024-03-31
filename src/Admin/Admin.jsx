@@ -13,7 +13,7 @@ function Admin() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://api.qubicgen.com:3000/api/fetchData', {
+        const response = await axios.get('https://api.qubicgen.com/api/fetchData', {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`, 

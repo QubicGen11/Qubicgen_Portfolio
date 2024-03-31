@@ -48,7 +48,7 @@ const Contact = () => {
     try {
       // formData.type = activeTab;
       setIsLoading(true);
-      const response = await axios.post('http://localhost:3000/api/contact', payload);
+      const response = await axios.post('https://api.qubicgen.com/api/contact', payload);
       console.log('Form data submitted:', response.data);
       // Reset form after successful submission if needed
       setFormData({

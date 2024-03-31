@@ -109,7 +109,7 @@ const Careerjobsx = () => {
         const formData = new FormData();
         formData.append('resume', resume);
     
-        const response = await axios.post('http://api.qubicgen.com:3000/api/upload', formData, {
+        const response = await axios.post('https://api.qubicgen.com/api/upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -155,7 +155,7 @@ const Careerjobsx = () => {
         };
         console.log(jobApplicationData);
         setIsLoading(true);
-        const response = await axios.post('http://api.qubicgen.com:3000/api/job-application', jobApplicationData, {
+        const response = await axios.post('https://api.qubicgen.com/api/job-application', jobApplicationData, {
       headers: {
         'Content-Type': 'application/json'
       }
