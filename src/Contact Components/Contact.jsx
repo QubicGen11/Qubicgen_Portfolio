@@ -9,7 +9,7 @@ import SEO from '../SEO';
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const  [activeTab, setActiveTab] = useState('');
+  const  [activeTab, setActiveTab] = useState('project');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',

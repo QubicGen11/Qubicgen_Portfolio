@@ -116,7 +116,7 @@ const Queries = () => {
     <div className="pb-2 pt-4 w-full">
         <textarea
             className="block w-full p-4 text-lg rounded-md bg-black border border-gray-700 placeholder-gray-500 focus:outline-none focus:border-blue-500"
-            name="address"
+            name="message"
             value={formData.message}
             onChange={handleChange}
             placeholder="Enter your Message..."
