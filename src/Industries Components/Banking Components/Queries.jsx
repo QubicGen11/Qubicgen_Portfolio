@@ -17,7 +17,7 @@ const Queries = () => {
     jobTitle: '',
     company: '',
     phone: '',
-    address: ''
+    message: ''
   });
 
   const [loading, setLoading] = useState(false);
@@ -44,7 +44,7 @@ const Queries = () => {
         jobTitle: '',
         company: '',
         phone: '',
-        address: ''
+        message: ''
       });
       alert('Your message has been sent successfully')
       window.location.reload()
@@ -117,7 +117,7 @@ const Queries = () => {
         <textarea
             className="block w-full p-4 text-lg rounded-md bg-black border border-gray-700 placeholder-gray-500 focus:outline-none focus:border-blue-500"
             name="address"
-            value={formData.address}
+            value={formData.message}
             onChange={handleChange}
             placeholder="Enter your Message..."
             style={{ borderRadius: '20px', height: '100px' }}
