@@ -54,22 +54,9 @@ const Homewhomweserve = () => {
 
 
         <div className="md:ml-12 text-center md:text-left" id='righttextserve'>
-        <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" style={{fontSize:'40px'}}>
-  <Typewriter
-    options={{
-      autoStart: true,
-      loop:true,
-      
-      delay: 2,
-      strings: [' To whom we <span class="text-[#ffd700]">Serve</span>'],
-      onComplete: (self) => {
-        const textElement = self.el;
-        const html = textElement.innerHTML;
-        textElement.innerHTML = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-      },
-    }}
-  />
-</h2>          <p className="mt-2 text-white" style={{fontSize:'15px',fontWeight:'400'}}>
+        <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" id='wearequbic' style={{fontSize:'40px'}}>
+        To whom we  <span style={{color:'gold'}}>Serve</span>
+</h2>       <p className="mt-2 text-white" style={{fontSize:'15px',fontWeight:'400'}}>
 QubicGen is at the forefront of digital transformation across diverse sectors, offering specialized software solutions to industries including BFSI, Energy, Utilities, Media, Entertainment, Healthcare, Retail, Travel, Transportation, Hospitality, Logistics, Public Sector, Oil and Gas, Manufacturing, and Professional Services. Our commitment to innovation and excellence drives us to deliver customized services that not only address unique industry challenges but also set new standards for success. Partner with us to harness the power of digital technology and propel your business forward.          </p>
           {/* <a href="#" className="inline-block bg-[#ffd700] text-black mt-4 px-6 py-2 rounded-full font-bold hover:bg-opacity-60 transition duration-300">Read More&apos;</a> */}
         </div>

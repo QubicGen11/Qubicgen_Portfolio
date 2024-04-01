@@ -16,20 +16,7 @@ const Homeabout = () => {
                 
               
               <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" id='wearequbic' style={{fontSize:'40px'}}>
-  <Typewriter
-    options={{
-      autoStart: true,
-      loop:true,
-      
-      delay: 2, 
-      strings: ['We are <span class="text-[#ffd700]">QubicGen</span>'],
-      onComplete: (self) => {
-        const textElement = self.el;
-        const html = textElement.innerHTML;
-        textElement.innerHTML = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-      },
-    }}
-  />
+ We are <span style={{color:'gold'}}>QubicGen</span>
 </h2>
 
 

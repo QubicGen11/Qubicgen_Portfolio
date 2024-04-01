@@ -28,6 +28,8 @@ const Abouthero = () => {
       
       delay: 2,
       strings: ['ABOUT <span class="text-[#ffd700]">US</span>'],
+      pauseFor:6000,
+
       onComplete: (self) => {
         const textElement = self.el;
         const html = textElement.innerHTML;

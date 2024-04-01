@@ -50,10 +50,12 @@ const Aboutfinal = () => {
       
       delay: 2,
       strings: ['OUR <span class="text-[#ffd700]">MISSION</span> OUR <span class="text-[#ffd700]">VISION</span>'],
+      pauseFor:6000,
       onComplete: (self) => {
         const textElement = self.el;
         const html = textElement.innerHTML;
         textElement.innerHTML = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+        
       },
     }}
   />
