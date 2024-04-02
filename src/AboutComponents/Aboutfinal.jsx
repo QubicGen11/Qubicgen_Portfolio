@@ -158,7 +158,7 @@ const Aboutfinal = () => {
 
                 </div>
               </div>
-              <div className="digitalbranding-parent">
+              <div className="digitalbranding-parent relative left-24  ">
                 <div className="digitalbranding">
                   <div className="line" />
                   <div className="frame" />

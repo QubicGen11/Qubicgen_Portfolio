@@ -15,7 +15,7 @@ const Aboutprojects = () => {
     AOS.init({ duration: 1000 })
   }, [])
   return (
-    <div className="main-frame" data-aos="fade-up">
+    <div className="main-frame " data-aos="fade-up">
         <div className="frames-with-text-links">
           <div className="frames-with-text-links1">
             <div className="unsplashluseu9gtyzm-parent">

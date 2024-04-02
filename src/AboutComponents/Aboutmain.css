@@ -2350,4 +2350,8 @@
   }
 
 
-  
+@media (min-width:320px) and (max-width:800px) {
+  .main-frame{
+    display: none;
+  }
+}
