@@ -1,0 +1,19 @@
+.Termsmain {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    overflow: hidden;
+    background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1711956430/QubicGen/Terms%20and%20Conditions/online-business-contract-electronic-signature-esigning-digital-document-management-paperless-office-signing-business-contract-concept_29488-10512_bwyy50.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  
+  .Termsmain::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+  } 
+

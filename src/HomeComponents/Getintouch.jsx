@@ -9,6 +9,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Getintouch = () => {
+
+    
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -49,7 +51,12 @@ const Getintouch = () => {
         }
     };
 
+   
+
     return (
+
+        
+        
         <div>
             <div className="getintouch" data-aos="fade-right">
                 <div className="contact-page">
@@ -84,6 +91,7 @@ const Getintouch = () => {
                                                 placeholder="Name"
                                                 type="text"
                                                 value={formData.fullName}
+                                                
                                             />
                                         </div>
                                         <div className="yourname-youremail1">
@@ -95,6 +103,7 @@ const Getintouch = () => {
                                                 placeholder="Email"
                                                 type="text"
                                                 value={formData.email}
+                                                req
                                             />
                                         </div>
                                     </div>

@@ -296,9 +296,9 @@ const Careerjobsx = () => {
           </div>
           <div className="modal-body">
             <div className="flex flex-col items-center justify-center h-screen">
-              <div className="w-full max-w-md rounded-lg shadow-md p-6">
+              <div className="w-full max-w-md rounded-lg shadow-md p-6 ">
                 <h2 className="text-2xl font-bold text-white mb-4">Education</h2>
-                <form className="flex flex-col" onSubmit={handleSubmit} encType="multipart/form-data">
+                <form className="flex flex-col gap-6" onSubmit={handleSubmit} encType="multipart/form-data">
                   {/* Education Inputs */}
                   <input type="text" name="education[level]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Highest Level of Education Attained*" value={formData.education.level} onChange={handleInputChange} />
                   <input type="text" name="education[institution]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Name of Institution*" value={formData.education.institution} onChange={handleInputChange} />
@@ -325,7 +325,7 @@ const Careerjobsx = () => {
             <div className="flex flex-col items-center justify-center h-screen">
               <div className="w-full max-w-md rounded-lg shadow-md p-6">
                 <h2 className="text-2xl font-bold text-white mb-4">Work Experience</h2>
-                <form className="flex flex-col" onSubmit={handleSubmit} encType="multipart/form-data">
+                <form className="flex flex-col gap-8" onSubmit={handleSubmit} encType="multipart/form-data">
                   {/* Work Experience Inputs */}
                   <input type="text" name="workExperience[experienceLevel]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Experience Level**" value={formData.workExperience.experienceLevel} onChange={handleInputChange} />
                   <input type="text" name="workExperience[jobTitle]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Title*" value={formData.workExperience.jobTitle} onChange={handleInputChange} />

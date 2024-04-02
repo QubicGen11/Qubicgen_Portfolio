@@ -1,0 +1,19 @@
+.Privacymain {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    overflow: hidden;
+    background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1711956578/QubicGen/Privacy%20Policy/cyber-security-network-padlock-icon-internet-technology-networking_150455-4671_d2maxh.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  
+  .Privacymain::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+  } 
+
