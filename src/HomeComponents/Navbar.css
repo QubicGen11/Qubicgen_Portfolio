@@ -286,13 +286,16 @@
 .serviceseclist{
   margin-top: 20px;
   height: 40px;
+  
 
 }
 
 .serviceseclist:hover{
   background-color: gold;
-  transition: 0.1s ease-in;
+  transition: 0.7s ease-in;
+  border-radius: 40px;
   width: auto;
+  
 
 }
 

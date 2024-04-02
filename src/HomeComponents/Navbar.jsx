@@ -147,88 +147,88 @@ navbar.style.backgroundColor = newColor;
           </button>
           </div>
   <div className="offcanvas-body" style={{padding:'80px'}}>
-   <Link to="/"><li className="serviceseclist hover:cursor-pointer mb-4"  >HOME</li></Link> 
-   <Link to="/about"><li className="serviceseclist hover:cursor-pointer mb-4 " >ABOUT US</li></Link>
+   <Link to="/"><li className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1"  >HOME</li></Link> 
+   <Link to="/about"><li className="serviceseclist hover:cursor-pointer mb-4  pl-7 pt-1" >ABOUT US</li></Link>
 
     <div>
-        <div onClick={toggleIndustries} className="serviceseclist hover:cursor-pointer mb-4">
+        <div onClick={toggleIndustries} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">
           INDUSTRIES <i className="fas fa-caret-down ml-3"></i>
         </div>
         {isIndustriesOpen && (
-          <ul id="industysec" className="relative right-11 w-72 ">
-            <li className="industyseclist">
+          <ul id="industysec" className="relative right-11 w-72 pl-7 pt-1">
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
               <Link  to="/banking" style={{ color: 'white', textDecoration: 'none' }}>Banking, Financial Services and Insurance</Link>
             </li>
-            <li className="industyseclist">
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
               <Link  to="/energy" style={{ color: 'white', textDecoration: 'none' }}>Energy and Utilities</Link>
             </li>
-            <li className="industyseclist">
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
               <Link to="/media" style={{ color: 'white', textDecoration: 'none' }}>Media and Entertainment</Link>
             </li>
-            <li className="industyseclist">
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
               <Link to="/health" style={{ color: 'white', textDecoration: 'none' }}>Healthcare Life Sciences</Link>
             </li>
-            <li className="industyseclist">
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
               <Link to="/retail" style={{ color: 'white', textDecoration: 'none' }}>Retail and Consumer Goods</Link>
             </li>
-            <li className="industyseclist">
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
               <Link to="/travel" style={{ color: 'white', textDecoration: 'none' }}>Travel, Transportation, Hospitality and Logistics</Link>
             </li>
-            <li className="industyseclist">
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
               <Link to="/public" style={{ color: 'white', textDecoration: 'none' }}>Public Sector and Government</Link>
             </li>
-            <li className="industyseclist">
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
               <Link to="/oil" style={{ color: 'white', textDecoration: 'none' }}>Oil and Gas</Link>
             </li>
-            <li className="industyseclist">
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
               <Link to="/manufacturing" style={{ color: 'white', textDecoration: 'none' }}>Manufacturing</Link>
             </li>
-            <li className="industyseclist">
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
               <Link to="/summary" style={{ color: 'white', textDecoration: 'none' }}>Professional Services</Link>
             </li>
           </ul>
         )}
 
-        <div onClick={toggleServices} className="serviceseclist hover:cursor-pointer mb-4" >
+        <div onClick={toggleServices} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1" >
           SERVICES <i className="fas fa-caret-down ml-3"></i> 
         </div>
         {isServicesOpen && (
 
-  <ul className="relative right-11 w-72 " id="serviceseclist" >
-  <li className="serviceseclist">
+  <ul className="relative right-11 w-72 pl-7 pt-1" id="serviceseclist" >
+  <li className="serviceseclist pl-7 pt-1">
     <Link  to="/rpa" style={{ color: 'white', textDecoration: 'none' }}>Robotic Process Automation</Link>
   </li>
-  <li className="serviceseclist">
+  <li className="serviceseclist pl-7 pt-1">
     <Link to="/webdevelopment" style={{ color: 'white', textDecoration: 'none' }}>Web Development</Link>
   </li>
-  <li className="serviceseclist">
+  <li className="serviceseclist pl-7 pt-1">
     <Link to="/sap" style={{ color: 'white', textDecoration: 'none' }}>SAP</Link>
   </li>
-  <li className="serviceseclist">
+  <li className="serviceseclist pl-7 pt-1">
     <Link to="/database" style={{ color: 'white', textDecoration: 'none' }}>Database</Link>
   </li>
-  <li className="serviceseclist">
+  <li className="serviceseclist pl-7 pt-1">
     <Link to="/digitalmarketing" style={{ color: 'white', textDecoration: 'none' }}>Digital Marketing</Link>
   </li>
-  <li className="serviceseclist">
+  <li className="serviceseclist pl-7 pt-1">
     <Link to="/digitalization" style={{ color: 'white', textDecoration: 'none' }}>Digitalization</Link>
   </li>
-  <li className="serviceseclist">
+  <li className="serviceseclist pl-7 pt-1">
     <Link to="/outsourcing" style={{ color: 'white', textDecoration: 'none' }}>Outsourcing</Link>
   </li>
-  <li className="serviceseclist">
+  <li className="serviceseclist pl-7 pt-1">
     <Link to="/cybersecurity" style={{ color: 'white', textDecoration: 'none' }}>Cyber Security</Link>
   </li>
-  <li className="serviceseclist">
+  <li className="serviceseclist pl-7 pt-1">
     <Link to="/dataanalytics" style={{ color: 'white', textDecoration: 'none' }}>Data Analytics</Link>
   </li>
-  <li className="serviceseclist">
+  <li className="serviceseclist pl-7 pt-1">
     <Link to="/testing" style={{ color: 'white', textDecoration: 'none' }}>Testing</Link>
   </li>
-  <li className="serviceseclist">
+  <li className="serviceseclist pl-7 pt-1">
     <Link to="/businessconsulting" style={{ color: 'white', textDecoration: 'none' }}>Business Consulting</Link>
   </li>
-  <li className="serviceseclist">
+  <li className="serviceseclist pl-7 pt-1">
     <Link to="/training" style={{ color: 'white', textDecoration: 'none' }}>Trainings and Certifications</Link>
   </li>
   </ul>
@@ -244,8 +244,8 @@ navbar.style.backgroundColor = newColor;
 
 
 
-   <Link to="/careers"><li className="serviceseclist hover:cursor-pointer mb-4">CAREERS</li></Link> 
-   <Link to="/contact"><li className="serviceseclist hover:cursor-pointer mb-4">CONTACT US</li></Link> 
+   <Link to="/careers"><li className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">CAREERS</li></Link> 
+   <Link to="/contact"><li className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">CONTACT US</li></Link> 
    
    
 

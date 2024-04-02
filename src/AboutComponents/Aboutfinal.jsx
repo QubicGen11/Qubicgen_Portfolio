@@ -43,7 +43,7 @@ const Aboutfinal = () => {
       <div className="mission-and-vision">
         <div className="discuss-projects">
                   <h1 className="our-mission-and-container" id='ourmissionandcon' style={{zIndex:1,fontSize:'45px',color:'white'}}>
-  <Typewriter
+  {/* <Typewriter
     options={{
       autoStart: true,
       loop:true,
@@ -58,7 +58,8 @@ const Aboutfinal = () => {
         
       },
     }}
-  />
+  /> */}
+  OUR <span style={{color:"gold"}}>MISSION</span>  OUR   <span style={{color:"gold"}}>VISION</span>
 </h1>
 
 
@@ -202,7 +203,7 @@ const Aboutfinal = () => {
 
 
                        <h1 className="our-work-process" style={{zIndex:1,fontSize:'45px',color:'white',width:'800px'}}>
-  <Typewriter
+  {/* <Typewriter
     options={{
       autoStart: true,
       loop:true,
@@ -215,7 +216,9 @@ const Aboutfinal = () => {
         textElement.innerHTML = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
       },
     }}
-  />
+  /> */}
+
+  WHY CHOOSE <span style={{color:"gold"}}>US</span>
 </h1>
                 <div className="amet-minim-mollit1" style={{width:'500px'}}>
                 At Qubicgen,  we're dedicated to be your trusted partner in navigating these complexities and unlocking your full potential for success.                </div>
