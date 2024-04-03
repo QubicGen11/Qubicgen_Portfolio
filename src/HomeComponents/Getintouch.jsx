@@ -22,6 +22,19 @@ const Getintouch = () => {
         AOS.init({ duration: 1000 });
     }, []);
 
+    let emailValidated = false;
+    const validateEmail = (e) => {
+        if (!emailValidated) {
+            const emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+            const isValidEmail = emailPattern.test(e.target.value);
+            if (!isValidEmail) {
+                alert('Please enter a valid email address.');
+                // Optionally, you can reset the value or set an error state
+            }
+            // Set flag to true to indicate validation has been performed
+            emailValidated = true;
+        }
+    };
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -103,7 +116,9 @@ const Getintouch = () => {
                                                 placeholder="Email"
                                                 type="text"
                                                 value={formData.email}
-                                                req
+                                                onBlur={validateEmail} 
+                                                required
+
                                             />
                                         </div>
                                     </div>

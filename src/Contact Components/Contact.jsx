@@ -125,11 +125,11 @@ const Contact = () => {
 
                 <div className="input-field">
                   <i className="fas fa-envelope" />
-                  <input type="email" placeholder="Email" name="email" onChange={handleChange} value={formData.email} />
+                  <input type="email" placeholder="Email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={handleChange} value={formData.email} />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-phone" />
-                  <input type="number" placeholder="Enter phone number" name="phone" onChange={handleChange} value={formData.phone} />
+                  <input type="tel" placeholder="Enter 1O digit phone number" name="phone" onChange={handleChange} pattern='[0-9]{10}' required value={formData.phone} />
                 </div>
              
                 <div className="input-field">
@@ -197,11 +197,11 @@ const Contact = () => {
                 </div>
                 <div className="input-field">
                   <i className="fas fa-phone" />
-                  <input type="number" placeholder="Enter phone number" name="phone" onChange={handleChange} value={formData.phone} />
+                  <input type="tel" placeholder="Enter 1O digit phone number" name="phone" onChange={handleChange} pattern='[0-9]{10}' required value={formData.phone} />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-envelope" />
-                  <input type="email" placeholder="Enter email" name="email" onChange={handleChange} value={formData.email} />
+                  <input type="email" placeholder="Enter email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={handleChange} value={formData.email} />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-check" />
