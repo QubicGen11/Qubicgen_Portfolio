@@ -208,7 +208,7 @@ const Footer = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <a target='_blank' href="https://www.google.com/maps?ll=14.647381,77.611864&z=17&t=m&hl=en&gl=IN&mapclient=embed&cid=10294290689329187032"> <address className="-mt-0.5 flex-1 not-italic hover:text-yellow-400 dark:text-gray-300">
-                    Opp Govt Polytecnic College, Anantapur , Andhrapradesh
+                    Opp Govt Polytechnic College, Anantapur , Andhrapradesh
                   </address></a>
                   
                 </li>

@@ -123,8 +123,8 @@ const Queries = () => {
             style={{ borderRadius: '20px', height: '100px' }}
         ></textarea>
     </div>
-    <div className="px-4 pb-2 pt-4 w-full">
-        <button type="submit" className="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none relative">
+    <div className="px-4 pb-2 pt-4 w-72">
+        <button type="submit" className="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-yellow-400 focus:outline-none relative ">
             {loading ? (
                 <span className="animate-spin absolute inset-0 flex justify-center items-center">
                     <svg className="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
