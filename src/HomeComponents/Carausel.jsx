@@ -20,8 +20,55 @@ const Carausel = () => {
             <h1 style={{ color: 'white' }}>Your </h1>
             <h1>Thoughts.</h1>
             <Link to="https://qubic-gen.blogspot.com/2024/04/unlock-your-thoughts-empowering-minds.html">
-            <button className='text-xl flex mt-10 p-2 ml-2 w-44' style={{border:'solid 2px white'}}>KNOW MORE   </button>
-
+            <div className="w-full flex  cursor-pointer text-xs mt-2 ">
+  <div
+    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
+  >
+    <span
+      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"
+    ></span>
+    <span
+      className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        fill="none"
+        className="w-5 h-5 text-green-400"
+      >
+        <path
+          d="M14 5l7 7m0 0l-7 7m7-7H3"
+          stroke-width="2"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+      </svg>
+    </span>
+    <span
+      className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        fill="none"
+        className="w-5 h-5 text-green-400"
+      >
+        <path
+          d="M14 5l7 7m0 0l-7 7m7-7H3"
+          stroke-width="2"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+      </svg>
+    </span>
+    <span
+      className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200"
+      >Know more</span
+    >
+  </div>
+</div>
             
 
             </Link>
@@ -34,10 +81,61 @@ const Carausel = () => {
             <h1 style={{ color: 'white' }}>your trusted it partner </h1>
             <h1>for reliability and excellence.</h1>
             
-            <Link to="https://qubic-gen.blogspot.com/2024/04/your-trusted-it-partner-delivering.html">
+            {/* <Link to="https://qubic-gen.blogspot.com/2024/04/your-trusted-it-partner-delivering.html">
 
                         <button className='text-xl flex mt-10 p-2 ml-2 w-44' style={{border:'solid 2px white'}}>KNOW MORE   </button>
-            </Link>
+            </Link> */}
+
+            <div className="w-full flex  cursor-pointer text-xs mt-2 ">
+  <div
+    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
+  >
+    <span
+      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"
+    ></span>
+    <span
+      className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        fill="none"
+        className="w-5 h-5 text-green-400"
+      >
+        <path
+          d="M14 5l7 7m0 0l-7 7m7-7H3"
+          stroke-width="2"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+      </svg>
+    </span>
+    <span
+      className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        fill="none"
+        className="w-5 h-5 text-green-400"
+      >
+        <path
+          d="M14 5l7 7m0 0l-7 7m7-7H3"
+          stroke-width="2"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+      </svg>
+    </span>
+    <span
+      className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200"
+      >Know more</span
+    >
+  </div>
+</div>
+
 
           </div>
         </div>
@@ -48,23 +146,117 @@ const Carausel = () => {
             <h1>for all your business ideas. </h1>
             <Link to="/businessconsulting">
 
-                        <button className='text-xl flex mt-10 p-2 ml-2 w-44' style={{border:'solid 2px white'}}>KNOW MORE   </button>
-            </Link>
+            <div className="w-full flex  cursor-pointer text-xs mt-2 ">
+  <div
+    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
+  >
+    <span
+      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"
+    ></span>
+    <span
+      className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        fill="none"
+        className="w-5 h-5 text-green-400"
+      >
+        <path
+          d="M14 5l7 7m0 0l-7 7m7-7H3"
+          stroke-width="2"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+      </svg>
+    </span>
+    <span
+      className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        fill="none"
+        className="w-5 h-5 text-green-400"
+      >
+        <path
+          d="M14 5l7 7m0 0l-7 7m7-7H3"
+          stroke-width="2"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+      </svg>
+    </span>
+    <span
+      className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200"
+      >Know more</span
+    >
+  </div>
+</div>            </Link>
 
 
           </div>
         </div>
 
         <div className="carousel-item" data-bs-interval="3000">
-          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710313514/QubicGen/Home%20Page/Corossal/robot-hand-finger-ai-background-technology-graphics_tq7hs0.jpg" id='slide4img' className="d-block w-100" alt="..." loading="lazy" />
+          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1711617993/QubicGen/Home%20Page/Corossal/futuristic-5g-wireless-network-ai-robot-hand-tap-wifi-icon_1_nknhjd.jpg" id='slide4img' className="d-block w-100" alt="..." loading="lazy" />
           <div className="carousel-caption">
             <h1 style={{ color: 'white' }}>Automate.</h1>
             <h1>Operate.</h1>
             <h1>Excel...</h1>
             <Link to="/rpa">
 
-                        <button className='text-xl flex mt-10 p-2 ml-2 w-44' style={{border:'solid 2px white'}}>KNOW MORE   </button>
-            </Link>
+            <div className="w-full flex  cursor-pointer text-xs mt-2 ">
+  <div
+    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
+  >
+    <span
+      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"
+    ></span>
+    <span
+      className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        fill="none"
+        className="w-5 h-5 text-green-400"
+      >
+        <path
+          d="M14 5l7 7m0 0l-7 7m7-7H3"
+          stroke-width="2"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+      </svg>
+    </span>
+    <span
+      className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        fill="none"
+        className="w-5 h-5 text-green-400"
+      >
+        <path
+          d="M14 5l7 7m0 0l-7 7m7-7H3"
+          stroke-width="2"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+      </svg>
+    </span>
+    <span
+      className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200"
+      >Know more</span
+    >
+  </div>
+</div>            </Link>
 
           </div>
         </div>
@@ -72,11 +264,11 @@ const Carausel = () => {
 
 <div className="carauselbtnss ">
 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon mb-48" aria-hidden="true" />
+        <span className="carousel-control-prev-icon" aria-hidden="true" />
         <span className="visually-hidden">Previous</span>
       </button>
       <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span className="carousel-control-next-icon mb-48" aria-hidden="true" />
+        <span className="carousel-control-next-icon" aria-hidden="true" />
         <span className="visually-hidden">Next</span>
       </button>
 
