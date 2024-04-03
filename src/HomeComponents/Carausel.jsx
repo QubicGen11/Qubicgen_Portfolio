@@ -65,7 +65,7 @@ const Carausel = () => {
            
           </div>
           <div className={currentIndex === 3 ? "carousel-item active" : "carousel-item"} >
-            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710313514/QubicGen/Home%20Page/Corossal/robot-hand-finger-ai-background-technology-graphics_tq7hs0.jpg" id='slide4img' className="d-block w-100" alt="..." loading="lazy" />
+            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1712132106/QubicGen/Home%20Page/Corossal/robot-hand-background-presenting-technology-gesture_53876-129785_ftyago.jpg" id='slide4img' className="d-block w-100" alt="..." loading="lazy" />
            <Link to="/rpa">
            <div className="carousel-caption">
               <h1 style={{color:'white'}}>Automate.</h1>

@@ -23,6 +23,8 @@ const Navbar = () => {
     setIsIndustriesOpen(false); // Close the industries dropdown
   };
 
+  
+
   useEffect(() => {
     AOS.init(); // Initialize AOS library
 
@@ -76,29 +78,31 @@ navbar.style.backgroundColor = newColor;
        
         </div>
 
-        <nav className={`nav ${isMobile ? "mobile" : ""}`}>
-          <Link to="/" style={{ textDecoration: 'none' }}><li className="hover:cursor-pointer">Home</li></Link>
-          <Link to="/about" style={{ textDecoration: 'none' }}><li className="hover:cursor-pointer">About</li></Link>
+        <nav  className={`nav  ${isMobile ? "mobile" : ""}`}>
+          <Link to="/" style={{ textDecoration: 'none' }}><li className="hover:cursor-pointer"  onMouseEnter={hideSections}>Home</li></Link>
+          <Link to="/about" style={{ textDecoration: 'none' }}><li className="hover:cursor-pointer"  onMouseEnter={hideSections}>About</li></Link>
           <div
             className="dropdown"
-            // onMouseEnter={() => showSection("industries")}
-            // onMouseLeave={hideSections}
-            onClick={() => handleDropdownClick("industries")}
+            onMouseEnter={() => showSection("industries")}
+            // onMouseLeave={hideSections} 
+            // onClick={() => handleDropdownClick("industries")}
           >
-            <li className="hover:cursor-pointer">Industries</li>
+            <li className="hover:cursor-pointer" >Industries</li>
           </div>
           <div
             className="dropdown"
-            // onMouseEnter={() => showSection("services")}
+            onMouseEnter={() => showSection("services")}
             // onMouseLeave={hideSections}
-            onClick={() => handleDropdownClick("services")}
+            // onClick={() => handleDropdownClick("services")}
           >
             <li className="hover:cursor-pointer">Services</li>
           </div>
-         <Link to="/careers"><li className="hover:cursor-pointer">Careers</li></Link> 
-          <a href="https://qubic-gen.blogspot.com/" target="_blank"><li className="hover:cursor-pointer">Blog</li></a> 
+         <Link to="/careers"><li className="hover:cursor-pointer" onMouseEnter={hideSections}
+            >Careers</li></Link> 
+          <a href="https://qubic-gen.blogspot.com/" target="_blank"><li className="hover:cursor-pointer"  onMouseEnter={hideSections}>Blog</li></a> 
 
-        <Link to="/contact"><li className="hover:cursor-pointer">Contact</li></Link>  
+        <Link to="/contact"><li className="hover:cursor-pointer"  onMouseEnter={hideSections}>Contact</li></Link>  
+        
         </nav>
 
 
@@ -303,10 +307,11 @@ navbar.style.backgroundColor = newColor;
       </div>
 
 
+
       <div
         className={`industriesec ${visibleSection === "industries" ? "show" : ""}`}
-        // onMouseEnter={() => showSection("industries")}
-        // onMouseLeave={hideSections}
+        onMouseEnter={() => showSection("industries")}
+        onMouseLeave={hideSections}
       >
         <h2 style={{ color: "gold", paddingLeft: '20px', fontFamily: 'Montserrat,sans-serif' }} >Industries</h2>
         <p style={{ padding: '1px 20px 20px 20px', fontFamily: 'Montserrat,sans-serif', fontSize: '15px' }}>As various industries merge and novel sectors arise, we are actively reconsidering our strategy, solutions, and platforms. Our innovators and thought leaders engage in ongoing dialogues with individuals who have a significant impact on and mold the future direction of these industries.</p>
@@ -339,8 +344,8 @@ navbar.style.backgroundColor = newColor;
 
       <div
         className={`servicesec ${visibleSection === "services" ? "show" : ""}`}
-        // onMouseEnter={() => showSection("services")}
-        // onMouseLeave={hideSections}
+        onMouseEnter={() => showSection("services")}
+        onMouseLeave={hideSections}
       >
         <h2 style={{ color: "gold", paddingLeft: '20px', fontFamily: 'Montserrat,sans-serif' }} >Services</h2>
         <p style={{ padding: '1px 20px 20px 20px', fontFamily: 'Montserrat,sans-serif', fontSize: '15px' }}>Our array of service offerings is tailored to adapt to the evolving needs of our customers in today's dynamic world. From crafting strategic plans to delivering tangible results, our service portfolio covers a comprehensive spectrum.</p>
