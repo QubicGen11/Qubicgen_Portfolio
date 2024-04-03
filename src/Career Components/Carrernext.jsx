@@ -29,7 +29,7 @@ const Carrernext = () => {
             </div>
 
             <div className="careersright flex justify-center flex-col lg:items-center xl:items-center mb-28">
-              <p className='text-white mx-5 mt-1 font-thin ml-4 py-4 text-1xl md:ml-6 lg:text-base lg:ml-10 '>At QubicGen, career paths are as diverse as our team members' ambitions. Whether you're a seasoned professional or just starting your journey, we offer opportunities for growth and advancement across various disciplines. From technical roles to
+              <p className='text-white mx-5 mt-1 font-thin ml-4 py-4 text-1xl md:ml-6 lg:text-base lg:ml-10 '>At QubicGen, career paths are as diverse as our team members&apos; ambitions. Whether you&apos;re a seasoned professional or just starting your journey, we offer opportunities for growth and advancement across various disciplines. From technical roles to
                 leadership positions, we empower our team to chart their own course and reach their full potential. With
                 mentorship, training programs, and ongoing support, QubicGen is the
                 perfect place to launch or elevate your career. Join us and unlock a world of possibilities.
@@ -90,12 +90,12 @@ const Carrernext = () => {
                 opportunity.
                 Our culture thrives on creativity
                 and  collaboration, where every
-                team member's voice is heard
+                team member&apos;s voice is heard
                 and valued. Join us, and  be part
                 of a dynamic community where
                 impactful work is the norm.
-                At QubicGen, we're not just building
-                careers; we're shaping the future
+                At QubicGen, we&apos;re not just building
+                careers; we&apos;re shaping the future
                 together.
               </p>
 

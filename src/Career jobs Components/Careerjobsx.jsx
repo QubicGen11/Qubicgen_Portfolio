@@ -16,6 +16,7 @@ const Careerjobsx = () => {
     const [selectedJobRole, setSelectedJobRole] = useState("");
     const [resume, selectedResume] = useState();
     const [searchInput, setSearchInput] = useState("");
+    const [reset,  setReset] = useState(true);
     const [loading, setLoading] = useState(true);
     const [JobsList, setJobsList] = useState([
       {
@@ -88,7 +89,38 @@ const Careerjobsx = () => {
         responsibilities: ''
       }
     });
-  
+
+    // Function to validate email format
+    let emailValidated = false;
+    let phoneValidated = false;
+    
+    // Function to validate email format
+    const validateEmail = (e) => {
+        if (!emailValidated) {
+            const emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+            const isValidEmail = emailPattern.test(e.target.value);
+            if (!isValidEmail) {
+                alert('Please enter a valid email address.');
+                // Optionally, you can reset the value or set an error state
+            }
+            // Set flag to true to indicate validation has been performed
+            emailValidated = true;
+        }
+    };
+    
+    // Function to validate phone number format
+    const validatePhone = (e) => {
+        if (!phoneValidated) {
+            const phonePattern = /[0-9]{10}/;
+            const isValidPhone = phonePattern.test(e.target.value);
+            if (!isValidPhone) {
+                alert('Please enter a valid phone number.');
+                // Optionally, you can reset the value or set an error state
+            }
+            // Set flag to true to indicate validation has been performed
+            phoneValidated = true;
+        }
+    };
     useEffect(() => {
       setStep(1);
     }, []);
@@ -278,19 +310,19 @@ const Careerjobsx = () => {
                 <h1 className="modal-title fs-5 my-3 text-white" id="staticBackdropLabel">Personal Details</h1>
                 <form className="flex flex-col h-au" onSubmit={handleSubmit} encType="multipart/form-data">
                   {/* Update input fields with name attributes and bind them to formData */}
-                  <input type="text" name="fullName" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Full Name (As Per marks memo)" value={formData.fullName} onChange={handleInputChange}  required/>
-                  <input type="email" name="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Email" value={formData.email} onChange={handleInputChange} required />
-                  <input type="text" name="phone" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange}  required/>
-                  <input type="text" name="linkedInURL" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="LinkedIn Profile URL" value={formData.linkedInURL} onChange={handleInputChange} required />
-                  <input type="text" name="githubURL" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Github Profile URL" value={formData.githubURL} onChange={handleInputChange}  required/>
-                  <textarea name="address" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Address" value={formData.address} onChange={handleInputChange} required />
+                  <input type="text" name="fullName" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Full Name (As Per marks memo)" value={formData.fullName} onChange={handleInputChange} />
+    <input type="email" name="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Email" value={formData.email} onChange={handleInputChange} onBlur={validateEmail} required />
+    <input type="text" name="phone" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} onBlur={validatePhone} required />
+                  <input type="text" name="linkedInURL" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="LinkedIn Profile URL" value={formData.linkedInURL} onChange={handleInputChange} />
+                  <input type="text" name="githubURL" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Github Profile URL" value={formData.githubURL} onChange={handleInputChange} />
+                  <textarea name="address" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Address" value={formData.address} onChange={handleInputChange} />
                   {/* Assuming handleFileChange is defined to handle file inputs */}
                   <h1 className="text-xl  text-white" id="staticBackdropLabel">Resume</h1>
 
                   <input type="file" name="resume" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" onChange={handleFileChange} />
                   <div className="modal-footer z-50">
                     <button type="button" className="bg-gray-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-200" data-bs-dismiss="modal">Close</button>
-<button type="submit" onClick={handleNext} className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
+                    <button type="button" onClick={handleNext} className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
                   </div>
                 </form>
               </div>

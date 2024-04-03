@@ -95,14 +95,23 @@ const Queries = () => {
 </h1>
 
 <form onSubmit={handleSubmit} className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto flex flex-wrap  ">
-    <div className="pb-2 pt-4 w-full md:w-1/2" >
-        <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} placeholder="First Name" className="block w-full p-4  rounded-sm bg-black text-base" required style={{ borderRadius: '20px', height: '50px' }} />
+<div className="pb-2 pt-4 w-full md:w-1/2">
+        <input
+            type="text"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            placeholder="First Name"
+            className="block w-full p-4  rounded-sm bg-black text-base"
+            required
+            style={{ borderRadius: '20px', height: '50px' }}
+        />
     </div>
     <div className="pb-2 pt-4 w-full md:w-1/2">
         <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Last Name" className="block w-full p-4 text-base rounded-sm bg-black" required style={{ borderRadius: '20px', height: '50px' }} />
     </div>
     <div className="pb-2 pt-4 w-full md:w-2/2">
-        <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" className="block w-full p-4 text-base rounded-sm bg-black" required style={{ borderRadius: '20px', height: '50px' }} />
+        <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" className="block w-full p-4 text-base rounded-sm bg-black" required style={{ borderRadius: '20px', height: '50px' }} />
     </div>
     <div className="pb-2 pt-4 w-full md:w-1/2">
         <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleChange} placeholder="Job Title" className="block w-full p-4 text-base rounded-sm bg-black" required style={{ borderRadius: '20px', height: '50px' }} />
@@ -111,7 +120,18 @@ const Queries = () => {
         <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Company / Organisation" className="block w-full p-4 text-base rounded-sm bg-black" required style={{ borderRadius: '20px', height: '50px' }} />
     </div>
     <div className="pb-2 pt-4 w-full md:w-2/2">
-        <input type="text" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone" className="block w-full p-4 text-base rounded-sm bg-black" required style={{ borderRadius: '20px', height: '50px' }} />
+        <input
+            type="text"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="Phone"
+            className="block w-full p-4 text-base rounded-sm bg-black"
+            required
+            pattern="[0-9]{10}"
+            title="Please enter a 10-digit phone number"
+            style={{ borderRadius: '20px', height: '50px' }}
+        />
     </div>
     <div className="pb-2 pt-4 w-full">
         <textarea
