@@ -3,6 +3,7 @@ import "./Carausel.css"
 import { Link } from 'react-router-dom'
 
 const Carausel = () => {
+  
   return (
     <div>
     <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
@@ -69,7 +70,8 @@ const Carausel = () => {
     >
   </div>
 </div>
-            
+
+       
 
             </Link>
             
@@ -81,10 +83,7 @@ const Carausel = () => {
             <h1 style={{ color: 'white' }}>your trusted it partner </h1>
             <h1>for reliability and excellence.</h1>
             
-            {/* <Link to="https://qubic-gen.blogspot.com/2024/04/your-trusted-it-partner-delivering.html">
-
-                        <button className='text-xl flex mt-10 p-2 ml-2 w-44' style={{border:'solid 2px white'}}>KNOW MORE   </button>
-            </Link> */}
+            <Link to="https://qubic-gen.blogspot.com/2024/04/your-trusted-it-partner-delivering.html">
 
             <div className="w-full flex  cursor-pointer text-xs mt-2 ">
   <div
@@ -134,7 +133,9 @@ const Carausel = () => {
       >Know more</span
     >
   </div>
-</div>
+</div>            </Link>
+
+    
 
 
           </div>
