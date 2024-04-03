@@ -5,6 +5,7 @@ import Footer from '../HomeComponents/Footer'
 import 'aos/dist/aos.css';
 import AOS from 'aos'
 import Carrernext from './Carrernext'
+import SEO from '../SEO';
 
 
 
@@ -17,7 +18,15 @@ const Careers = () => {
 
   return (
     <>
-
+      <SEO
+        title="QubiGen - Careers"
+        description="Connect with QubiGen and get in touch with our team. Learn how you can reach out to us for inquiries, collaborations, and partnerships. We are here to support your business needs."
+        type="website"
+        name="QubiGen Careers"
+        image="https://example.com/contact-og-image.jpg"
+        url="https://www.qubicgen.com/careers"
+        keywords="QubiGen, Contact Us, inquiries, collaborations, partnerships, support"
+      />
     
     <Navbar/>
 

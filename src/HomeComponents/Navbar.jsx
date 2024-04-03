@@ -305,8 +305,8 @@ navbar.style.backgroundColor = newColor;
 
       <div
         className={`industriesec ${visibleSection === "industries" ? "show" : ""}`}
-        onMouseEnter={() => showSection("industries")}
-        onMouseLeave={hideSections}
+        // onMouseEnter={() => showSection("industries")}
+        // onMouseLeave={hideSections}
       >
         <h2 style={{ color: "gold", paddingLeft: '20px', fontFamily: 'Montserrat,sans-serif' }} >Industries</h2>
         <p style={{ padding: '1px 20px 20px 20px', fontFamily: 'Montserrat,sans-serif', fontSize: '15px' }}>As various industries merge and novel sectors arise, we are actively reconsidering our strategy, solutions, and platforms. Our innovators and thought leaders engage in ongoing dialogues with individuals who have a significant impact on and mold the future direction of these industries.</p>
@@ -339,8 +339,8 @@ navbar.style.backgroundColor = newColor;
 
       <div
         className={`servicesec ${visibleSection === "services" ? "show" : ""}`}
-        onMouseEnter={() => showSection("services")}
-        onMouseLeave={hideSections}
+        // onMouseEnter={() => showSection("services")}
+        // onMouseLeave={hideSections}
       >
         <h2 style={{ color: "gold", paddingLeft: '20px', fontFamily: 'Montserrat,sans-serif' }} >Services</h2>
         <p style={{ padding: '1px 20px 20px 20px', fontFamily: 'Montserrat,sans-serif', fontSize: '15px' }}>Our array of service offerings is tailored to adapt to the evolving needs of our customers in today's dynamic world. From crafting strategic plans to delivering tangible results, our service portfolio covers a comprehensive spectrum.</p>

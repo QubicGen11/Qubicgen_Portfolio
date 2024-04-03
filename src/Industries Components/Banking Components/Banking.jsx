@@ -13,10 +13,10 @@ const Banking = () => {
     
     <>
     <SEO
-        title="QubiGen Banking - Empowering Financial Success"
+        title="QubiGen - Banking"
         description="QubiGen Banking, located in Anantapur, Andhra Pradesh, India, is committed to empowering financial success through innovative banking solutions. Join us to experience excellence in banking services where your financial goals become a reality."
         type="website"
-        name="QubiGen Banking"
+        name="QubiGen-Banking"
         image="https://example.com/new-og-image.jpg"
         url="https://www.qubicgen.com/banking"
         keywords="QubiGen Banking, Anantapur, Andhra Pradesh, India, finance, banking solutions, financial success, excellence in banking, innovative banking"

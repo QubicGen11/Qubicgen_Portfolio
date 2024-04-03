@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Parallax } from 'react-parallax';
 import new4 from '../assets/new5.jpg';
+import SEO from '../SEO';
 
 
 const Careerjobsx = () => {
@@ -179,7 +180,16 @@ const Careerjobsx = () => {
     return (
 
         <>
-
+    <SEO
+        title="QubiGen - Careersjobs"
+        description="Connect with QubiGen and get in touch with our team. Learn how you can reach out to us for inquiries, collaborations, and partnerships. We are here to support your business needs."
+        type="website"
+        name="QubiGen Careers"
+        image="https://example.com/contact-og-image.jpg"
+        url="https://www.qubicgen.com/Careerjobs"
+        keywords="QubiGen, Contact Us, inquiries, collaborations, partnerships, support , jobs , Software , Salaries , Employee"
+      />
+    
             <Navbar />
             <div className='bg-black'>
                 <div className="careeesfull bg-black" data-aos="fade-right">

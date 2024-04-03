@@ -39,6 +39,7 @@ import Admin from "./Admin/Admin";
 import Careerjobsx from "./Career jobs Components/Careerjobsx";
 import Terms from "./Terms and Conditions/Terms";
 import Privacy from "./Privacy/Privacy";
+import Swiper from './HomeComponents/Swiper';
 
 
 
@@ -83,6 +84,7 @@ const App = () => {
           <Route path="/Careerjobs" element={<Careerjobsx/>} />
           <Route path="/terms" element={<Terms/>} />
           <Route path="/privacy" element={<Privacy/>} />
+          <Route path="/swiper" element={<Swiper/>} />
          
         </Routes>
       </Router>
