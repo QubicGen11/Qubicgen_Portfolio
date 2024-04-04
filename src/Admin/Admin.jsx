@@ -28,9 +28,6 @@ function Admin() {
     fetchData();
   }, []);
 
-  console.log(data);
- 
-
   const handleDataTypeChange = (event) => {
     setSelectedDataType(event.target.value);
   };
@@ -89,14 +86,16 @@ function Admin() {
           </div>
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
-          <div className="border shadow-sm rounded-lg">
+          <div className="border shadow-sm rounded-lg bg-white">
             <Table>
               <TableHeader>
                 <TableRow>
                   <TableHead>Name</TableHead>
                   <TableHead>Email</TableHead>
                   <TableHead>Phone Number</TableHead>
-                  <TableHead>Location</TableHead>
+                  <TableHead>Job title</TableHead>
+                  <TableHead>Company</TableHead>
+
                   <TableHead> Message</TableHead>
                 </TableRow>
               </TableHeader>
@@ -106,7 +105,8 @@ function Admin() {
                <TableCell>{item.firstName && item.lastName ? `${item.firstName} ${item.lastName}` : item.fullName}</TableCell>
                 <TableCell>{item.email}</TableCell>
                 <TableCell>{item.phone}</TableCell>
-                <TableCell>{item.address}</TableCell>
+                <TableCell>{item.jobTitle}</TableCell>
+                <TableCell>{item.company}</TableCell>
                 <TableCell>{item.message ? `${item.message} ` : item.details}</TableCell>
               </TableRow>
             ))}
