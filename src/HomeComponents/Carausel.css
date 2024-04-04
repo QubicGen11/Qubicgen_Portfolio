@@ -42,6 +42,8 @@
   text-transform: uppercase;
   animation: fadeInLeft 2s ease-in-out ; 
 }
+
+
 .carousel-caption0 h1 {
   color: gold;
   text-align: left;
@@ -85,8 +87,10 @@
   transition: transform 0.5s ease; 
 }
 
+
+
 .carousel-caption:hover {
-  transform: scale(1.03);
+  /* transform: scale(1.03); */
 }
 .carousel-caption2 {
   color: gold;
@@ -98,7 +102,7 @@
 }
 
 .carousel-caption2:hover {
-  transform: scale(1.03);
+  /* transform: scale(1.03); */
 }
 .carousel-caption4 {
   color: gold;
@@ -110,7 +114,7 @@
 }
 
 .carousel-caption4:hover {
-  transform: scale(1.03);
+  /* transform: scale(1.03); */
 }
 
 

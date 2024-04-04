@@ -144,7 +144,7 @@ const Queries = () => {
         ></textarea>
     </div>
     <div className="px-4 pb-2 pt-4 w-full flex justify-center">
-        <button type="submit" className=" uppercase block w-36 h-[50px] p-4 text-lg rounded-full bg-indigo-500 hover:bg-yellow-400 focus:outline-none relative ">
+        <button type="submit" className=" uppercase block w-36 h-[50px] p-4 text-lg rounded-full bg-amber-500 hover:bg-yellow-400 focus:outline-none relative ">
             {loading ? (
                 <span className="animate-spin absolute inset-0 flex justify-center items-center">
                     <svg className="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

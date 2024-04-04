@@ -164,12 +164,7 @@ const Contact = () => {
                       </>
                     ) : (
                       <>
-                        <span>S</span>
-                        <span>U</span>
-                        <span>B</span>
-                        <span>M</span>
-                        <span>I</span>
-                        <span>T</span>
+                    <span>SUBMIT</span>
                       </>
                     )}
                   </div>

@@ -23,8 +23,8 @@ const Carausel = () => {
             <a href="https://qubic-gen.blogspot.com/2024/04/unlock-your-thoughts-empowering-minds.html" target='_blank'>
             <div className="w-full flex  cursor-pointer text-xs mt-2 rounded-lg ">
   <div
-    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6  dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
-  >
+    className="relative inline-flex items-center justify-start py-2 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6  dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
+    style={{border:'solid 2px white'}}>
     <span
       className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out group-hover:h-full"
     ></span>
@@ -36,7 +36,7 @@ const Carausel = () => {
         viewBox="0 0 24 24"
         stroke="currentColor"
         fill="none"
-        className="w-5 h-5 text-green-400"
+        className="w-5 h-5 text-yellow-500"
       >
         <path
           d="M14 5l7 7m0 0l-7 7m7-7H3"
@@ -54,7 +54,7 @@ const Carausel = () => {
         viewBox="0 0 24 24"
         stroke="currentColor"
         fill="none"
-        className="w-5 h-5 text-green-400"
+        className="w-5 h-5 text-yellow-500"
       >
         <path
           d="M14 5l7 7m0 0l-7 7m7-7H3"
@@ -83,57 +83,57 @@ const Carausel = () => {
             <h1 style={{ color: 'white' }}>your trusted it partner </h1>
             <h1>for reliability and excellence.</h1>
             
-            <a href="https://qubic-gen.blogspot.com/2024/04/your-trusted-it-partner-delivering.html" target='_blank'>
-
-            <div className="w-full flex  cursor-pointer text-xs mt-2 rounded-lg ">
-  <div
-    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6  dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
-  >
-    <span
-      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out group-hover:h-full"
-    ></span>
-    <span
-      className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12"
+            <a
+  href="https://qubic-gen.blogspot.com/2024/04/your-trusted-it-partner-delivering.html"
+  target="_blank"
+>
+  <div className="w-full flex cursor-pointer text-xs mt-2 rounded-lg">
+    <div
+      className="relative inline-flex items-center justify-start py-2 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 dark:text-white dark:hover:text-gray-200 dark:shadow-none group animate-fade-in-left"
+      style={{ border: 'solid 2px white' }}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        fill="none"
-        className="w-5 h-5 text-green-400"
-      >
-        <path
-          d="M14 5l7 7m0 0l-7 7m7-7H3"
-          stroke-width="2"
-          stroke-linejoin="round"
-          stroke-linecap="round"
-        ></path>
-      </svg>
-    </span>
-    <span
-      className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        fill="none"
-        className="w-5 h-5 text-green-400"
-      >
-        <path
-          d="M14 5l7 7m0 0l-7 7m7-7H3"
-          stroke-width="2"
-          stroke-linejoin="round"
-          stroke-linecap="round"
-        ></path>
-      </svg>
-    </span>
-    <span
-      className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200"
-      >Know more</span
-    >
+      <span
+        className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out group-hover:h-full"
+      ></span>
+      <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          fill="none"
+          className="w-5 h-5 text-yellow-500"
+        >
+          <path
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+            strokeWidth="2"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          ></path>
+        </svg>
+      </span>
+      <span className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          fill="none"
+          className="w-5 h-5 text-yellow-500"
+        >
+          <path
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+            strokeWidth="2"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          ></path>
+        </svg>
+      </span>
+      <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200 font-bolder text-xs">
+        Know more
+      </span>
+    </div>
   </div>
-</div>         </a>
+</a>
+
 
     
 
@@ -149,8 +149,8 @@ const Carausel = () => {
 
             <div className="w-full flex  cursor-pointer text-xs mt-2 rounded-lg ">
   <div
-    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6  dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
-  >
+    className="relative inline-flex items-center justify-start py-2 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6  dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
+    style={{border:'solid 2px white'}}>
     <span
       className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out group-hover:h-full"
     ></span>
@@ -162,7 +162,7 @@ const Carausel = () => {
         viewBox="0 0 24 24"
         stroke="currentColor"
         fill="none"
-        className="w-5 h-5 text-green-400"
+        className="w-5 h-5 text-yellow-500"
       >
         <path
           d="M14 5l7 7m0 0l-7 7m7-7H3"
@@ -180,7 +180,7 @@ const Carausel = () => {
         viewBox="0 0 24 24"
         stroke="currentColor"
         fill="none"
-        className="w-5 h-5 text-green-400"
+        className="w-5 h-5 text-yellow-500"
       >
         <path
           d="M14 5l7 7m0 0l-7 7m7-7H3"
@@ -191,11 +191,12 @@ const Carausel = () => {
       </svg>
     </span>
     <span
-      className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200"
+      className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200 font-bolder text-xs"
       >Know more</span
     >
   </div>
-</div>            </Link>
+</div>
+           </Link>
 
 
           </div>
@@ -205,14 +206,14 @@ const Carausel = () => {
           <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1711617993/QubicGen/Home%20Page/Corossal/futuristic-5g-wireless-network-ai-robot-hand-tap-wifi-icon_1_nknhjd.jpg" id='slide4img' className="d-block w-100" alt="..." loading="lazy" />
           <div className="carousel-caption">
             <h1 style={{ color: 'white' }}>Automate.</h1>
-            <h1>Operate.</h1>
+            <h1>Operate.</h1> 
             <h1>Excel...</h1>
             <Link to="/rpa">
 
             <div className="w-full flex  cursor-pointer text-xs mt-2 rounded-lg ">
   <div
-    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6  dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
-  >
+    className="relative inline-flex items-center justify-start py-2 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6  dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
+    style={{border:'solid 2px white'}}>
     <span
       className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out group-hover:h-full"
     ></span>
@@ -224,7 +225,7 @@ const Carausel = () => {
         viewBox="0 0 24 24"
         stroke="currentColor"
         fill="none"
-        className="w-5 h-5 text-green-400"
+        className="w-5 h-5 text-yellow-500"
       >
         <path
           d="M14 5l7 7m0 0l-7 7m7-7H3"
@@ -242,7 +243,7 @@ const Carausel = () => {
         viewBox="0 0 24 24"
         stroke="currentColor"
         fill="none"
-        className="w-5 h-5 text-green-400"
+        className="w-5 h-5 text-yellow-500"
       >
         <path
           d="M14 5l7 7m0 0l-7 7m7-7H3"
@@ -253,11 +254,12 @@ const Carausel = () => {
       </svg>
     </span>
     <span
-      className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200"
+      className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200 font-bolder text-xs"
       >Know more</span
     >
   </div>
-</div>           </Link>
+</div>
+       </Link>
 
           </div>
         </div>
