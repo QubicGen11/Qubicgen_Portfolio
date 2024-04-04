@@ -20,13 +20,13 @@ const Carausel = () => {
             <h1 style={{ color: 'white' }}>Unlock</h1>
             <h1 style={{ color: 'white' }}>Your </h1>
             <h1>Thoughts.</h1>
-            <Link to="https://qubic-gen.blogspot.com/2024/04/unlock-your-thoughts-empowering-minds.html">
-            <div className="w-full flex  cursor-pointer text-xs mt-2 ">
+            <a href="https://qubic-gen.blogspot.com/2024/04/unlock-your-thoughts-empowering-minds.html" target='_blank'>
+            <div className="w-full flex  cursor-pointer text-xs mt-2 rounded-lg ">
   <div
-    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
+    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6  dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
   >
     <span
-      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"
+      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out group-hover:h-full"
     ></span>
     <span
       className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12"
@@ -65,7 +65,7 @@ const Carausel = () => {
       </svg>
     </span>
     <span
-      className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200"
+      className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200 font-bolder text-xs"
       >Know more</span
     >
   </div>
@@ -73,7 +73,7 @@ const Carausel = () => {
 
        
 
-            </Link>
+            </a>
             
           </div>
         </div>
@@ -83,14 +83,14 @@ const Carausel = () => {
             <h1 style={{ color: 'white' }}>your trusted it partner </h1>
             <h1>for reliability and excellence.</h1>
             
-            <Link to="https://qubic-gen.blogspot.com/2024/04/your-trusted-it-partner-delivering.html">
+            <a href="https://qubic-gen.blogspot.com/2024/04/your-trusted-it-partner-delivering.html" target='_blank'>
 
-            <div className="w-full flex  cursor-pointer text-xs mt-2 ">
+            <div className="w-full flex  cursor-pointer text-xs mt-2 rounded-lg ">
   <div
-    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
+    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6  dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
   >
     <span
-      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"
+      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out group-hover:h-full"
     ></span>
     <span
       className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12"
@@ -133,7 +133,7 @@ const Carausel = () => {
       >Know more</span
     >
   </div>
-</div>            </Link>
+</div>         </a>
 
     
 
@@ -147,12 +147,12 @@ const Carausel = () => {
             <h1>for all your business ideas. </h1>
             <Link to="/businessconsulting">
 
-            <div className="w-full flex  cursor-pointer text-xs mt-2 ">
+            <div className="w-full flex  cursor-pointer text-xs mt-2 rounded-lg ">
   <div
-    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
+    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6  dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
   >
     <span
-      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"
+      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out group-hover:h-full"
     ></span>
     <span
       className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12"
@@ -209,12 +209,12 @@ const Carausel = () => {
             <h1>Excel...</h1>
             <Link to="/rpa">
 
-            <div className="w-full flex  cursor-pointer text-xs mt-2 ">
+            <div className="w-full flex  cursor-pointer text-xs mt-2 rounded-lg ">
   <div
-    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
+    className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6  dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
   >
     <span
-      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"
+      className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out group-hover:h-full"
     ></span>
     <span
       className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12"
@@ -257,18 +257,18 @@ const Carausel = () => {
       >Know more</span
     >
   </div>
-</div>            </Link>
+</div>           </Link>
 
           </div>
         </div>
       </div>
 
 <div className="carauselbtnss ">
-<button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+<button className="carousel-control-prev " type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span className="carousel-control-prev-icon" aria-hidden="true" />
         <span className="visually-hidden">Previous</span>
       </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <button className="carousel-control-next " type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
         <span className="carousel-control-next-icon" aria-hidden="true" />
         <span className="visually-hidden">Next</span>
       </button>

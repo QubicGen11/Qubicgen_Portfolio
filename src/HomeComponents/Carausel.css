@@ -38,14 +38,14 @@
 .carousel-caption h1 {
   color: gold;
   text-align: left;
-  font-size: 70px;
+  font-size: 60px;
   text-transform: uppercase;
   animation: fadeInLeft 2s ease-in-out ; 
 }
 .carousel-caption0 h1 {
   color: gold;
   text-align: left;
-  font-size: 70px;
+  font-size: 60px;
   text-transform: uppercase;
   animation: fadeInLeft 2s ease-in-out ; 
 }
@@ -86,7 +86,7 @@
 }
 
 .carousel-caption:hover {
-  transform: scale(1.06);
+  transform: scale(1.03);
 }
 .carousel-caption2 {
   color: gold;
@@ -98,7 +98,7 @@
 }
 
 .carousel-caption2:hover {
-  transform: scale(1.06);
+  transform: scale(1.03);
 }
 .carousel-caption4 {
   color: gold;
@@ -110,13 +110,13 @@
 }
 
 .carousel-caption4:hover {
-  transform: scale(1.06);
+  transform: scale(1.03);
 }
 
 
 #btnsofcarausel{
   position: absolute;
-  top: 600px;
+  top: 550px;
 }
 
 #carouselExampleIndicators {
