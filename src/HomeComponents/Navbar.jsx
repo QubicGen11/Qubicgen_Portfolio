@@ -72,8 +72,8 @@ navbar.style.backgroundColor = newColor;
   return (
     <>
      <div className="head" style={{ position: "sticky", top: 0, zIndex: 1000, }}>
-        <div className="navli hover:cursor-auto">
-         <Link to="/"><img src={mainlogo} id="mainlogo" alt="" className="navli hover:cursor-auto" /></Link> 
+        <div className="navli hover:cursor-auto ">
+         <Link to="/"><img src={mainlogo} id="mainlogo" alt="" className='hover:cursor-pointer' /></Link> 
 
        
         </div>

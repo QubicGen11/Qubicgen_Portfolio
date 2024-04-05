@@ -102,9 +102,9 @@ const Bankinglist = () => {
 
       <div className="banking-main-list" >
       <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
-  <Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
-  <Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
-  <Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
+  <Link className='hover:cursor-pointer' to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
+  <Link className='hover:cursor-pointer' to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
+  <Link className='hover:cursor-pointer' to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
 </nav>
 
       </div>
@@ -125,7 +125,7 @@ const Bankinglist = () => {
 
           <div className="col-md-7" bis_skin_checked="1">
           <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Bringing forth the next era of healthcare delivery.</h1>
-            <p className="lead" id='leadtext'>We collaborate with healthcare and life sciences enterprises worldwide to redefine their operational processes and enhance patient experiences significantly. Leveraging deep industry insights and technological proficiency, we continuously innovate to develop transformative solutions that revolutionize our clients' business methodologies.</p>
+            <p className="lead" id='leadtext'>We collaborate with healthcare and life sciences enterprises worldwide to redefine their operational processes and enhance patient experiences significantly. Leveraging deep industry insights and technological proficiency, we continuously innovate to develop transformative solutions that revolutionize our client's business methodologies.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
           <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709623443/QubicGen/medical-banner-with-doctor-working-laptop_23-2149611211_mi7vnl.jpg" alt="" />          </div>

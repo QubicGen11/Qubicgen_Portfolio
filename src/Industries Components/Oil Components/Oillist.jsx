@@ -25,7 +25,7 @@ const Oillist = () => {
   const[OilServe,setOilServe]=useState([
     {
       title: 'Upstream',
-      description: "In Upstream, Tech Mahindra's offerings thrive through collaboration among domain, business and IT experts, creating a unique and effective approach."
+      description: "Our software solutions are engineered to drive innovation, enhance efficiency, and optimize operations. By integrating our innovative software services, we help our clients achieve operational excellence and navigate the complexities of the Upstream industry."
     },
     {
       title: 'Downstream',
@@ -117,10 +117,10 @@ const Oillist = () => {
 
     <div className="banking-main-list" >
     <nav style={{ position: isNavFixed ? 'fixed' : 'relative', top: isNavFixed ? 70 : 0, zIndex: 1, width: '98vw', backgroundColor: "rgba(0, 0, 0, 0.4)", backdropFilter: "blur(20px)" }}>
-<Link to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
-<Link to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Who we serve</li></Link>
-<Link to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
-<Link to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
+<Link className='hover:cursor-pointer' to="overview" spy={true} smooth={true} offset={-150} duration={200}><li>Overview</li></Link>
+<Link className='hover:cursor-pointer' to="whoweserve" spy={true} smooth={true} offset={-150} duration={200}><li>Who we serve</li></Link>
+<Link className='hover:cursor-pointer' to="serviceofferings" spy={true} smooth={true} offset={-180} duration={200}><li>Service Offerings</li></Link>
+<Link className='hover:cursor-pointer' to="querie" spy={true} smooth={true} offset={-200} duration={200}><li>Queries</li></Link>
 </nav>
 
     </div>
