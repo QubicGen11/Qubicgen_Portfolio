@@ -17,28 +17,23 @@ const Getintouch = () => {
         message: ''
     });
     const [isLoading, setIsLoading] = useState(false);
-    const [successMessage, setSuccessMessage] = useState('');
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
 
-    let emailValidated = false;
-    const validateEmail = (e) => {
-        if (!emailValidated) {
-            const emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-            const isValidEmail = emailPattern.test(e.target.value);
-            if (!isValidEmail) {
-                alert('Please enter a valid email address.');
-                // Optionally, you can reset the value or set an error state
-            }
-            // Set flag to true to indicate validation has been performed
-            emailValidated = true;
-        }
+    const validateEmail = (email) => {
+        const emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+        return emailPattern.test(email);
     };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        if (name === 'email') {
+            if (!validateEmail(value)) {
+                toast.error('Please enter a valid email address.');
+            }
+        }
         setFormData({
             ...formData,
             [name]: value
@@ -47,32 +42,47 @@ const Getintouch = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const missingFields = [];
+  
+        // Check each required field individually
+        if (!formData.fullName) {
+            missingFields.push('fullName');
+        }
+        if (!formData.email) {
+            missingFields.push('Email');
+        }
+        if (!formData.message) {
+            missingFields.push('message');
+        }
+
+        // If any required field is missing, display an error toast
+        if (missingFields.length > 0) {
+            toast.error(`Please fill in the following required fields: ${missingFields.join(', ')}.`);
+            return; // Return early, preventing the form from proceeding
+        }
+
         setIsLoading(true);
         try {
-            await axios.post('https://api.qubicgen.com/api/getInTouch', formData);
-            // Reset form after successful submission
+            const response = await axios.post('https://api.qubicgen.com/api/queries', formData);
+            console.log('Form data submitted:', response.data);
             setFormData({
-                fullName: '',
+                fullName:'',
                 email: '',
                 message: ''
             });
-            setSuccessMessage('Your message has been sent successfully');
+            toast.success('Your message has been sent successfully');
             setIsLoading(false);
-            setTimeout(() => {
-              setSuccessMessage('');
-            }, 4000); // Remove the message after 3 seconds
-            toast.success('Your message has been sent successfully'); // Use toast for success notification
-          } catch (error) {
+        } catch (error) {
             setIsLoading(false);
-            toast.error("Something went wrong")
+            toast.error('Please try again');
             console.error('Error submitting form:', error);
-          }
-        };
-    
+        }
+    };
 
     return (
         <div>
-            <ToastContainer /> {/* Add ToastContainer here */}
+            <ToastContainer />
             <div className="getintouch" data-aos="fade-right">
                 <div className="contact-page">
                     <div className="frame-a" />
@@ -106,6 +116,7 @@ const Getintouch = () => {
                                                 placeholder="Name"
                                                 type="text"
                                                 value={formData.fullName}
+                                                required
                                             />
                                         </div>
                                         <div className="yourname-youremail1">
@@ -138,9 +149,6 @@ const Getintouch = () => {
                                 <button className="send-button" onClick={handleSubmit} disabled={isLoading}> 
                                     {isLoading ? 'Submitting...' : 'Submit'}
                                 </button>
-                                    
-                                    {successMessage && <h1>{successMessage}</h1>}
-                                    
                             </div>
                         </div>
                     </section>

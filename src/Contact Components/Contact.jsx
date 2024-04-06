@@ -54,22 +54,55 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+  
+    const missingFields = [];
+  
+    // Check each required field individually
+    if (!formData.fullName) {
+      missingFields.push('Full Name');
+    }
+    if (!formData.email) {
+      missingFields.push('Email');
+    }
+    if (!formData.phone) {
+      missingFields.push('Phone');
+    }
+    if (!formData.message) {
+      missingFields.push('Comments');
+    }
+    if (formData.type === 'student' && !formData.course) {
+      missingFields.push('Course');
+    }
+  
+    // If any field is missing, display an alert with the names of missing fields
+    if (missingFields.length > 0) {
+      toast.error(`Please fill in the following required fields: ${missingFields.join(', ')}.`);
+      setIsLoading(false);
+      return; // Return early, preventing the form from proceeding
+    }
+  
     try {
       const response = await axios.post('https://api.qubicgen.com/api/contact', formData);
-      console.log('Form data submitted:', response.data);
-      clearFormData(); // Clear form data after successful submission
-      setSuccessMessage('Your message has been sent successfully');
-      setIsLoading(false);
-      setTimeout(() => {
-        setSuccessMessage('');
-      }, 4000); // Remove the message after 4 seconds
-      toast.success('Your message has been sent successfully'); // Use toast for success notification
+  
+      if (response.data.message === 'Duplicate entry') {
+        toast.error('This data already exists in the database.');
+      } else {
+        console.log('Form data submitted:', response.data);
+        clearFormData(); // Clear form data after successful submission
+        setSuccessMessage('Your message has been sent successfully');
+        setIsLoading(false);
+        setTimeout(() => {
+          setSuccessMessage('');
+        }, 4000); // Remove the message after 4 seconds
+        toast.success('Your message has been sent successfully'); // Use toast for success notification
+      }
     } catch (error) {
       setIsLoading(false);
-      toast.error("Something went wrong")
+      toast.error('Something went wrong');
       console.error('Error submitting form:', error);
     }
   };
+  
 
   useEffect(() => {
     const sign_in_btn = document.querySelector('#sign-in-btn');
@@ -123,11 +156,11 @@ const Contact = () => {
                 </div>
                 <div className="input-field">
                   <i className="fas fa-envelope" />
-                  <input type="email" placeholder="Email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={handleChange} value={formData.email} />
+                  <input type="email" placeholder="Email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={handleChange} value={formData.email} />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-phone" />
-                  <input type="tel" placeholder="Enter 10 digit phone number" name="phone" onChange={handleChange} pattern='[0-9]{10}' required value={formData.phone} />
+                  <input type="tel" placeholder="Enter 10 digit phone number" name="phone" onChange={handleChange} pattern='[0-9]{10}'  value={formData.phone} />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-briefcase" />

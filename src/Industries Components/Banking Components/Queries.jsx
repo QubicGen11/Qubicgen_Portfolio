@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Typewriter from 'typewriter-effect';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Queries = () => {
-  const [typewriterInitialized, setTypewriterInitialized] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -27,6 +25,34 @@ const Queries = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Array to store names of missing fields
+    const missingFields = [];
+  
+    // Check each required field individually
+    if (!formData.firstName) {
+        missingFields.push('First Name');
+    }
+    if (!formData.lastName) {
+        missingFields.push('Last Name');
+    }
+    if (!formData.email) {
+        missingFields.push('Email');
+    }
+
+    if (!formData.phone) {
+        missingFields.push('Phone');
+    }
+    if (!formData.message) {
+        missingFields.push('Message');
+    }
+  
+    // If any field is missing, display an alert with the names of missing fields
+    if (missingFields.length > 0) {
+        toast.error(`Please fill in the following required fields: ${missingFields.join(', ')}.`);
+        return; // Return early, preventing the form from proceeding
+    }
+
     setLoading(true);
     try {
       const response = await axios.post('https://api.qubicgen.com/api/queries', formData);
@@ -68,19 +94,7 @@ const Queries = () => {
             </div>
             <div className="w-full py-6 z-20">
               <h1 className="my-6" style={{fontSize:'50px',fontWeight:'bolder',fontFamily:"'Montserrat', 'sans-serif'"}}>
-                {typewriterInitialized ? (
-                  <span>Any <span className="text-[#ffd700]">Queries?</span></span>
-                ) : (
-                  <Typewriter
-                    options={{
-                      autoStart: true,
-                      loop: false,
-                      delay: 10,
-                      strings: ['Any <span class="text-[#ffd700]">Queries?</span>'],
-                    }}
-                   
-                  />
-                )}
+                <p className='text-3xl md:text-4xl lg:text-5xl'>Any <span className='text-yellow-400'>Queires?</span></p>
               </h1>
               <form onSubmit={handleSubmit} className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto flex flex-wrap  ">
                 <div className="pb-2 pt-4 w-full md:w-1/2">
@@ -102,10 +116,10 @@ const Queries = () => {
                   <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" className="block w-full p-4 text-base rounded-sm bg-black" required style={{ borderRadius: '20px', height: '50px' }} />
                 </div>
                 <div className="pb-2 pt-4 w-full md:w-1/2">
-                  <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleChange} placeholder="Job Title" className="block w-full p-4 text-base rounded-sm bg-black" required style={{ borderRadius: '20px', height: '50px' }} />
+                  <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleChange} placeholder="Job Title" className="block w-full p-4 text-base rounded-sm bg-black" style={{ borderRadius: '20px', height: '50px' }} />
                 </div>
                 <div className="pb-2 pt-4 w-full md:w-1/2">
-                  <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Company / Organisation" className="block w-full p-4 text-base rounded-sm bg-black" required style={{ borderRadius: '20px', height: '50px' }} />
+                  <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Company / Organisation" className="block w-full p-4 text-base rounded-sm bg-black" style={{ borderRadius: '20px', height: '50px' }} />
                 </div>
                 <div className="pb-2 pt-4 w-full md:w-2/2">
                   <input
