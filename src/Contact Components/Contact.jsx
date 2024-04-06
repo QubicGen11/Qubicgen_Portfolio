@@ -6,21 +6,42 @@ import Footer from '../HomeComponents/Footer';
 import Typewriter from 'typewriter-effect';
 import 'intl-tel-input/build/css/intlTelInput.css';
 import SEO from '../SEO';
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState('project');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     jobTitle: '',
     course: '',
     company: '',
-    phone:'',
+    phone: '',
     message: '',
     type: ''
   });
   const [successMessage, setSuccessMessage] = useState('');
+
+  // Function to clear form data
+  const clearFormData = () => {
+    setFormData({
+      fullName: '',
+      email: '',
+      jobTitle: '',
+      course: '',
+      company: '',
+      phone: '',
+      message: '',
+      type: ''
+    });
+  };
+
+  // Function to handle form switch
+  const handleFormSwitch = (type) => {
+    clearFormData(); // Clear form data when switching forms
+    setFormData(prevState => ({ ...prevState, type })); // Set the type of form
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,46 +50,23 @@ const Contact = () => {
       [name]: value
     });
   };
-  
-  const handleClick = (tab) => {
-    setActiveTab(tab); 
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const payload = {
-      fullName: formData.fullName,
-      email: formData.email,
-      jobTitle: formData.jobTitle,
-      course: formData.course,
-      company: formData.company,
-      phone: formData.phone,
-      message: formData.message,
-      type: activeTab
-    };
     setIsLoading(true);
     try {
-      setIsLoading(true);
-      const response = await axios.post('https://api.qubicgen.com/api/contact', payload);
+      const response = await axios.post('https://api.qubicgen.com/api/contact', formData);
       console.log('Form data submitted:', response.data);
-      setFormData({
-        fullName: '',
-        email: '',
-        jobTitle: '',
-        course: '',
-        phone:'',
-        message: '',
-        company: '',
-        type: ''
-      });
+      clearFormData(); // Clear form data after successful submission
       setSuccessMessage('Your message has been sent successfully');
       setIsLoading(false);
       setTimeout(() => {
         setSuccessMessage('');
       }, 4000); // Remove the message after 4 seconds
+      toast.success('Your message has been sent successfully'); // Use toast for success notification
     } catch (error) {
       setIsLoading(false);
-      alert('Something went wrong');
+      toast.error("Something went wrong")
       console.error('Error submitting form:', error);
     }
   };
@@ -97,7 +95,7 @@ const Contact = () => {
         url="https://www.qubicgen.com/contact"
         keywords="QubiGen, Contact Us, inquiries, collaborations, partnerships, support"
       />
-
+      <ToastContainer /> {/* Add ToastContainer here */}
       <Navbar />
       <div className="boxy" data-aos="fade-right">
         <div className="containerone">
@@ -123,16 +121,14 @@ const Contact = () => {
                   <i className="fas fa-user" />
                   <input type="text" placeholder="Enter Full Name" name="fullName" onChange={handleChange} value={formData.fullName} />
                 </div>
-
                 <div className="input-field">
                   <i className="fas fa-envelope" />
                   <input type="email" placeholder="Email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={handleChange} value={formData.email} />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-phone" />
-                  <input type="tel" placeholder="Enter 1O digit phone number" name="phone" onChange={handleChange} pattern='[0-9]{10}' required value={formData.phone} />
+                  <input type="tel" placeholder="Enter 10 digit phone number" name="phone" onChange={handleChange} pattern='[0-9]{10}' required value={formData.phone} />
                 </div>
-             
                 <div className="input-field">
                   <i className="fas fa-briefcase" />
                   <input type="text" placeholder="Job title" name="jobTitle" onChange={handleChange} value={formData.jobTitle} />
@@ -142,10 +138,9 @@ const Contact = () => {
                   <input type="text" placeholder="Enter Company" name="company" onChange={handleChange} value={formData.company} />
                 </div>
                 <div className="input-field" style={{ height: '20vh' }}>
-                  <i className="fas fa-comment  flex justify-center items-center" />
+                  <i className="fas fa-comment" />
                   <input type="text" placeholder="Comments" name="message" onChange={handleChange} value={formData.message} />
                 </div>
-
                 <button className="btn-53" style={{ marginTop: '10px' }}>
                   <div className="original"> {isLoading ? 'Submitting...' : 'Submit'}</div>
                   <div className="letters">
@@ -165,7 +160,7 @@ const Contact = () => {
                       </>
                     ) : (
                       <>
-                    <span>SUBMIT</span>
+                        <span>SUBMIT</span>
                       </>
                     )}
                   </div>
@@ -194,7 +189,7 @@ const Contact = () => {
                 </div>
                 <div className="input-field">
                   <i className="fas fa-phone" />
-                  <input type="tel" placeholder="Enter 1O digit phone number" name="phone" onChange={handleChange} pattern='[0-9]{10}' required value={formData.phone} />
+                  <input type="tel" placeholder="Enter 10 digit phone number" name="phone" onChange={handleChange} pattern='[0-9]{10}' required value={formData.phone} />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-envelope" />
@@ -215,16 +210,15 @@ const Contact = () => {
                     <option value="sap">SAP</option>
                     <option value="testing">Testing</option>
                   </select>
-
                 </div>
                 <div className="input-field" style={{ height: '20vh' }}>
-                  <i className="fas fa-comment flex justify-center items-center" />
+                  <i className="fas fa-comment" />
                   <input type="text" placeholder="Comments" name="message" onChange={handleChange} value={formData.message} />
                 </div>
                 <button className="btn-53" style={{ marginTop: '10px' }}>
                   <div className="original"> {isLoading ? 'Submitting...' : 'Submit'}</div>
                   <div className="letters">
-                  {isLoading ? (
+                    {isLoading ? (
                       <>
                         <span>S</span>
                         <span>U</span>
@@ -258,7 +252,7 @@ const Contact = () => {
             <div className="panel left-panel">
               <div className="content" id="lookingproject">
                 <h3 style={{ fontSize: '45px' }}>Want to Learn Skills?</h3>
-                <button className="btnone" id="sign-up-btn" onClick={() => handleClick('student')} style={{ width: '170px', position: 'relative', left: '76px', height: '50px', marginTop: '30px' }}>
+                <button className="btnone" id="sign-up-btn" onClick={() => handleFormSwitch('student')} style={{ width: '170px', position: 'relative', left: '76px', height: '50px', marginTop: '30px' }}>
                   Student Form
                 </button>
               </div>
@@ -268,7 +262,7 @@ const Contact = () => {
                 <h3 style={{ fontSize: '45px' }} id="">
                   Looking for Project ?
                 </h3>
-                <button className="btnone" id="sign-in-btn"  onClick={() => handleClick('project')} style={{ width: '170px', position: 'relative', left: '140px', height: '50px' }}>
+                <button className="btnone" id="sign-in-btn" onClick={() => handleFormSwitch('project')} style={{ width: '170px', position: 'relative', left: '140px', height: '50px' }}>
                   Project Form
                 </button>
               </div>

@@ -5,6 +5,9 @@ import vectorgetin from '../assets/Getintouch/vector-186.svg';
 import mailgetin from '../assets/Getintouch/mail@2x.png';
 import keyboardgetin from '../assets/Getintouch/keyboard@2x.png';
 import AOS from 'aos';
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css';
+
 import 'aos/dist/aos.css';
 
 const Getintouch = () => {
@@ -58,15 +61,18 @@ const Getintouch = () => {
             setTimeout(() => {
               setSuccessMessage('');
             }, 4000); // Remove the message after 3 seconds
+            toast.success('Your message has been sent successfully'); // Use toast for success notification
           } catch (error) {
             setIsLoading(false);
-            alert('Something went wrong');
+            toast.error("Something went wrong")
             console.error('Error submitting form:', error);
           }
         };
+    
 
     return (
         <div>
+            <ToastContainer /> {/* Add ToastContainer here */}
             <div className="getintouch" data-aos="fade-right">
                 <div className="contact-page">
                     <div className="frame-a" />
@@ -132,7 +138,9 @@ const Getintouch = () => {
                                 <button className="send-button" onClick={handleSubmit} disabled={isLoading}> 
                                     {isLoading ? 'Submitting...' : 'Submit'}
                                 </button>
+                                    
                                     {successMessage && <h1>{successMessage}</h1>}
+                                    
                             </div>
                         </div>
                     </section>

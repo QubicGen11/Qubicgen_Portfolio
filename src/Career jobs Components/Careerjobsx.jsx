@@ -8,6 +8,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Parallax } from 'react-parallax';
 import new4 from '../assets/new5.jpg';
 import SEO from '../SEO';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Careerjobsx = () => {
@@ -126,8 +129,79 @@ const Careerjobsx = () => {
     }, []);
   
     const handleNext = () => {
+      // Array to store names of missing fields
+      const missingFields = [];
+  
+      // Check each required field individually
+      if (!formData.fullName) {
+          missingFields.push('Full Name');
+      }
+      if (!formData.email) {
+          missingFields.push('Email');
+      }
+      if (!formData.phone) {
+          missingFields.push('Phone Number');
+      }
+      if (!formData.address) {
+          missingFields.push('Address');
+      }
+      if (!formData.education) {
+          missingFields.push('Education');
+      }
+      // if (!formData.resumeId) {
+      //     missingFields.push('Resume');
+      // }
+
+
+  
+      // If any field is missing, display an alert with the names of missing fields
+      if (missingFields.length > 0) {
+          alert(`Please fill in the following required fields: ${missingFields.join(', ')}.`);
+          return; // Return early, preventing the form from proceeding
+      }
+  
+      // Perform other validations if needed
+  
+      // If all validations pass, proceed to the next step
       setStep(step + 1);
-    };
+  };
+
+
+
+  const handleNextEducation = () => {
+    // Array to store names of missing fields
+    const missingFields = [];
+  
+    // Check each required field individually
+    if (!formData.education.level) {
+        missingFields.push('Highest Level of Education Attained');
+    }
+    if (!formData.education.institution) {
+        missingFields.push('Name of Institution');
+    }
+    if (!formData.education.stream) {
+        missingFields.push('Stream');
+    }
+    if (!formData.education.graduationYear) {
+        missingFields.push('Year of Graduation');
+    }
+    if (!formData.education.cgpaPercentage) {
+        missingFields.push('CGPA/Percentage');
+    }
+  
+    // If any field is missing, display an alert with the names of missing fields
+    if (missingFields.length > 0) {
+        alert(`Please fill in the following required fields: ${missingFields.join(', ')}.`);
+        return; // Return early, preventing the form from proceeding
+    }
+  
+    // Perform other validations if needed
+  
+    // If all validations pass, proceed to the next step
+    setStep(step + 1);
+  };
+  
+  
   
     const handleBack = () => {
       setStep(step - 1);
@@ -196,8 +270,16 @@ const Careerjobsx = () => {
     
     
         console.log(response.data);
-        alert('Job application submitted successfully!');
-        window.location.reload();
+        toast.success('Job application submitted successfully!', {
+          onClose: () => {
+            // Delay the closure of the message by 3 seconds
+            setTimeout(() => {
+              // Close the message after 3 seconds
+              toast.dismiss();
+            }, 3000);
+          }
+        });
+              window.location.reload();
       } catch (error) {
         console.error(error);
       }finally {
@@ -212,6 +294,7 @@ const Careerjobsx = () => {
     return (
 
         <>
+         <ToastContainer />
     <SEO
         title="QubiGen - Careersjobs"
         description="Connect with QubiGen and get in touch with our team. Learn how you can reach out to us for inquiries, collaborations, and partnerships. We are here to support your business needs."
@@ -330,33 +413,34 @@ const Careerjobsx = () => {
           </div>
         </div>
                         )}
-                         {step === 2 && (
-        <div>
-          <div className="modal-header">
-            <h1 className="modal-title fs-5 my-3 text-white z-30" id="staticBackdropLabel">{selectedJobRole} Application</h1>
-            <button className='btn-close z-30' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>
-          </div>
-          <div className="modal-body">
-            <div className="flex flex-col items-center justify-center h-screen">
-              <div className="w-full max-w-md rounded-lg shadow-md p-6 ">
-                <h2 className="text-2xl font-bold text-white mb-4">Education</h2>
-                <form className="flex flex-col gap-6" onSubmit={handleSubmit} encType="multipart/form-data">
-                  {/* Education Inputs */}
-                  <input type="text" name="education[level]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Highest Level of Education Attained*" value={formData.education.level} onChange={handleInputChange} />
-                  <input type="text" name="education[institution]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Name of Institution*" value={formData.education.institution} onChange={handleInputChange} />
-                  <input type="text" name="education[stream]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Stream*" value={formData.education.stream} onChange={handleInputChange} />
-                  <input type="text" name="education[graduationYear]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Year of Graduation*" value={formData.education.graduationYear} onChange={handleInputChange} />
-                  <input type="text" name="education[cgpaPercentage]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="CGPA/Percentage*" value={formData.education.cgpaPercentage} onChange={handleInputChange} />
-                  <div className="modal-footer">
-                    <button type="button" onClick={handleBack} className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
-                    <button type="button" onClick={handleNext} className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
-                  </div>
-                </form>
-              </div>
+        {step === 2 && (
+  <div>
+    <div className="modal-header">
+      <h1 className="modal-title fs-5 my-3 text-white z-30" id="staticBackdropLabel">{selectedJobRole} Application</h1>
+      <button className='btn-close z-30' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>
+    </div>
+    <div className="modal-body">
+      <div className="flex flex-col items-center justify-center h-screen">
+        <div className="w-full max-w-md rounded-lg shadow-md p-6 ">
+          <h2 className="text-2xl font-bold text-white mb-4">Education</h2>
+          <form className="flex flex-col gap-6" onSubmit={handleSubmit} encType="multipart/form-data">
+            {/* Education Inputs */}
+            <input type="text" name="education[level]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Highest Level of Education Attained*" value={formData.education.level} onChange={handleInputChange} />
+            <input type="text" name="education[institution]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Name of Institution*" value={formData.education.institution} onChange={handleInputChange} />
+            <input type="text" name="education[stream]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Stream*" value={formData.education.stream} onChange={handleInputChange} />
+            <input type="text" name="education[graduationYear]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Year of Graduation*" value={formData.education.graduationYear} onChange={handleInputChange} />
+            <input type="text" name="education[cgpaPercentage]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="CGPA/Percentage*" value={formData.education.cgpaPercentage} onChange={handleInputChange} />
+            <div className="modal-footer">
+              <button type="button" onClick={handleBack} className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
+              <button type="button" onClick={handleNextEducation} className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
             </div>
-          </div>
+          </form>
         </div>
-      )}
+      </div>
+    </div>
+  </div>
+)}
+
       {step === 3 && (
         <div>
           <div className="modal-header">
