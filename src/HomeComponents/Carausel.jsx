@@ -1,22 +1,99 @@
-import React from 'react'
-import "./Carausel.css"
-import { Link } from 'react-router-dom'
+import React, { useEffect, useRef } from 'react';
+import './Carausel.css';
+import { Carousel } from 'bootstrap'; // import Carousel from Bootstrap
+import { Link } from 'react-router-dom';
 
 const Carausel = () => {
-  
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    const carouselInstance = new Carousel(carouselRef.current, {
+      interval: 3000, // Set autoplay interval to 5 seconds
+      pause: false, // Disable pause on hover
+    });
+
+    // Start autoplay
+    carouselInstance.cycle();
+
+    // Handle mouse enter and leave events for the carousel caption
+    const carouselCaption = carouselRef.current.querySelector('#captiontrust');
+    const carouselCaption1 = carouselRef.current.querySelector('#captiontrust1');
+    const carouselCaption2 = carouselRef.current.querySelector('#captiontrust2');
+    const carouselCaption3 = carouselRef.current.querySelector('#captiontrust3');
+    carouselCaption.addEventListener('mouseenter', () => {
+      carouselInstance.pause();
+    });
+    carouselCaption.addEventListener('mouseleave', () => {
+      carouselInstance.cycle();
+    });
+    carouselCaption1.addEventListener('mouseenter', () => {
+      carouselInstance.pause();
+    });
+    carouselCaption1.addEventListener('mouseleave', () => {
+      carouselInstance.cycle();
+    });
+    carouselCaption2.addEventListener('mouseenter', () => {
+      carouselInstance.pause();
+    });
+    carouselCaption2.addEventListener('mouseleave', () => {
+      carouselInstance.cycle();
+    });
+    carouselCaption3.addEventListener('mouseenter', () => {
+      carouselInstance.pause();
+    });
+    carouselCaption3.addEventListener('mouseleave', () => {
+      carouselInstance.cycle();
+    });
+
+    return () => {
+      // Cleanup event listeners and carousel instance when the component unmounts
+      carouselCaption.removeEventListener('mouseenter', () => {
+        carouselInstance.pause();
+      });
+      carouselCaption.removeEventListener('mouseleave', () => {
+        carouselInstance.cycle();
+      });
+      carouselCaption1.removeEventListener('mouseenter', () => {
+        carouselInstance.pause();
+      });
+      carouselCaption1.removeEventListener('mouseleave', () => {
+        carouselInstance.cycle();
+      });
+      carouselCaption2.removeEventListener('mouseenter', () => {
+        carouselInstance.pause();
+      });
+      carouselCaption2.removeEventListener('mouseleave', () => {
+        carouselInstance.cycle();
+      });
+      carouselCaption3.removeEventListener('mouseenter', () => {
+        carouselInstance.pause();
+      });
+      carouselCaption3.removeEventListener('mouseleave', () => {
+        carouselInstance.cycle();
+      });
+      carouselInstance.dispose();
+    };
+  }, []); // Run this effect only once when the component mounts
+
   return (
     <div>
-    <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-indicators" id='btnsofcarausel'>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={0} className="active" aria-current="true" aria-label="Slide 1" />
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={1} aria-label="Slide 2" />
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={2} aria-label="Slide 3" />
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={3} aria-label="Slide 4" />
-      </div>
+      <div
+        id="carouselExampleIndicators"
+        className="carousel slide"
+        data-bs-ride="carousel"
+        ref={carouselRef}
+        tabIndex="0" // Make the carousel focusable to handle focus and blur events
+      >
+        <div className="carousel-indicators" id='btnsofcarausel'>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={0} className="active" aria-current="true" aria-label="Slide 1" />
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={1} aria-label="Slide 2" />
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={2} aria-label="Slide 3" />
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={3} aria-label="Slide 4" />
+        </div>
       <div className="carousel-inner">
-        <div className="carousel-item active" data-bs-interval="3000" >
+        <div className="carousel-item active"  >
           <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709803237/QubicGen/Home%20Page/Corossal/Slide1_1_ejspvq_e2vp5u_1_1_afehbj.jpg" id='slide1img' className="d-block w-100" alt="Image is still loading" loading="lazy" />
-          <div className="carousel-caption">
+          <div className="carousel-caption" id='captiontrust'>
             <h1 style={{ color: 'white' }}>Unlock</h1>
             <h1 style={{ color: 'white' }}>Your </h1>
             <h1>Thoughts.</h1>
@@ -71,15 +148,13 @@ const Carausel = () => {
   </div>
 </div>
 
-       
-
             </a>
             
           </div>
         </div>
-        <div className="carousel-item" data-bs-interval="3000">
+        <div className="carousel-item" >
           <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709803508/QubicGen/Home%20Page/Corossal/Slidethree_1_oyauhe_rsbljp_1_1_1_1_deornf.jpg" id='slide3img' className="d-block w-100" alt="..." loading="lazy" />
-          <div className="carousel-caption" id='captiontrust' >
+          <div className="carousel-caption" id='captiontrust1' >
             <h1 style={{ color: 'white' }}>your trusted it partner </h1>
             <h1>for reliability and excellence.</h1>
             
@@ -140,9 +215,9 @@ const Carausel = () => {
 
           </div>
         </div>
-        <div className="carousel-item" data-bs-interval="3000">
+        <div className="carousel-item" >
           <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709803609/QubicGen/Home%20Page/Corossal/Slidetwo_v2l3e3_kunfm5_2_lswsgi.jpg" id='slide2img' className="d-block w-100" alt="..." loading="lazy" />
-          <div className="carousel-caption">
+          <div className="carousel-caption" id='captiontrust2'>
             <h1 style={{ color: 'white' }}>one stop solution </h1>
             <h1>for all your business ideas. </h1>
             <Link to="/businessconsulting">
@@ -202,9 +277,9 @@ const Carausel = () => {
           </div>
         </div>
 
-        <div className="carousel-item" data-bs-interval="3000">
+        <div className="carousel-item" >
           <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1711617993/QubicGen/Home%20Page/Corossal/futuristic-5g-wireless-network-ai-robot-hand-tap-wifi-icon_1_nknhjd.jpg" id='slide4img' className="d-block w-100" alt="..." loading="lazy" />
-          <div className="carousel-caption">
+          <div className="carousel-caption" id='captiontrust3'>
             <h1 style={{ color: 'white' }}>Automate.</h1>
             <h1>Operate.</h1> 
             <h1>Excel...</h1>
