@@ -78,7 +78,7 @@ const Queries = () => {
                       delay: 10,
                       strings: ['Any <span class="text-[#ffd700]">Queries?</span>'],
                     }}
-                    onInit={handleTypewriterInit}
+                   
                   />
                 )}
               </h1>
