@@ -29,7 +29,18 @@ const Contact = () => {
     });
   };
   const handleClick = (tab) => {
-    setActiveTab(tab); 
+    setActiveTab(tab);
+    setFormData({
+      fullName: '',
+      email: '',
+      jobTitle: '',
+      course: '',
+      company: '',
+      phone:'',
+      message: '',
+      type: tab // Update type based on the tab clicked
+    });
+  
   };
 
   const handleSubmit = async (e) => {
