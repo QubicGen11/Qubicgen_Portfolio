@@ -9,7 +9,7 @@ import SEO from '../SEO';
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const  [activeTab, setActiveTab] = useState('project');
+  const [activeTab, setActiveTab] = useState('project');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -20,6 +20,7 @@ const Contact = () => {
     message: '',
     type: ''
   });
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,19 +29,9 @@ const Contact = () => {
       [name]: value
     });
   };
-  const handleClick = (tab) => {
-    setActiveTab(tab);
-    setFormData({
-      fullName: '',
-      email: '',
-      jobTitle: '',
-      course: '',
-      company: '',
-      phone:'',
-      message: '',
-      type: tab // Update type based on the tab clicked
-    });
   
+  const handleClick = (tab) => {
+    setActiveTab(tab); 
   };
 
   const handleSubmit = async (e) => {
@@ -57,11 +48,9 @@ const Contact = () => {
     };
     setIsLoading(true);
     try {
-      // formData.type = activeTab;
       setIsLoading(true);
       const response = await axios.post('https://api.qubicgen.com/api/contact', payload);
       console.log('Form data submitted:', response.data);
-      // Reset form after successful submission if needed
       setFormData({
         fullName: '',
         email: '',
@@ -72,8 +61,11 @@ const Contact = () => {
         company: '',
         type: ''
       });
-      alert('Your message has been sent successfully');
+      setSuccessMessage('Your message has been sent successfully');
       setIsLoading(false);
+      setTimeout(() => {
+        setSuccessMessage('');
+      }, 4000); // Remove the message after 4 seconds
     } catch (error) {
       setIsLoading(false);
       alert('Something went wrong');
@@ -93,8 +85,6 @@ const Contact = () => {
       document.querySelector('.containerone').classList.remove('sign-up-mode');
     });
   }, []);
-
-
 
   return (
     <>
@@ -180,6 +170,7 @@ const Contact = () => {
                     )}
                   </div>
                 </button>
+                {successMessage && <h1 style={{color:'white', fontSize:'1rem'}}>{successMessage}</h1>}
               </form>
               <form onSubmit={handleSubmit} className="sign-up-form">
                 <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" id="wearequbic" style={{ fontSize: '40px' }}>
@@ -259,6 +250,7 @@ const Contact = () => {
                     )}
                   </div>
                 </button>
+                {successMessage && <h1 style={{color:'white', fontSize:'1rem'}}>{successMessage}</h1>}
               </form>
             </div>
           </div>

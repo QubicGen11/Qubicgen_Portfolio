@@ -3,20 +3,18 @@ import axios from 'axios';
 import './Getintouch.css';
 import vectorgetin from '../assets/Getintouch/vector-186.svg';
 import mailgetin from '../assets/Getintouch/mail@2x.png';
-import sendgetin from '../assets/Getintouch/send.svg';
 import keyboardgetin from '../assets/Getintouch/keyboard@2x.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Getintouch = () => {
-
-    
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
         message: ''
     });
     const [isLoading, setIsLoading] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
@@ -35,6 +33,7 @@ const Getintouch = () => {
             emailValidated = true;
         }
     };
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -54,22 +53,19 @@ const Getintouch = () => {
                 email: '',
                 message: ''
             });
-            console.log('Form data submitted:', formData);
-            alert('Form submitted successfully!');
-            window.location.reload();
-
-        } catch (error) {
+            setSuccessMessage('Your message has been sent successfully');
             setIsLoading(false);
+            setTimeout(() => {
+              setSuccessMessage('');
+            }, 4000); // Remove the message after 3 seconds
+          } catch (error) {
+            setIsLoading(false);
+            alert('Something went wrong');
             console.error('Error submitting form:', error);
-        }
-    };
-
-   
+          }
+        };
 
     return (
-
-        
-        
         <div>
             <div className="getintouch" data-aos="fade-right">
                 <div className="contact-page">
@@ -104,7 +100,6 @@ const Getintouch = () => {
                                                 placeholder="Name"
                                                 type="text"
                                                 value={formData.fullName}
-                                                
                                             />
                                         </div>
                                         <div className="yourname-youremail1">
@@ -118,7 +113,6 @@ const Getintouch = () => {
                                                 value={formData.email}
                                                 onBlur={validateEmail} 
                                                 required
-
                                             />
                                         </div>
                                     </div>
@@ -135,9 +129,10 @@ const Getintouch = () => {
                                         />
                                     </div>
                                 </div>
-                                <button className="send-button" onClick={handleSubmit}  disabled={isLoading}> 
-                                        {isLoading ? 'Submitting...' : 'Submit'}
+                                <button className="send-button" onClick={handleSubmit} disabled={isLoading}> 
+                                    {isLoading ? 'Submitting...' : 'Submit'}
                                 </button>
+                                    {successMessage && <h1>{successMessage}</h1>}
                             </div>
                         </div>
                     </section>
