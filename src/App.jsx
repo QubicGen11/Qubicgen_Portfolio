@@ -30,12 +30,9 @@ import Travel from "./Industries Components/Travel Componets/Travel";
 import Retail from "./Industries Components/Retail Components/Retail";
 import Oil from "./Industries Components/Oil Components/Oil";
 import Summary from "./Industries Components/Summary Components/Summary";
-
-import Login from "./Admin/Login";
 import Contact from "./Contact Components/Contact";
 import Careers from "./Career Components/Careers";
 import Blog from "./Career Components/Carrernext";
-import Admin from "./Admin/Admin";
 import Careerjobsx from "./Career jobs Components/Careerjobsx";
 import Terms from "./Terms and Conditions/Terms";
 import Privacy from "./Privacy/Privacy";
@@ -76,8 +73,6 @@ const App = () => {
           <Route path="/retail" element={<Retail/>} />
           <Route path="/oil" element={<Oil/>} />
           <Route path="/summary" element={<Summary/>} />
-          <Route path="/adminPage" element={<Admin/>} />
-          <Route path="/admin/login" element={<Login/>} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/careers" element={<Careers/>} />
           <Route path="/blogs" element={<Blog/>} />
