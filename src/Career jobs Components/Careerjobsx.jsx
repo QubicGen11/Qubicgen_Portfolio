@@ -222,7 +222,7 @@
             }
           });
           console.log('Upload response:', response.data);
-          return response.data.fileId; 
+          return response.data.fileName; 
           // Optionally, you can handle the response from the upload endpoint here
         } catch (error) {
           console.error('Upload error:', error);
@@ -266,20 +266,17 @@
         headers: {
           'Content-Type': 'application/json'
         }
-      });
-      
-      
-          console.log(response.data);
+      });      
           toast.success('Job application submitted successfully!', {
             onClose: () => {
               // Delay the closure of the message by 3 seconds
               setTimeout(() => {
                 // Close the message after 3 seconds
                 toast.dismiss();
-              }, 3000);
+              }, 5000);
             }
           });
-                window.location.reload();
+          window.location.reload();
         } catch (error) {
           setIsLoading(false);
           toast.error('Please try again');
