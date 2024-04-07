@@ -64,7 +64,7 @@ const Getintouch = () => {
 
         setIsLoading(true);
         try {
-            const response = await axios.post('https://api.qubicgen.com/api/queries', formData);
+            const response = await axios.post('https://api.qubicgen.com/api/getInTouch', formData);
             console.log('Form data submitted:', response.data);
             setFormData({
                 fullName:'',
