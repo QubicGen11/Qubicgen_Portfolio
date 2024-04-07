@@ -277,14 +277,25 @@
               }, 5000);
             }
           });
-        } else {
+        }else {
           toast.error('Error submitting form');
         }
-          window.location.reload();
         } catch (error) {
           setIsLoading(false);
+          if( error.response.status === 400){ 
+
+            toast.error("You have already applied for this job. Don't worry, we'll get back to you soon.", {
+              onClose: () => {
+                // Delay the closure of the message by 3 seconds
+                setTimeout(() => {
+                  // Close the message after 3 seconds
+                  toast.dismiss();
+                }, 5000);
+              }
+            });
+          }else{
           toast.error('Please try again');
-          console.error('Error submitting form:', error);
+          }
       }
       finally {
           setIsLoading(false); 
