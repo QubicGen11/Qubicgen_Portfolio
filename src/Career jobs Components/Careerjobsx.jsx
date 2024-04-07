@@ -267,6 +267,7 @@
           'Content-Type': 'application/json'
         }
       });      
+        if (response.status === 200 || response.status === 201) {
           toast.success('Job application submitted successfully!', {
             onClose: () => {
               // Delay the closure of the message by 3 seconds
@@ -276,6 +277,9 @@
               }, 5000);
             }
           });
+        } else {
+          toast.error('Error submitting form');
+        }
           window.location.reload();
         } catch (error) {
           setIsLoading(false);
