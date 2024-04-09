@@ -277,7 +277,7 @@
             }, 5000);
           }
         });
-      }else {
+      }else { 
         toast.error('Error submitting form');
       }
       setTimeout(() => {
