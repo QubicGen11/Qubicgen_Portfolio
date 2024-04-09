@@ -267,19 +267,23 @@
           'Content-Type': 'application/json'
         }
       });      
-        if (response.status === 200 || response.status === 201) {
-          toast.success('Job application submitted successfully!', {
-            onClose: () => {
-              // Delay the closure of the message by 3 seconds
-              setTimeout(() => {
-                // Close the message after 3 seconds
-                toast.dismiss();
-              }, 5000);
-            }
-          });
-        }else {
-          toast.error('Error submitting form');
-        }
+      if (response.status === 200 || response.status === 201) {
+        toast.success('Job application submitted successfully!', {
+          onClose: () => {
+            // Delay the closure of the message by 3 seconds
+            setTimeout(() => {
+              // Close the message after 3 seconds
+              toast.dismiss();
+            }, 5000);
+          }
+        });
+      }else {
+        toast.error('Error submitting form');
+      }
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000); // 5000 milliseconds = 5 seconds
+      
         } catch (error) {
           setIsLoading(false);
           if( error.response.status === 400){ 
@@ -301,6 +305,7 @@
           setIsLoading(false); 
         }
       };
+
     
       const filteredJobs = JobsList.filter((job) =>
         job.title.toLowerCase().includes(searchInput.toLowerCase())
