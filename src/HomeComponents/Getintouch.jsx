@@ -28,12 +28,8 @@ const Getintouch = () => {
     };
 
     const handleChange = (e) => {
+       
         const { name, value } = e.target;
-        if (name === 'email') {
-            if (!validateEmail(value)) {
-                toast.error('Please enter a valid email address.');
-            }
-        }
         setFormData({
             ...formData,
             [name]: value
@@ -64,7 +60,7 @@ const Getintouch = () => {
 
         setIsLoading(true);
         try {
-            const response = await axios.post('http://api.qubicgen.com/api/getInTouch', formData);
+            const response = await axios.post('https://api.qubicgen.com/api/getInTouch', formData);
             console.log('Form data submitted:', response.data);
             setFormData({
                 fullName:'',
@@ -75,7 +71,7 @@ const Getintouch = () => {
             setIsLoading(false);
         } catch (error) {
             setIsLoading(false);
-            toast.error('Please try again');
+            toast.error('Please check the Email Adress');
             console.error('Error submitting form:', error);
         }
     };

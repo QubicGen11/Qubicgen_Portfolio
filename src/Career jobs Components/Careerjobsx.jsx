@@ -21,6 +21,8 @@
       const [searchInput, setSearchInput] = useState("");
       const [reset,  setReset] = useState(true);
       const [loading, setLoading] = useState(true);
+
+      const [isResumeSelected, setIsResumeSelected] = useState(false);
       const [JobsList, setJobsList] = useState([
         {
           title: "Human Resource Manager",
@@ -96,6 +98,13 @@
       // Function to validate email format
       let emailValidated = false;
       let phoneValidated = false;
+
+
+      const handleFileChangess = (e) => {
+        const selectedFile = e.target.files[0];
+        selectedResume(selectedFile);
+        setIsResumeSelected(true); // Update state when file is selected
+      };
       
       // Function to validate email format
       const validateEmail = (e) => {
@@ -206,9 +215,12 @@
       const handleBack = () => {
         setStep(step - 1);
       };
+   
+
       const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         selectedResume(selectedFile);
+        setIsResumeSelected(true); // Update state when file is selected
       };
       
       const uploadResume = async (resume) => {
@@ -422,7 +434,14 @@
                     {/* Assuming handleFileChange is defined to handle file inputs */}
                     <h1 className="text-xl  text-white" id="staticBackdropLabel">Resume</h1>
 
-                    <input type="file" name="resume" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" onChange={handleFileChange} />
+                    <input 
+  type="file" 
+  name="resume" 
+  accept=".pdf,.docx" 
+  className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" 
+  onChange={handleFileChange} 
+  required // Add the 'required' attribute
+/>
                     <div className="modal-footer z-50">
                       <button type="button" className="bg-gray-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-200" data-bs-dismiss="modal">Close</button>
                       <button type="button" onClick={handleNext} className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
@@ -448,7 +467,7 @@
               <input type="text" name="education[level]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Highest Level of Education Attained*" value={formData.education.level} onChange={handleInputChange} />
               <input type="text" name="education[institution]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Name of Institution*" value={formData.education.institution} onChange={handleInputChange} />
               <input type="text" name="education[stream]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Stream*" value={formData.education.stream} onChange={handleInputChange} />
-              <input type="text" name="education[graduationYear]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Year of Graduation*" value={formData.education.graduationYear} onChange={handleInputChange} />
+              <input type="number" name="education[graduationYear]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Year of Graduation*" value={formData.education.graduationYear} onChange={handleInputChange} />
               <input type="text" name="education[cgpaPercentage]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="CGPA/Percentage*" value={formData.education.cgpaPercentage} onChange={handleInputChange} />
               <div className="modal-footer">
                 <button type="button" onClick={handleBack} className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
@@ -473,8 +492,8 @@
                   <h2 className="text-2xl font-bold text-white mb-4">Work Experience</h2>
                   <form className="flex flex-col gap-8" onSubmit={handleSubmit} encType="multipart/form-data">
                     {/* Work Experience Inputs */}
-                    <input type="text" name="workExperience[experienceLevel]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Experience Level**" value={formData.workExperience.experienceLevel} onChange={handleInputChange} />
-                    <input type="text" name="workExperience[jobTitle]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Title*" value={formData.workExperience.jobTitle} onChange={handleInputChange} />
+                    <input type="text" name="workExperience[experienceLevel]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Experience Level" value={formData.workExperience.experienceLevel} onChange={handleInputChange} />
+                    <input type="text" name="workExperience[jobTitle]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Title" value={formData.workExperience.jobTitle} onChange={handleInputChange} />
                     <textarea name="workExperience[responsibilities]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Responsibilities/Achievements" value={formData.workExperience.responsibilities} onChange={handleInputChange}></textarea>
                     <div className="modal-footer">
                       <button type="button" onClick={handleBack} className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
