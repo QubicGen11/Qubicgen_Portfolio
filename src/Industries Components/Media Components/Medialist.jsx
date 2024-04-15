@@ -105,16 +105,7 @@ const Medialist = () => {
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635894/QubicGen/Media%20and%20Entertainment/hands-holding-smartphone-social-media-concept_23-2150208264_ojh5o0.jpg',
         description: 'Integration of social media platforms into media and entertainment applications to facilitate social sharing, user-generated content creation and community engagement, enhancing brand visibility and audience interaction.'
     },
-    {
-        title: 'Virtual Reality (VR) and Augmented Reality (AR)',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709636013/QubicGen/Media%20and%20Entertainment/medium-shot-woman-wearing-vr-glasses_23-2150394453_y6xhge.jpg',
-        description: 'Development of immersive VR and AR experiences for gaming, storytelling, live events and interactive marketing campaigns, leveraging cutting-edge technologies to create memorable and engaging content experiences.'
-    },
-    {
-        title: 'Monetization Strategies',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709636200/QubicGen/Media%20and%20Entertainment/happy-business-woman-money-rain-made-dollars-isolated-black-wall_231208-11727_bybnqs.jpg',
-        description: 'Consulting and advisory services to help media and entertainment companies develop effective monetization strategies, including subscription models, pay-per-view options, advertising revenue, sponsorships and merchandising opportunities.'
-    }
+
 ]);
   // This is for rpa offering cards
 

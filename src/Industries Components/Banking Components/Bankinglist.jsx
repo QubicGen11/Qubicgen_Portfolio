@@ -40,16 +40,8 @@ const Bankinglist = () => {
 
 
   const [BankingOffering, setBankingOffering] = useState([
-    {
-        title: 'Core Banking Solutions',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709622538/QubicGen/bfsi/online-banking-internet-finance-e-commerce_53876-16542_qmqvnm.jpg',
-        description: 'Development, implementation and maintenance of core banking systems to manage day-to-day banking operations such as account management, transactions and customer relationship management. '
-    },
-    {
-        title: 'Digital Banking Solutions',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709622417/QubicGen/bfsi/hand-touching-book-hologram-with-rays-application-icons-dark-blue-background-online-communication-education-concept_670147-29290_fpexh9.jpg',
-        description: ' Design and development of digital banking platforms, including internet banking portals, mobile banking apps and omnichannel banking experiences to enhance customer engagement and convenience. '
-    },
+
+
     {
         title: 'Payment Solutions',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623552/QubicGen/bfsi/coins-smartphone-virtual-environment-representing-digital-financial-transactions_934877-1234_mlsgib.jpg',

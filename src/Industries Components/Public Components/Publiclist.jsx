@@ -51,11 +51,6 @@ const Publiclist = () => {
         description: 'Implementation of GRP systems to automate and streamline government operations, including financial management, human resources, procurement and budgeting, to improve transparency, accountability and efficiency.'
     },
     {
-        title: 'Smart City Solutions',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709633451/QubicGen/Public%20Sector/busy-highway-traffic-light-trails-night_1359-38_h0jmae.jpg',
-        description: 'Design and deployment of smart city initiatives, including IoT sensors, data analytics platforms and smart infrastructure, to improve urban planning, transportation, public safety, energy management and environmental sustainability.'
-    },
-    {
         title: 'Digital Identity and Authentication',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709633507/QubicGen/Public%20Sector/finger-print-verification-illustration_1284-26515_kyc4l8.jpg',
         description: 'Provision of digital identity and authentication solutions to enable secure access to government services and online transactions, including biometric authentication, digital signatures and identity verification systems.'
@@ -94,11 +89,6 @@ const Publiclist = () => {
         title: 'Regulatory Compliance and Governance',
         background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634583/QubicGen/Public%20Sector/standard-quality-control-collage_23-2149631014_vccnh6.jpg',
         description: 'Assisting government agencies in understanding and complying with regulatory requirements, standards and best practices related to data privacy, cybersecurity, accessibility and IT governance.'
-    },
-    {
-        title: 'Training and Capacity Building',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709634755/QubicGen/Public%20Sector/modern-classroom-interior-light-tones_241146-108_bqhv4p.jpg',
-        description: 'Providing training programs and capacity-building initiatives to enhance the digital skills and capabilities of government employees and stakeholders in leveraging technology effectively.'
     },
 
 ]);
