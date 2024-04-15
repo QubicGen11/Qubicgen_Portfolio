@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [type, setType] = useState('project');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -19,7 +20,7 @@ const Contact = () => {
     company: '',
     phone: '',
     message: '',
-    type: ''
+    type: type
   });
   const [successMessage, setSuccessMessage] = useState('');
 
@@ -33,14 +34,17 @@ const Contact = () => {
       company: '',
       phone: '',
       message: '',
-      type: ''
+      type: type
     });
   };
 
   // Function to handle form switch
   const handleFormSwitch = (type) => {
-    clearFormData(); // Clear form data when switching forms
-    setFormData(prevState => ({ ...prevState, type })); // Set the type of form
+    setType(type);
+    setFormData({
+      ...formData,
+      type: type // Update the type field in formData
+    });
   };
 
   const handleChange = (e) => {
@@ -94,6 +98,17 @@ const Contact = () => {
         setTimeout(() => {
           setSuccessMessage('');
         }, 4000); // Remove the message after 4 seconds
+
+        setFormData({
+          fullName: '',
+          email: '',
+          course: '',
+          company: '',
+          phone: '',
+          message: '',
+          type: formData.type === 'project' ? 'project' : 'student' // Set type to 'project' if it was 'project', otherwise set it to 'student'
+        });
+  
         toast.success('Your message has been sent successfully'); // Use toast for success notification
       }
     } catch (error) {
