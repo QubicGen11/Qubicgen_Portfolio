@@ -151,7 +151,8 @@ const Contact = () => {
             <div className="signin-signup">
               <form onSubmit={handleSubmit} className="sign-in-form">
                 <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" id="wearequbic" style={{ fontSize: '40px' }}>
-                  <Typewriter
+                  Project <span className='text-yellow-400'>Form</span>
+                  {/* <Typewriter
                     options={{
                       autoStart: true,
                       loop: true,
@@ -163,7 +164,7 @@ const Contact = () => {
                         textElement.innerHTML = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
                       },
                     }}
-                  />
+                  /> */}
                 </h2>
                 <div className="input-field">
                   <i className="fas fa-user" />
@@ -217,7 +218,9 @@ const Contact = () => {
               </form>
               <form onSubmit={handleSubmit} className="sign-up-form">
                 <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" id="wearequbic" style={{ fontSize: '40px' }}>
-                  <Typewriter
+
+                Student <span className='text-yellow-400'>Form</span>
+                  {/* <Typewriter
                     options={{
                       autoStart: true,
                       loop: true,
@@ -229,7 +232,7 @@ const Contact = () => {
                         textElement.innerHTML = html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
                       },
                     }}
-                  />
+                  /> */}
                 </h2>
                 <div className="input-field">
                   <i className="fas fa-user" />
