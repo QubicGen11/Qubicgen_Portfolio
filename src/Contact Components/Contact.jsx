@@ -214,7 +214,7 @@ const Contact = () => {
                     )}
                   </div>
                 </button>
-                {successMessage && <h1 style={{color:'white', fontSize:'1rem'}}>{successMessage}</h1>}
+                {/* {successMessage && <h1 style={{color:'white', fontSize:'1rem'}}>{successMessage}</h1>} */}
               </form>
               <form onSubmit={handleSubmit} className="sign-up-form">
                 <h2 className="text-3xl font-bold mt-4 md:mt-0 text-white" id="wearequbic" style={{ fontSize: '40px' }}>
@@ -295,7 +295,7 @@ const Contact = () => {
                     )}
                   </div>
                 </button>
-                {successMessage && <h1 style={{color:'white', fontSize:'1rem'}}>{successMessage}</h1>}
+                {/* {successMessage && <h1 style={{color:'white', fontSize:'1rem'}}>{successMessage}</h1>} */}
               </form>
             </div>
           </div>
