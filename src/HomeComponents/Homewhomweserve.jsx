@@ -9,7 +9,7 @@ const Homewhomweserve = () => {
   return (
     <div>
       
-    <section id='whomweserve' className="bg-[#26282b] w-11/12 mx-auto rounded-md m-4 p-4" data-aos="fade-right" style={{width:'85vw'}}>
+    <section id='whomweserve' className="bg-[#26282b] w-11/12 mx-auto rounded-md m-4 p-4" data-aos="zoom-in-up" style={{width:'85vw'}}>
       <div className="container mx-auto flex flex-col md:flex-row items-center">
       
 

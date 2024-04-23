@@ -4,7 +4,7 @@
   height: 90px;
   align-items: center;
   list-style: none;
-  background-color: #242424;
+  background-color: black;
   position: relative;
   z-index: 1000;
 }

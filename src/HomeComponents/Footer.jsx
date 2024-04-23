@@ -57,7 +57,7 @@ const Footer = () => {
             icon.style.animation = `fallAnimation 1s ease-out ${delay}s both`;
           });
         }
-      });
+      }); 
     };
 
     const observer = new IntersectionObserver(handleIntersection, options);
@@ -77,26 +77,28 @@ const Footer = () => {
             <div className="flex justify-center text-teal-600 sm:justify-start dark:text-teal-300">
               <img src={Logo} alt="" style={{ height: '90px' }} />
             </div>
-            <p className="mt-6 max-w-md text-center leading-relaxed  sm:max-w-xs sm:text-left">
+            
+            <ul className="mt-8 flex justify-center gap-4 sm:justify-start md:gap-8 ml-3" >
+            <p className="mt-1 max-w-md text-center leading-relaxed sm:max-w-xs sm:text-left text-white  text-xl">
+              Follow us
 
             </p>
-            <ul className="mt-8 flex justify-center gap-4 sm:justify-start md:gap-8 ml-24" >
               <li className='falling-icon' data-aos-delay="0">
                 <a href="https://www.facebook.com/QubicGen" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
                   <span className="sr-only">Facebook</span>
-                 <img style={{height:'30px',width:'30px',marginTop:'5px'}} src="https://res.cloudinary.com/defsu5bfc/image/upload/v1712055473/QubicGen/Icons/facebook_ax9okf.jpg" className='rounded-2xl'  alt="" />
+                 <img style={{height:'30px',width:'30px',marginTop:'5px'}} src="https://res.cloudinary.com/defsu5bfc/image/upload/v1713853663/Facebook-logo-premium-of-golden-social-media-png_miqqpc.png" className='rounded-2xl'  alt="" />
                 </a>  
               </li>
               <li className='falling-icon' data-aos-delay="0.2">
                 <a href="https://www.instagram.com/qubicgen/" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
                   <span className="sr-only">Instagram</span>
-                  <img style={{height:'30px',width:'30px',marginTop:'5px'}} className='rounded-full' src="https://res.cloudinary.com/defsu5bfc/image/upload/v1712053984/QubicGen/Icons/18246125_v982-d3-04_lpukwx.jpg" alt="" />
+                  <img style={{height:'30px',width:'30px',marginTop:'5px'}} className='rounded-full' src="https://res.cloudinary.com/defsu5bfc/image/upload/v1713853722/cf01074bb3d544d41b2d02f841a31358_dk1wii.jpg" alt="" />
                 </a>
               </li>
               <li className='falling-icon' data-aos-delay="0.3">
                 <a href="https://twitter.com/QubicGenGlobal" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
                   <span className="sr-only">Twitter</span>
-                 <img style={{height:'30px',width:'30px',marginTop:'5px'}} className='rounded-full' src="https://res.cloudinary.com/defsu5bfc/image/upload/v1712054347/QubicGen/Icons/sl_z_072523_61700_03_wsklkg.jpg" alt="" />
+                 <img style={{height:'30px',width:'30px',marginTop:'5px'}} className='rounded-full' src="https://res.cloudinary.com/defsu5bfc/image/upload/v1713853760/a167b5238b5f7e5e91b45dd35408e9b3_m8jvxl.jpg" alt="" />
                 </a>
               </li>
               {/* <li className='falling-icon' data-aos-delay="0.4">
@@ -113,7 +115,7 @@ const Footer = () => {
               <li className='falling-icon' data-aos-delay="0.4">
   <a href="https://www.linkedin.com/company/qubicgen/mycompany/" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
     <span className="sr-only">LinkedIn</span>
-   <img style={{height:'30px',width:'30px',marginTop:'5px'}} src="https://res.cloudinary.com/defsu5bfc/image/upload/v1712053071/QubicGen/Icons/linkedin_kmrbri.png" alt="" className='relative right-7 top- rounded-3xl' />
+   <img style={{height:'30px',width:'30px',marginTop:'5px'}} src="https://res.cloudinary.com/defsu5bfc/image/upload/v1713853801/Linkedin-logo-premium-of-golden-social-media-png_vvmmsa.png" alt="" className='relative right-7 top- rounded-3xl' />
   </a>
 </li>
 

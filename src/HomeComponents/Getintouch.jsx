@@ -104,21 +104,23 @@ const Getintouch = () => {
                                 <div className="nameframe">
                                     <div className="emailframe">
                                         <div className="yourname-youremail">
-                                            <b className="your-name">Your name</b>
+                                            <b className="your-name" style={{color:'#00adb5'}}>Your name</b>
                                             <input
-                                                className="emailfield"
+                                            
+                                                className="emailfield text-white text-base"
                                                 name="fullName"
                                                 onChange={handleChange}
                                                 placeholder="Name"
                                                 type="text"
                                                 value={formData.fullName}
                                                 required
+
                                             />
                                         </div>
                                         <div className="yourname-youremail1">
-                                            <b className="your-email">Your email</b>
+                                            <b className="your-email" style={{color:'#00adb5'}}>Your email</b>
                                             <input
-                                                className="yourname-youremail-child"
+                                                className="yourname-youremail-child text-white text-base"
                                                 name="email"
                                                 onChange={handleChange}
                                                 placeholder="Email"
@@ -130,9 +132,9 @@ const Getintouch = () => {
                                         </div>
                                     </div>
                                     <div className="sendbutton">
-                                        <b className="your-message">Your Message</b>
+                                        <b className="your-message" style={{color:'#00adb5'}}>Your Message</b>
                                         <textarea
-                                            className="yourname-youremail-child"
+                                            className="yourname-youremail-child text-white text-base"
                                             name="message"
                                             onChange={handleChange}
                                             placeholder="Enter Queries"

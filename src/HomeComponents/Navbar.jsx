@@ -33,7 +33,7 @@ const Navbar = () => {
       const scrollPosition = window.scrollY;
 
       const transparency = Math.min(scrollPosition / 200, 1);
-const newColor = `rgba(${36 - 36 * transparency}, ${36 - 36 * transparency}, ${36 - 36 * transparency}, 1)`;
+const newColor = `rgba(${0 - 0 * transparency}, ${0 - 0 * transparency}, ${0 - 0 * transparency}, 1)`;
 navbar.style.backgroundColor = newColor;
 
       
