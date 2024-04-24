@@ -34,13 +34,13 @@ const Terms = () => {
           singular or in plural.
         </p>
         <h3 className="text-2xl font-light pt-3">Definitions</h3>
-        <p className='text-base font-light'>For the purposes of these Terms and Conditions:</p>
+        <p className='text-base font-light'>For the purposes of these Terms and Conditions</p>
         <ul>
           <li>
             <p className='text-base font-light'>
               <strong>Affiliate</strong> means an entity that controls, is
               controlled by or is under common control with a party, where
-              "control" means ownership of 50% or more of the shares, equity
+              "control" means ownership of 30% or more of the shares, equity
               interest or other securities entitled to vote for election of
               directors or other managing authority.
             </p>
