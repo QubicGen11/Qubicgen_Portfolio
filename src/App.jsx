@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async'; // Import HelmetProvider
 import Home from "./pages/Home";
@@ -37,7 +37,8 @@ import Careerjobsx from "./Career jobs Components/Careerjobsx";
 import Terms from "./Terms and Conditions/Terms";
 import Privacy from "./Privacy/Privacy";
 import Swiper from './HomeComponents/Swiper';
-
+const Nopage = lazy(()=>import ( './404') );
+// Import the NotFound component
 
 
 
@@ -80,6 +81,7 @@ const App = () => {
           <Route path="/terms" element={<Terms/>} />
           <Route path="/privacy" element={<Privacy/>} />
           <Route path="/swiper" element={<Swiper/>} />
+          <Route path="*" element={<Nopage />} /> 
          
         </Routes>
       </Router>
