@@ -30,13 +30,15 @@ import Travel from "./Industries Components/Travel Componets/Travel";
 import Retail from "./Industries Components/Retail Components/Retail";
 import Oil from "./Industries Components/Oil Components/Oil";
 import Summary from "./Industries Components/Summary Components/Summary";
-import Contact from "./Contact Components/Contact";
+import Contact from "./Contact Components/Studentform";
 import Careers from "./Career Components/Careers";
 import Blog from "./Career Components/Carrernext";
 import Careerjobsx from "./Career jobs Components/Careerjobsx";
 import Terms from "./Terms and Conditions/Terms";
 import Privacy from "./Privacy/Privacy";
 import Swiper from './HomeComponents/Swiper';
+import Projectform from "./Contact Components/Projectform";
+import Studentform from "./Contact Components/Studentform";
 const Nopage = lazy(()=>import ( './404') );
 // Import the NotFound component
 
@@ -74,7 +76,7 @@ const App = () => {
           <Route path="/retail" element={<Retail/>} />
           <Route path="/oil" element={<Oil/>} />
           <Route path="/summary" element={<Summary/>} />
-          <Route path="/contact" element={<Contact/>} />
+          <Route path="/student" element={<Studentform/>} />
           <Route path="/careers" element={<Careers/>} />
           <Route path="/blogs" element={<Blog/>} />
           <Route path="/Careerjobs" element={<Careerjobsx/>} />
@@ -82,6 +84,7 @@ const App = () => {
           <Route path="/privacy" element={<Privacy/>} />
           <Route path="/swiper" element={<Swiper/>} />
           <Route path="*" element={<Nopage />} /> 
+          <Route path="/project" element={<Projectform/>} /> 
          
         </Routes>
       </Router>

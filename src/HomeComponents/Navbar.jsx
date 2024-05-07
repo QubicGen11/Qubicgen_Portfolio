@@ -7,6 +7,33 @@ import { useEffect, useState } from "react";
 import dropydown from "../assets/dropdowns.png"
 
 const Navbar = () => {
+
+  const [timeoutId, setTimeoutId] = useState(null);
+
+  const showSectionss = () => {
+    clearTimeout(timeoutId);
+    document.getElementById('dropdown').classList.remove('hidden');
+  };
+
+  const hideSectionsss = () => {
+    setTimeoutId(
+      setTimeout(() => {
+        document.getElementById('dropdown').classList.add('hidden');
+      }, 300) // Adjust the delay time here (300 milliseconds in this case)
+    );
+  };
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+
+  // Function to toggle dropdown visibility
+  const toggleDropdownss = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
   const [visibleSection, setVisibleSection] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -23,7 +50,22 @@ const Navbar = () => {
     setIsIndustriesOpen(false); // Close the industries dropdown
   };
 
-  
+  // Define showSections function
+const showSections = () => {
+  const dropdown = document.getElementById("dropdown");
+  if (dropdown) {
+    dropdown.classList.remove("hidden");
+  }
+};
+
+// Define hideSections function
+const hideSectionss = () => {
+  const dropdown = document.getElementById("dropdown");
+  if (dropdown) {
+    dropdown.classList.add("hidden");
+  }
+};
+
 
   useEffect(() => {
     AOS.init(); // Initialize AOS library
@@ -99,9 +141,32 @@ navbar.style.backgroundColor = newColor;
           </div>
          <Link to="/careers"><li className="hover:cursor-pointer" onMouseEnter={hideSections}
             >Careers</li></Link> 
-          <a href="https://qubic-gen.blogspot.com/" target="_blank"><li className="hover:cursor-pointer"  onMouseEnter={hideSections}>Blog</li></a> 
+          <a href="https://qubic-gen.blogspot.com/" target="_blank"><li className="hover:cursor-pointer"  onMouseEnter={hideSections} onMouseOver={hideSectionss}>Blog</li></a> 
 
-        <Link to="/contact"><li className="hover:cursor-pointer"  onMouseEnter={hideSections}>Contact</li></Link>  
+
+          <div>
+          <li
+      className="hover:cursor-pointer relative"
+      onMouseOver={showSectionss}
+      onMouseLeave={hideSectionsss}
+    >
+      Contact
+      <section className="absolute top-[70px] -right-20 bg-black p-2 hidden w-44" id="dropdown">
+        <ul className="text-center">
+          <Link to="/project"><li>Project Form</li></Link> 
+          <Link to="/student"><li>Student Form</li></Link>  
+        </ul>
+      </section>
+    </li>
+
+
+</div>
+
+
+        
+        
+        
+          
         
         </nav>
 

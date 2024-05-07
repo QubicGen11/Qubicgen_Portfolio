@@ -161,8 +161,6 @@ input {
 
 
 
-
-
 form.sign-up-form {
   opacity: 0;
   z-index: 1;
@@ -785,6 +783,3 @@ top: 50px;
     fill: white;
     transform: scale(1.2);
   }
-
-
-  
