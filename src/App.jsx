@@ -76,7 +76,7 @@ const App = () => {
           <Route path="/retail" element={<Retail/>} />
           <Route path="/oil" element={<Oil/>} />
           <Route path="/summary" element={<Summary/>} />
-          <Route path="/student" element={<Studentform/>} />
+          <Route path="/studentform" element={<Studentform/>} />
           <Route path="/careers" element={<Careers/>} />
           <Route path="/blogs" element={<Blog/>} />
           <Route path="/Careerjobs" element={<Careerjobsx/>} />
@@ -84,7 +84,7 @@ const App = () => {
           <Route path="/privacy" element={<Privacy/>} />
           <Route path="/swiper" element={<Swiper/>} />
           <Route path="*" element={<Nopage />} /> 
-          <Route path="/project" element={<Projectform/>} /> 
+          <Route path="/projectform" element={<Projectform/>} /> 
          
         </Routes>
       </Router>

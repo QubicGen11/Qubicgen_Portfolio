@@ -69,8 +69,17 @@ const Studentform = () => {
     if (!formData.phone) {
       missingFields.push('Phone');
     }
+    if (!formData.course) {
+      missingFields.push('Please Select a Course');
+    }
+    if (!formData.stream) {
+      missingFields.push('Stream');
+    }
+    if (!formData.college) {
+      missingFields.push('College');
+    }
     if (!formData.message) {
-      missingFields.push('Comments');
+      missingFields.push('Message');
     }
     if (formData.type === 'student' && !formData.course) {
       missingFields.push('Course');
@@ -104,7 +113,6 @@ const Studentform = () => {
           stream:'',
           message: '',
           college:'',
-          type: formData.type === 'project' ? 'project' : 'student'
         });
   
         toast.success('Your message has been sent successfully');
@@ -147,20 +155,20 @@ const Studentform = () => {
                 </div>
                 <div className="input-field">
                   <i className="fas fa-phone" />
-                  <input type="tel" placeholder="Enter 10 digit phone number" name="phone" onChange={handleChange} pattern='[0-9]{10}' required value={formData.phone} />
+                  <input type="tel" placeholder="Enter 10 digit phone number" name="phone" onChange={handleChange} pattern='[0-9]{10}'  value={formData.phone} />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-envelope" />
-                  <input type="email" placeholder="Enter email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={handleChange} value={formData.email} />
+                  <input type="email" placeholder="Enter email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={handleChange} value={formData.email} />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-graduation-cap" />
-                  <input type="text" placeholder="Enter College Name" name="college" required  onChange={handleChange} value={formData.college} />
+                  <input type="text" placeholder="Enter College Name" name="college"   onChange={handleChange} value={formData.college} />
                   
                 </div>
                 <div className="input-field">
                   <i className="fas fa-book" />
-                  <input type="text" placeholder="Enter Your Branch" name="stream" required  onChange={handleChange} value={formData.stream} />
+                  <input type="text" placeholder="Enter Your Branch" name="stream"   onChange={handleChange} value={formData.stream} />
 
                 </div>
                 <div className="input-field">
@@ -219,7 +227,7 @@ const Studentform = () => {
             <div className="panel left-panel">
               <div className="content" id="lookingproject">
                 <h3 style={{ fontSize: '45px' }}>Looking for Project?</h3>
-                <Link to="/project">
+                <Link to="/projectform">
                   <button className="btnone" id="sign-up-btn" style={{ width: '170px', position: 'relative', left: '76px', height: '50px', marginTop: '30px' }}>
                     Project Form
                   </button>

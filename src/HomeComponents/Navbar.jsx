@@ -38,12 +38,18 @@ const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const toggleIndustries = () => {
     setIsIndustriesOpen(!isIndustriesOpen);
     setIsServicesOpen(false); // Close the services dropdown
   };
+  const toggleContact = () => {
+    setIsContactOpen(!isContactOpen);
+    setIsIndustriesOpen(false); // Close the industries dropdown
+  };
+  
   
   const toggleServices = () => {
     setIsServicesOpen(!isServicesOpen);
@@ -153,8 +159,8 @@ navbar.style.backgroundColor = newColor;
       Contact
       <section className="absolute top-[70px] -right-20 bg-black p-2 hidden w-44" id="dropdown">
         <ul className="text-center">
-          <Link to="/project"><li>Project Form</li></Link> 
-          <Link to="/student"><li>Student Form</li></Link>  
+          <Link to="/projectform"><li style={{fontWeight:'lighter',fontSize:'14px'}}>Project Form</li></Link> 
+          <Link to="/studentform"><li style={{fontWeight:'lighter',fontSize:'14px'}}>Student Form</li></Link>  
         </ul>
       </section>
     </li>
@@ -314,7 +320,36 @@ navbar.style.backgroundColor = newColor;
 
 
    <Link to="/careers"><li className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">CAREERS</li></Link> 
-   <Link to="/contact"><li className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">CONTACT US</li></Link> 
+
+
+   <div>  
+        <div onClick={toggleContact} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1 ">
+          CONTACT US<i className="fas fa-caret-down ml-3"></i>
+        </div>
+        {isContactOpen && (
+          <ul id="industysec" className="relative right-11 w-72 pl-7 pb-10">
+         
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+              <Link to="/projectform" style={{ color: 'white', textDecoration: 'none' }}>Project Form</Link> 
+            </li>
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+              <Link to="/studentform" style={{ color: 'white', textDecoration: 'none' }}>Student Form</Link>
+            </li>
+          </ul>
+        )}
+
+   
+          
+    
+      </div>
+
+
+      
+   
+
+
+   
+   
    
    
 

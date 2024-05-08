@@ -64,6 +64,12 @@ const Projectform = () => {
     if (!formData.phone) {
       missingFields.push('Phone');
     }
+    if (!formData.jobTitle) {
+      missingFields.push('JobTitle');
+    }
+    if (!formData.company) {
+      missingFields.push('Company');
+    }
     if (!formData.message) {
       missingFields.push('Comments');
     }
@@ -157,7 +163,7 @@ const Projectform = () => {
                 </div>
                 <div className="input-field" style={{ height: '20vh' }}>
                   <i className="fas fa-comment" />
-                  <input type="text" placeholder="Comments" name="message" onChange={handleChange} value={formData.message} />
+                  <input type="text" placeholder="Enter your Message" name="message" onChange={handleChange} value={formData.message} />
                 </div>
                 <button className="btn-53" style={{ marginTop: '10px' }}>
                   <div className="original"> {isLoading ? 'Submitting...' : 'Submit'}</div>
@@ -195,11 +201,11 @@ const Projectform = () => {
               <div className="content" id="lookingproject">
                 <h3 style={{ fontSize: '45px' }}>Want to Learn Skills?</h3>
                 
-                <a href="/student">
+                <Link to="/studentform">
                     <button className="btnone" id="sign-up-btn"  style={{ width: '170px', position: 'relative', left: '76px', height: '50px', marginTop: '30px' }}>
                   Student Form
                 </button>
-                </a>
+                </Link>
               </div>
             </div>
 
