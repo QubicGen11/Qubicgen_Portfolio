@@ -102,6 +102,7 @@ const Projectform = () => {
           name: '',
           email: '',
           company: '',
+          jobTitle: '',
           phone: '',
           message: '',
           type: formData.type === 'project' ? 'project' : 'student' // Set type to 'project' if it was 'project', otherwise set it to 'student'

@@ -81,9 +81,7 @@ const Studentform = () => {
     if (!formData.message) {
       missingFields.push('Message');
     }
-    if (formData.type === 'student' && !formData.course) {
-      missingFields.push('Course');
-    }
+   
   
     if (missingFields.length > 0) {
       toast.error(`Please fill in the following required fields: ${missingFields.join(', ')}.`);
@@ -119,7 +117,7 @@ const Studentform = () => {
       }
     } catch (error) {
       setIsLoading(false);
-      toast.error('Something went wrong');
+      toast.error('Please Check Feilds');
       console.error('Error submitting form:', error);
     }
   };
