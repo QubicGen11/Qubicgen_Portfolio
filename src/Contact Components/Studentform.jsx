@@ -117,7 +117,7 @@ const Studentform = () => {
       }
     } catch (error) {
       setIsLoading(false);
-      toast.error('Please Check Feilds');
+      toast.error('Error submitting data');
       console.error('Error submitting form:', error);
     }
   };
