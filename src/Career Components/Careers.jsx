@@ -23,7 +23,7 @@ const Careers = () => {
         description="Connect with QubiGen and get in touch with our team. Learn how you can reach out to us for inquiries, collaborations, and partnerships. We are here to support your business needs."
         type="website"
         name="QubiGen Careers"
-        image="https://example.com/contact-og-image.jpg"
+        image="https://res.cloudinary.com/defsu5bfc/image/upload/v1714398176/og_idmawk.png"
         url="https://www.qubicgen.com/careers"
         keywords="QubiGen, Contact Us, inquiries, collaborations, partnerships, support"
       />

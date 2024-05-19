@@ -29,7 +29,7 @@ const Aboutprojects = () => {
                   </div>
                 </div>
 
-                <Link to="/contact">
+                <Link to="/projectform">
                 <button className="contact-now-wrapper">
                   <b className="contact-now2">Contact Now</b>
                 </button>
