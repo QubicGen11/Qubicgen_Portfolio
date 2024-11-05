@@ -1,37 +1,14 @@
 import React from "react";
-import { Route, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
-// receives component and any other props represented by ...rest
-export default function ProtectedRoutes({ component: Component, ...rest }) {
-  return (
+export default function ProtectedRoutes({ children }) {
+  const token = cookies.get("TOKEN");
 
-    // this route takes other route assigned to it from the App.js and return the same route if condition is met
-    <Route
-      {...rest}
-      render={(props) => {
-        // get cookie from browser if logged in
-        const token = cookies.get("TOKEN");
+  if (!token) {
+    return <Navigate to="/admin/login" replace />;
+  }
 
-        // return route if there is a valid token set in the cookie
-        if (token) {
-          return <Component {...props} />;
-        } else {
-          // return the user to the landing page if there is no valid token set
-          return (
-            <Navigate
-              to={{
-                pathname: "/admin/login",
-                state: {
-                  // sets the location a user was about to assess before being Navigateed to login
-                  from: props.location,
-                },
-              }}
-            />
-          );
-        }
-      }}
-    />
-  );
-}
+  return children;
+} 

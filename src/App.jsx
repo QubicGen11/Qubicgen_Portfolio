@@ -39,6 +39,10 @@ import Privacy from "./Privacy/Privacy";
 import Swiper from './HomeComponents/Swiper';
 import Projectform from "./Contact Components/Projectform";
 import Studentform from "./Contact Components/Studentform";
+import Login from './Admin/Login';
+import ProtectedRoutes from './Admin/Protected';
+import AdminDashboard from './Admin/Dashboard';
+import NewjobApplication from "./Contact Components/NewjobApplication";
 const Nopage = lazy(()=>import ( './404') );
 // Import the NotFound component
 
@@ -83,9 +87,18 @@ const App = () => {
           <Route path="/terms" element={<Terms/>} />
           <Route path="/privacy" element={<Privacy/>} />
           <Route path="/swiper" element={<Swiper/>} />
+          <Route path="/projectform" element={<Projectform/>} />
+          <Route path="/newjobapplication" element={<NewjobApplication/>} />
+          <Route path="/admin/login" element={<Login />} />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <ProtectedRoutes>
+                <AdminDashboard />
+              </ProtectedRoutes>
+            }
+          />
           <Route path="*" element={<Nopage />} /> 
-          <Route path="/projectform" element={<Projectform/>} /> 
-         
         </Routes>
       </Router>
 

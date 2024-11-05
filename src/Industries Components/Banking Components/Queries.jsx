@@ -55,7 +55,7 @@ const Queries = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post('https://api.qubicgen.com/api/queries', formData);
+      const response = await axios.post('http://localhost:3000/api/queries', formData);
       console.log('Form data submitted:', response.data);
       setFormData({
         firstName: '',
