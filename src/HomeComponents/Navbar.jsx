@@ -161,6 +161,7 @@ navbar.style.backgroundColor = newColor;
         <ul className="text-center">
           <Link to="/projectform"><li style={{fontWeight:'lighter',fontSize:'14px'}}>Project Form</li></Link> 
           <Link to="/studentform"><li style={{fontWeight:'lighter',fontSize:'14px'}}>Student Form</li></Link>  
+          <Link to="/newjobapplication"><li style={{fontWeight:'lighter',fontSize:'14px'}}>Job Application</li></Link>  
         </ul>
       </section>
     </li>
