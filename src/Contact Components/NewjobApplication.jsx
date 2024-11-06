@@ -327,17 +327,16 @@ const NewjobApplication = () => {
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <i className="fas fa-calendar text-gray-400"></i>
                   </div>
-                  <select 
-                    name="passedOutYear" 
-                    onChange={handleChange} 
+                  <input
+                    type="number"
+                  
+                    placeholder="Passed Out Year *"
+                    name="passedOutYear"
+                    onChange={handleChange}
                     value={formData.passedOutYear}
                     required
-                    className="w-full pl-10 pr-3 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent appearance-none"
-                  >
-                    <option value="">Select Passed Out Year *</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                  </select>
+                    className="w-full pl-10 pr-3 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                  />
                 </div>
 
                 {/* Percentages */}

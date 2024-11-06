@@ -1,248 +1,245 @@
-  import React, { useEffect, useState } from 'react'
-  import axios from 'axios';
-  import "./Careerjobs.css"
-  import Footer from '../HomeComponents/Footer'
-  import Navbar from '../HomeComponents/Navbar'
-  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-  import { faSearch } from '@fortawesome/free-solid-svg-icons';
-  import { Parallax } from 'react-parallax';
-  import new4 from '../assets/new5.jpg';
-  import SEO from '../SEO';
-  import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import "./Careerjobs.css"
+import Footer from '../HomeComponents/Footer'
+import Navbar from '../HomeComponents/Navbar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Parallax } from 'react-parallax';
+import new4 from '../assets/new5.jpg';
+import SEO from '../SEO';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
-  const Careerjobsx = () => {
-      const [step, setStep] = useState(1);
-      const [isLoading, setIsLoading] = useState(false);
-      const [selectedJobRole, setSelectedJobRole] = useState("");
-      const [resume, selectedResume] = useState();
-      const [searchInput, setSearchInput] = useState("");
-      const [reset,  setReset] = useState(true);
-      const [loading, setLoading] = useState(true);
+const Careerjobsx = () => {
+    const [step, setStep] = useState(1);
+    const [isLoading, setIsLoading] = useState(false);
+    const [selectedJobRole, setSelectedJobRole] = useState("");
+    const [resume, selectedResume] = useState();
+    const [searchInput, setSearchInput] = useState("");
+    const [reset,  setReset] = useState(true);
+    const [loading, setLoading] = useState(true);
 
-      const [isResumeSelected, setIsResumeSelected] = useState(false);
-      const [JobsList, setJobsList] = useState([
-        {
-          title: "Human Resource Manager",
-          qual: "MBA",
-          exp: "Fresher",
-          skills: "Communication and Management",
-          description:
-            "Seeking HR Manager: Lead our HR department to success! Manage recruitment, employee relations, training, and compliance. Bring your leadership skills and drive positive change. ",
-        },
-        {
-          title: "RPA Developer",
-          qual: "B.Tech / Degree",
-          exp: "Fresher",
-          skills: "UiPath",
-          description:
-            "RPA Developer Wanted: Join us in automating processes! Design, develop, and implement RPA solutions. Skills in UiPath needed. Ready to innovate? ",
-        },
-        {
-          title: "Web Developer",
-          qual: "B.Tech / Degree",
-          exp: "Fresher",
-          skills: "HTML, CSS, JavaScript",
-          description:
-            "Seeking Web Developer: Join our team to craft exceptional online experiences! Design and develop dynamic websites and web applications using HTML, CSS, and JavaScript. Bring creativity and technical expertise to drive our digital presence forward.",
-        },
-        {
-          title: "SAP Developer",
-          qual: "B.Tech / Degree",
-          exp: "Fresher",
-          skills: "HANA",
-          description:
-            "Join us as an SAP Developer and unleash your potential in transforming businesses with cutting-edge technology! You'll design, develop, and customize SAP applications and solutions using ABAP and other programming languages. Bring your passion for innovation and problem-solving to drive our digital transformation forward.",
-        },
-        {
-          title: "Cyber Security Analyst",
-          qual: "B.Tech / Degree",
-          exp: "Fresher",
-          skills: "Cyber Security",
-          description:
-            "Join our team as a Cyber Security Analyst and play a pivotal role in safeguarding our organization against cyber threats! You'll be responsible for monitoring, analyzing, and responding to security incidents, conducting threat assessments, and implementing proactive measures to protect our systems and data.",
-        },
-        {
-          title: "Digital Marketing Manager",
-          qual: "B.Tech / Degree",
-          exp: "Fresher",
-          skills: "Digital and Social Media Marketing",
-          description:
-            "Join us as a Digital Marketing Manager and lead our online presence to new heights! In this role, you'll oversee digital marketing strategies, manage campaigns, and analyze performance metrics to drive business growth.",
-        },
-      ]);
-      const [formData, setFormData] = useState({
-        fullName: '',
-        email: '',
-        phone: '',
-        linkedInURL: '',
-        githubURL: '',
-        address: '',
-        resumeId: '',
-        education: {
-          level: '',
-          institution: '',
-          stream: '',
-          graduationYear: '',
-          cgpaPercentage: '',
-        },
-        workExperience: {
-          experienceLevel: '',
-          jobTitle: '',
-          responsibilities: ''
-        }
-      });
+    const [isResumeSelected, setIsResumeSelected] = useState(false);
+    const [JobsList, setJobsList] = useState([
+      {
+        title: "Human Resource Manager",
+        qual: "MBA",
+        exp: "Fresher",
+        skills: "Communication and Management",
+        description:
+          "Seeking HR Manager: Lead our HR department to success! Manage recruitment, employee relations, training, and compliance. Bring your leadership skills and drive positive change. ",
+      },
+      {
+        title: "RPA Developer",
+        qual: "B.Tech / Degree",
+        exp: "Fresher",
+        skills: "UiPath",
+        description:
+          "RPA Developer Wanted: Join us in automating processes! Design, develop, and implement RPA solutions. Skills in UiPath needed. Ready to innovate? ",
+      },
+      {
+        title: "Web Developer",
+        qual: "B.Tech / Degree",
+        exp: "Fresher",
+        skills: "HTML, CSS, JavaScript",
+        description:
+          "Seeking Web Developer: Join our team to craft exceptional online experiences! Design and develop dynamic websites and web applications using HTML, CSS, and JavaScript. Bring creativity and technical expertise to drive our digital presence forward.",
+      },
+      {
+        title: "SAP Developer",
+        qual: "B.Tech / Degree",
+        exp: "Fresher",
+        skills: "HANA",
+        description:
+          "Join us as an SAP Developer and unleash your potential in transforming businesses with cutting-edge technology! You'll design, develop, and customize SAP applications and solutions using ABAP and other programming languages. Bring your passion for innovation and problem-solving to drive our digital transformation forward.",
+      },
+      {
+        title: "Cyber Security Analyst",
+        qual: "B.Tech / Degree",
+        exp: "Fresher",
+        skills: "Cyber Security",
+        description:
+          "Join our team as a Cyber Security Analyst and play a pivotal role in safeguarding our organization against cyber threats! You'll be responsible for monitoring, analyzing, and responding to security incidents, conducting threat assessments, and implementing proactive measures to protect our systems and data.",
+      },
+      {
+        title: "Digital Marketing Manager",
+        qual: "B.Tech / Degree",
+        exp: "Fresher",
+        skills: "Digital and Social Media Marketing",
+        description:
+          "Join us as a Digital Marketing Manager and lead our online presence to new heights! In this role, you'll oversee digital marketing strategies, manage campaigns, and analyze performance metrics to drive business growth.",
+      },
+    ]);
+    const [formData, setFormData] = useState({
+      fullName: '',
+      gender: '',
+      phoneNumber: '',
+      whatsappNumber: '',
+      personalEmail: '',
+      officialMail: '',
+      course: '',
+      branch: '',
+      collegeName: '',
+      address: '',
+      passedOutYear: '',
+      tenthPercentage: '',
+      twelfthPercentage: '',
+      graduationPercentage: '',
+      comments: '',
+      resume: null
+    });
 
-      // Function to validate email format
-      let emailValidated = false;
-      let phoneValidated = false;
+    // Function to validate email format
+    let emailValidated = false;
+    let phoneValidated = false;
 
 
-      const handleFileChangess = (e) => {
-        const selectedFile = e.target.files[0];
-        selectedResume(selectedFile);
-        setIsResumeSelected(true); // Update state when file is selected
-      };
-      
-      // Function to validate email format
-      const validateEmail = (e) => {
-          if (!emailValidated) {
-              const emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-              const isValidEmail = emailPattern.test(e.target.value);
-              if (!isValidEmail) {
-                  alert('Please enter a valid email address.');
-                  // Optionally, you can reset the value or set an error state
-              }
-              // Set flag to true to indicate validation has been performed
-              emailValidated = true;
-          }
-      };
-      
-      // Function to validate phone number format
-      const validatePhone = (e) => {
-          if (!phoneValidated) {
-              const phonePattern = /[0-9]{10}/;
-              const isValidPhone = phonePattern.test(e.target.value);
-              if (!isValidPhone) {
-                  alert('Please enter a valid phone number.');
-                  // Optionally, you can reset the value or set an error state
-              }
-              // Set flag to true to indicate validation has been performed
-              phoneValidated = true;
-          }
-      };
-      useEffect(() => {
-        setStep(1);
-      }, []);
-    
-      const handleNext = () => {
-        // Array to store names of missing fields
-        const missingFields = [];
-    
-        // Check each required field individually
-        if (!formData.fullName) {
-            missingFields.push('Full Name');
-        }
-        if (!formData.email) {
-            missingFields.push('Email');
-        }
-        if (!formData.phone) {
-            missingFields.push('Phone Number');
-        }
-        if (!formData.address) {
-            missingFields.push('Address');
-        }
-        if (!formData.education) {
-            missingFields.push('Education');
-        }
-        // if (!formData.resumeId) {
-        //     missingFields.push('Resume');
-        // }
-
-
-    
-        // If any field is missing, display an alert with the names of missing fields
-        if (missingFields.length > 0) {
-            alert(`Please fill in the following required fields: ${missingFields.join(', ')}.`);
-            return; // Return early, preventing the form from proceeding
-        }
-    
-        // Perform other validations if needed
-    
-        // If all validations pass, proceed to the next step
-        setStep(step + 1);
+    const handleFileChangess = (e) => {
+      const selectedFile = e.target.files[0];
+      selectedResume(selectedFile);
+      setIsResumeSelected(true); // Update state when file is selected
     };
-
-
-
-    const handleNextEducation = () => {
+    
+    // Function to validate email format
+    const validateEmail = (e) => {
+        if (!emailValidated) {
+            const emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+            const isValidEmail = emailPattern.test(e.target.value);
+            if (!isValidEmail) {
+                alert('Please enter a valid email address.');
+                // Optionally, you can reset the value or set an error state
+            }
+            // Set flag to true to indicate validation has been performed
+            emailValidated = true;
+        }
+    };
+    
+    // Function to validate phone number format
+    const validatePhone = (e) => {
+        if (!phoneValidated) {
+            const phonePattern = /[0-9]{10}/;
+            const isValidPhone = phonePattern.test(e.target.value);
+            if (!isValidPhone) {
+                alert('Please enter a valid phone number.');
+                // Optionally, you can reset the value or set an error state
+            }
+            // Set flag to true to indicate validation has been performed
+            phoneValidated = true;
+        }
+    };
+    useEffect(() => {
+      setStep(1);
+    }, []);
+  
+    const handleNext = () => {
       // Array to store names of missing fields
       const missingFields = [];
-    
+  
       // Check each required field individually
-      if (!formData.education.level) {
-          missingFields.push('Highest Level of Education Attained');
+      if (!formData.fullName) {
+          missingFields.push('Full Name');
       }
-      if (!formData.education.institution) {
-          missingFields.push('Name of Institution');
+      if (!formData.email) {
+          missingFields.push('Email');
       }
-      if (!formData.education.stream) {
-          missingFields.push('Stream');
+      if (!formData.phone) {
+          missingFields.push('Phone Number');
       }
-      if (!formData.education.graduationYear) {
-          missingFields.push('Year of Graduation');
+      if (!formData.address) {
+          missingFields.push('Address');
       }
-      if (!formData.education.cgpaPercentage) {
-          missingFields.push('CGPA/Percentage');
+      if (!formData.education) {
+          missingFields.push('Education');
       }
-    
+      // if (!formData.resumeId) {
+      //     missingFields.push('Resume');
+      // }
+
+
+  
       // If any field is missing, display an alert with the names of missing fields
       if (missingFields.length > 0) {
           alert(`Please fill in the following required fields: ${missingFields.join(', ')}.`);
           return; // Return early, preventing the form from proceeding
       }
-    
+  
       // Perform other validations if needed
-    
+  
       // If all validations pass, proceed to the next step
       setStep(step + 1);
+  };
+
+
+
+  const handleNextEducation = () => {
+    // Array to store names of missing fields
+    const missingFields = [];
+  
+    // Check each required field individually
+    if (!formData.education.level) {
+        missingFields.push('Highest Level of Education Attained');
+    }
+    if (!formData.education.institution) {
+        missingFields.push('Name of Institution');
+    }
+    if (!formData.education.stream) {
+        missingFields.push('Stream');
+    }
+    if (!formData.education.graduationYear) {
+        missingFields.push('Year of Graduation');
+    }
+    if (!formData.education.cgpaPercentage) {
+        missingFields.push('CGPA/Percentage');
+    }
+  
+    // If any field is missing, display an alert with the names of missing fields
+    if (missingFields.length > 0) {
+        alert(`Please fill in the following required fields: ${missingFields.join(', ')}.`);
+        return; // Return early, preventing the form from proceeding
+    }
+  
+    // Perform other validations if needed
+  
+    // If all validations pass, proceed to the next step
+    setStep(step + 1);
+  };
+  
+  
+  
+    const handleBack = () => {
+      setStep(step - 1);
+    };
+ 
+
+    const handleFileChange = (e) => {
+      const selectedFile = e.target.files[0];
+      selectedResume(selectedFile);
+      setIsResumeSelected(true); // Update state when file is selected
     };
     
+    const uploadResume = async (resume) => {
+      try {
+        const formData = new FormData();
+        formData.append('resume', resume);
     
+        const response = await axios.post('http://localhost:3000/api/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        console.log('Upload response:', response.data);
+        return response.data.fileName; 
+        // Optionally, you can handle the response from the upload endpoint here
+      } catch (error) {
+        console.error('Upload error:', error);
+      }
+    };
     
-      const handleBack = () => {
-        setStep(step - 1);
-      };
-   
-
-      const handleFileChange = (e) => {
-        const selectedFile = e.target.files[0];
-        selectedResume(selectedFile);
-        setIsResumeSelected(true); // Update state when file is selected
-      };
-      
-      const uploadResume = async (resume) => {
-        try {
-          const formData = new FormData();
-          formData.append('resume', resume);
-      
-          const response = await axios.post('http://localhost:3000/api/upload', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          });
-          console.log('Upload response:', response.data);
-          return response.data.fileName; 
-          // Optionally, you can handle the response from the upload endpoint here
-        } catch (error) {
-          console.error('Upload error:', error);
-        }
-      };
-      
-    
-      const handleInputChange = (event) => {
+  
+    const handleInputChange = (event) => {
           const { name, value } = event.target;
           // Handling nested state updates for education and workExperience fields
           if (name.includes('[')) {
@@ -263,80 +260,101 @@
           }
         };
     
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-          const resume1 = resume;
-          const resumeId = await uploadResume(resume1);
-          console.log(resumeId,"resumeId");
-          const jobApplicationData = {
-            selectedJobRole, ...formData, resumeId:resumeId
-          };
-          console.log(jobApplicationData);
-          setIsLoading(true);
-          const response = await axios.post('http://localhost:3000/api/job-application', jobApplicationData, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });      
-      if (response.status === 200 || response.status === 201) {
-        toast.success('Job application submitted successfully!', {
-          onClose: () => {
-            // Delay the closure of the message by 3 seconds
-            setTimeout(() => {
-              // Close the message after 3 seconds
-              toast.dismiss();
-            }, 5000);
+    const handleChange = (e) => {
+      const { name, value, type, files } = e.target;
+      
+      if (type === 'file') {
+        setFormData(prev => ({
+          ...prev,
+          [name]: files[0]
+        }));
+      } else {
+        setFormData(prev => ({
+          ...prev,
+          [name]: value
+        }));
+      }
+    };
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setIsLoading(true);
+
+      try {
+        const submitData = new FormData();
+        Object.keys(formData).forEach(key => {
+          if (key === 'resume') {
+            if (formData[key]) {
+              submitData.append('resume', formData[key]);
+            }
+          } else {
+            submitData.append(key, formData[key]);
           }
         });
-      }else { 
-        toast.error('Error submitting form');
-      }
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000); // 5000 milliseconds = 5 seconds
-      
-        } catch (error) {
-          setIsLoading(false);
-          if( error.response.status === 400){ 
 
-            toast.error("You have already applied for this job. Don't worry, we'll get back to you soon.", {
-              onClose: () => {
-                // Delay the closure of the message by 3 seconds
-                setTimeout(() => {
-                  // Close the message after 3 seconds
-                  toast.dismiss();
-                }, 5000);
-              }
-            });
-          }else{
-          toast.error('Please try again');
-          }
-      }
-      finally {
-          setIsLoading(false); 
+        const response = await fetch('http://localhost:3000/api/newjob', {
+          method: 'POST',
+          body: submitData,
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.message || 'Something went wrong');
         }
-      };
 
+        toast.success('Application submitted successfully!');
+        
+        // Reset form
+        setFormData({
+          fullName: '',
+          gender: '',
+          phoneNumber: '',
+          whatsappNumber: '',
+          personalEmail: '',
+          officialMail: '',
+          course: '',
+          branch: '',
+          collegeName: '',
+          address: '',
+          passedOutYear: '',
+          tenthPercentage: '',
+          twelfthPercentage: '',
+          graduationPercentage: '',
+          comments: '',
+          resume: null
+        });
+
+        // Close modal
+        const modal = document.getElementById('staticBackdrop');
+        const modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.hide();
+
+      } catch (error) {
+        toast.error(error.message || 'Failed to submit application');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    const filteredJobs = JobsList.filter((job) =>
+      job.title.toLowerCase().includes(searchInput.toLowerCase())
+    );
+
+    return (
+
+        <>
+        <ToastContainer />
+    <SEO
+        title="QubiGen - Careersjobs"
+        description="Connect with QubiGen and get in touch with our team. Learn how you can reach out to us for inquiries, collaborations, and partnerships. We are here to support your business needs."
+        type="website"
+        name="QubiGen Careers"
+        image="https://example.com/contact-og-image.jpg"
+        url="https://www.qubicgen.com/Careerjobs"
+        keywords="QubiGen, Contact Us, inquiries, collaborations, partnerships, support , jobs , Software , Salaries , Employee"
+      />
     
-      const filteredJobs = JobsList.filter((job) =>
-        job.title.toLowerCase().includes(searchInput.toLowerCase())
-      );
-
-      return (
-
-          <>
-          <ToastContainer />
-      <SEO
-          title="QubiGen - Careersjobs"
-          description="Connect with QubiGen and get in touch with our team. Learn how you can reach out to us for inquiries, collaborations, and partnerships. We are here to support your business needs."
-          type="website"
-          name="QubiGen Careers"
-          image="https://example.com/contact-og-image.jpg"
-          url="https://www.qubicgen.com/Careerjobs"
-          keywords="QubiGen, Contact Us, inquiries, collaborations, partnerships, support , jobs , Software , Salaries , Employee"
-        />
-      
               <Navbar />
               <div className='bg-black'>
                   <div className="careeesfull bg-black" data-aos="fade-right">
@@ -353,7 +371,7 @@
                                   <div>
                                       <input
                                           type="text"
-                                          className='rounded-3xl text-xs font-bold text-black w-72 h-10 my-4'
+                                          className='rounded-3xl text-xs font-bold text-white w-72 h-10 my-4'
                                           placeholder='Search your dream role'
                                           value={searchInput}
                                           onChange={(e) => setSearchInput(e.target.value)} // Update search input value
@@ -407,110 +425,255 @@
 
 
               <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div className="modal-dialog custom-modal-dialog" style={{ zIndex: 2000 }}>
-      <div className="modal-content">
-        {step === 1 && (
-          <div>
-            <div className="modal-header">
-              <h1 className="modal-title fs-5 my-3 text-white z-30" id="staticBackdropLabel">{selectedJobRole} Application</h1>
-              <button className='btn-close z-30' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>
-            </div>
-            <div className="modal-body">
-              <div className="flex flex-col items-center justify-center h-screen" style={{height:'auto'}}>
-                <div className="w-full max-w-md rounded-lg shadow-md p-6">
-                  <h1 className="modal-title fs-5 my-3 text-white" id="staticBackdropLabel">Job Role</h1>
-                  <div className="joberoles bg-white h-12 flex items-center rounded-lg pl-2">
-                    {selectedJobRole}
-                  </div>
-                  <h1 className="modal-title fs-5 my-3 text-white" id="staticBackdropLabel">Personal Details</h1>
-                  <form className="flex flex-col h-au" onSubmit={handleSubmit} encType="multipart/form-data">
-                    {/* Update input fields with name attributes and bind them to formData */}
-                    <input type="text" name="fullName" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Full Name (As Per marks memo)" value={formData.fullName} onChange={handleInputChange} />
-      <input type="email" name="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Email" value={formData.email} onChange={handleInputChange} onBlur={validateEmail} required />
-      <input type="text" name="phone" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} onBlur={validatePhone} required />
-                    <input type="text" name="linkedInURL" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="LinkedIn Profile URL" value={formData.linkedInURL} onChange={handleInputChange} />
-                    <input type="text" name="githubURL" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Github Profile URL" value={formData.githubURL} onChange={handleInputChange} />
-                    <textarea name="address" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Address" value={formData.address} onChange={handleInputChange} />
-                    {/* Assuming handleFileChange is defined to handle file inputs */}
-                    <h1 className="text-xl  text-white" id="staticBackdropLabel">Resume</h1>
-
-                    <input 
-  type="file" 
-  name="resume" 
-  accept=".pdf,.docx" 
-  className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" 
-  onChange={handleFileChange} 
-  required // Add the 'required' attribute
-/>
-                    <div className="modal-footer z-50">
-                      <button type="button" className="bg-gray-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-200" data-bs-dismiss="modal">Close</button>
-                      <button type="button" onClick={handleNext} className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
+    <div className="modal-dialog modal-lg" style={{ zIndex: 2000 }}>
+      <div className="modal-content bg-black/95">
+        <div className="modal-header border-0">
+          <h1 className="modal-title fs-5 text-white text-bold z-50">{selectedJobRole} Application</h1>
+          <button className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div className="modal-body">
+          <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="backdrop-blur-3xl rounded-xl shadow-2xl p-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Personal Information */}
+                    <div className="relative">
+                      <input 
+                        type="text" 
+                        placeholder="Full Name *" 
+                        name="fullName" 
+                        onChange={handleChange} 
+                        value={formData.fullName} 
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
                     </div>
-                  </form>
-                </div>
+
+                    <div className="relative">
+                      <select 
+                        name="gender" 
+                        onChange={handleChange} 
+                        value={formData.gender}
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      >
+                        <option value="">Select Gender *</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+
+                    <div className="relative">
+                      <input 
+                        type="tel" 
+                        placeholder="Phone Number *" 
+                        name="phoneNumber" 
+                        pattern="[0-9]{10}"
+                        onChange={handleChange} 
+                        value={formData.phoneNumber} 
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div className="relative">
+                      <input 
+                        type="tel" 
+                        placeholder="WhatsApp Number" 
+                        name="whatsappNumber" 
+                        pattern="[0-9]{10}"
+                        onChange={handleChange} 
+                        value={formData.whatsappNumber}
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div className="relative">
+                      <input 
+                        type="email" 
+                        placeholder="Personal Email *" 
+                        name="personalEmail" 
+                        onChange={handleChange} 
+                        value={formData.personalEmail} 
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div className="relative">
+                      <input 
+                        type="email" 
+                        placeholder="Official Email" 
+                        name="officialMail" 
+                        onChange={handleChange} 
+                        value={formData.officialMail}
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
+                    </div>
+
+                    {/* Education Details */}
+                    <div className="relative">
+                      <input 
+                        type="text" 
+                        placeholder="Course *" 
+                        name="course" 
+                        onChange={handleChange} 
+                        value={formData.course} 
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div className="relative">
+                      <input 
+                        type="text" 
+                        placeholder="Branch *" 
+                        name="branch" 
+                        onChange={handleChange} 
+                        value={formData.branch} 
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div className="relative">
+                      <input 
+                        type="text" 
+                        placeholder="College Name *" 
+                        name="collegeName" 
+                        onChange={handleChange} 
+                        value={formData.collegeName} 
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div className="relative">
+                      <input 
+                        type="number" 
+                        placeholder="Passed Out Year *" 
+                        name="passedOutYear" 
+                        onChange={handleChange} 
+                        value={formData.passedOutYear} 
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
+                    </div>
+
+                    {/* Academic Percentages */}
+                    <div className="relative">
+                      <input 
+                        type="number" 
+                        step="0.01"
+                        placeholder="10th Percentage *" 
+                        name="tenthPercentage" 
+                        onChange={handleChange} 
+                        value={formData.tenthPercentage} 
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div className="relative">
+                      <input 
+                        type="number" 
+                        step="0.01"
+                        placeholder="12th Percentage *" 
+                        name="twelfthPercentage" 
+                        onChange={handleChange} 
+                        value={formData.twelfthPercentage} 
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
+                    </div>
+
+                    <div className="relative">
+                      <input 
+                        type="number" 
+                        step="0.01"
+                        placeholder="Graduation Percentage *" 
+                        name="graduationPercentage" 
+                        onChange={handleChange} 
+                        value={formData.graduationPercentage} 
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                      />
+                    </div>
+
+                    {/* Address */}
+                    <div className="relative col-span-full">
+                      <textarea 
+                        placeholder="Address *" 
+                        name="address" 
+                        onChange={handleChange} 
+                        value={formData.address} 
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                        rows="3"
+                      />
+                    </div>
+
+                    {/* Comments */}
+                    <div className="relative col-span-full">
+                      <textarea 
+                        placeholder="Additional Comments" 
+                        name="comments" 
+                        onChange={handleChange} 
+                        value={formData.comments}
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                        rows="3"
+                      />
+                    </div>
+
+                    {/* Resume Upload */}
+                    <div className="relative col-span-full">
+                      <input 
+                        type="file" 
+                        name="resume" 
+                        onChange={handleChange}
+                        accept=".pdf,.doc,.docx"
+                        required
+                        className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-black/20 text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-400 file:text-black hover:file:bg-yellow-500"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex justify-end gap-4 mt-6">
+                    <button 
+                      type="button" 
+                      className="px-6 py-2 rounded-lg bg-gray-600 text-white hover:bg-gray-700 transition-colors"
+                      data-bs-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+                    <button 
+                      type="submit"
+                      disabled={isLoading}
+                      className="px-6 py-2 rounded-lg bg-yellow-400 text-black font-semibold hover:bg-yellow-500 transition-colors disabled:opacity-50"
+                    >
+                      {isLoading ? (
+                        <span className="flex items-center gap-2">
+                          <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Submitting...
+                        </span>
+                      ) : (
+                        'Submit Application'
+                      )}
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
-          </div>
-                          )}
-          {step === 2 && (
-    <div>
-      <div className="modal-header">
-        <h1 className="modal-title fs-5 my-3 text-white z-30" id="staticBackdropLabel">{selectedJobRole} Application</h1>
-        <button className='btn-close z-30' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>
-      </div>
-      <div className="modal-body">
-        <div className="flex flex-col items-center justify-center h-screen">
-          <div className="w-full max-w-md rounded-lg shadow-md p-6 ">
-            <h2 className="text-2xl font-bold text-white mb-4">Education</h2>
-            <form className="flex flex-col gap-6" onSubmit={handleSubmit} encType="multipart/form-data">
-              {/* Education Inputs */}
-              <input type="text" name="education[level]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Highest Level of Education Attained*" value={formData.education.level} onChange={handleInputChange} />
-              <input type="text" name="education[institution]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Name of Institution*" value={formData.education.institution} onChange={handleInputChange} />
-              <input type="text" name="education[stream]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Stream*" value={formData.education.stream} onChange={handleInputChange} />
-              <input type="number" name="education[graduationYear]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Year of Graduation*" value={formData.education.graduationYear} onChange={handleInputChange} />
-              <input type="text" name="education[cgpaPercentage]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="CGPA/Percentage*" value={formData.education.cgpaPercentage} onChange={handleInputChange} />
-              <div className="modal-footer">
-                <button type="button" onClick={handleBack} className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
-                <button type="button" onClick={handleNextEducation} className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150">Next</button>
-              </div>
-            </form>
           </div>
         </div>
       </div>
     </div>
-  )}
-
-        {step === 3 && (
-          <div>
-            <div className="modal-header">
-              <h1 className="modal-title fs-5 my-3 text-white z-40" id="staticBackdropLabel">{selectedJobRole} Application</h1>
-              <button className='btn-close z-40' data-bs-dismiss="modal" aria-label="Close" onClick={() => setStep(1)}></button>
-            </div>
-            <div className="modal-body">
-              <div className="flex flex-col items-center justify-center h-screen">
-                <div className="w-full max-w-md rounded-lg shadow-md p-6">
-                  <h2 className="text-2xl font-bold text-white mb-4">Work Experience</h2>
-                  <form className="flex flex-col gap-8" onSubmit={handleSubmit} encType="multipart/form-data">
-                    {/* Work Experience Inputs */}
-                    <input type="text" name="workExperience[experienceLevel]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Experience Level" value={formData.workExperience.experienceLevel} onChange={handleInputChange} />
-                    <input type="text" name="workExperience[jobTitle]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Title" value={formData.workExperience.jobTitle} onChange={handleInputChange} />
-                    <textarea name="workExperience[responsibilities]" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Job Responsibilities/Achievements" value={formData.workExperience.responsibilities} onChange={handleInputChange}></textarea>
-                    <div className="modal-footer">
-                      <button type="button" onClick={handleBack} className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Back</button>
-                      <button type="submit" className="bg-blue-400 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-400 transition ease-in-out duration-150" disabled={isLoading}>
-                        {isLoading ? 'Submitting...' : 'Submit'}
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-                          {/* Add more steps as needed */}
-                      </div>
-                  </div>
-              </div>
+  </div>
 
 
 
