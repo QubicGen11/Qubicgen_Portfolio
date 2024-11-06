@@ -49,35 +49,33 @@ const NewjobApplication = () => {
     setIsLoading(true);
 
     try {
-      // Create FormData object
+      // Create FormData for file upload
       const formDataToSend = new FormData();
       
-      // Append all form fields
+      // Append all form fields with proper date formatting
       Object.keys(formData).forEach(key => {
         if (key === 'resume') {
           if (formData[key]) {
             formDataToSend.append('resume', formData[key]);
           }
+        } else if (key === 'passedOutYear') {
+          // Format the year to ISO string
+          const year = formData[key];
+          const formattedDate = `${year}-01-01T00:00:00.000Z`;
+          formDataToSend.append('passedOutYear', formattedDate);
         } else {
-          // Add percentage symbol to percentage fields
-          if (['tenthPercentage', 'twelthPercentage', 'graduationPercentage'].includes(key)) {
-            formDataToSend.append(key, `${formData[key]}%`);
-          } else {
-            formDataToSend.append(key, formData[key]);
-          }
+          formDataToSend.append(key, formData[key]);
         }
       });
 
+      // Send form data to your API
       const response = await fetch('http://localhost:9098/qubicgen/newCareer', {
         method: 'POST',
-        body: formDataToSend, // Send as FormData
-        // Remove Content-Type header - browser will set it automatically with boundary
+        body: formDataToSend,
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(data.message || 'Something went wrong');
+        throw new Error('Failed to submit application');
       }
 
       // Show success message
