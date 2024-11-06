@@ -55,24 +55,65 @@ const Getintouch = () => {
         // If any required field is missing, display an error toast
         if (missingFields.length > 0) {
             toast.error(`Please fill in the following required fields: ${missingFields.join(', ')}.`);
-            return; // Return early, preventing the form from proceeding
+            return;
+        }
+
+        // Validate email before submission
+        if (!validateEmail(formData.email)) {
+            toast.error('Please enter a valid email address');
+            return;
         }
 
         setIsLoading(true);
         try {
-            const response = await axios.post('http://localhost:3000/api/getInTouch', formData);
-            console.log('Form data submitted:', response.data);
-            setFormData({
-                fullName:'',
-                email: '',
-                message: ''
-            });
-            toast.success('Your message has been sent successfully');
-            setIsLoading(false);
+            const response = await axios.post('http://localhost:9098/qubicgen/newRequest', 
+                {
+                    fullName: formData.fullName,
+                    email: formData.email,
+                    message: formData.message,
+                    type: 'contact'
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    withCredentials: true
+                }
+            );
+
+            if (response.status === 200 || response.status === 201) {
+                setFormData({
+                    fullName: '',
+                    email: '',
+                    message: ''
+                });
+                
+                toast.success('Your message has been sent successfully', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                });
+            } else {
+                throw new Error('Failed to send message');
+            }
         } catch (error) {
-            setIsLoading(false);
-            toast.error('Please check the Email Adress');
             console.error('Error submitting form:', error);
+            toast.error(
+                error.response?.data?.message || 'Failed to send message. Please try again.',
+                {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                }
+            );
+        } finally {
+            setIsLoading(false);
         }
     };
 

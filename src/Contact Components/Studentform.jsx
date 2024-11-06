@@ -12,7 +12,15 @@ import { Link } from 'react-router-dom';
 
 const Studentform = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [type, setType] = useState('project');
+  const [type, setType] = useState({
+    name: '',
+    email: '', 
+    phone: '',
+    course: '',
+    college: '',
+    stream: '',
+    message: ''
+  });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -90,7 +98,7 @@ const Studentform = () => {
     }
   
     try {
-      const response = await axios.post('http://localhost:3000/api/student', formData);
+      const response = await axios.post('http://localhost:9098/qubicgen/student-forms', formData);
   
       if (response.data.message === 'Duplicate entry') {
         toast.error('This data already exists in the database.');

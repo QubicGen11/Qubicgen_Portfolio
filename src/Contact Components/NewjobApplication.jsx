@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 import Navbar from '../HomeComponents/Navbar';
 import Footer from '../HomeComponents/Footer';
 import SEO from '../SEO';
@@ -13,35 +12,27 @@ const NewjobApplication = () => {
     fullName: '',
     gender: '',
     phoneNumber: '',
-    whatsappNumber: '',
+    whatsAppNumber: '', // Note the capital 'A' to match the API format
     personalEmail: '',
-    officialMail: '',
+    officeEmail: '', // Changed from officialMail to match API format
     course: '',
     branch: '',
     collegeName: '',
     address: '',
     passedOutYear: '',
     tenthPercentage: '',
-    twelfthPercentage: '',
+    twelthPercentage: '', // Changed from twelfthPercentage to match API format
     graduationPercentage: '',
-    comments: '',
-    resume: null
+    resume: '',
+    comments: ''
   });
 
   const handleChange = (e) => {
-    const { name, value, type, files } = e.target;
-    
-    if (type === 'file') {
-      setFormData(prev => ({
-        ...prev,
-        [name]: files[0]
-      }));
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
-    }
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -49,24 +40,32 @@ const NewjobApplication = () => {
     setIsLoading(true);
 
     try {
-      // Create FormData object
-      const submitData = new FormData();
-      
-      // Append all form fields to FormData
-      Object.keys(formData).forEach(key => {
-        if (key === 'resume') {
-          if (formData[key]) {
-            submitData.append('resume', formData[key]);
-          }
-        } else {
-          submitData.append(key, formData[key]);
-        }
-      });
+      // Format the data to match the API requirements
+      const formattedData = {
+        fullName: formData.fullName,
+        gender: formData.gender,
+        phoneNumber: formData.phoneNumber,
+        whatsAppNumber: formData.whatsAppNumber,
+        personalEmail: formData.personalEmail,
+        officeEmail: formData.officeEmail,
+        course: formData.course,
+        branch: formData.branch,
+        collegeName: formData.collegeName,
+        address: formData.address,
+        passedOutYear: formData.passedOutYear,
+        tenthPercentage: `${formData.tenthPercentage}%`,
+        twelthPercentage: `${formData.twelthPercentage}%`,
+        graduationPercentage: `${formData.graduationPercentage}%`,
+        resume: formData.resume,
+        comments: formData.comments
+      };
 
-      // Make API call
-      const response = await fetch('http://localhost:3000/api/newjob', {
+      const response = await fetch('http://localhost:9098/qubicgen/newCareer', {
         method: 'POST',
-        body: submitData, // Don't set Content-Type header - FormData will set it automatically
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formattedData)
       });
 
       const data = await response.json();
@@ -90,26 +89,20 @@ const NewjobApplication = () => {
         fullName: '',
         gender: '',
         phoneNumber: '',
-        whatsappNumber: '',
+        whatsAppNumber: '',
         personalEmail: '',
-        officialMail: '',
+        officeEmail: '',
         course: '',
         branch: '',
         collegeName: '',
         address: '',
         passedOutYear: '',
         tenthPercentage: '',
-        twelfthPercentage: '',
+        twelthPercentage: '',
         graduationPercentage: '',
-        comments: '',
-        resume: null
+        resume: '',
+        comments: ''
       });
-
-      // Reset file input
-      const fileInput = document.querySelector('input[type="file"]');
-      if (fileInput) {
-        fileInput.value = '';
-      }
 
     } catch (error) {
       console.error('Submission error:', error);
@@ -219,10 +212,10 @@ const NewjobApplication = () => {
                   <input 
                     type="tel" 
                     placeholder="WhatsApp Number *" 
-                    name="whatsappNumber" 
+                    name="whatsAppNumber" 
                     pattern="[0-9]{10}"
                     onChange={handleChange} 
-                    value={formData.whatsappNumber} 
+                    value={formData.whatsAppNumber} 
                     required
                     className="w-full pl-10 pr-3 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
                   />
@@ -251,11 +244,11 @@ const NewjobApplication = () => {
                   </div>
                   <input 
                     type="email" 
-                    placeholder="Official Mail *" 
-                    name="officialMail" 
+                    placeholder="Official Email *" 
+                    name="officeEmail" 
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                     onChange={handleChange} 
-                    value={formData.officialMail} 
+                    value={formData.officeEmail} 
                     required
                     className="w-full pl-10 pr-3 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
                   />
@@ -329,7 +322,6 @@ const NewjobApplication = () => {
                   </div>
                   <input
                     type="number"
-                  
                     placeholder="Passed Out Year *"
                     name="passedOutYear"
                     onChange={handleChange}
@@ -368,9 +360,9 @@ const NewjobApplication = () => {
                     min="0" 
                     max="100"
                     placeholder="12th Percentage *" 
-                    name="twelfthPercentage" 
+                    name="twelthPercentage" 
                     onChange={handleChange} 
-                    value={formData.twelfthPercentage} 
+                    value={formData.twelthPercentage} 
                     required
                     className="w-full pl-10 pr-3 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
                   />
@@ -394,18 +386,17 @@ const NewjobApplication = () => {
                   />
                 </div>
 
-                {/* Resume Upload */}
                 <div className="relative col-span-full">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <i className="fas fa-file-upload text-gray-400"></i>
                   </div>
                   <input 
-                    type="file" 
+                    type="text" 
                     name="resume" 
                     onChange={handleChange}
-                    accept=".pdf,.doc,.docx"
+                    placeholder="Enter your resume link *"
                     required
-                    className="w-full pl-10 pr-3 py-2 border border-gray-600 rounded-lg bg-black/20 text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-400 file:text-black hover:file:bg-yellow-500"
+                    className="w-full pl-10 pr-3 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
                   />
                 </div>
 
@@ -453,6 +444,4 @@ const NewjobApplication = () => {
   );
 };
 
-export default NewjobApplication; 
-
-
+export default NewjobApplication;

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
+import * as XLSX from 'xlsx';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const cookies = new Cookies();
 
@@ -28,15 +31,52 @@ const Dashboard = () => {
   const fetchData = async () => {
     try {
       const token = cookies.get('TOKEN');
-      const response = await axios.get('http://localhost:3000/api/fetchData', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
+      
+      // Check if token exists
+      if (!token) {
+        console.log('No token found');
+        navigate('/admin/login');
+        return;
+      }
+
+      const headers = {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      };
+
+      const axiosConfig = {
+        headers,
+        withCredentials: true // Enable credentials
+      };
+
+      // Fetch all data in parallel
+      const [
+        getInTouchRes,
+        queriesRes,
+        studentFormsRes,
+        projectsRes,
+        careersRes
+      ] = await Promise.all([
+        axios.get('http://localhost:9098/qubicgen/allRequests', axiosConfig),
+        axios.get('http://localhost:9098/qubicgen/allQueries', axiosConfig),
+        axios.get('http://localhost:9098/qubicgen/student-forms', axiosConfig),
+        axios.get('http://localhost:9098/qubicgen/projects', axiosConfig),
+        axios.get('http://localhost:9098/qubicgen/allCareers', axiosConfig)
+      ]);
+
+      setData({
+        getInTouches: getInTouchRes.data || [],
+        queries: queriesRes.data || [],
+        students: studentFormsRes.data || [],
+        projects: projectsRes.data || [],
+        jobApplications: careersRes.data || [],
+        // newJobs: [] // Keep if needed
       });
-      setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
-      if (error.response?.status === 401) {
+      // If unauthorized, redirect to login
+      if (error.response?.status === 401 || error.response?.status === 403) {
+        cookies.remove('TOKEN', { path: '/' }); // Clear invalid token
         navigate('/admin/login');
       }
     }
@@ -79,13 +119,134 @@ const Dashboard = () => {
     }
   };
 
+  const exportToExcel = (data, fileName) => {
+    try {
+      // Prepare the data based on the active tab
+      let exportData = [];
+      
+      switch(fileName) {
+        case 'JobApplications':
+          exportData = data.jobApplications.map(job => ({
+            'Full Name': job.fullName,
+            'Gender': job.gender,
+            'Phone Number': job.phoneNumber,
+            'WhatsApp Number': job.whatsappNumber,
+            'Personal Email': job.personalEmail,
+            'Office Email': job.officeEmail,
+            'Course': job.course,
+            'Branch': job.branch,
+            'College Name': job.collegeName,
+            'Address': job.address,
+            'Passed Out Year': new Date(job.passedOutYear).toLocaleDateString(),
+            '10th Percentage': job.tenthPercentage,
+            '12th Percentage': job.twelthPercentage,
+            'Graduation Percentage': job.graduationPercentage,
+            'Comments': job.comments,
+            'Applied Date': new Date(job.createdAt).toLocaleString()
+          }));
+          break;
+
+        case 'Queries':
+          exportData = data.queries.map(query => ({
+            'Name': `${query.firstName} ${query.lastName}`,
+            'Email': query.email,
+            'Message': query.message,
+            'Date': new Date(query.date).toLocaleString()
+          }));
+          break;
+
+        case 'Projects':
+          exportData = data.projects.map(project => ({
+            'Name': project.name,
+            'Email': project.email,
+            'Phone': project.phone,
+            'Job Title': project.jobTitle,
+            'Company': project.company,
+            'Message': project.message,
+            'Date': new Date(project.date).toLocaleString()
+          }));
+          break;
+
+        case 'Students':
+          exportData = data.students.map(student => ({
+            'Name': student.name,
+            'Email': student.email,
+            'Phone': student.phone,
+            'Course': student.course,
+            'Stream': student.stream,
+            'College': student.college,
+            'Message': student.message,
+            'Date': new Date(student.date).toLocaleString()
+          }));
+          break;
+
+        case 'GetInTouch':
+          exportData = data.getInTouches.map(touch => ({
+            'Name': touch.fullName,
+            'Email': touch.email,
+            'Message': touch.message,
+            'Date': new Date(touch.date).toLocaleString()
+          }));
+          break;
+
+        default:
+          return;
+      }
+
+      const ws = XLSX.utils.json_to_sheet(exportData);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Data');
+      
+      // Auto-size columns
+      const colWidths = [];
+      exportData.forEach(row => {
+        Object.keys(row).forEach((key, i) => {
+          const value = String(row[key]);
+          colWidths[i] = Math.max(colWidths[i] || 0, value.length);
+        });
+      });
+      ws['!cols'] = colWidths.map(w => ({ wch: w }));
+
+      // Generate Excel file
+      XLSX.writeFile(wb, `${fileName}_${new Date().toISOString().split('T')[0]}.xlsx`);
+      
+      toast.success(`${fileName} exported successfully!`);
+    } catch (error) {
+      console.error('Export error:', error);
+      toast.error('Failed to export data');
+    }
+  };
+
   if (!data) return <div>Loading...</div>;
 
   const renderContent = () => {
+    const renderExportButton = () => (
+      <button
+        onClick={() => exportToExcel(data, activeTab.charAt(0).toUpperCase() + activeTab.slice(1))}
+        className="ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        Export to Excel
+      </button>
+    );
+
+    const TableContainer = ({ children }) => (
+      <div>
+        <div className="flex justify-end mb-4">
+          {renderExportButton()}
+        </div>
+        <div className={tableStyles.container}>
+          {children}
+        </div>
+      </div>
+    );
+
     switch (activeTab) {
       case 'queries':
         return (
-          <div className={tableStyles.container}>
+          <TableContainer>
             <table className={tableStyles.tableWrapper}>
               <thead className={tableStyles.stickyHeader}>
                 <tr>
@@ -108,16 +269,15 @@ const Dashboard = () => {
                 ))}
               </tbody>
             </table>
-          </div>
+          </TableContainer>
         );
 
       case 'projects':
         return (
-          <div className={tableStyles.container}>
+          <TableContainer>
             <table className={tableStyles.tableWrapper}>
               <thead className={tableStyles.stickyHeader}>
                 <tr>
-                  {/* <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th> */}
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
@@ -130,7 +290,6 @@ const Dashboard = () => {
               <tbody className="bg-white divide-y divide-gray-200">
                 {data.projects.map((project) => (
                   <tr key={project._id} className="hover:bg-gray-50">
-                    {/* <td className={tableStyles.cell}>{project._id}</td> */}
                     <td className={tableStyles.cell}>{project.name}</td>
                     <td className={tableStyles.cell}>{project.email}</td>
                     <td className={tableStyles.cell}>{project.phone}</td>
@@ -144,12 +303,12 @@ const Dashboard = () => {
                 ))}
               </tbody>
             </table>
-          </div>
+          </TableContainer>
         );
 
       case 'students':
         return (
-          <div className={tableStyles.container}>
+          <TableContainer>
             <table className={tableStyles.tableWrapper}>
               <thead className={tableStyles.stickyHeader}>
                 <tr>
@@ -180,18 +339,17 @@ const Dashboard = () => {
                 ))}
               </tbody>
             </table>
-          </div>
+          </TableContainer>
         );
 
       case 'getInTouches':
         return (
-          <div className={tableStyles.container}>
+          <TableContainer>
             <table className={tableStyles.tableWrapper}>
               <thead className={tableStyles.stickyHeader}>
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                  {/* <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th> */}
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
                 </tr>
@@ -201,7 +359,6 @@ const Dashboard = () => {
                   <tr key={touch._id} className="hover:bg-gray-50">
                     <td className={tableStyles.cell}>{touch.fullName}</td>
                     <td className={tableStyles.cell}>{touch.email}</td>
-                    {/* <td className={tableStyles.cell}>{touch.phone}</td> */}
                     <td className={tableStyles.messageCell}>{touch.message}</td>
                     <td className={tableStyles.cell}>
                       {new Date(touch.date).toLocaleString()}
@@ -210,140 +367,68 @@ const Dashboard = () => {
                 ))}
               </tbody>
             </table>
-          </div>
+          </TableContainer>
         );
 
       case 'jobApplications':
         return (
-          <div className={tableStyles.container}>
-            <table className={tableStyles.tableWrapper}>
-              <thead className={tableStyles.stickyHeader}>
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Experience</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Resume</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {data.jobApplications.map((job) => (
-                  <tr key={job._id} className="hover:bg-gray-50">
-                    <td className={tableStyles.cell}>{job.fullName}</td>
-                    <td className={tableStyles.cell}>{job.email}</td>
-                    <td className={tableStyles.cell}>{job.phone}</td>
-                    <td className={tableStyles.cell}>{job.selectedJobRole}</td>
-                    <td className={tableStyles.cell}>{job.experience}</td>
-                    <td className={tableStyles.cell}>
-                      {job.resume && (
-                        <div>
-                          <button
-                            onClick={() => handleDownload(job.resume, job._id)}
-                            disabled={downloadStatus[job._id] === 'downloading'}
-                            className={`text-indigo-600 hover:text-indigo-900 flex items-center gap-1 ${
-                              downloadStatus[job._id] === 'downloading' ? 'opacity-50 cursor-not-allowed' : ''
-                            }`}
-                          >
-                            {downloadStatus[job._id] === 'downloading' ? (
-                              <span>Downloading...</span>
-                            ) : downloadStatus[job._id] === 'error' ? (
-                              <span className="text-red-500">Download failed. Try again</span>
-                            ) : (
-                              <>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                                Download Resume
-                              </>
-                            )}
-                          </button>
-                        </div>
-                      )}
-                    </td>
-                    <td className={tableStyles.messageCell}>{job.message}</td>
-                    <td className={tableStyles.cell}>
-                      {new Date(job.date).toLocaleString()}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        );
-
-      case 'newJobs':
-        return (
-          <div className={tableStyles.container}>
+          <TableContainer>
             <table className={tableStyles.tableWrapper}>
               <thead className={tableStyles.stickyHeader}>
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gender</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">WhatsApp</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Personal Email</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Official Email</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Course</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Branch</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">College</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Passed Out Year</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Education</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Percentages</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Resume</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comments</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {data.newJobs?.map((job) => (
-                  <tr key={job._id} className="hover:bg-gray-50">
+                {data.jobApplications.map((job) => (
+                  <tr key={job.id} className="hover:bg-gray-50">
                     <td className={tableStyles.cell}>{job.fullName}</td>
                     <td className={tableStyles.cell}>{job.gender}</td>
-                    <td className={tableStyles.cell}>{job.phoneNumber}</td>
-                    <td className={tableStyles.cell}>{job.whatsappNumber}</td>
-                    <td className={tableStyles.cell}>{job.personalEmail}</td>
-                    <td className={tableStyles.cell}>{job.officialMail}</td>
-                    <td className={tableStyles.cell}>{job.course}</td>
-                    <td className={tableStyles.cell}>{job.branch}</td>
-                    <td className={tableStyles.cell}>{job.collegeName}</td>
-                    <td className={tableStyles.cell}>{job.passedOutYear}</td>
                     <td className={tableStyles.cell}>
-                      <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                        ${job.applicationStatus === 'accepted' ? 'bg-green-100 text-green-800' : 
-                          job.applicationStatus === 'rejected' ? 'bg-red-100 text-red-800' : 
-                          job.applicationStatus === 'under_review' ? 'bg-yellow-100 text-yellow-800' :
-                          job.applicationStatus === 'shortlisted' ? 'bg-blue-100 text-blue-800' :
-                          'bg-gray-100 text-gray-800'}`}>
-                        {job.applicationStatus.replace('_', ' ').toUpperCase()}
-                      </span>
+                      <div>
+                        <p>Phone: {job.phoneNumber}</p>
+                        <p>WhatsApp: {job.whatsappNumber}</p>
+                      </div>
+                    </td>
+                    <td className={tableStyles.cell}>
+                      <div>
+                        <p>Personal: {job.personalEmail}</p>
+                        <p>Office: {job.officeEmail}</p>
+                      </div>
+                    </td>
+                    <td className={tableStyles.cell}>
+                      <div>
+                        <p>Course: {job.course}</p>
+                        <p>Branch: {job.branch}</p>
+                        <p>College: {job.collegeName}</p>
+                      </div>
+                    </td>
+                    <td className={tableStyles.cell}>
+                      <div>
+                        <p>10th: {job.tenthPercentage}</p>
+                        <p>12th: {job.twelthPercentage}</p>
+                        <p>Graduation: {job.graduationPercentage}</p>
+                      </div>
                     </td>
                     <td className={tableStyles.cell}>
                       {job.resume && (
-                        <div>
-                          <button
-                            onClick={() => handleDownload(job.resume, job._id)}
-                            disabled={downloadStatus[job._id] === 'downloading'}
-                            className={`text-indigo-600 hover:text-indigo-900 flex items-center gap-1 ${
-                              downloadStatus[job._id] === 'downloading' ? 'opacity-50 cursor-not-allowed' : ''
-                            }`}
-                          >
-                            {downloadStatus[job._id] === 'downloading' ? (
-                              <span>Downloading...</span>
-                            ) : downloadStatus[job._id] === 'error' ? (
-                              <span className="text-red-500">Download failed. Try again</span>
-                            ) : (
-                              <>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                                Download Resume
-                              </>
-                            )}
-                          </button>
-                        </div>
+                        <button
+                          onClick={() => handleDownload(job.resume, job.id)}
+                          className="text-indigo-600 hover:text-indigo-900"
+                        >
+                          Download Resume
+                        </button>
                       )}
                     </td>
+                    <td className={tableStyles.messageCell}>{job.comments}</td>
                     <td className={tableStyles.cell}>
                       {new Date(job.createdAt).toLocaleString()}
                     </td>
@@ -351,11 +436,20 @@ const Dashboard = () => {
                 ))}
               </tbody>
             </table>
-          </div>
+          </TableContainer>
+        );
+
+      case 'newJobs':
+        return (
+          <TableContainer>
+            <table className={tableStyles.tableWrapper}>
+              {/* Existing newJobs table */}
+            </table>
+          </TableContainer>
         );
 
       default:
-        return null;
+        return <div>No content available</div>;
     }
   };
 
@@ -385,9 +479,9 @@ const Dashboard = () => {
           <div className="bg-white overflow-hidden shadow rounded-lg">
             <div className="p-5">
               <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <div className="text-2xl font-bold text-gray-900">{data.queries.length}</div>
-                  <div className="mt-1 text-sm text-gray-500">Queries</div>
+                <div className="flex-col justify-center items-center ">
+                  <div className="text-2xl font-bold text-gray-900 text-center">{data.queries.length}</div>
+                  <div className="mt-1 text-sm text-gray-500 text-center">Queries</div>
                 </div>
               </div>
             </div>
@@ -395,9 +489,9 @@ const Dashboard = () => {
           <div className="bg-white overflow-hidden shadow rounded-lg">
             <div className="p-5">
               <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <div className="text-2xl font-bold text-gray-900">{data.getInTouches.length}</div>
-                  <div className="mt-1 text-sm text-gray-500">Get In Touch</div>
+                <div className="flex-col justify-center items-center ">
+                  <div className="text-2xl font-bold text-gray-900 text-center">{data.getInTouches.length}</div>
+                  <div className="mt-1 text-sm text-gray-500 text-center">Get In Touch</div>
                 </div>
               </div>
             </div>
@@ -405,9 +499,9 @@ const Dashboard = () => {
           <div className="bg-white overflow-hidden shadow rounded-lg">
             <div className="p-5">
               <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <div className="text-2xl font-bold text-gray-900">{data.jobApplications.length}</div>
-                  <div className="mt-1 text-sm text-gray-500">Job Applications</div>
+                <div className="flex-col justify-center items-center ">
+                  <div className="text-2xl font-bold text-gray-900 text-center">{data.jobApplications.length}</div>
+                  <div className="mt-1 text-sm text-gray-500 text-center">Job Applications</div>
                 </div>
               </div>
             </div>
@@ -415,33 +509,24 @@ const Dashboard = () => {
           <div className="bg-white overflow-hidden shadow rounded-lg">
             <div className="p-5">
               <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <div className="text-2xl font-bold text-gray-900">{data.projects.length}</div>
-                  <div className="mt-1 text-sm text-gray-500">Projects</div>
+                <div className="flex-col justify-center items-center ">
+                  <div className="text-2xl font-bold text-gray-900 text-center">{data.projects.length}</div>
+                  <div className="mt-1 text-sm text-gray-500 text-center">Projects</div>
                 </div>
               </div>
             </div>
           </div>
           <div className="bg-white overflow-hidden shadow rounded-lg">
             <div className="p-5">
-              <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <div className="text-2xl font-bold text-gray-900">{data.students.length}</div>
+              <div className="flex items-center ">
+                <div className="flex-col justify-center items-center ">
+                  <div className="text-2xl font-bold text-gray-900 text-center">{data.students.length}</div>
                   <div className="mt-1 text-sm text-gray-500">Students</div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="bg-white overflow-hidden shadow rounded-lg">
-            <div className="p-5">
-              <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <div className="text-2xl font-bold text-gray-900">{data.newJobs?.length || 0}</div>
-                  <div className="mt-1 text-sm text-gray-500">New Job Applications</div>
-                </div>
-              </div>
-            </div>
-          </div>
+         
         </div>
 
         {/* Tabs */}
@@ -457,7 +542,7 @@ const Dashboard = () => {
               <option value="students">Students</option>
               <option value="getInTouches">Get In Touches</option>
               <option value="jobApplications">Job Applications</option>
-              <option value="newJobs">New Jobs</option>
+              {/* <option value="newJobs">New Jobs</option> */}
             </select>
           </div>
           <div className="hidden sm:block">
@@ -469,7 +554,7 @@ const Dashboard = () => {
                   'jobApplications',
                   'projects',
                   'students',
-                  'newJobs'
+                  
                 ].map((tab) => (
                   <button
                     key={tab}
