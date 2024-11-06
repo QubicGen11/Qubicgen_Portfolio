@@ -85,7 +85,7 @@ const Projectform = () => {
     }
   
     try {
-      const response = await axios.post('http://localhost:9098/qubicgen/createProject', formData);
+      const response = await axios.post('http://74.179.60.127:9098/qubicgen/createProject', formData);
   
       if (response.data.message === 'Duplicate entry') {
         toast.error('This data already exists in the database.');

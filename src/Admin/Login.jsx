@@ -29,7 +29,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:9098/qubicgen/login', 
+        'http://74.179.60.127:9098/qubicgen/login', 
         formData,
         {
           headers: {

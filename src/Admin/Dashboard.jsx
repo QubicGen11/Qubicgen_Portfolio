@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import * as XLSX from 'xlsx';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { saveAs } from 'file-saver';
+import JSZip from 'jszip';
 
 const cookies = new Cookies();
 
@@ -23,6 +25,8 @@ const Dashboard = () => {
   const [downloadError, setDownloadError] = useState(null);
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadStatus, setDownloadStatus] = useState({});
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchField, setSearchField] = useState('fullName'); // default search field
 
   useEffect(() => {
     fetchData();
@@ -57,11 +61,11 @@ const Dashboard = () => {
         projectsRes,
         careersRes
       ] = await Promise.all([
-        axios.get('http://localhost:9098/qubicgen/allRequests', axiosConfig),
-        axios.get('http://localhost:9098/qubicgen/allQueries', axiosConfig),
-        axios.get('http://localhost:9098/qubicgen/student-forms', axiosConfig),
-        axios.get('http://localhost:9098/qubicgen/projects', axiosConfig),
-        axios.get('http://localhost:9098/qubicgen/allCareers', axiosConfig)
+        axios.get('http://74.179.60.127:9098/qubicgen/allRequests', axiosConfig),
+        axios.get('http://74.179.60.127:9098/qubicgen/allQueries', axiosConfig),
+        axios.get('http://74.179.60.127:9098/qubicgen/student-forms', axiosConfig),
+        axios.get('http://74.179.60.127:9098/qubicgen/projects', axiosConfig),
+        axios.get('http://74.179.60.127:9098/qubicgen/allCareers', axiosConfig)
       ]);
 
       setData({
@@ -94,7 +98,7 @@ const Dashboard = () => {
       const token = cookies.get('TOKEN');
       // Use the complete URL to your backend
       const response = await fetch(
-        `http://localhost:9098/${resumePath}`, // resumePath already contains 'uploads/resumes/filename'
+        `http://74.179.60.127:9098/${resumePath}`, // resumePath already contains 'uploads/resumes/filename'
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -147,13 +151,56 @@ const Dashboard = () => {
     }
   };
 
-  const exportToExcel = (data, fileName) => {
+  const getFilteredData = (dataArray) => {
+    if (!searchTerm) return dataArray;
+    
+    return dataArray.filter(item => {
+      const searchValue = item[searchField]?.toString().toLowerCase() || '';
+      return searchValue.includes(searchTerm.toLowerCase());
+    });
+  };
+
+  const handleSearch = (e) => {
+    const { value } = e.target;
+    setSearchTerm(value);
+  };
+
+  const exportToExcel = async (data, fileName) => {
     try {
-      // Prepare the data based on the active tab
+      setIsDownloading(true);
       let exportData = [];
+      const zip = new JSZip();
+      const resumeFolder = zip.folder("resumes");
       
       switch(fileName) {
         case 'JobApplications':
+          // Create a map to store file names and their new paths in the zip
+          const fileMap = new Map();
+          
+          // First, download all resumes and add them to the zip
+          for (const job of data.jobApplications) {
+            if (job.resume) {
+              try {
+                const response = await fetch(`http://74.179.60.127:9098/${job.resume}`, {
+                  headers: {
+                    'Authorization': `Bearer ${cookies.get('TOKEN')}`
+                  }
+                });
+                
+                if (response.ok) {
+                  const blob = await response.blob();
+                  const fileName = job.resume.split('/').pop();
+                  const safeFileName = `${job.fullName}_${fileName}`.replace(/[^a-z0-9.]/gi, '_');
+                  
+                  await resumeFolder.file(safeFileName, blob);
+                  fileMap.set(job.id, safeFileName);
+                }
+              } catch (error) {
+                console.error(`Failed to download resume for ${job.fullName}:`, error);
+              }
+            }
+          }
+
           exportData = data.jobApplications.map(job => ({
             'Full Name': job.fullName,
             'Gender': job.gender,
@@ -169,6 +216,8 @@ const Dashboard = () => {
             '10th Percentage': job.tenthPercentage,
             '12th Percentage': job.twelthPercentage,
             'Graduation Percentage': job.graduationPercentage,
+            'Resume File': fileMap.get(job.id) || 'No Resume',
+            'Resume Link': job.resume ? `http://74.179.60.127:9098/${job.resume}` : 'No Resume',
             'Comments': job.comments,
             'Applied Date': new Date(job.createdAt).toLocaleString()
           }));
@@ -221,6 +270,7 @@ const Dashboard = () => {
           return;
       }
 
+      // Create Excel file
       const ws = XLSX.utils.json_to_sheet(exportData);
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, 'Data');
@@ -235,19 +285,50 @@ const Dashboard = () => {
       });
       ws['!cols'] = colWidths.map(w => ({ wch: w }));
 
-      // Generate Excel file
-      XLSX.writeFile(wb, `${fileName}_${new Date().toISOString().split('T')[0]}.xlsx`);
-      
+      // Add Excel file to zip
+      const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      zip.file(`${fileName}_${new Date().toISOString().split('T')[0]}.xlsx`, excelBuffer);
+
+      // Generate and download zip file
+      const zipContent = await zip.generateAsync({ type: 'blob' });
+      saveAs(zipContent, `${fileName}_with_resumes_${new Date().toISOString().split('T')[0]}.zip`);
+
       toast.success(`${fileName} exported successfully!`);
     } catch (error) {
       console.error('Export error:', error);
       toast.error('Failed to export data');
+    } finally {
+      setIsDownloading(false);
     }
   };
 
   if (!data) return <div>Loading...</div>;
 
   const renderContent = () => {
+    const renderSearchBar = () => (
+      <div className="flex gap-4 mb-4">
+        <select
+          value={searchField}
+          onChange={(e) => setSearchField(e.target.value)}
+          className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="fullName">Name</option>
+          <option value="email">Email</option>
+          <option value="course">Course</option>
+          <option value="collegeName">College</option>
+          <option value="phoneNumber">Phone</option>
+        </select>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={handleSearch}
+          autoFocus
+          className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+    );
+
     const renderExportButton = () => (
       <button
         onClick={() => exportToExcel(data, activeTab.charAt(0).toUpperCase() + activeTab.slice(1))}
@@ -262,7 +343,8 @@ const Dashboard = () => {
 
     const TableContainer = ({ children }) => (
       <div>
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-between items-center mb-4">
+          {renderSearchBar()}
           {renderExportButton()}
         </div>
         <div className={tableStyles.container}>
@@ -273,6 +355,7 @@ const Dashboard = () => {
 
     switch (activeTab) {
       case 'queries':
+        const filteredQueries = getFilteredData(data.queries);
         return (
           <TableContainer>
             <table className={tableStyles.tableWrapper}>
@@ -285,7 +368,7 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {data.queries.map((query) => (
+                {filteredQueries.map((query) => (
                   <tr key={query._id} className="hover:bg-gray-50">
                     <td className={tableStyles.cell}>{query.firstName} {query.lastName}</td>
                     <td className={tableStyles.cell}>{query.email}</td>
@@ -301,6 +384,7 @@ const Dashboard = () => {
         );
 
       case 'projects':
+        const filteredProjects = getFilteredData(data.projects);
         return (
           <TableContainer>
             <table className={tableStyles.tableWrapper}>
@@ -316,7 +400,7 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {data.projects.map((project) => (
+                {filteredProjects.map((project) => (
                   <tr key={project._id} className="hover:bg-gray-50">
                     <td className={tableStyles.cell}>{project.name}</td>
                     <td className={tableStyles.cell}>{project.email}</td>
@@ -335,6 +419,7 @@ const Dashboard = () => {
         );
 
       case 'students':
+        const filteredStudents = getFilteredData(data.students);
         return (
           <TableContainer>
             <table className={tableStyles.tableWrapper}>
@@ -351,7 +436,7 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {data.students.map((student) => (
+                {filteredStudents.map((student) => (
                   <tr key={student._id} className="hover:bg-gray-50">
                     <td className={tableStyles.cell}>{student.name}</td>
                     <td className={tableStyles.cell}>{student.email}</td>
@@ -371,6 +456,7 @@ const Dashboard = () => {
         );
 
       case 'getInTouches':
+        const filteredTouches = getFilteredData(data.getInTouches);
         return (
           <TableContainer>
             <table className={tableStyles.tableWrapper}>
@@ -383,7 +469,7 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {data.getInTouches.map((touch) => (
+                {filteredTouches.map((touch) => (
                   <tr key={touch._id} className="hover:bg-gray-50">
                     <td className={tableStyles.cell}>{touch.fullName}</td>
                     <td className={tableStyles.cell}>{touch.email}</td>
@@ -399,6 +485,7 @@ const Dashboard = () => {
         );
 
       case 'jobApplications':
+        const filteredApplications = getFilteredData(data.jobApplications);
         return (
           <TableContainer>
             <table className={tableStyles.tableWrapper}>
@@ -416,7 +503,7 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {data.jobApplications.map((job) => (
+                {filteredApplications.map((job) => (
                   <tr key={job.id} className="hover:bg-gray-50">
                     <td className={tableStyles.cell}>{job.fullName}</td>
                     <td className={tableStyles.cell}>{job.gender}</td>

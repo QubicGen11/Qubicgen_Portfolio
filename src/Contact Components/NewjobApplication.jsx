@@ -69,10 +69,10 @@ const NewjobApplication = () => {
       });
 
       // Send form data to your API
-      const response = await fetch('http://localhost:9098/qubicgen/newCareer', {
+      const response = await fetch('http://74.179.60.127:9098/qubicgen/newCareer', {
         method: 'POST',
         body: formDataToSend,
-      });
+      }); 
 
       if (!response.ok) {
         throw new Error('Failed to submit application');
