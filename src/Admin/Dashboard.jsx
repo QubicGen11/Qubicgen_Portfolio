@@ -87,35 +87,63 @@ const Dashboard = () => {
     navigate('/admin/login');
   };
 
-  const handleDownload = async (filename, jobId) => {
+  const handleDownload = async (resumePath, jobId) => {
     try {
       setDownloadStatus(prev => ({ ...prev, [jobId]: 'downloading' }));
       
+      const token = cookies.get('TOKEN');
+      // Use the complete URL to your backend
       const response = await fetch(
-        `http://localhost:3000/api/newjob/resume/${encodeURIComponent(filename)}`,
+        `http://localhost:9098/${resumePath}`, // resumePath already contains 'uploads/resumes/filename'
         {
           headers: {
-            'Authorization': `Bearer ${cookies.get('TOKEN')}`
+            'Authorization': `Bearer ${token}`
           }
         }
       );
 
-      if (!response.ok) throw new Error('Download failed');
+      if (!response.ok) {
+        throw new Error('Download failed');
+      }
+
+      // Get original filename from the path
+      const originalFilename = resumePath.split('/').pop();
 
       const blob = await response.blob();
+      // Create a URL for the blob
       const url = window.URL.createObjectURL(blob);
+      
+      // Create temporary link element
       const a = document.createElement('a');
       a.href = url;
-      a.download = filename;
+      a.download = originalFilename; // Use the original filename
+      
+      // Trigger download
       document.body.appendChild(a);
       a.click();
+      
+      // Cleanup
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
       
+      // Show success status
       setDownloadStatus(prev => ({ ...prev, [jobId]: 'success' }));
+      toast.success('Resume downloaded successfully');
+
+      // Reset status after 3 seconds
+      setTimeout(() => {
+        setDownloadStatus(prev => ({ ...prev, [jobId]: undefined }));
+      }, 3000);
+
     } catch (error) {
       console.error('Download error:', error);
       setDownloadStatus(prev => ({ ...prev, [jobId]: 'error' }));
+      toast.error('Failed to download resume');
+
+      // Reset error status after 3 seconds
+      setTimeout(() => {
+        setDownloadStatus(prev => ({ ...prev, [jobId]: undefined }));
+      }, 3000);
     }
   };
 
@@ -419,13 +447,38 @@ const Dashboard = () => {
                       </div>
                     </td>
                     <td className={tableStyles.cell}>
-                      {job.resume && (
+                      {job.resume ? (
                         <button
                           onClick={() => handleDownload(job.resume, job.id)}
-                          className="text-indigo-600 hover:text-indigo-900"
+                          className={`px-4 py-2 rounded-md text-sm font-medium ${
+                            downloadStatus[job.id] === 'downloading'
+                              ? 'bg-yellow-100 text-yellow-800'
+                              : downloadStatus[job.id] === 'error'
+                              ? 'bg-red-100 text-red-800'
+                              : downloadStatus[job.id] === 'success'
+                              ? 'bg-green-100 text-green-800'
+                              : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
+                          }`}
+                          disabled={downloadStatus[job.id] === 'downloading'}
                         >
-                          Download Resume
+                          {downloadStatus[job.id] === 'downloading' ? (
+                            <span className="flex items-center">
+                              <svg className="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                              </svg>
+                              Downloading...
+                            </span>
+                          ) : downloadStatus[job.id] === 'error' ? (
+                            'Download Failed'
+                          ) : downloadStatus[job.id] === 'success' ? (
+                            'Downloaded'
+                          ) : (
+                            'Download Resume'
+                          )}
                         </button>
+                      ) : (
+                        <span className="text-gray-400">No resume</span>
                       )}
                     </td>
                     <td className={tableStyles.messageCell}>{job.comments}</td>

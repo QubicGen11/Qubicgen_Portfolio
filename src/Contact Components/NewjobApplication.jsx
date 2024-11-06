@@ -23,16 +23,25 @@ const NewjobApplication = () => {
     tenthPercentage: '',
     twelthPercentage: '', // Changed from twelfthPercentage to match API format
     graduationPercentage: '',
-    resume: '',
+    resume: null,
     comments: ''
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    const { name, value, type, files } = e.target;
+    
+    // Handle file input separately
+    if (type === 'file') {
+      setFormData(prev => ({
+        ...prev,
+        [name]: files[0] // Store the file object
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -40,32 +49,29 @@ const NewjobApplication = () => {
     setIsLoading(true);
 
     try {
-      // Format the data to match the API requirements
-      const formattedData = {
-        fullName: formData.fullName,
-        gender: formData.gender,
-        phoneNumber: formData.phoneNumber,
-        whatsAppNumber: formData.whatsAppNumber,
-        personalEmail: formData.personalEmail,
-        officeEmail: formData.officeEmail,
-        course: formData.course,
-        branch: formData.branch,
-        collegeName: formData.collegeName,
-        address: formData.address,
-        passedOutYear: formData.passedOutYear,
-        tenthPercentage: `${formData.tenthPercentage}%`,
-        twelthPercentage: `${formData.twelthPercentage}%`,
-        graduationPercentage: `${formData.graduationPercentage}%`,
-        resume: formData.resume,
-        comments: formData.comments
-      };
+      // Create FormData object
+      const formDataToSend = new FormData();
+      
+      // Append all form fields
+      Object.keys(formData).forEach(key => {
+        if (key === 'resume') {
+          if (formData[key]) {
+            formDataToSend.append('resume', formData[key]);
+          }
+        } else {
+          // Add percentage symbol to percentage fields
+          if (['tenthPercentage', 'twelthPercentage', 'graduationPercentage'].includes(key)) {
+            formDataToSend.append(key, `${formData[key]}%`);
+          } else {
+            formDataToSend.append(key, formData[key]);
+          }
+        }
+      });
 
       const response = await fetch('http://localhost:9098/qubicgen/newCareer', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formattedData)
+        body: formDataToSend, // Send as FormData
+        // Remove Content-Type header - browser will set it automatically with boundary
       });
 
       const data = await response.json();
@@ -100,9 +106,13 @@ const NewjobApplication = () => {
         tenthPercentage: '',
         twelthPercentage: '',
         graduationPercentage: '',
-        resume: '',
+        resume: null,
         comments: ''
       });
+      
+      // Reset file input
+      const fileInput = document.querySelector('input[type="file"]');
+      if (fileInput) fileInput.value = '';
 
     } catch (error) {
       console.error('Submission error:', error);
@@ -391,14 +401,21 @@ const NewjobApplication = () => {
                     <i className="fas fa-file-upload text-gray-400"></i>
                   </div>
                   <input 
-                    type="text" 
+                    type="file" 
                     name="resume" 
                     onChange={handleChange}
-                    placeholder="Enter your resume link *"
+                    accept=".pdf,.doc,.docx"
                     required
-                    className="w-full pl-10 pr-3 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                    className="w-full pl-10 pr-3 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-400 file:text-black hover:file:bg-yellow-500"
                   />
                 </div>
+
+                {/* Add a preview of selected file name if needed */}
+                {formData.resume && (
+                  <div className="text-sm text-gray-400 mt-1">
+                    Selected file: {formData.resume.name}
+                  </div>
+                )}
 
                 {/* Comments */}
                 <div className="relative col-span-full">
