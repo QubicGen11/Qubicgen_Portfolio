@@ -66,7 +66,7 @@ const Getintouch = () => {
 
         setIsLoading(true);
         try {
-            const response = await axios.post('http://74.179.60.127:9098/qubicgen/newRequest', 
+            const response = await axios.post('https://qg.vidyantra-dev.com/qubicgen/newRequest', 
                 {
                     fullName: formData.fullName,
                     email: formData.email,

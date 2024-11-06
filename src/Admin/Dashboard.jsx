@@ -61,11 +61,11 @@ const Dashboard = () => {
         projectsRes,
         careersRes
       ] = await Promise.all([
-        axios.get('http://74.179.60.127:9098/qubicgen/allRequests', axiosConfig),
-        axios.get('http://74.179.60.127:9098/qubicgen/allQueries', axiosConfig),
-        axios.get('http://74.179.60.127:9098/qubicgen/student-forms', axiosConfig),
-        axios.get('http://74.179.60.127:9098/qubicgen/projects', axiosConfig),
-        axios.get('http://74.179.60.127:9098/qubicgen/allCareers', axiosConfig)
+        axios.get('https://qg.vidyantra-dev.com/qubicgen/allRequests', axiosConfig),
+        axios.get('https://qg.vidyantra-dev.com/qubicgen/allQueries', axiosConfig),
+        axios.get('https://qg.vidyantra-dev.com/qubicgen/student-forms', axiosConfig),
+        axios.get('https://qg.vidyantra-dev.com/qubicgen/projects', axiosConfig),
+        axios.get('https://qg.vidyantra-dev.com/qubicgen/allCareers', axiosConfig)
       ]);
 
       setData({
@@ -98,7 +98,7 @@ const Dashboard = () => {
       const token = cookies.get('TOKEN');
       // Use the complete URL to your backend
       const response = await fetch(
-        `http://74.179.60.127:9098/${resumePath}`, // resumePath already contains 'uploads/resumes/filename'
+        `https://qg.vidyantra-dev.com/${resumePath}`, // resumePath already contains 'uploads/resumes/filename'
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -181,7 +181,7 @@ const Dashboard = () => {
           for (const job of data.jobApplications) {
             if (job.resume) {
               try {
-                const response = await fetch(`http://74.179.60.127:9098/${job.resume}`, {
+                const response = await fetch(`https://qg.vidyantra-dev.com/${job.resume}`, {
                   headers: {
                     'Authorization': `Bearer ${cookies.get('TOKEN')}`
                   }
@@ -217,7 +217,7 @@ const Dashboard = () => {
             '12th Percentage': job.twelthPercentage,
             'Graduation Percentage': job.graduationPercentage,
             'Resume File': fileMap.get(job.id) || 'No Resume',
-            'Resume Link': job.resume ? `http://74.179.60.127:9098/${job.resume}` : 'No Resume',
+            'Resume Link': job.resume ? `https://qg.vidyantra-dev.com/${job.resume}` : 'No Resume',
             'Comments': job.comments,
             'Applied Date': new Date(job.createdAt).toLocaleString()
           }));

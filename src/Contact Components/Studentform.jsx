@@ -98,7 +98,7 @@ const Studentform = () => {
     }
   
     try {
-      const response = await axios.post('http://74.179.60.127:9098/qubicgen/student-forms', formData);
+      const response = await axios.post('https://qg.vidyantra-dev.com/qubicgen/student-forms', formData);
   
       if (response.data.message === 'Duplicate entry') {
         toast.error('This data already exists in the database.');

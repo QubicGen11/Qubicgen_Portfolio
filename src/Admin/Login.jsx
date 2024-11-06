@@ -29,7 +29,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        'http://74.179.60.127:9098/qubicgen/login', 
+        'https://qg.vidyantra-dev.com/qubicgen/login', 
         formData,
         {
           headers: {
