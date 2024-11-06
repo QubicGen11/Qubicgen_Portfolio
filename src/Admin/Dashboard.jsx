@@ -475,8 +475,8 @@ const Dashboard = () => {
 
       <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         {/* Stats Overview */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6 mb-6">
-          <div className="bg-white overflow-hidden shadow rounded-lg">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 mb-6">
+          <div className=" bg-white overflow-hidden shadow rounded-lg flex justify-center items-center">
             <div className="p-5">
               <div className="flex items-center">
                 <div className="flex-col justify-center items-center ">
@@ -486,7 +486,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white overflow-hidden shadow rounded-lg">
+          <div className="bg-white overflow-hidden shadow rounded-lg flex justify-center items-center">
             <div className="p-5">
               <div className="flex items-center">
                 <div className="flex-col justify-center items-center ">
@@ -496,7 +496,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white overflow-hidden shadow rounded-lg">
+          <div className="bg-white overflow-hidden shadow rounded-lg flex justify-center items-center">
             <div className="p-5">
               <div className="flex items-center">
                 <div className="flex-col justify-center items-center ">
@@ -506,7 +506,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white overflow-hidden shadow rounded-lg">
+          <div className="bg-white overflow-hidden shadow rounded-lg flex justify-center items-center">
             <div className="p-5">
               <div className="flex items-center">
                 <div className="flex-col justify-center items-center ">
@@ -516,7 +516,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white overflow-hidden shadow rounded-lg">
+          <div className="bg-white overflow-hidden shadow rounded-lg flex justify-center items-center">
             <div className="p-5">
               <div className="flex items-center ">
                 <div className="flex-col justify-center items-center ">
