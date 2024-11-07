@@ -336,6 +336,9 @@ navbar.style.backgroundColor = newColor;
             <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
               <Link to="/studentform" style={{ color: 'white', textDecoration: 'none' }}>Student Form</Link>
             </li>
+            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+              <Link to="/newjobapplication" style={{ color: 'white', textDecoration: 'none' }}>Job Application</Link>
+            </li>
           </ul>
         )}
 
