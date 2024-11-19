@@ -395,14 +395,17 @@ const NewjobApplication = () => {
                 </div>
 
                 <div className="relative col-span-full">
+                  <p className='text-sm text-gray-400 '>Add Resume *</p>
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <i className="fas fa-file-upload text-gray-400"></i>
+                    
                   </div>
                   <input 
                     type="file" 
                     name="resume" 
                     onChange={handleChange}
                     accept=".pdf,.doc,.docx"
+                    placeholder='Upload Resume *'
                     required
                     className="w-full pl-10 pr-3 py-2 border border-gray-600 rounded-lg bg-black/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-400 file:text-black hover:file:bg-yellow-500"
                   />
@@ -412,6 +415,7 @@ const NewjobApplication = () => {
                 {formData.resume && (
                   <div className="text-sm text-gray-400 mt-1">
                     Selected file: {formData.resume.name}
+                    
                   </div>
                 )}
 
