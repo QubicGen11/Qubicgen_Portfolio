@@ -31,7 +31,7 @@
     "clsx": "^2.1.0",
     "cors": "^2.8.5",
     "file-saver": "^2.0.5",
-    "framer-motion": "^11.0.14",
+    "framer-motion": "^11.13.1",
     "gsap": "^3.12.5",
     "gsap-trial": "^3.12.5",
     "intl-tel-input": "^20.0.5",

@@ -45,6 +45,9 @@ import AdminDashboard from './Admin/Dashboard';
 import NewjobApplication from "./Contact Components/NewjobApplication";
 import CoursesHero from "./Courses Contacts/Courses Hero Components/CoursesHero";
 import Coursesmain from "./Courses Contacts/Coursesmain";
+import TechnologyOverview from "./Courses Contacts/Technology Overview Componnets/TechnologyOverview";
+import Technologymain from "./Courses Contacts/Technologymain";
+// import TechnologyOverview from "./Courses Contacts/Technology Overview Componnets/TechnologyOverview";
 const Nopage = lazy(()=>import ( './404') );
 // Import the NotFound component
 
@@ -102,11 +105,11 @@ const App = () => {
           />
           <Route path="*" element={<Nopage />} /> 
           <Route path="/courses" element={<Coursesmain/>} />
+          <Route path="/techology" element={<Technologymain/>} />
         </Routes>
       </Router>
+      </HelmetProvider>
 
-      
-    </HelmetProvider>
   );
 };
 
