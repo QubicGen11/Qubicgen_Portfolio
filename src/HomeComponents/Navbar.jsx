@@ -147,7 +147,7 @@ navbar.style.backgroundColor = newColor;
           </div>
          <Link to="/careers"><li className="hover:cursor-pointer" onMouseEnter={hideSections}
             >Careers</li></Link> 
-          <a href="https://qubic-gen.blogspot.com/" target="_blank"><li className="hover:cursor-pointer"  onMouseEnter={hideSections} onMouseOver={hideSectionss}>Courses</li></a> 
+          <Link to="/courses" ><li className="hover:cursor-pointer"  onMouseEnter={hideSections} onMouseOver={hideSectionss}>Courses</li></Link> 
 
 
           <div>

@@ -15,7 +15,7 @@ const CertificateShowcase = () => {
   ];
 
   return (
-    <div className=" py-16">
+    <div className=" py-16 overflow-hidden">
       <div className="container mx-auto text-center">
         {/* Title */}
         <h2 className="text-3xl font-bold text-white mb-8">

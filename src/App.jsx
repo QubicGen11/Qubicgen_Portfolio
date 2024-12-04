@@ -105,7 +105,7 @@ const App = () => {
           />
           <Route path="*" element={<Nopage />} /> 
           <Route path="/courses" element={<Coursesmain/>} />
-          <Route path="/techology" element={<Technologymain/>} />
+          <Route path="/technology" element={<Technologymain/>} />
         </Routes>
       </Router>
       </HelmetProvider>

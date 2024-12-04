@@ -17,6 +17,10 @@ export default {
           '0%': { transform: 'translateX(-50%)' },
           '100%': { transform: 'translateX(0)' },
         },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(calc(-100% - 2rem))' },
+          '100%': { transform: 'translateX(0)' }
+        },
         'scroll': {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100%)' },

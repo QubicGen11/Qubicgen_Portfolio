@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const testimonials = [
   {
@@ -111,40 +112,135 @@ const testimonials = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { 
+    opacity: 0,
+    y: 50,
+    scale: 0.9
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 12
+    }
+  }
+};
+
 const Testimonials = () => {
   return (
-    <div className="bg-[#1a1a1a] text-white py-10 ">
-      <h1 className="text-center text-3xl font-bold mb-8 text-gray-200">
-        Testimonials
-      </h1>
-      <div className="overflow-hidden relative">
-        <div className="flex animate-scroll space-x-4 mx-8">
+    <motion.div 
+      className="bg-[#1a1a1a] text-white py-10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <motion.h1 
+        className="text-center text-4xl font-bold mb-12 text-gray-200"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 100 }}
+      >
+        What Our Students Say
+      </motion.h1>
+      <motion.div 
+        className="overflow-hidden relative px-4"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="flex animate-scroll space-x-6 mx-8">
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-[#2e2e2e] rounded-lg shadow-md p-6 flex flex-col items-start w-[300px] min-w-[300px] transform hover:scale-105 transition-transform duration-300"
+              variants={cardVariants}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 20px 30px rgba(0,0,0,0.2)",
+                transition: { type: "spring", stiffness: 400, damping: 17 }
+              }}
+              className="bg-gradient-to-br from-[#2e2e2e] to-[#252525] rounded-xl shadow-xl p-8 flex flex-col items-start w-[350px] min-w-[350px] relative overflow-hidden"
             >
-              <div className="flex items-center mb-4">
-                {/* <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
-                /> */}
+              <motion.div 
+                className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+              />
+              <div className="flex items-center mb-6">
+                <motion.div 
+                  className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-xl font-bold mr-4"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.7 }}
+                >
+                  {testimonial.name[0]}
+                </motion.div>
                 <div>
-                  <h2 className="text-lg font-semibold text-gray-100">
+                  <motion.h2 
+                    className="text-xl font-semibold text-gray-100"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
                     {testimonial.name}
-                  </h2>
-                  <p className="text-sm text-gray-400">{testimonial.course}</p>
-                  <p className="text-sm text-purple-400">{testimonial.university}</p>
+                  </motion.h2>
+                  <motion.p 
+                    className="text-sm text-purple-400 font-medium"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    {testimonial.course}
+                  </motion.p>
+                  <motion.p 
+                    className="text-sm text-gray-400"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                  >
+                    {testimonial.university}
+                  </motion.p>
                 </div>
               </div>
-              <h3 className="text-gray-100 font-bold mb-2">{testimonial.title}</h3>
-              <p className="text-gray-400 text-sm">{testimonial.description}</p>
-            </div>
+              <motion.h3 
+                className="text-gray-100 font-bold text-lg mb-3"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                {testimonial.title}
+              </motion.h3>
+              <motion.p 
+                className="text-gray-400 text-sm leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+              >
+                {testimonial.description}
+              </motion.p>
+              <motion.div 
+                className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-tl-full -z-10"
+                whileHover={{ scale: 1.5 }}
+                transition={{ duration: 0.5 }}
+              />
+            </motion.div>
           ))}
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
