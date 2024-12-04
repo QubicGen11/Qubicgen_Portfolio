@@ -27,9 +27,9 @@ const TechnologyOverview = () => {
 
   return (
     <>
-      <Navbar />
+    
       <motion.div 
-        className="relative min-h-[80vh] w-full flex flex-col justify-center bg-[#0e1a25]"
+        className="relative min-h-[90vh] w-full flex flex-col justify-center bg-[#111]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -37,11 +37,11 @@ const TechnologyOverview = () => {
         {/* Background image with overlay */}
         <div className="absolute inset-0">
           <img 
-            src="https://images.pexels.com/photos/8199133/pexels-photo-8199133.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+            src="https://images.pexels.com/photos/7034032/pexels-photo-7034032.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
             alt="Technology background"
             className="w-full h-full object-cover opacity-70"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0e1a25]/90 via-[#0e1a25]/70 to-[#0e1a25]/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,0,0,0.8)] via-[rgba(0,0,0,0.8)] to-[rgba(14,26,37,0.60)]" />
         </div>
 
         {/* Content */}
