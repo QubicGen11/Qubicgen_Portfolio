@@ -43,6 +43,8 @@ import Login from './Admin/Login';
 import ProtectedRoutes from './Admin/Protected';
 import AdminDashboard from './Admin/Dashboard';
 import NewjobApplication from "./Contact Components/NewjobApplication";
+import CoursesHero from "./Courses Contacts/Courses Hero Components/CoursesHero";
+import Coursesmain from "./Courses Contacts/Coursesmain";
 const Nopage = lazy(()=>import ( './404') );
 // Import the NotFound component
 
@@ -99,6 +101,7 @@ const App = () => {
             }
           />
           <Route path="*" element={<Nopage />} /> 
+          <Route path="/courses" element={<Coursesmain/>} />
         </Routes>
       </Router>
 

@@ -1,0 +1,61 @@
+.secure-placements {
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.secure-placements h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.logos-slider {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.logo-item {
+  flex-shrink: 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-item img {
+  height: 40px;
+  object-fit: contain;
+}
+
+.slider-right {
+  animation: slideRight 20s linear infinite;
+}
+
+.slider-left {
+  animation: slideLeft 20s linear infinite;
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+} 
