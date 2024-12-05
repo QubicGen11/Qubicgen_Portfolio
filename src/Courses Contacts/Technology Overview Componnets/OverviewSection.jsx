@@ -148,7 +148,7 @@ const OverviewSection = () => {
               whileTap={{ scale: 0.98 }}
             >
               <label className="block text-lg font-semibold text-gray-300 mb-2">
-                Organization Name <span className="text-red-500">*</span>
+                College Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
