@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TechnologyOverview from "./Technology Overview Componnets/TechnologyOverview";
 import OverviewSection from "./Technology Overview Componnets/OverviewSection";
 import Secureplacements from "./Secure Placement Componnets/Secureplacements";
@@ -8,14 +8,20 @@ import Testimonials from "./Courses Testimonoals Componnets/Testimonals";
 import Footer from "../HomeComponents/Footer";
 import FaqSection from "./Technology Overview Componnets/Faq";
 import Navbar from "../HomeComponents/Navbar";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 
 const Technologymain = () => {
   const { courseId } = useParams();
+  const [courseData, setCourseData] = useState(null);
 
-  // Fetch or filter the course details using courseId
-  // Example: const course = courses.find(c => c.id === courseId);
+  useEffect(() => {
+    const storedCourses = localStorage.getItem('courses');
+    if (storedCourses) {
+      const courses = JSON.parse(storedCourses);
+      const selectedCourse = courses.find(c => c.id === courseId);
+      setCourseData(selectedCourse);
+    }
+  }, [courseId]);
 
   // Scroll to section function
   const scrollToSection = (id) => {
@@ -32,7 +38,13 @@ const Technologymain = () => {
 
       {/* Technology Overview Section */}
       <div id="overview">
-        <TechnologyOverview />
+        <TechnologyOverview 
+          title={courseData?.courseName}
+          description={courseData?.description}
+          startDate={courseData?.startDate}
+          duration={courseData?.duration}
+          rating={courseData?.rating}
+        />
       </div>
 
       {/* Sticky Program-Specific Navbar */}
@@ -108,7 +120,7 @@ const Technologymain = () => {
         <Secureplacements />
       </div>
       <div id="syllabus" className="pt-24 pb-12">
-        <SyllabusSection />
+        <SyllabusSection lessons={courseData?.lessons} />
       </div>
       <div id="certifications" className="pt-24 pb-12">
         <CertificateSection />

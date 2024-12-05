@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Navbar from '../../HomeComponents/Navbar';
 
-const TechnologyOverview = () => {
+const TechnologyOverview = ({ title, description, startDate, duration, rating }) => {
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -15,19 +14,8 @@ const TechnologyOverview = () => {
     }
   };
 
-  const rightContentVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible:
-    {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: 'easeOut' }
-    }
-  };
-
   return (
     <>
-    
       <motion.div 
         className="relative min-h-[90vh] w-full flex flex-col justify-center bg-[#111]"
         initial={{ opacity: 0 }}
@@ -54,11 +42,10 @@ const TechnologyOverview = () => {
             variants={textVariants}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight whitespace-nowrap">
-              <span className="text-[#00FF00]">Machine Learning: </span>
+              <span className="text-[#00FF00]">{title}: </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mt-6 max-w-lg">
-              Elevate your skills with industry-focused programs designed to 
-              launch you into the future of technology.
+              {description || 'Elevate your skills with industry-focused programs designed to launch you into the future of technology.'}
             </p>
 
             {/* Buttons */}
@@ -82,56 +69,53 @@ const TechnologyOverview = () => {
 
           {/* Right Program Details */}
           <motion.div
-  className="flex flex-col gap-10 mt-12 md:mt-20 items-center md:items-start"
-  initial={{ opacity: 0, y: 50 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: 'easeOut', staggerChildren: 0.2 }}
->
-  {/* Batch Details */}
-  <motion.div
-    className="flex flex-row items-center justify-between bg-gradient-to-r from-[#6A0DAD] to-[#8E44AD] text-white py-6 px-8 rounded-lg shadow-lg w-[320px]"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    <div>
-      <div className="text-lg font-semibold">Batch Starting</div>
-      <div className="text-3xl font-bold text-[#ADFF2F]">November</div>
-      <div className="text-sm mt-2 text-[#FF4500]">5 seats left</div>
-    </div>
-    <div className="text-4xl">📅</div>
-  </motion.div>
+            className="flex flex-col gap-10 mt-12 md:mt-20 items-center md:items-start"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', staggerChildren: 0.2 }}
+          >
+            {/* Batch Details */}
+            <motion.div
+              className="flex flex-row items-center justify-between bg-gradient-to-r from-[#6A0DAD] to-[#8E44AD] text-white py-6 px-8 rounded-lg shadow-lg w-[320px]"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div>
+                <div className="text-lg font-semibold">Batch Starting</div>
+                <div className="text-3xl font-bold text-[#ADFF2F]">{startDate || 'November'}</div>
+                <div className="text-sm mt-2 text-[#FF4500]">5 seats left</div>
+              </div>
+              <div className="text-4xl">📅</div>
+            </motion.div>
 
-  {/* Duration */}
-  <motion.div
-    className="flex flex-row items-center justify-between bg-gradient-to-r from-[#FFA07A] to-[#FF4500] text-white py-6 px-8 rounded-lg shadow-lg w-[320px]"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    <div>
-      <div className="text-lg font-semibold">Duration</div>
-      <div className="text-3xl font-bold text-[#FFFFFF]">2-3 Months</div>
-    </div>
-    <div className="text-4xl">⏳</div>
-  </motion.div>
+            {/* Duration */}
+            <motion.div
+              className="flex flex-row items-center justify-between bg-gradient-to-r from-[#FFA07A] to-[#FF4500] text-white py-6 px-8 rounded-lg shadow-lg w-[320px]"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div>
+                <div className="text-lg font-semibold">Duration</div>
+                <div className="text-3xl font-bold text-[#FFFFFF]">{duration || '2-3 Months'}</div>
+              </div>
+              <div className="text-4xl">⏳</div>
+            </motion.div>
 
-  {/* Program Rating */}
-  <motion.div
-    className="flex flex-row items-center justify-between bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-white py-6 px-8 rounded-lg shadow-lg w-[320px]"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    <div>
-      <div className="text-lg font-semibold">Program Rating</div>
-      <div className="text-3xl font-bold flex items-center">
-        4.8 <span className="ml-2 text-yellow-300">★</span>
-      </div>
-    </div>
-    <div className="text-4xl">⭐</div>
-  </motion.div>
-</motion.div>
-
-
-
+            {/* Program Rating */}
+            <motion.div
+              className="flex flex-row items-center justify-between bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-white py-6 px-8 rounded-lg shadow-lg w-[320px]"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div>
+                <div className="text-lg font-semibold">Program Rating</div>
+                <div className="text-3xl font-bold flex items-center">
+                  {rating || '4.8'} <span className="ml-2 text-yellow-300">★</span>
+                </div>
+              </div>
+              <div className="text-4xl">⭐</div>
+            </motion.div>
+          </motion.div>
         </div>
       </motion.div>
     </>
