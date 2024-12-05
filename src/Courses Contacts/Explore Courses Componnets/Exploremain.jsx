@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Exploremain = () => {
+  
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [courses, setCourses] = useState([]);
   const getRandomImage = () => {
