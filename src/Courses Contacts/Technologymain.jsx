@@ -8,8 +8,15 @@ import Testimonials from "./Courses Testimonoals Componnets/Testimonals";
 import Footer from "../HomeComponents/Footer";
 import FaqSection from "./Technology Overview Componnets/Faq";
 import Navbar from "../HomeComponents/Navbar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 
 const Technologymain = () => {
+  const { courseId } = useParams();
+
+  // Fetch or filter the course details using courseId
+  // Example: const course = courses.find(c => c.id === courseId);
+
   // Scroll to section function
   const scrollToSection = (id) => {
     const element = document.getElementById(id);

@@ -1,9 +1,20 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Exploremain = () => {
-  
+  const navigate = useNavigate();
+
+  const handleCourseClick = (courseId, action) => {
+    if (action === 'enroll') {
+      // Handle enrollment logic
+      console.log('Enrolling in course:', courseId);
+    } else {
+      navigate(`/technology/${courseId}`);
+    }
+  };
+
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [courses, setCourses] = useState([]);
   const getRandomImage = () => {
@@ -243,10 +254,14 @@ const Exploremain = () => {
                   </div>
                 </div>
                 <div className="flex items-center justify-between space-x-4">
-                  <button className="bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black px-4 py-2 rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 hover:shadow-lg">
+                  <button 
+                    onClick={() => handleCourseClick(course.id || index, 'enroll')}
+                    className="bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black px-4 py-2 rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 hover:shadow-lg"
+                  >
                     Enroll Now
                   </button>
                   <button 
+                    onClick={() => handleCourseClick(course.id || index, 'details')}
                     className="relative overflow-hidden px-4 py-2 rounded-lg font-semibold text-[#FFD700] group-hover:text-black transition-colors duration-300"
                   >
                     <span className="relative z-10">Know More</span>

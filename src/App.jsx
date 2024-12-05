@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async'; // Import HelmetProvider
 import Home from "./pages/Home";
@@ -61,55 +61,57 @@ const App = () => {
 
       <Router>
           <ScrollToTop /> 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/banking" element={<Banking/>} />
-          <Route path="/about" element={<About />} />
-          <Route path="/rpa" element={<Rpa/>} />
-          <Route path="/sap" element={<Sap/>} />
-          <Route path="/cybersecurity" element={<Cybersecurity/>} />
-          <Route path="/dataanalytics" element={<Dataanalytics/>} />
-          <Route path="/testing" element={<Testing/>} />
-          <Route path="/database" element={<Database/>} />
-          <Route path="/digitalmarketing" element={<Digitals/>} />
-          <Route path="/digitalization" element={<Digitalization/>} />
-          <Route path="/outsourcing" element={<Outsourcing/>} />
-          <Route path="/businessconsulting" element={<Businessconsulting/>} />
-          <Route path="/webdevelopment" element={<Web/>} />
-          <Route path="/training" element={<Training/>} />
-          <Route path="/energy" element={<Energy/>} />
-          <Route path="/public" element={<Public/>} />
-          <Route path="/health" element={<Health/>} />
-          <Route path="/media" element={<Media/>} />
-          <Route path="/manufacturing" element={<Manufacturing/>} />
-          <Route path="/travel" element={<Travel/>} />
-          <Route path="/retail" element={<Retail/>} />
-          <Route path="/oil" element={<Oil/>} />
-          <Route path="/summary" element={<Summary/>} />
-          <Route path="/studentform" element={<Studentform/>} />
-          <Route path="/careers" element={<Careers/>} />
-          <Route path="/blogs" element={<Blog/>} />
-          <Route path="/Careerjobs" element={<Careerjobsx/>} />
-          <Route path="/terms" element={<Terms/>} />
-          <Route path="/privacy" element={<Privacy/>} />
-          <Route path="/swiper" element={<Swiper/>} />
-          <Route path="/projectform" element={<Projectform/>} />
-          <Route path="/newjobapplication" element={<NewjobApplication/>} />
-          <Route path="/admin/login" element={<Login />} />
-          <Route
-            path="/admin/dashboard"
-            element={
-              <ProtectedRoutes>
-                <AdminDashboard />
-              </ProtectedRoutes>
-            }
-          />
-          <Route path="*" element={<Nopage />} /> 
-          <Route path="/courses" element={<Coursesmain/>} />
-          <Route path="/technology" element={<Technologymain/>} />
-          <Route path="/courseadmin" element={<AdminPage/>} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/banking" element={<Banking/>} />
+            <Route path="/about" element={<About />} />
+            <Route path="/rpa" element={<Rpa/>} />
+            <Route path="/sap" element={<Sap/>} />
+            <Route path="/cybersecurity" element={<Cybersecurity/>} />
+            <Route path="/dataanalytics" element={<Dataanalytics/>} />
+            <Route path="/testing" element={<Testing/>} />
+            <Route path="/database" element={<Database/>} />
+            <Route path="/digitalmarketing" element={<Digitals/>} />
+            <Route path="/digitalization" element={<Digitalization/>} />
+            <Route path="/outsourcing" element={<Outsourcing/>} />
+            <Route path="/businessconsulting" element={<Businessconsulting/>} />
+            <Route path="/webdevelopment" element={<Web/>} />
+            <Route path="/training" element={<Training/>} />
+            <Route path="/energy" element={<Energy/>} />
+            <Route path="/public" element={<Public/>} />
+            <Route path="/health" element={<Health/>} />
+            <Route path="/media" element={<Media/>} />
+            <Route path="/manufacturing" element={<Manufacturing/>} />
+            <Route path="/travel" element={<Travel/>} />
+            <Route path="/retail" element={<Retail/>} />
+            <Route path="/oil" element={<Oil/>} />
+            <Route path="/summary" element={<Summary/>} />
+            <Route path="/studentform" element={<Studentform/>} />
+            <Route path="/careers" element={<Careers/>} />
+            <Route path="/blogs" element={<Blog/>} />
+            <Route path="/Careerjobs" element={<Careerjobsx/>} />
+            <Route path="/terms" element={<Terms/>} />
+            <Route path="/privacy" element={<Privacy/>} />
+            <Route path="/swiper" element={<Swiper/>} />
+            <Route path="/projectform" element={<Projectform/>} />
+            <Route path="/newjobapplication" element={<NewjobApplication/>} />
+            <Route path="/admin/login" element={<Login />} />
+            <Route
+              path="/admin/dashboard"
+              element={
+                <ProtectedRoutes>
+                  <AdminDashboard />
+                </ProtectedRoutes>
+              }
+            />
+            <Route path="*" element={<Nopage />} /> 
+            <Route path="/courses" element={<Coursesmain/>} />
+            <Route path="/technology/:courseId" element={<Technologymain />} />
+            <Route path="/courseadmin" element={<AdminPage/>} />
 
-        </Routes>
+          </Routes>
+        </Suspense>
       </Router>
       </HelmetProvider>
 

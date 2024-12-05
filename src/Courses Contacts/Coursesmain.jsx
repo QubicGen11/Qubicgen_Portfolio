@@ -12,8 +12,6 @@ const Coursesmain = () => {
         <CoursesHero/>
         <Secureplacements/>
         <Ratingmain/>
-
-
         <Exploremain/>
         <Testimonials/>
         <Footer/>
