@@ -129,7 +129,7 @@ const Technologymain = () => {
         <Testimonials />
       </div>
       <div id="faq" className="pt-24 pb-12">
-        <FaqSection />
+        <FaqSection faqs={courseData?.faqs} />
       </div>
 
       {/* Footer */}
