@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaUser, FaEnvelope, FaBriefcase, FaQuoteRight } from 'react-icons/fa';
@@ -49,103 +50,129 @@ const TestimonialsForm = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 py-12 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-      <div className="h-[600px] w-1/2">
-        <img 
-          src="https://images.pexels.com/photos/3783725/pexels-photo-3783725.jpeg?auto=compress&cs=tinysrgb&w=600" 
-          alt="" 
-          className="h-full w-full object-cover rounded-lg"
-        />
-      </div>
-      
-      <div className="w-1/2 max-w-2xl">
-        <div className="text-center mb-6">
-          <FaQuoteRight className="mx-auto h-10 w-10 text-yellow-400" />
-          <h2 className="mt-4 text-2xl font-extrabold text-white">
-            Share Your Experience
-          </h2>
-          <p className="mt-2 text-sm text-gray-300">
-            Your feedback helps us improve and inspires others in their journey
-          </p>
-        </div>
+  const formVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
 
-        <div className="backdrop-blur-lg bg-white/10 rounded-2xl shadow-xl overflow-hidden">
-          <form onSubmit={handleSubmit} className="p-6">
-            <div className="space-y-4">
-              {/* Name and Email Row */}
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <FaUser className="h-5 w-5 text-yellow-400" />
+  const inputVariants = {
+    focus: { scale: 1.02, transition: { duration: 0.2 } }
+  };
+
+  return (
+    <div className="min-h-screen bg-[#1C1C1C] relative">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url('https://img.freepik.com/free-photo/creative-designers-working-project-together_58466-11706.jpg?t=st=1733515876~exp=1733519476~hmac=dfc066e7edfa01c945f9b9e80eba55dcf5ba91d34c6ca15a41742987e6b3ea89&w=1060')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: '0.15'
+        }}
+      />
+      
+      {/* Content Container */}
+      <div className="relative z-10 container mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto">
+          {/* Header Section */}
+          <div className="text-center mb-16">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-500 to-pink-600 text-transparent bg-clip-text">
+              What Our Students Say
+            </h1>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Hear what our graduates have to say about their learning experience
+            </p>
+          </div>
+
+          {/* Main Content Grid */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Image and Quote */}
+            <div className="space-y-8">
+              <div className="relative group">
+                <img 
+                  src="https://images.pexels.com/photos/3783725/pexels-photo-3783725.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                  alt="Testimonial" 
+                  className="rounded-2xl w-full h-[400px] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent rounded-2xl" />
+              </div>
+            </div>
+
+            {/* Right Column - Form */}
+            <div className="bg-[#242424] rounded-2xl p-8 shadow-xl border border-gray-800">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Name Input */}
+                  <div className="relative">
+                    <FaUser className="absolute left-3 top-1/2 -translate-y-1/2 text-purple-400" />
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Your Name"
+                      className="w-full pl-10 pr-4 py-3 bg-[#1C1C1C] border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300"
+                      required
+                    />
                   </div>
+
+                  {/* Email Input */}
+                  <div className="relative">
+                    <FaEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 text-purple-400" />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="Email Address"
+                      className="w-full pl-10 pr-4 py-3 bg-[#1C1C1C] border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Designation Input */}
+                <div className="relative">
+                  <FaBriefcase className="absolute left-3 top-1/2 -translate-y-1/2 text-purple-400" />
                   <input
                     type="text"
-                    name="name"
-                    value={formData.name}
+                    name="designation"
+                    value={formData.designation}
                     onChange={handleInputChange}
-                    placeholder="Your Name"
-                    className="block w-full pl-10 pr-3 py-2.5 border border-transparent rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/30 transition duration-150"
+                    placeholder="Your Role / Designation"
+                    className="w-full pl-10 pr-4 py-3 bg-[#1C1C1C] border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300"
                     required
                   />
                 </div>
 
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <FaEnvelope className="h-5 w-5 text-yellow-400" />
-                  </div>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                {/* Testimonial Input */}
+                <div>
+                  <textarea
+                    name="testimonial"
+                    value={formData.testimonial}
                     onChange={handleInputChange}
-                    placeholder="Email Address"
-                    className="block w-full pl-10 pr-3 py-2.5 border border-transparent rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/30 transition duration-150"
+                    placeholder="Share your experience..."
+                    rows="4"
+                    className="w-full px-4 py-3 bg-[#1C1C1C] border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300"
                     required
                   />
                 </div>
-              </div>
 
-              {/* Designation */}
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaBriefcase className="h-5 w-5 text-yellow-400" />
-                </div>
-                <input
-                  type="text"
-                  name="designation"
-                  value={formData.designation}
-                  onChange={handleInputChange}
-                  placeholder="Your Role / Designation"
-                  className="block w-full pl-10 pr-3 py-2.5 border border-transparent rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/30 transition duration-150"
-                  required
-                />
-              </div>
-
-              {/* Testimonial */}
-              <div>
-                <textarea
-                  name="testimonial"
-                  value={formData.testimonial}
-                  onChange={handleInputChange}
-                  placeholder="Share your experience..."
-                  rows="3"
-                  className="block w-full px-4 py-2.5 border border-transparent rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/30 transition duration-150"
-                  required
-                ></textarea>
-              </div>
-
-              {/* Submit Button */}
-              <div>
+                {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-black bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition duration-150"
+                  className="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-purple-500/20 transform hover:-translate-y-0.5 transition-all duration-300"
                 >
                   Submit Testimonial
                 </button>
-              </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

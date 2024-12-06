@@ -76,9 +76,9 @@ const Exploremain = () => {
           Transform your career with industry-leading courses designed by experts
         </p>
 
-        {/* Horizontal Category Navigation */}
+        {/* Horizontal Category Navigation with hidden scrollbar */}
         <div className="relative">
-          <div className="flex overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4">
+          <div className="flex overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 no-scrollbar">
             <div className="flex space-x-4 mx-auto">
               {categories.map((category, index) => (
                 <button
@@ -96,6 +96,20 @@ const Exploremain = () => {
           </div>
         </div>
       </div>
+
+      {/* Add this CSS to your global styles or in a style tag */}
+      <style jsx global>{`
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+        }
+      `}</style>
 
       {/* Courses Grid */}
       <div className="container mx-auto px-4">
