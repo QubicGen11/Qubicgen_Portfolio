@@ -107,7 +107,7 @@ const Exploremain = () => {
             >
               <div className="relative">
                 <img
-                  src={course.courseImage || 'https://corizo.in/wp-content/uploads/2024/09/UI_Design.jpg'}
+                  src={course.courseImg || 'https://corizo.in/wp-content/uploads/2024/09/UI_Design.jpg'}
                   alt={course.courseName}
                   className="w-full h-48 object-cover"
                 />

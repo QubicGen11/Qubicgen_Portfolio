@@ -367,6 +367,102 @@ const convertToBase64 = (file) => {
   });
 };
 
+const handleImageUpload = async (file) => {
+  try {
+    // Basic image compression before upload
+    const compressedFile = await compressImage(file);
+    
+    const formData = new FormData();
+    formData.append('file', compressedFile);
+
+    const response = await fetch('https://image.qubinest.com/upload', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error('Image upload failed');
+    }
+
+    const data = await response.json();
+    return `https://image.qubinest.com/${data.url}`;
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    throw error;
+  }
+};
+
+// Image compression utility
+const compressImage = (file) => {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (event) => {
+      const img = new Image();
+      img.src = event.target.result;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+
+        // Max dimensions
+        const MAX_WIDTH = 800;
+        const MAX_HEIGHT = 600;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+
+        canvas.toBlob((blob) => {
+          resolve(new File([blob], file.name, {
+            type: 'image/jpeg',
+            lastModified: Date.now(),
+          }));
+        }, 'image/jpeg', 0.7); // Compress with 70% quality
+      };
+    };
+  });
+};
+
+// Add this helper function before handleSubmit
+const uploadFile = async (file, shouldCompress = true) => {
+  try {
+    const formData = new FormData();
+    
+    if (shouldCompress && file.type.startsWith('image/')) {
+      const compressedFile = await compressImage(file);
+      formData.append('file', compressedFile);
+    } else {
+      formData.append('file', file);
+    }
+    
+    const response = await fetch('https://image.qubinest.com/upload', {
+      method: 'POST',
+      body: formData,
+    });
+    
+    if (!response.ok) throw new Error('File upload failed');
+    const data = await response.json();
+    return data.url; // Use the URL directly from the response
+  } catch (error) {
+    throw new Error(`File upload failed: ${error.message}`);
+  }
+};
+
 const CreateCourse = () => {
   const [formData, setFormData] = useState({
     courseName: "",
@@ -463,7 +559,6 @@ const CreateCourse = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Get token from cookie
       const token = document.cookie
         .split('; ')
         .find(row => row.startsWith('TOKEN='))
@@ -473,51 +568,59 @@ const CreateCourse = () => {
         throw new Error('Authentication token not found');
       }
 
-      // Convert files to base64
-      let courseImageBase64 = null;
-      let brochureBase64 = null;
-      let certificateBase64 = null;
-      let brandLogosBase64 = [];
-
-      if (formData.courseImage?.[0]) {
-        courseImageBase64 = await convertToBase64(formData.courseImage[0]);
-      }
-      if (formData.brochure?.[0]) {
-        brochureBase64 = await convertToBase64(formData.brochure[0]);
-      }
-      if (formData.certificate?.[0]) {
-        certificateBase64 = await convertToBase64(formData.certificate[0]);
-      }
-
-      // Convert brand logos to base64
-      for (let brand of formData.brands) {
-        if (brand.brandLogo) {
-          const base64 = await convertToBase64(brand.brandLogo);
-          brandLogosBase64.push({ brandLogo: base64 });
-        }
-      }
-
-      // Prepare the request body
+      // Prepare the request body with the correct key names
       const requestBody = {
         courseName: formData.courseName,
         courseType: formData.courseType,
+        courseImg: null,
+        courseBanner: null,
         duration: parseInt(formData.duration),
         maxMentees: parseInt(formData.maxMentees),
         technologies: formData.technologies,
         rating: parseFloat(formData.rating),
-        courseImage: courseImageBase64,
-        brochure: brochureBase64,
-        certificate: certificateBase64,
+        brochure: null,
+        certificate: null,
         startDate: formData.startDate,
         endDate: formData.endDate,
         courseDescription: formData.courseDescription,
         lessons: formData.lessons,
         faqs: formData.faqs,
-        brands: brandLogosBase64.length > 0 ? brandLogosBase64 : formData.brands
+        brands: []
       };
 
-      console.log('Request body:', requestBody);
+      // Handle file uploads
+      if (formData.courseImg?.[0]) {
+        const courseImgUrl = await uploadFile(formData.courseImg[0]);
+        requestBody.courseImg = courseImgUrl;
+      }
 
+      if (formData.courseBanner?.[0]) {
+        const courseBannerUrl = await uploadFile(formData.courseBanner[0]);
+        requestBody.courseBanner = courseBannerUrl;
+      }
+
+      if (formData.brochure?.[0]) {
+        const brochureUrl = await uploadFile(formData.brochure[0], false); // Don't compress PDFs
+        requestBody.brochure = brochureUrl;
+      }
+
+      if (formData.certificate?.[0]) {
+        const certificateUrl = await uploadFile(formData.certificate[0], false); // Don't compress PDFs
+        requestBody.certificate = certificateUrl;
+      }
+
+      // Handle brand logos
+      if (formData.brands?.length) {
+        requestBody.brands = await Promise.all(formData.brands.map(async (brand) => {
+          if (brand.brandLogo) {
+            const brandLogoUrl = await uploadFile(brand.brandLogo);
+            return { brandLogo: brandLogoUrl };
+          }
+          return { brandLogo: null };
+        }));
+      }
+
+      // Create course
       const response = await fetch('http://localhost:9098/qubicgen/newCourse', {
         method: 'POST',
         headers: {
@@ -533,10 +636,11 @@ const CreateCourse = () => {
       }
 
       toast.success("Course created successfully!");
-      // Reset form
       setFormData({
         courseName: "",
         courseType: "",
+        courseImg: null,
+        courseBanner: null,
         duration: "",
         maxMentees: "",
         technologies: "",
@@ -544,7 +648,6 @@ const CreateCourse = () => {
         startDate: "",
         endDate: "",
         courseDescription: "",
-        courseImage: null,
         brochure: null,
         certificate: null,
         lessons: [{ lessonTitle: "", lessonDescription: "" }],
@@ -577,19 +680,17 @@ const CreateCourse = () => {
               </div>
               <div>
                 <label className="block text-yellow-500 mb-2">Course Type *</label>
-                <select
+                <input
+                  type="text"
                   name="courseType"
                   value={formData.courseType}
                   onChange={handleInputChange}
                   className="w-full p-2 rounded bg-gray-800 text-white"
                   required
-                >
-                  <option value="">Select Type</option>
-                  <option value="Technology">Technology</option>
-                  <option value="AI & ML">AI & ML</option>
-                  <option value="Data Science">Data Science</option>
-                  {/* Add other options */}
-                </select>
+                />
+
+
+             
               </div>
               <div>
                 <label className="block text-yellow-500 mb-2">Duration (hours) *</label>
@@ -675,10 +776,20 @@ const CreateCourse = () => {
               <label className="block text-yellow-500 mb-2">Course Image *</label>
               <input
                 type="file"
-                name="courseImage"
+                name="courseImg"
                 onChange={handleInputChange}
                 className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
-               
+                accept="image/*"
+              />
+            </div>
+            <div>
+              <label className="block text-yellow-500 mb-2">Course Banner *</label>
+              <input
+                type="file"
+                name="courseBanner"
+                onChange={handleInputChange}
+                className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+                accept="image/*"
               />
             </div>
             <div>
