@@ -66,7 +66,7 @@ const TechnologyOverview = ({
   };
 
   return (
-    <motion.div 
+    <motion.div   
       className="relative min-h-[90vh] w-full flex flex-col justify-center bg-[#111]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

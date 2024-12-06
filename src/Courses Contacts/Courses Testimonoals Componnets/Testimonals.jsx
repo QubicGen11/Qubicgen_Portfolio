@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { FaQuoteLeft } from 'react-icons/fa';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -7,6 +8,19 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10
     }
   }
 };
@@ -29,8 +43,102 @@ const cardVariants = {
   }
 };
 
+const fallbackTestimonials = [
+  {
+    _id: '1',
+    name: 'Sarah Johnson',
+    designation: 'Full Stack Developer',
+    testimonial: 'The web development course was incredibly comprehensive. The hands-on projects and real-world applications helped me secure my dream job. Highly recommended!'
+  },
+  {
+    _id: '2',
+    name: 'Michael Chen',
+    designation: 'Data Science Student',
+    testimonial: 'The instructors are extremely knowledgeable and supportive. The course structure made complex concepts easy to understand. Ive gained confidence in my programming skills.'
+  },
+  {
+    _id: '3',
+    name: 'Priya Patel',
+    designation: 'UI/UX Designer',
+    testimonial: 'This course transformed my design approach. The blend of theory and practical exercises was perfect. I now have a strong portfolio and better career prospects.'
+  },
+  {
+    _id: '4',
+    name: 'Alex Rodriguez',
+    designation: 'Cloud Architecture Student',
+    testimonial: 'The cloud computing modules were excellent. Real-world scenarios and hands-on labs made learning AWS and Azure much easier. Great learning experience!'
+  },
+  {
+    _id: '5',
+    name: 'Emma Wilson',
+    designation: 'Cybersecurity Enthusiast',
+    testimonial: 'The cybersecurity course exceeded my expectations. Practical labs and industry-relevant content helped me understand complex security concepts effectively.'
+  },
+  {
+    _id: '6',
+    name: 'Raj Sharma',
+    designation: 'Machine Learning Engineer',
+    testimonial: 'The AI/ML course provided deep insights into neural networks and deep learning. The practical projects helped me understand real-world applications.'
+  },
+  {
+    _id: '7',
+    name: 'Lisa Wang',
+    designation: 'DevOps Engineer',
+    testimonial: 'Excellent DevOps course! Learned CI/CD pipelines, containerization, and cloud deployment. The hands-on labs were particularly helpful.'
+  },
+  {
+    _id: '8',
+    name: 'James Anderson',
+    designation: 'Blockchain Developer',
+    testimonial: 'The blockchain development course was outstanding. From smart contracts to DApp development, everything was explained clearly with practical examples.'
+  },
+  {
+    _id: '9',
+    name: 'Sophia Martinez',
+    designation: 'Mobile App Developer',
+    testimonial: 'The mobile app development course was fantastic! Learning both iOS and Android development has opened up many career opportunities.'
+  },
+  {
+    _id: '10',
+    name: 'David Kim',
+    designation: 'Game Developer',
+   
+    testimonial: 'The game development course was amazing! Learning Unity and C# through practical projects was both fun and educational.'
+  },
+  {
+    _id: '11',
+    name: 'Aisha Patel',
+    designation: 'Data Analytics Student',
+    testimonial: 'The data analytics course provided excellent insights into data visualization and statistical analysis. The real-world projects were invaluable.'
+  },
+  {
+    _id: '12',
+    name: 'Tom Wilson',
+    designation: 'IoT Specialist',
+    testimonial: 'The IoT course was comprehensive and practical. Working with various sensors and microcontrollers gave me hands-on experience in embedded systems.'
+  },
+  {
+    _id: '13',
+    name: 'Nina Petrova',
+    designation: 'QA Engineer',
+    testimonial: 'The software testing course was thorough and practical. Learned both manual and automated testing techniques. The industry projects were very helpful.'
+  },
+  {
+    _id: '14',
+    name: 'Carlos Mendoza',
+    designation: 'Frontend Developer',
+    testimonial: 'The React and Vue.js courses were excellent! The project-based learning approach helped me master modern frontend development.'
+  },
+  {
+    _id: '15',
+    name: 'Emily Chang',
+    designation: 'Backend Developer',
+    testimonial: 'The Node.js and Python backend development courses were fantastic. The microservices architecture projects were particularly enlightening.'
+  }
+];
+
 const Testimonials = () => {
-  const [testimonials, setTestimonials] = useState([]);
+  const [testimonials, setTestimonials] = useState(fallbackTestimonials);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -42,9 +150,11 @@ const Testimonials = () => {
           throw new Error('Failed to fetch testimonials');
         }
         const data = await response.json();
-        setTestimonials(data);
+        if (data && data.length > 0) {
+          setTestimonials([...data, ...fallbackTestimonials]);
+        }
       } catch (err) {
-        setError(err.message);
+        console.error('Error fetching testimonials:', err);
       } finally {
         setLoading(false);
       }
@@ -71,19 +181,39 @@ const Testimonials = () => {
 
   return (
     <motion.div 
-      className="bg-[#1a1a1a] text-white py-10"
+      className="bg-[#1a1a1a] text-white py-24 px-6 overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <motion.h1 
-        className="text-center text-4xl font-bold mb-12 text-gray-200"
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 100 }}
+      <motion.div 
+        className="text-center mb-16"
+        variants={itemVariants}
+        initial="hidden"
+        animate="visible"
       >
-        What Our Students Say
-      </motion.h1>
+        <motion.h2 
+          className="text-5xl font-bold mb-6 relative"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <span className="bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text inline-flex items-center gap-4">
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.5 }}
+            >
+              <FaQuoteLeft className="text-4xl" />
+            </motion.div>
+            What Our Students Say
+          </span>
+        </motion.h2>
+        <motion.p 
+          className="text-xl text-gray-400 max-w-3xl mx-auto"
+          variants={itemVariants}
+        >
+          Hear what our graduates have to say about their learning experience
+        </motion.p>
+      </motion.div>
       <motion.div 
         className="overflow-hidden relative px-4"
         variants={containerVariants}

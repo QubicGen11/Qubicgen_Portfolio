@@ -142,7 +142,7 @@ const Technologymain = () => {
 
       {/* Sections */}
       <div id="overviewsection" className=" ">
-        <OverviewSection />
+        <OverviewSection startDate={courseData?.startDate}/>
       </div>
       <div id="secureplacements" className="pt-24 pb-12">
         <Secureplacements />
@@ -151,7 +151,7 @@ const Technologymain = () => {
         <SyllabusSection lessons={courseData?.courseLessons} />
       </div>
       <div id="certifications" className="pt-24 pb-12">
-        <CertificateSection />
+        <CertificateSection certificate={courseData?.certificate} />
       </div>
       <div id="testimonials" className="pt-24 pb-12">
         <Testimonials />

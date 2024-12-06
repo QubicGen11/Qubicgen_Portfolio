@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaGraduationCap, FaCertificate, FaLaptopCode, FaGlobe } from 'react-icons/fa';
+import { BiCodeAlt } from 'react-icons/bi';
+import { MdOutlineWorkspacePremium } from 'react-icons/md';
 
-const OverviewSection = () => {
+const OverviewSection = ({ courseData }) => {
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -14,9 +17,36 @@ const OverviewSection = () => {
     },
   };
 
+  const iconVariants = {
+    hover: {
+      scale: 1.2,
+      rotate: 360,
+      transition: {
+        duration: 0.8,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const formatDate = (dateString) => {
+    if (!dateString) return "soon";
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return "soon"; // Invalid date
+      
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    } catch (error) {
+      return "soon";
+    }
+  };
+
   return (
     <motion.div
-      className="bg-[#121212] py-16 px-6 font-sans"
+      className="bg-gradient-to-b from-[#121212] to-[#1a1a1a] py-16 px-6 font-sans"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -28,143 +58,105 @@ const OverviewSection = () => {
         },
       }}
     >
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Program Highlight Section */}
+      <div className="container mx-auto">
         <motion.div
-          className="bg-[#1e1e1e] text-white rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow duration-300"
+          className="bg-gradient-to-r from-[#1e1e1e] to-[#252525] text-white rounded-xl p-8 shadow-2xl hover:shadow-purple-500/20 transition-all duration-500"
           variants={itemVariants}
         >
-          <h2 className="text-3xl font-bold mb-6 text-gradient">
-            Program Highlights
-          </h2>
-          <p className="text-lg text-gray-400 mb-6 leading-relaxed">
-            Upgrade your skills with our cutting-edge Web Development Program.
-          </p>
-          <ul className="space-y-6">
-            <li className="flex items-center space-x-4">
-              <div className="bg-gradient-to-r from-[#4CAF50] to-[#8BC34A] p-4 rounded-full shadow-md">
-                <img
-                  src="path-to-icon1.png"
-                  alt="Program Icon"
-                  className="w-8 h-8"
-                />
-              </div>
-              <span className="text-lg">
-                Industry-aligned curriculum tailored for professionals.
-              </span>
-            </li>
-            <li className="flex items-center space-x-4">
-              <div className="bg-gradient-to-r from-[#FF5722] to-[#FFC107] p-4 rounded-full shadow-md">
-                <img
-                  src="path-to-icon2.png"
-                  alt="Accreditation Icon"
-                  className="w-8 h-8"
-                />
-              </div>
-              <span className="text-lg">
-                Certification endorsed by{' '}
-                <span className="text-yellow-400 font-semibold">Google</span>.
-              </span>
-            </li>
-            <li className="flex items-center space-x-4">
-              <div className="bg-gradient-to-r from-[#3F51B5] to-[#2196F3] p-4 rounded-full shadow-md">
-                <img
-                  src="path-to-icon3.png"
-                  alt="Expertise Icon"
-                  className="w-8 h-8"
-                />
-              </div>
-              <span className="text-lg">
-                Hands-on projects to foster real-world expertise.
-              </span>
-            </li>
-            <li className="flex items-center space-x-4">
-              <div className="bg-gradient-to-r from-[#E91E63] to-[#F44336] p-4 rounded-full shadow-md">
-                <img
-                  src="path-to-icon4.png"
-                  alt="Internship Partners Icon"
-                  className="w-8 h-8"
-                />
-              </div>
-              <span className="text-lg">150+ Global Internship Partners.</span>
-            </li>
-          </ul>
-        </motion.div>
+          <div className="text-center mb-12">
+            <motion.h2 
+              className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text"
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              {courseData?.courseName || "Course Overview"}
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto"
+              variants={itemVariants}
+            >
+              {courseData?.courseDescription || "Transform your career with our comprehensive program. Master the latest technologies and build real-world projects."}
+            </motion.p>
+          </div>
 
-        {/* Form Section */}
-        <motion.div
-          className="bg-[#1e1e1e] text-white rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow duration-300"
-          variants={itemVariants}
-        >
-          <h2 className="text-3xl font-bold mb-6">
-            Register for Our Web Development Program
-          </h2>
-          <form className="space-y-6">
-            <motion.div
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div 
+              className="space-y-8"
               variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
             >
-              <label className="block text-lg font-semibold text-gray-300 mb-2">
-                Full Name <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                placeholder="Enter your full name"
-              />
+              <div className="flex items-start space-x-6 p-6 bg-[#1a1a1a] rounded-lg hover:bg-[#1f1f1f] transition-all duration-300">
+                <motion.div 
+                  className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center text-white text-2xl shadow-lg"
+                  whileHover="hover"
+                  variants={iconVariants}
+                >
+                  <FaLaptopCode />
+                </motion.div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">Course Duration</h3>
+                  <p className="text-gray-400">{courseData?.duration || 6} weeks of intensive training with hands-on projects</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-6 p-6 bg-[#1a1a1a] rounded-lg hover:bg-[#1f1f1f] transition-all duration-300">
+                <motion.div 
+                  className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-lg flex items-center justify-center text-white text-2xl shadow-lg"
+                  whileHover="hover"
+                  variants={iconVariants}
+                >
+                  <FaCertificate />
+                </motion.div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">Course Type</h3>
+                  <p className="text-gray-400">{courseData?.courseType || "Professional Training"}</p>
+                </div>
+              </div>
             </motion.div>
-            <motion.div
+
+            <motion.div 
+              className="space-y-8"
               variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
             >
-              <label className="block text-lg font-semibold text-gray-300 mb-2">
-                Contact Number <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                placeholder="Enter your contact number"
-              />
+              <div className="flex items-start space-x-6 p-6 bg-[#1a1a1a] rounded-lg hover:bg-[#1f1f1f] transition-all duration-300">
+                <motion.div 
+                  className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center text-white text-2xl shadow-lg"
+                  whileHover="hover"
+                  variants={iconVariants}
+                >
+                  <MdOutlineWorkspacePremium />
+                </motion.div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">Technologies</h3>
+                  <p className="text-gray-400">{courseData?.technologies || "Cutting-edge tech stack"}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-6 p-6 bg-[#1a1a1a] rounded-lg hover:bg-[#1f1f1f] transition-all duration-300">
+                <motion.div 
+                  className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-600 rounded-lg flex items-center justify-center text-white text-2xl shadow-lg"
+                  whileHover="hover"
+                  variants={iconVariants}
+                >
+                  <FaGlobe />
+                </motion.div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">Batch Size</h3>
+                  <p className="text-gray-400">Limited to {courseData?.maxMentees || "small"} students for personalized attention</p>
+                </div>
+              </div>
             </motion.div>
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <label className="block text-lg font-semibold text-gray-300 mb-2">
-                Email Address <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                placeholder="Enter your email address"
-              />
-            </motion.div>
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <label className="block text-lg font-semibold text-gray-300 mb-2">
-                College Name <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                placeholder="Enter your Organization name"
-              />
-            </motion.div>
-            <motion.button
-              type="submit"
-              className="w-full bg-gradient-to-r from-[#FFA500] to-[#FF4500] text-white font-semibold text-lg rounded-lg px-4 py-3 hover:from-[#FF4500] hover:to-[#FFA500] transition-transform duration-200 transform hover:scale-105"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Submit Enquiry
-            </motion.button>
-          </form>
+          </div>
+
+          <motion.div 
+            className="mt-12 text-center"
+            variants={itemVariants}
+          >
+            <div className="inline-flex items-center space-x-2 text-sm text-gray-400">
+              <BiCodeAlt className="text-purple-500" />
+              <span>Next batch starting {formatDate(courseData?.startDate)}</span>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </motion.div>

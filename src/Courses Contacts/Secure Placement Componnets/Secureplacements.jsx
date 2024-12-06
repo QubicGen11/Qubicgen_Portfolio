@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaBriefcase } from 'react-icons/fa';
 import './Secureplacements.css';
 
 const Secureplacements = () => {
@@ -75,16 +76,38 @@ const Secureplacements = () => {
   );
 
   return (
-    <div className="py-12 bg-[#1a1a1a]">
+    <div className="py-24 bg-[#1a1a1a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2 
-          className="text-3xl font-bold text-center mb-12 text-white"
-          initial={{ opacity: 0, y: -20 }}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ type: "spring", stiffness: 100, damping: 10 }}
         >
-          Secure Placements with Top Brands
-        </motion.h2>
+          <motion.h2 
+            className="text-5xl font-bold mb-6 relative"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <span className="bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text inline-flex items-center gap-4">
+              <motion.div
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.5 }}
+              >
+                <FaBriefcase className="text-4xl" />
+              </motion.div>
+              Secure Placements with Top Brands
+            </span>
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-gray-400 max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            Join leading companies and kickstart your career journey
+          </motion.p>
+        </motion.div>
         
         <div className="relative overflow-hidden py-8">
           {/* First Row */}
