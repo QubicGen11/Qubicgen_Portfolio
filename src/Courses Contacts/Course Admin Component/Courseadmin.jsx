@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { toast, Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import Dashboard from "../../Admin/Dashboard";
  
 // New CourseList component
 const CourseList = () => {
@@ -698,13 +700,15 @@ const MyCourses = () => {
  
 const AdminPage = () => {
   const [currentView, setCurrentView] = useState('dashboard');
- 
+  
   const renderView = () => {
     switch(currentView) {
       case 'my-courses':
         return <MyCourses />;
       case 'edit-courses':
         return <EditCourses />;
+      case 'admin-dashboard':
+        return <Dashboard />;
       default:
         return <CreateCourse />;
     }
@@ -721,7 +725,7 @@ const AdminPage = () => {
                 onClick={() => setCurrentView('dashboard')}
                 className={`flex items-center space-x-2 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-700 hover:text-white w-full ${currentView === 'dashboard' ? 'bg-gray-700' : ''}`}
               >
-                <span>Dashboard</span>
+                <span>Add New Course</span>
               </button>
             </li>
             <li>
@@ -738,6 +742,14 @@ const AdminPage = () => {
                 className={`flex items-center space-x-2 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-700 hover:text-white w-full ${currentView === 'edit-courses' ? 'bg-gray-700' : ''}`}
               >
                 <span>Edit Courses</span>
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => setCurrentView('admin-dashboard')}
+                className="flex items-center space-x-2 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-700 hover:text-white w-full"
+              >
+                <span>Admin Dashboard</span>
               </button>
             </li>
           </ul>

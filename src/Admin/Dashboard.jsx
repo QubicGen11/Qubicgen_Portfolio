@@ -11,11 +11,11 @@ import JSZip from 'jszip';
 const cookies = new Cookies();
 
 const tableStyles = {
-  container: "overflow-auto max-h-[600px] shadow-md rounded-lg",
-  tableWrapper: "min-w-full divide-y divide-gray-200",
-  stickyHeader: "bg-gray-50 sticky top-0 z-10",
-  messageCell: "px-6 py-4 max-w-[100px] overflow-y-auto whitespace-pre-wrap",
-  cell: "px-6 py-4 whitespace-nowrap"
+  container: "overflow-x-auto max-h-[calc(100vh-300px)]",
+  tableWrapper: "min-w-full divide-y divide-gray-200/30",
+  stickyHeader: "backdrop-blur-md bg-white/70 sticky top-0 z-10",
+  messageCell: "px-6 py-4 max-w-[200px] break-words text-gray-900",
+  cell: "px-6 py-4 whitespace-normal text-gray-900"
 };
 
 const Dashboard = () => {
@@ -310,13 +310,13 @@ const Dashboard = () => {
         <select
           value={searchField}
           onChange={(e) => setSearchField(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="backdrop-blur-md bg-white/70 px-4 py-2 border border-gray-300/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
         >
-          <option value="fullName">Name</option>
-          <option value="email">Email</option>
-          <option value="course">Course</option>
-          <option value="collegeName">College</option>
-          <option value="phoneNumber">Phone</option>
+          <option value="fullName" className="bg-white">Name</option>
+          <option value="email" className="bg-white">Email</option>
+          <option value="course" className="bg-white">Course</option>
+          <option value="collegeName" className="bg-white">College</option>
+          <option value="phoneNumber" className="bg-white">Phone</option>
         </select>
         <input
           type="text"
@@ -324,7 +324,7 @@ const Dashboard = () => {
           value={searchTerm}
           onChange={handleSearch}
           autoFocus
-          className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="backdrop-blur-md bg-white/70 flex-1 px-4 py-2 border border-gray-300/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-500"
         />
       </div>
     );
@@ -342,13 +342,35 @@ const Dashboard = () => {
     );
 
     const TableContainer = ({ children }) => (
-      <div>
+      <div className="overflow-hidden rounded-lg">
         <div className="flex justify-between items-center mb-4">
-          {renderSearchBar()}
+          <div className="flex gap-4 mb-4">
+            <select
+              value={searchField}
+              onChange={(e) => setSearchField(e.target.value)}
+              className="backdrop-blur-md bg-white/70 px-4 py-2 border border-gray-300/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+            >
+              <option value="fullName" className="bg-white">Name</option>
+              <option value="email" className="bg-white">Email</option>
+              <option value="course" className="bg-white">Course</option>
+              <option value="collegeName" className="bg-white">College</option>
+              <option value="phoneNumber" className="bg-white">Phone</option>
+            </select>
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={handleSearch}
+              autoFocus
+              className="backdrop-blur-md bg-white/70 flex-1 px-4 py-2 border border-gray-300/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-500"
+            />
+          </div>
           {renderExportButton()}
         </div>
-        <div className={tableStyles.container}>
-          {children}
+        <div className="backdrop-blur-md bg-white/70 rounded-lg">
+          <div className={tableStyles.container}>
+            {children}
+          </div>
         </div>
       </div>
     );
@@ -361,15 +383,15 @@ const Dashboard = () => {
             <table className={tableStyles.tableWrapper}>
               <thead className={tableStyles.stickyHeader}>
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Name</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Email</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Message</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Date</th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="backdrop-blur-md bg-white/70 divide-y divide-gray-200/30">
                 {filteredQueries.map((query) => (
-                  <tr key={query._id} className="hover:bg-gray-50">
+                  <tr key={query._id} className="hover:bg-white/80">
                     <td className={tableStyles.cell}>{query.firstName} {query.lastName}</td>
                     <td className={tableStyles.cell}>{query.email}</td>
                     <td className={tableStyles.messageCell}>{query.message}</td>
@@ -390,18 +412,18 @@ const Dashboard = () => {
             <table className={tableStyles.tableWrapper}>
               <thead className={tableStyles.stickyHeader}>
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Job Title</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Name</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Email</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Phone</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Job Title</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Company</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Message</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Date</th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="backdrop-blur-md bg-white/70 divide-y divide-gray-200/30">
                 {filteredProjects.map((project) => (
-                  <tr key={project._id} className="hover:bg-gray-50">
+                  <tr key={project._id} className="hover:bg-white/80">
                     <td className={tableStyles.cell}>{project.name}</td>
                     <td className={tableStyles.cell}>{project.email}</td>
                     <td className={tableStyles.cell}>{project.phone}</td>
@@ -425,19 +447,19 @@ const Dashboard = () => {
             <table className={tableStyles.tableWrapper}>
               <thead className={tableStyles.stickyHeader}>
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Course</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stream</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">College</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Name</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Email</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Phone</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Course</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Stream</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">College</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Message</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Date</th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="backdrop-blur-md bg-white/70 divide-y divide-gray-200/30">
                 {filteredStudents.map((student) => (
-                  <tr key={student._id} className="hover:bg-gray-50">
+                  <tr key={student._id} className="hover:bg-white/80">
                     <td className={tableStyles.cell}>{student.name}</td>
                     <td className={tableStyles.cell}>{student.email}</td>
                     <td className={tableStyles.cell}>{student.phone}</td>
@@ -462,15 +484,15 @@ const Dashboard = () => {
             <table className={tableStyles.tableWrapper}>
               <thead className={tableStyles.stickyHeader}>
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Name</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Email</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Message</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Date</th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="backdrop-blur-md bg-white/70 divide-y divide-gray-200/30">
                 {filteredTouches.map((touch) => (
-                  <tr key={touch._id} className="hover:bg-gray-50">
+                  <tr key={touch._id} className="hover:bg-white/80">
                     <td className={tableStyles.cell}>{touch.fullName}</td>
                     <td className={tableStyles.cell}>{touch.email}</td>
                     <td className={tableStyles.messageCell}>{touch.message}</td>
@@ -491,20 +513,20 @@ const Dashboard = () => {
             <table className={tableStyles.tableWrapper}>
               <thead className={tableStyles.stickyHeader}>
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gender</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Education</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Percentages</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Resume</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comments</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Name</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Gender</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Contact</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Email</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Education</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Percentages</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Resume</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Comments</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Date</th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="backdrop-blur-md bg-white/70 divide-y divide-gray-200/30">
                 {filteredApplications.map((job) => (
-                  <tr key={job.id} className="hover:bg-gray-50">
+                  <tr key={job.id} className="hover:bg-white/80">
                     <td className={tableStyles.cell}>{job.fullName}</td>
                     <td className={tableStyles.cell}>{job.gender}</td>
                     <td className={tableStyles.cell}>
@@ -520,10 +542,10 @@ const Dashboard = () => {
                       </div>
                     </td>
                     <td className={tableStyles.cell}>
-                      <div>
-                        <p>Course: {job.course}</p>
-                        <p>Branch: {job.branch}</p>
-                        <p>College: {job.collegeName}</p>
+                      <div className="space-y-1">
+                        <p className="break-words">Course: {job.course}</p>
+                        <p className="break-words">Branch: {job.branch}</p>
+                        <p className="break-words">College: {job.collegeName}</p>
                       </div>
                     </td>
                     <td className={tableStyles.cell}>
@@ -594,130 +616,134 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
+    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1665686308827-eb62e4f6604d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+      <div className="bg-black bg-opacity-50 min-h-screen">
+        <nav className="backdrop-blur-md bg-white/30 shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex items-center">
+                <h1 className="text-2xl font-bold text-white">Admin Dashboard</h1>
+              </div>
+              <div className="flex items-center">
+                <button
+                  onClick={handleLogout}
+                  className="ml-3 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  Logout
+                </button>
+              </div>
             </div>
-            <div className="flex items-center">
-              <button
-                onClick={handleLogout}
-                className="ml-3 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          </div>
+        </nav>
+
+        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          {/* Stats Overview */}
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 mb-6">
+            <div className="backdrop-blur-md bg-white/30 overflow-hidden shadow rounded-lg flex justify-center items-center">
+              <div className="p-5">
+                <div className="flex items-center">
+                  <div className="flex-col justify-center items-center">
+                    <div className="text-2xl font-bold text-white text-center">{data.queries.length}</div>
+                    <div className="mt-1 text-sm text-white text-center">Queries</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="backdrop-blur-md bg-white/30 overflow-hidden shadow rounded-lg flex justify-center items-center">
+              <div className="p-5">
+                <div className="flex items-center">
+                  <div className="flex-col justify-center items-center ">
+                    <div className="text-2xl font-bold text-white text-center">{data.getInTouches.length}</div>
+                    <div className="mt-1 text-sm text-white text-center">Get In Touch</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="backdrop-blur-md bg-white/30 overflow-hidden shadow rounded-lg flex justify-center items-center">
+              <div className="p-5">
+                <div className="flex items-center">
+                  <div className="flex-col justify-center items-center ">
+                    <div className="text-2xl font-bold text-white text-center">{data.jobApplications.length}</div>
+                    <div className="mt-1 text-sm text-white text-center">Job Applications</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="backdrop-blur-md bg-white/30 overflow-hidden shadow rounded-lg flex justify-center items-center">
+              <div className="p-5">
+                <div className="flex items-center">
+                  <div className="flex-col justify-center items-center ">
+                    <div className="text-2xl font-bold text-white text-center">{data.projects.length}</div>
+                    <div className="mt-1 text-sm text-white text-center">Projects</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="backdrop-blur-md bg-white/30 overflow-hidden shadow rounded-lg flex justify-center items-center">
+              <div className="p-5">
+                <div className="flex items-center ">
+                  <div className="flex-col justify-center items-center ">
+                    <div className="text-2xl font-bold text-white text-center">{data.students.length}</div>
+                    <div className="mt-1 text-sm text-white">Students</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+
+          {/* Tabs */}
+          <div className="mb-6">
+            <div className="sm:hidden">
+              <select
+                className="backdrop-blur-md bg-white/30 block w-full rounded-md border-gray-300 text-white"
+                value={activeTab}
+                onChange={(e) => setActiveTab(e.target.value)}
               >
-                Logout
-              </button>
+                <option value="queries">Queries</option>
+                <option value="projects">Projects</option>
+                <option value="students">Students</option>
+                <option value="getInTouches">Get In Touches</option>
+                <option value="jobApplications">Job Applications</option>
+                {/* <option value="newJobs">New Jobs</option> */}
+              </select>
+            </div>
+            <div className="hidden sm:block">
+              <div className="border-b border-gray-200/30">
+                <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+                  {[
+                    'queries',
+                    'getInTouches',
+                    'jobApplications',
+                    'projects',
+                    'students',
+                    
+                  ].map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setActiveTab(tab)}
+                      className={`
+                        ${activeTab === tab
+                          ? 'border-indigo-500 text-white'
+                          : 'border-transparent text-gray-300 hover:text-white hover:border-gray-300'
+                        }
+                        whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm capitalize
+                      `}
+                    >
+                      {tab.replace(/([A-Z])/g, ' $1').trim()}
+                    </button>
+                  ))}
+                </nav>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
 
-      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        {/* Stats Overview */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 mb-6">
-          <div className=" bg-white overflow-hidden shadow rounded-lg flex justify-center items-center">
-            <div className="p-5">
-              <div className="flex items-center">
-                <div className="flex-col justify-center items-center ">
-                  <div className="text-2xl font-bold text-gray-900 text-center">{data.queries.length}</div>
-                  <div className="mt-1 text-sm text-gray-500 text-center">Queries</div>
-                </div>
-              </div>
+          {/* Table Content */}
+          <div className="backdrop-blur-md bg-white/30 rounded-lg shadow p-6">
+            <div className="text-white">
+              {renderContent()}
             </div>
           </div>
-          <div className="bg-white overflow-hidden shadow rounded-lg flex justify-center items-center">
-            <div className="p-5">
-              <div className="flex items-center">
-                <div className="flex-col justify-center items-center ">
-                  <div className="text-2xl font-bold text-gray-900 text-center">{data.getInTouches.length}</div>
-                  <div className="mt-1 text-sm text-gray-500 text-center">Get In Touch</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white overflow-hidden shadow rounded-lg flex justify-center items-center">
-            <div className="p-5">
-              <div className="flex items-center">
-                <div className="flex-col justify-center items-center ">
-                  <div className="text-2xl font-bold text-gray-900 text-center">{data.jobApplications.length}</div>
-                  <div className="mt-1 text-sm text-gray-500 text-center">Job Applications</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white overflow-hidden shadow rounded-lg flex justify-center items-center">
-            <div className="p-5">
-              <div className="flex items-center">
-                <div className="flex-col justify-center items-center ">
-                  <div className="text-2xl font-bold text-gray-900 text-center">{data.projects.length}</div>
-                  <div className="mt-1 text-sm text-gray-500 text-center">Projects</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white overflow-hidden shadow rounded-lg flex justify-center items-center">
-            <div className="p-5">
-              <div className="flex items-center ">
-                <div className="flex-col justify-center items-center ">
-                  <div className="text-2xl font-bold text-gray-900 text-center">{data.students.length}</div>
-                  <div className="mt-1 text-sm text-gray-500">Students</div>
-                </div>
-              </div>
-            </div>
-          </div>
-         
-        </div>
-
-        {/* Tabs */}
-        <div className="mb-6">
-          <div className="sm:hidden">
-            <select
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-              value={activeTab}
-              onChange={(e) => setActiveTab(e.target.value)}
-            >
-              <option value="queries">Queries</option>
-              <option value="projects">Projects</option>
-              <option value="students">Students</option>
-              <option value="getInTouches">Get In Touches</option>
-              <option value="jobApplications">Job Applications</option>
-              {/* <option value="newJobs">New Jobs</option> */}
-            </select>
-          </div>
-          <div className="hidden sm:block">
-            <div className="border-b border-gray-200">
-              <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-                {[
-                  'queries',
-                  'getInTouches',
-                  'jobApplications',
-                  'projects',
-                  'students',
-                  
-                ].map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    className={`
-                      ${activeTab === tab
-                        ? 'border-indigo-500 text-indigo-600'
-                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                      }
-                      whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm capitalize
-                    `}
-                  >
-                    {tab.replace(/([A-Z])/g, ' $1').trim()}
-                  </button>
-                ))}
-              </nav>
-            </div>
-          </div>
-        </div>
-
-        {/* Table Content */}
-        <div className="bg-white rounded-lg shadow p-6">
-          {renderContent()}
         </div>
       </div>
     </div>
