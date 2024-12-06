@@ -357,6 +357,16 @@ const EditCourses = () => {
   );
 };
  
+// Add this utility function at the top
+const convertToBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+};
+
 const CreateCourse = () => {
   const [formData, setFormData] = useState({
     courseName: "",
@@ -371,9 +381,9 @@ const CreateCourse = () => {
     courseImage: null,
     brochure: null,
     certificate: null,
-    courseLessons: [{ lessonTitle: "", content: "" }],
-    courseFaqs: [{ question: "", answer: "" }],
-    courseBrands: [{ brandName: "", logo: null }]
+    lessons: [{ lessonTitle: "", lessonDescription: "" }],
+    faqs: [{ question: "", answer: "" }],
+    brands: [{ brandLogo: null }]
   });
  
   const handleInputChange = (e) => {
@@ -392,67 +402,67 @@ const CreateCourse = () => {
   };
  
   const handleLessonChange = (index, field, value) => {
-    const updatedLessons = [...formData.courseLessons];
+    const updatedLessons = [...formData.lessons];
     updatedLessons[index][field] = value;
-    setFormData((prev) => ({ ...prev, courseLessons: updatedLessons }));
-  };
- 
-  const handleFaqChange = (index, field, value) => {
-    const updatedFaqs = [...formData.courseFaqs];
-    updatedFaqs[index][field] = value;
-    setFormData((prev) => ({ ...prev, courseFaqs: updatedFaqs }));
+    setFormData(prev => ({ ...prev, lessons: updatedLessons }));
   };
  
   const addLesson = () => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
-      courseLessons: [...prev.courseLessons, { lessonTitle: "", content: "" }],
+      lessons: [...prev.lessons, { lessonTitle: "", lessonDescription: "" }]
     }));
   };
  
   const removeLesson = (index) => {
-    const updatedLessons = [...formData.courseLessons];
+    const updatedLessons = [...formData.lessons];
     updatedLessons.splice(index, 1);
-    setFormData((prev) => ({ ...prev, courseLessons: updatedLessons }));
+    setFormData(prev => ({ ...prev, lessons: updatedLessons }));
+  };
+ 
+  const handleFaqChange = (index, field, value) => {
+    const updatedFaqs = [...formData.faqs];
+    updatedFaqs[index][field] = value;
+    setFormData(prev => ({ ...prev, faqs: updatedFaqs }));
   };
  
   const addFaq = () => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
-      courseFaqs: [...prev.courseFaqs, { question: "", answer: "" }],
+      faqs: [...prev.faqs, { question: "", answer: "" }]
     }));
   };
  
   const removeFaq = (index) => {
-    const updatedFaqs = [...formData.courseFaqs];
+    const updatedFaqs = [...formData.faqs];
     updatedFaqs.splice(index, 1);
-    setFormData((prev) => ({ ...prev, courseFaqs: updatedFaqs }));
+    setFormData(prev => ({ ...prev, faqs: updatedFaqs }));
   };
  
-  const handleBrandChange = (index, field, value) => {
-    const updatedBrands = [...formData.courseBrands];
-    updatedBrands[index][field] = value;
-    setFormData(prev => ({ ...prev, courseBrands: updatedBrands }));
+  const handleBrandChange = (index, files) => {
+    if (files && files[0]) {
+      const updatedBrands = [...formData.brands];
+      updatedBrands[index] = { brandLogo: files[0] };
+      setFormData(prev => ({ ...prev, brands: updatedBrands }));
+    }
   };
  
   const addBrand = () => {
     setFormData(prev => ({
       ...prev,
-      courseBrands: [...prev.courseBrands, { brandName: "", logo: null }]
+      brands: [...prev.brands, { brandLogo: null }]
     }));
   };
  
   const removeBrand = (index) => {
-    const updatedBrands = [...formData.courseBrands];
+    const updatedBrands = [...formData.brands];
     updatedBrands.splice(index, 1);
-    setFormData(prev => ({ ...prev, courseBrands: updatedBrands }));
+    setFormData(prev => ({ ...prev, brands: updatedBrands }));
   };
  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const formDataToSend = new FormData();
-      
       // Get token from cookie
       const token = document.cookie
         .split('; ')
@@ -463,33 +473,63 @@ const CreateCourse = () => {
         throw new Error('Authentication token not found');
       }
 
-      // Append basic fields
-      Object.keys(formData).forEach(key => {
-        if (!['courseImage', 'brochure', 'certificate', 'courseLessons', 'courseFaqs', 'courseBrands'].includes(key)) {
-          formDataToSend.append(key, formData[key]);
+      // Convert files to base64
+      let courseImageBase64 = null;
+      let brochureBase64 = null;
+      let certificateBase64 = null;
+      let brandLogosBase64 = [];
+
+      if (formData.courseImage?.[0]) {
+        courseImageBase64 = await convertToBase64(formData.courseImage[0]);
+      }
+      if (formData.brochure?.[0]) {
+        brochureBase64 = await convertToBase64(formData.brochure[0]);
+      }
+      if (formData.certificate?.[0]) {
+        certificateBase64 = await convertToBase64(formData.certificate[0]);
+      }
+
+      // Convert brand logos to base64
+      for (let brand of formData.brands) {
+        if (brand.brandLogo) {
+          const base64 = await convertToBase64(brand.brandLogo);
+          brandLogosBase64.push({ brandLogo: base64 });
         }
-      });
+      }
 
-      // Append files
-      if (formData.courseImage) formDataToSend.append('courseImage', formData.courseImage);
-      if (formData.brochure) formDataToSend.append('brochure', formData.brochure);
-      if (formData.certificate) formDataToSend.append('certificate', formData.certificate);
+      // Prepare the request body
+      const requestBody = {
+        courseName: formData.courseName,
+        courseType: formData.courseType,
+        duration: parseInt(formData.duration),
+        maxMentees: parseInt(formData.maxMentees),
+        technologies: formData.technologies,
+        rating: parseFloat(formData.rating),
+        courseImage: courseImageBase64,
+        brochure: brochureBase64,
+        certificate: certificateBase64,
+        startDate: formData.startDate,
+        endDate: formData.endDate,
+        courseDescription: formData.courseDescription,
+        lessons: formData.lessons,
+        faqs: formData.faqs,
+        brands: brandLogosBase64.length > 0 ? brandLogosBase64 : formData.brands
+      };
 
-      // Append arrays as JSON strings
-      formDataToSend.append('courseLessons', JSON.stringify(formData.courseLessons));
-      formDataToSend.append('courseFaqs', JSON.stringify(formData.courseFaqs));
-      formDataToSend.append('courseBrands', JSON.stringify(formData.courseBrands));
+      console.log('Request body:', requestBody);
 
       const response = await fetch('http://localhost:9098/qubicgen/newCourse', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
         },
-        body: formDataToSend
+        body: JSON.stringify(requestBody)
       });
 
       if (!response.ok) {
-        throw new Error('Failed to create course');
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to create course');
       }
 
       toast.success("Course created successfully!");
@@ -507,9 +547,9 @@ const CreateCourse = () => {
         courseImage: null,
         brochure: null,
         certificate: null,
-        courseLessons: [{ lessonTitle: "", content: "" }],
-        courseFaqs: [{ question: "", answer: "" }],
-        courseBrands: [{ brandName: "", logo: null }]
+        lessons: [{ lessonTitle: "", lessonDescription: "" }],
+        faqs: [{ question: "", answer: "" }],
+        brands: [{ brandLogo: null }]
       });
     } catch (error) {
       toast.error(error.message || "Error creating course. Please try again.");
@@ -518,11 +558,10 @@ const CreateCourse = () => {
   };
  
   return (
-    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1665686308827-eb62e4f6604d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
-      <div className="bg-black bg-opacity-50 min-h-screen flex items-center justify-center">
-        <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-4xl ">
-          <h2 className="text-white text-2xl mb-4">Create a New Course</h2>
-          <form onSubmit={handleSubmit} className="space-y-6 ">
+    <div className="min-h-screen bg-cover bg-center">
+      <div className="bg-black bg-opacity-50 min-h-screen p-8">
+        <div className="max-w-4xl mx-auto bg-gray-900 p-8 rounded-lg shadow-lg">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-yellow-500 mb-2">Course Name *</label>
@@ -638,7 +677,7 @@ const CreateCourse = () => {
                 name="courseImage"
                 onChange={handleInputChange}
                 className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
-                required
+               
               />
             </div>
             <div>
@@ -660,135 +699,100 @@ const CreateCourse = () => {
                 className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
               />
             </div>
-            <div>
-              <label className="block text-yellow-500 mb-2">Course Brands *</label>
-              {formData.courseBrands.map((brand, index) => (
-                <div key={index} className="mb-4 p-4 bg-gray-800 rounded-lg">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-yellow-500 mb-2">Brand Name *</label>
-                      <input
-                        type="text"
-                        value={brand.brandName}
-                        onChange={(e) => handleBrandChange(index, "brandName", e.target.value)}
-                        className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-yellow-500 mb-2">Brand Logo *</label>
-                      <input
-                        type="file"
-                        onChange={(e) => handleBrandChange(index, "logo", e.target.files[0])}
-                        className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600"
-                        accept="image/*"
-                        required
-                      />
-                    </div>
-                  </div>
-                  {formData.courseBrands.length > 1 && (
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-yellow-500">Course Lessons</h3>
+              {formData.lessons.map((lesson, index) => (
+                <div key={index} className="p-4 bg-gray-800 rounded-lg space-y-3">
+                  <input
+                    type="text"
+                    value={lesson.lessonTitle}
+                    onChange={(e) => handleLessonChange(index, "lessonTitle", e.target.value)}
+                    placeholder="Lesson Title"
+                    className="w-full p-2 bg-gray-700 rounded text-white"
+                  />
+                  <textarea
+                    value={lesson.lessonDescription}
+                    onChange={(e) => handleLessonChange(index, "lessonDescription", e.target.value)}
+                    placeholder="Lesson Description"
+                    className="w-full p-2 bg-gray-700 rounded text-white"
+                    rows="3"
+                  />
+                  {formData.lessons.length > 1 && (
                     <button
                       type="button"
-                      onClick={() => removeBrand(index)}
-                      className="mt-2 text-red-400 hover:text-red-300 text-sm"
+                      onClick={() => removeLesson(index)}
+                      className="text-red-400 hover:text-red-300"
                     >
-                      Remove Brand
+                      Remove Lesson
                     </button>
                   )}
                 </div>
               ))}
               <button
                 type="button"
-                onClick={addBrand}
-                className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-400"
-              >
-                Add Brand
-              </button>
-            </div>
-            <div>
-              <label className="block text-yellow-500 mb-2">Lessons *</label>
-              {formData.courseLessons.map((lesson, index) => (
-                <div key={index} className="mb-4">
-                  <input
-                    type="text"
-                    value={lesson.lessonTitle}
-                    onChange={(e) => {
-                      const updatedLessons = [...formData.courseLessons];
-                      updatedLessons[index].lessonTitle = e.target.value;
-                      setFormData({...formData, courseLessons: updatedLessons});
-                    }}
-                    placeholder="Lesson Title"
-                    className="w-full p-2 rounded bg-gray-800 text-white mb-2"
-                    required
-                  />
-                  <textarea
-                    value={lesson.content}
-                    onChange={(e) => {
-                      const updatedLessons = [...formData.courseLessons];
-                      updatedLessons[index].content = e.target.value;
-                      setFormData({...formData, courseLessons: updatedLessons});
-                    }}
-                    placeholder="Lesson Content"
-                    className="w-full p-2 rounded bg-gray-800 text-white"
-                    rows="3"
-                    required
-                  />
-                  <button
-                    type="button"
-                    onClick={() => removeLesson(index)}
-                    className="text-red-500 text-sm"
-                  >
-                    Remove Lesson
-                  </button>
-                </div>
-              ))}
-              <button
-                type="button"
                 onClick={addLesson}
-                className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+                className="bg-blue-500 text-white px-4 py-2 rounded"
               >
                 Add Lesson
               </button>
             </div>
-            <div>
-              <label className="block text-yellow-500 mb-2">FAQs *</label>
-              {formData.courseFaqs.map((faq, index) => (
-                <div key={index} className="mb-4">
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-yellow-500">Course FAQs</h3>
+              {formData.faqs.map((faq, index) => (
+                <div key={index} className="p-4 bg-gray-800 rounded-lg space-y-3">
                   <input
                     type="text"
                     value={faq.question}
                     onChange={(e) => handleFaqChange(index, "question", e.target.value)}
-                    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 mb-2"
-                    required
+                    placeholder="Question"
+                    className="w-full p-2 bg-gray-700 rounded text-white"
                   />
                   <textarea
                     value={faq.answer}
                     onChange={(e) => handleFaqChange(index, "answer", e.target.value)}
-                    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 mb-2"
+                    placeholder="Answer"
+                    className="w-full p-2 bg-gray-700 rounded text-white"
                     rows="3"
-                    required
-                  ></textarea>
-                  <button
-                    type="button"
-                    onClick={() => removeFaq(index)}
-                    className="text-red-500 text-sm"
-                  >
-                    Remove FAQ
-                  </button>
+                  />
+                  {formData.faqs.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => removeFaq(index)}
+                      className="text-red-400 hover:text-red-300"
+                    >
+                      Remove FAQ
+                    </button>
+                  )}
                 </div>
               ))}
               <button
                 type="button"
                 onClick={addFaq}
-                className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+                className="bg-blue-500 text-white px-4 py-2 rounded"
               >
                 Add FAQ
               </button>
             </div>
-            <div className="text-center mt-6">
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-yellow-500">Brand Logo</h3>
+              <div className="p-4 bg-gray-800 rounded-lg space-y-3">
+                <input
+                  type="file"
+                  onChange={(e) => handleBrandChange(0, e.target.files)}
+                  accept="image/*"
+                  className="w-full p-2 bg-gray-700 rounded text-white"
+                />
+                {formData.brands[0]?.brandLogo && (
+                  <p className="text-sm text-gray-400">
+                    Selected file: {formData.brands[0].brandLogo.name}
+                  </p>
+                )}
+              </div>
+            </div>
+            <div className="text-center">
               <button
                 type="submit"
-                className="bg-yellow-500 text-black px-6 py-2 rounded-lg hover:bg-yellow-400 transition-colors"
+                className="bg-yellow-500 text-black px-6 py-2 rounded-lg hover:bg-yellow-400"
               >
                 Create Course
               </button>

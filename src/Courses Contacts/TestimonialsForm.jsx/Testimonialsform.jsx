@@ -12,30 +12,12 @@ const TestimonialsForm = () => {
     image: null
   });
 
-  const [previewImage, setPreviewImage] = useState(null);
-
   const handleInputChange = (e) => {
-    const { name, value, type, files } = e.target;
-    if (type === 'file') {
-      const file = files[0];
-      setFormData(prev => ({
-        ...prev,
-        [name]: file
-      }));
-      // Create preview URL for image
-      if (file) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setPreviewImage(reader.result);
-        };
-        reader.readAsDataURL(file);
-      }
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
-    }
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -59,7 +41,6 @@ const TestimonialsForm = () => {
         designation: '',
         image: null
       });
-      setPreviewImage(null);
     } catch (error) {
       console.error('Error submitting testimonial:', error);
       toast.error('Something went wrong. Please try again.');
@@ -67,11 +48,19 @@ const TestimonialsForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <FaQuoteRight className="mx-auto h-12 w-12 text-yellow-400" />
-          <h2 className="mt-6 text-3xl font-extrabold text-white">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 py-12 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+      <div className="h-[600px] w-1/2">
+        <img 
+          src="https://images.pexels.com/photos/3783725/pexels-photo-3783725.jpeg?auto=compress&cs=tinysrgb&w=600" 
+          alt="" 
+          className="h-full w-full object-cover rounded-lg"
+        />
+      </div>
+      
+      <div className="w-1/2 max-w-2xl">
+        <div className="text-center mb-6">
+          <FaQuoteRight className="mx-auto h-10 w-10 text-yellow-400" />
+          <h2 className="mt-4 text-2xl font-extrabold text-white">
             Share Your Experience
           </h2>
           <p className="mt-2 text-sm text-gray-300">
@@ -80,10 +69,10 @@ const TestimonialsForm = () => {
         </div>
 
         <div className="backdrop-blur-lg bg-white/10 rounded-2xl shadow-xl overflow-hidden">
-          <form onSubmit={handleSubmit} className="p-8">
-            <div className="space-y-6">
+          <form onSubmit={handleSubmit} className="p-6">
+            <div className="space-y-4">
               {/* Name and Email Row */}
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <FaUser className="h-5 w-5 text-yellow-400" />
@@ -94,7 +83,7 @@ const TestimonialsForm = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Your Name"
-                    className="block w-full pl-10 pr-3 py-3 border border-transparent rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/30 transition duration-150"
+                    className="block w-full pl-10 pr-3 py-2.5 border border-transparent rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/30 transition duration-150"
                     required
                   />
                 </div>
@@ -109,7 +98,7 @@ const TestimonialsForm = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="Email Address"
-                    className="block w-full pl-10 pr-3 py-3 border border-transparent rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/30 transition duration-150"
+                    className="block w-full pl-10 pr-3 py-2.5 border border-transparent rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/30 transition duration-150"
                     required
                   />
                 </div>
@@ -126,7 +115,7 @@ const TestimonialsForm = () => {
                   value={formData.designation}
                   onChange={handleInputChange}
                   placeholder="Your Role / Designation"
-                  className="block w-full pl-10 pr-3 py-3 border border-transparent rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/30 transition duration-150"
+                  className="block w-full pl-10 pr-3 py-2.5 border border-transparent rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/30 transition duration-150"
                   required
                 />
               </div>
@@ -138,47 +127,17 @@ const TestimonialsForm = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder="Share your experience..."
-                  rows="4"
-                  className="block w-full px-4 py-3 border border-transparent rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/30 transition duration-150"
+                  rows="3"
+                  className="block w-full px-4 py-2.5 border border-transparent rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/30 transition duration-150"
                   required
                 ></textarea>
               </div>
-
-              {/* Image Upload */}
-              {/* <div className="relative">
-                <div className="flex items-center space-x-4">
-                  <label className="flex items-center justify-center w-full h-32 px-4 transition bg-white/20 border-2 border-dashed border-yellow-400 rounded-lg appearance-none cursor-pointer hover:bg-white/30 focus:outline-none">
-                    <div className="flex flex-col items-center space-y-2">
-                      <FaImage className="h-8 w-8 text-yellow-400" />
-                      <span className="text-sm text-gray-300">
-                        {previewImage ? 'Change Image' : 'Add your photo'}
-                      </span>
-                    </div>
-                    <input
-                      type="file"
-                      name="image"
-                      onChange={handleInputChange}
-                      accept="image/*"
-                      className="hidden"
-                    />
-                  </label>
-                  {previewImage && (
-                    <div className="relative w-32 h-32">
-                      <img
-                        src={previewImage}
-                        alt="Preview"
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                    </div>
-                  )}
-                </div>
-              </div> */}
 
               {/* Submit Button */}
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-black bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition duration-150"
+                  className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-black bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition duration-150"
                 >
                   Submit Testimonial
                 </button>
