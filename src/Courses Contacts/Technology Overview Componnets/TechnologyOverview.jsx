@@ -14,6 +14,13 @@ const TechnologyOverview = ({ title, description, startDate, duration, rating })
     }
   };
 
+  // Format the date to show month name
+  const formatDate = (dateString) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return date.toLocaleString('default', { month: 'long' });
+  };
+
   return (
     <>
       <motion.div 
@@ -82,7 +89,7 @@ const TechnologyOverview = ({ title, description, startDate, duration, rating })
             >
               <div>
                 <div className="text-lg font-semibold">Batch Starting</div>
-                <div className="text-3xl font-bold text-[#ADFF2F]">{startDate || 'November'}</div>
+                <div className="text-3xl font-bold text-[#ADFF2F]">{formatDate(startDate)}</div>
                 <div className="text-sm mt-2 text-[#FF4500]">5 seats left</div>
               </div>
               <div className="text-4xl">📅</div>

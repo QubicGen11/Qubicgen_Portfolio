@@ -9,17 +9,33 @@ import Footer from "../HomeComponents/Footer";
 import FaqSection from "./Technology Overview Componnets/Faq";
 import Navbar from "../HomeComponents/Navbar";
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 const Technologymain = () => {
   const { courseId } = useParams();
   const [courseData, setCourseData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const storedCourses = localStorage.getItem('courses');
-    if (storedCourses) {
-      const courses = JSON.parse(storedCourses);
-      const selectedCourse = courses.find(c => c.id === courseId);
-      setCourseData(selectedCourse);
+    const fetchCourseDetails = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`http://localhost:9098/qubicgen/courses/${courseId}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch course details');
+        }
+        const data = await response.json();
+        setCourseData(data);
+      } catch (error) {
+        console.error("Error fetching course details:", error);
+        toast.error("Error loading course details");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (courseId) {
+      fetchCourseDetails();
     }
   }, [courseId]);
 
@@ -31,6 +47,14 @@ const Technologymain = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-xl">Loading course details...</div>
+      </div>
+    );
+  }
+
   return (
     <div>
       {/* Main Navbar */}
@@ -40,7 +64,7 @@ const Technologymain = () => {
       <div id="overview">
         <TechnologyOverview 
           title={courseData?.courseName}
-          description={courseData?.description}
+          description={courseData?.courseDescription}
           startDate={courseData?.startDate}
           duration={courseData?.duration}
           rating={courseData?.rating}
@@ -120,7 +144,7 @@ const Technologymain = () => {
         <Secureplacements />
       </div>
       <div id="syllabus" className="pt-24 pb-12">
-        <SyllabusSection lessons={courseData?.lessons} />
+        <SyllabusSection lessons={courseData?.courseLessons} />
       </div>
       <div id="certifications" className="pt-24 pb-12">
         <CertificateSection />
@@ -129,7 +153,7 @@ const Technologymain = () => {
         <Testimonials />
       </div>
       <div id="faq" className="pt-24 pb-12">
-        <FaqSection faqs={courseData?.faqs} />
+        <FaqSection faqs={courseData?.courseFaqs} />
       </div>
 
       {/* Footer */}
