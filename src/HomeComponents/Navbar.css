@@ -466,3 +466,104 @@
 }
 }
 
+.coursesec {
+  display: none;
+  position: fixed;
+  top: 240px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 1);
+  color: white;
+  padding: 20px;
+  z-index: 1002;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.coursesec.show {
+  display: block;
+}
+
+.coursemain {
+  display: flex;
+  width: 1400px;
+  justify-content: space-between;
+}
+
+.course1, .course2, .course3 {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.coursemain li {
+  list-style: none;
+  padding-bottom: 19px;
+  position: relative;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+  color: white;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+.coursemain li::before {
+  content: "\00BB";
+  padding-right: 8px;
+  font-size: 20px;
+  position: absolute;
+  left: -20px;
+  top: -5px;
+  transition: color 0.3s ease-in-out;
+}
+
+.coursemain li:hover::before {
+  color: gold;
+}
+
+.coursemain li:hover {
+  color: gold;
+}
+
+.courses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.next-courses-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+.next-courses-btn:hover {
+  transform: scale(1.1);
+}
+
+.next-courses-btn img {
+  width: 24px;
+  height: 24px;
+  filter: invert(79%) sepia(50%) saturate(1000%) hue-rotate(359deg) brightness(100%) contrast(106%);
+}
+
+@media (max-width: 1440px) {
+  .coursesec {
+    width: 100%;
+    max-width: 1400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .coursemain {
+    flex-direction: column;
+  }
+  
+  .course1, .course2, .course3 {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+}
+

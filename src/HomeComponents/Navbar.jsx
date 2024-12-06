@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import mainlogo from "./og.png"
 import { useEffect, useState } from "react";
 import dropydown from "../assets/dropdowns.png"
@@ -117,6 +117,69 @@ navbar.style.backgroundColor = newColor;
     setIsMobile(!isMobile);
   };
 
+  const navigate = useNavigate();
+  const [courses, setCourses] = useState([]);
+
+  // Add this useEffect to fetch courses
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await fetch('http://localhost:9098/qubicgen/allCourses');
+        if (!response.ok) throw new Error('Failed to fetch courses');
+        const data = await response.json();
+        setCourses(data);
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  // Group courses by category
+  const groupedCourses = courses.reduce((acc, course) => {
+    if (!acc[course.category]) {
+      acc[course.category] = [];
+    }
+    acc[course.category].push(course);
+    return acc;
+  }, {});
+
+  // Split courses into three columns
+  const courseCategories = Object.keys(groupedCourses);
+  const columnsCount = 3;
+  const itemsPerColumn = Math.ceil(courseCategories.length / columnsCount);
+
+  // Add this to your state declarations
+  const [coursePageIndex, setCoursePageIndex] = useState(0);
+
+  // Add this function to handle next button click
+  const handleNextCourses = () => {
+    setCoursePageIndex((prev) => prev + 1);
+    if (coursePageIndex >= Math.floor(courses.length / 12)) {
+      setCoursePageIndex(0);
+    }
+  };
+
+  // Add this function for previous button
+  const handlePreviousCourses = () => {
+    setCoursePageIndex((prev) => {
+      if (prev <= 0) {
+        return Math.floor(courses.length / 12);
+      }
+      return prev - 1;
+    });
+  };
+
+  const [isCoursesOpen, setIsCoursesOpen] = useState(false);
+
+  const toggleCourses = () => {
+    setIsCoursesOpen(!isCoursesOpen);
+    setIsIndustriesOpen(false);
+    setIsServicesOpen(false);
+    setIsContactOpen(false);
+  };
+
   return (
     <>
      <div className="head" style={{ position: "sticky", top: 0, zIndex: 1000, }}>
@@ -147,7 +210,14 @@ navbar.style.backgroundColor = newColor;
           </div>
          <Link to="/careers"><li className="hover:cursor-pointer" onMouseEnter={hideSections}
             >Careers</li></Link> 
-          <Link to="/courses" ><li className="hover:cursor-pointer"  onMouseEnter={hideSections} onMouseOver={hideSectionss}>Courses</li></Link> 
+          <div
+            className="dropdown"
+            onMouseEnter={() => showSection("courses")}
+          >
+            <Link to="/courses" style={{ textDecoration: 'none' }}>
+              <li className="hover:cursor-pointer">Courses</li>
+            </Link>
+          </div>
 
 
           <div>
@@ -355,7 +425,6 @@ navbar.style.backgroundColor = newColor;
    
    
    
-   
 
 
 {/*       
@@ -401,6 +470,53 @@ navbar.style.backgroundColor = newColor;
                   </a>
                 </li>
               </ul> */}
+
+<div>
+  <div onClick={toggleCourses} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">
+    COURSES <i className="fas fa-caret-down ml-3"></i>
+  </div>
+  {isCoursesOpen && (
+    <ul className="relative right-11 w-72 pl-7 pt-1">
+      {courses
+        .slice(coursePageIndex * 12, (coursePageIndex + 1) * 12)
+        .map((course) => (
+          <li key={course.id} className="serviceseclist pl-7 pt-1">
+            <Link to={`/technology/${course.id}`} style={{ color: 'white', textDecoration: 'none' }}>
+              {course.courseName}
+            </Link>
+          </li>
+        ))}
+      <div className="courses-navigation pl-7 pt-3" style={{ display: 'flex', gap: '20px' }}>
+        {coursePageIndex > 0 && (
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePreviousCourses();
+            }}
+            className="text-white hover:text-gold"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '14px' }}
+          >
+            <i className="fas fa-chevron-left mr-2"></i>
+            Previous Courses
+          </button>
+        )}
+        {courses.length > (coursePageIndex + 1) * 12 && (
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNextCourses();
+            }}
+            className="text-white hover:text-gold"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '14px' }}
+          >
+            Next Courses
+            <i className="fas fa-chevron-right ml-2"></i>
+          </button>
+        )}
+      </div>
+    </ul>
+  )}
+</div>
   </div>
 </div>
 
@@ -476,6 +592,75 @@ navbar.style.backgroundColor = newColor;
             <Link to="/testing"><li className="hover:cursor-pointer">Testing</li></Link>
             <Link to="/businessconsulting"><li className="hover:cursor-pointer">Business Consulting</li></Link>
             <Link to="/training"><li className="hover:cursor-pointer">Trainings and Certifications</li></Link>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`coursesec ${visibleSection === "courses" ? "show" : ""}`}
+        onMouseEnter={() => showSection("courses")}
+        onMouseLeave={hideSections}
+      >
+        <div className="courses-header">
+          <h2 style={{ color: "gold", paddingLeft: '20px', fontFamily: 'Montserrat,sans-serif' }}>
+            Courses
+          </h2>
+          <div className="courses-navigation" style={{ display: 'flex', gap: '20px', marginRight: '20px', alignItems: 'center' }}>
+            {coursePageIndex > 0 && (
+              <button 
+                className="prev-courses-btn"
+                onClick={handlePreviousCourses}
+                style={{ display: 'flex', alignItems: 'center', gap: '5px', background: 'none', border: 'none', color: 'white', cursor: 'pointer' }}
+              >
+          
+                <span style={{ fontSize: '14px', fontFamily: 'Montserrat,sans-serif' }}>Previous Courses</span>
+              </button>
+            )}
+            {courses.length > (coursePageIndex + 1) * 12 && (
+              <button 
+                className="next-courses-btn"
+                onClick={handleNextCourses}
+                style={{ display: 'flex', alignItems: 'center', gap: '5px', background: 'none', border: 'none', color: 'white', cursor: 'pointer' }}
+              >
+                <span style={{ fontSize: '14px', fontFamily: 'Montserrat,sans-serif' }}>Next Courses</span>
+          
+              </button>
+            )}
+          </div>
+        </div>
+        <p style={{ padding: '1px 20px 20px 20px', fontFamily: 'Montserrat,sans-serif', fontSize: '15px' }}>
+          Elevate your skills with industry-focused programs designed to transform your career through expert training.
+        </p>
+        <div className="coursemain" style={{ paddingLeft: '20px' }}>
+          <div className="course1">
+            <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
+            {courses
+              .slice(coursePageIndex * 12, coursePageIndex * 12 + 4)
+              .map((course) => (
+                <Link key={course.id} to={`/technology/${course.id}`}>
+                  <li className="hover:cursor-pointer">{course.courseName}</li>
+                </Link>
+              ))}
+          </div>
+          <div className="course2">
+            <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
+            {courses
+              .slice(coursePageIndex * 12 + 4, coursePageIndex * 12 + 8)
+              .map((course) => (
+                <Link key={course.id} to={`/technology/${course.id}`}>
+                  <li className="hover:cursor-pointer">{course.courseName}</li>
+                </Link>
+              ))}
+          </div>
+          <div className="course3">
+            <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
+            {courses
+              .slice(coursePageIndex * 12 + 8, coursePageIndex * 12 + 12)
+              .map((course) => (
+                <Link key={course.id} to={`/technology/${course.id}`}>
+                  <li className="hover:cursor-pointer">{course.courseName}</li>
+                </Link>
+              ))}
           </div>
         </div>
       </div>
