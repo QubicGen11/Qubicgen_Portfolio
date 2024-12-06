@@ -37,27 +37,125 @@ const CourseList = () => {
 const EditCourses = () => {
   const [courses, setCourses] = useState([]);
   const [editingCourse, setEditingCourse] = useState(null);
+  const [loading, setLoading] = useState(true);
  
   useEffect(() => {
-    const savedCourses = localStorage.getItem("courses");
-    if (savedCourses) {
-      setCourses(JSON.parse(savedCourses));
-    }
+    const fetchCourses = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('http://localhost:9098/qubicgen/allCourses');
+        if (!response.ok) {
+          throw new Error('Failed to fetch courses');
+        }
+        const data = await response.json();
+        setCourses(data || []);
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+        toast.error("Error fetching courses. Please try again.");
+        setCourses([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCourses();
   }, []);
  
-  const handleEdit = (course) => {
-    setEditingCourse(course);
+  const handleEdit = async (courseId) => {
+    try {
+      // Get token from cookie
+      const token = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('TOKEN='))
+        ?.split('=')[1];
+
+      if (!token) {
+        throw new Error('Authentication token not found');
+      }
+
+      const response = await fetch(`http://localhost:9098/qubicgen/courses/${courseId}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch course details');
+      }
+      
+      const courseData = await response.json();
+      setEditingCourse(courseData);
+    } catch (error) {
+      console.error("Error fetching course details:", error);
+      toast.error(error.message || "Error fetching course details. Please try again.");
+    }
   };
  
-  const handleUpdate = (updatedCourse) => {
-    const updatedCourses = courses.map(course => 
-      course.id === updatedCourse.id ? updatedCourse : course
-    );
-    setCourses(updatedCourses);
-    localStorage.setItem("courses", JSON.stringify(updatedCourses));
-    setEditingCourse(null);
-    toast.success("Course updated successfully!");
+  const handleUpdate = async (updatedCourse) => {
+    try {
+      // Get token from cookie
+      const token = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('TOKEN='))
+        ?.split('=')[1];
+
+      if (!token) {
+        throw new Error('Authentication token not found');
+      }
+
+      const formData = new FormData();
+      
+      // Append basic fields
+      Object.keys(updatedCourse).forEach(key => {
+        if (!['courseImage', 'brochure', 'certificate', 'courseLessons', 'courseFaqs', 'courseBrands'].includes(key)) {
+          formData.append(key, updatedCourse[key]);
+        }
+      });
+
+      // Append files if they exist
+      if (updatedCourse.courseImage) formData.append('courseImage', updatedCourse.courseImage);
+      if (updatedCourse.brochure) formData.append('brochure', updatedCourse.brochure);
+      if (updatedCourse.certificate) formData.append('certificate', updatedCourse.certificate);
+
+      // Append arrays as JSON strings
+      formData.append('courseLessons', JSON.stringify(updatedCourse.courseLessons));
+      formData.append('courseFaqs', JSON.stringify(updatedCourse.courseFaqs));
+      formData.append('courseBrands', JSON.stringify(updatedCourse.courseBrands));
+
+      const response = await fetch(`http://localhost:9098/qubicgen/updateCourse/${updatedCourse.id}`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update course');
+      }
+
+      // Refresh the courses list
+      const refreshResponse = await fetch('http://localhost:9098/qubicgen/allCourses');
+      if (refreshResponse.ok) {
+        const data = await refreshResponse.json();
+        setCourses(data);
+      }
+
+      setEditingCourse(null);
+      toast.success("Course updated successfully!");
+    } catch (error) {
+      toast.error(error.message || "Error updating course. Please try again.");
+      console.error("Error updating course:", error);
+    }
   };
+ 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-cover bg-center flex items-center justify-center">
+        <div className="text-white text-xl">Loading courses...</div>
+      </div>
+    );
+  }
  
   if (editingCourse) {
     return (
@@ -71,7 +169,7 @@ const EditCourses = () => {
                   <label className="block text-yellow-500 mb-2">Course Name *</label>
                   <input
                     type="text"
-                    value={editingCourse.courseName}
+                    value={editingCourse.courseName || ''}
                     onChange={(e) => setEditingCourse({...editingCourse, courseName: e.target.value})}
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                     required
@@ -80,7 +178,7 @@ const EditCourses = () => {
                 <div>
                   <label className="block text-yellow-500 mb-2">Course Type *</label>
                   <select
-                    value={editingCourse.courseType}
+                    value={editingCourse.courseType || ''}
                     onChange={(e) => setEditingCourse({...editingCourse, courseType: e.target.value})}
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                     required
@@ -100,8 +198,8 @@ const EditCourses = () => {
                 <div>
                   <label className="block text-yellow-500 mb-2">Duration *</label>
                   <input
-                    type="text"
-                    value={editingCourse.duration}
+                    type="number"
+                    value={editingCourse.duration || ''}
                     onChange={(e) => setEditingCourse({...editingCourse, duration: e.target.value})}
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                     required
@@ -111,8 +209,8 @@ const EditCourses = () => {
                   <label className="block text-yellow-500 mb-2">Max Mentees *</label>
                   <input
                     type="number"
-                    value={editingCourse.mentees}
-                    onChange={(e) => setEditingCourse({...editingCourse, mentees: e.target.value})}
+                    value={editingCourse.maxMentees || ''}
+                    onChange={(e) => setEditingCourse({...editingCourse, maxMentees: e.target.value})}
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                     required
                   />
@@ -121,7 +219,7 @@ const EditCourses = () => {
                   <label className="block text-yellow-500 mb-2">Technologies *</label>
                   <input
                     type="text"
-                    value={editingCourse.technologies}
+                    value={editingCourse.technologies || ''}
                     onChange={(e) => setEditingCourse({...editingCourse, technologies: e.target.value})}
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                     required
@@ -131,7 +229,7 @@ const EditCourses = () => {
                   <label className="block text-yellow-500 mb-2">Rating (0-5)</label>
                   <input
                     type="number"
-                    value={editingCourse.rating}
+                    value={editingCourse.rating || ''}
                     onChange={(e) => setEditingCourse({...editingCourse, rating: e.target.value})}
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                     min="0"
@@ -143,7 +241,7 @@ const EditCourses = () => {
                   <label className="block text-yellow-500 mb-2">Start Date *</label>
                   <input
                     type="date"
-                    value={editingCourse.startDate}
+                    value={editingCourse.startDate ? editingCourse.startDate.split('T')[0] : ''}
                     onChange={(e) => setEditingCourse({...editingCourse, startDate: e.target.value})}
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                     required
@@ -153,7 +251,7 @@ const EditCourses = () => {
                   <label className="block text-yellow-500 mb-2">End Date *</label>
                   <input
                     type="date"
-                    value={editingCourse.endDate}
+                    value={editingCourse.endDate ? editingCourse.endDate.split('T')[0] : ''}
                     onChange={(e) => setEditingCourse({...editingCourse, endDate: e.target.value})}
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                     required
@@ -164,8 +262,8 @@ const EditCourses = () => {
               <div>
                 <label className="block text-yellow-500 mb-2">Course Description *</label>
                 <textarea
-                  value={editingCourse.description}
-                  onChange={(e) => setEditingCourse({...editingCourse, description: e.target.value})}
+                  value={editingCourse.courseDescription || ''}
+                  onChange={(e) => setEditingCourse({...editingCourse, courseDescription: e.target.value})}
                   rows="4"
                   className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                   required
@@ -173,12 +271,13 @@ const EditCourses = () => {
               </div>
 
               <div>
-                <label className="block text-yellow-500 mb-2">Course Image *</label>
+                <label className="block text-yellow-500 mb-2">Course Image</label>
                 <input
                   type="file"
                   onChange={(e) => setEditingCourse({...editingCourse, courseImage: e.target.files[0]})}
                   className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                 />
+                {editingCourse.courseImage && <p className="text-gray-400 mt-2">Current: {editingCourse.courseImage}</p>}
               </div>
 
               <div>
@@ -189,79 +288,17 @@ const EditCourses = () => {
                   onChange={(e) => setEditingCourse({...editingCourse, brochure: e.target.files[0]})}
                   className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                 />
+                {editingCourse.brochure && <p className="text-gray-400 mt-2">Current: {editingCourse.brochure}</p>}
               </div>
 
               <div>
-                <label className="block text-yellow-500 mb-2">Certificate *</label>
+                <label className="block text-yellow-500 mb-2">Certificate</label>
                 <input
                   type="file"
-                  onChange={(e) => setEditingCourse({...editingCourse, certificateImage: e.target.files[0]})}
+                  onChange={(e) => setEditingCourse({...editingCourse, certificate: e.target.files[0]})}
                   className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                 />
-              </div>
-
-              <div>
-                <label className="block text-yellow-500 mb-2">Lessons *</label>
-                {editingCourse.lessons.map((lesson, index) => (
-                  <div key={index} className="mb-4">
-                    <input
-                      type="text"
-                      value={lesson.name}
-                      onChange={(e) => {
-                        const updatedLessons = [...editingCourse.lessons];
-                        updatedLessons[index].name = e.target.value;
-                        setEditingCourse({...editingCourse, lessons: updatedLessons});
-                      }}
-                      placeholder="Lesson name"
-                      className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 mb-2"
-                      required
-                    />
-                    <textarea
-                      value={lesson.description}
-                      onChange={(e) => {
-                        const updatedLessons = [...editingCourse.lessons];
-                        updatedLessons[index].description = e.target.value;
-                        setEditingCourse({...editingCourse, lessons: updatedLessons});
-                      }}
-                      placeholder="Lesson description"
-                      className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 mb-2"
-                      rows="3"
-                      required
-                    ></textarea>
-                  </div>
-                ))}
-              </div>
-
-              <div>
-                <label className="block text-yellow-500 mb-2">FAQs *</label>
-                {editingCourse.faqs.map((faq, index) => (
-                  <div key={index} className="mb-4">
-                    <input
-                      type="text"
-                      value={faq.question}
-                      onChange={(e) => {
-                        const updatedFaqs = [...editingCourse.faqs];
-                        updatedFaqs[index].question = e.target.value;
-                        setEditingCourse({...editingCourse, faqs: updatedFaqs});
-                      }}
-                      placeholder="Question"
-                      className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 mb-2"
-                      required
-                    />
-                    <textarea
-                      value={faq.answer}
-                      onChange={(e) => {
-                        const updatedFaqs = [...editingCourse.faqs];
-                        updatedFaqs[index].answer = e.target.value;
-                        setEditingCourse({...editingCourse, faqs: updatedFaqs});
-                      }}
-                      placeholder="Answer"
-                      className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 mb-2"
-                      rows="3"
-                      required
-                    ></textarea>
-                  </div>
-                ))}
+                {editingCourse.certificate && <p className="text-gray-400 mt-2">Current: {editingCourse.certificate}</p>}
               </div>
 
               <div className="flex justify-end space-x-4">
@@ -297,17 +334,17 @@ const EditCourses = () => {
               className="bg-gray-900 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
             >
               <h3 className="text-xl font-bold mb-2 text-white">{course.courseName}</h3>
-              <p className="text-gray-400 mb-4">{course.description}</p>
+              <p className="text-gray-400 mb-4">{course.courseDescription}</p>
               <div className="flex justify-between items-center mb-4">
                 <span className="text-yellow-500">{course.courseType}</span>
                 <span className="text-gray-400">Rating: {course.rating || 'N/A'}</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-400">Duration: {course.duration}</span>
-                <span className="text-gray-400">Mentees: {course.mentees}</span>
+                <span className="text-gray-400">Mentees: {course.maxMentees}</span>
               </div>
               <button
-                onClick={() => handleEdit(course)}
+                onClick={() => handleEdit(course.id)}
                 className="mt-4 w-full bg-yellow-500 text-black px-4 py-2 rounded-lg hover:bg-yellow-400"
               >
                 Edit Course
@@ -324,19 +361,19 @@ const CreateCourse = () => {
   const [formData, setFormData] = useState({
     courseName: "",
     courseType: "",
-    description: "",
     duration: "",
-    mentees: "",
+    maxMentees: "",
+    technologies: "",
+    rating: "",
     startDate: "",
     endDate: "",
-    rating: "",
+    courseDescription: "",
     courseImage: null,
     brochure: null,
-    certificateImage: null,
-    technologies: "",
-    lessons: [{ name: "", description: "" }],
-    faqs: [{ question: "", answer: "" }],
-    brands: [],
+    certificate: null,
+    courseLessons: [{ lessonTitle: "", content: "" }],
+    courseFaqs: [{ question: "", answer: "" }],
+    courseBrands: [{ brandName: "", logo: null }]
   });
  
   const handleInputChange = (e) => {
@@ -355,76 +392,127 @@ const CreateCourse = () => {
   };
  
   const handleLessonChange = (index, field, value) => {
-    const updatedLessons = [...formData.lessons];
+    const updatedLessons = [...formData.courseLessons];
     updatedLessons[index][field] = value;
-    setFormData((prev) => ({ ...prev, lessons: updatedLessons }));
+    setFormData((prev) => ({ ...prev, courseLessons: updatedLessons }));
   };
  
   const handleFaqChange = (index, field, value) => {
-    const updatedFaqs = [...formData.faqs];
+    const updatedFaqs = [...formData.courseFaqs];
     updatedFaqs[index][field] = value;
-    setFormData((prev) => ({ ...prev, faqs: updatedFaqs }));
+    setFormData((prev) => ({ ...prev, courseFaqs: updatedFaqs }));
   };
  
   const addLesson = () => {
     setFormData((prev) => ({
       ...prev,
-      lessons: [...prev.lessons, { name: "", description: "" }],
+      courseLessons: [...prev.courseLessons, { lessonTitle: "", content: "" }],
     }));
   };
  
   const removeLesson = (index) => {
-    const updatedLessons = [...formData.lessons];
+    const updatedLessons = [...formData.courseLessons];
     updatedLessons.splice(index, 1);
-    setFormData((prev) => ({ ...prev, lessons: updatedLessons }));
+    setFormData((prev) => ({ ...prev, courseLessons: updatedLessons }));
   };
  
   const addFaq = () => {
     setFormData((prev) => ({
       ...prev,
-      faqs: [...prev.faqs, { question: "", answer: "" }],
+      courseFaqs: [...prev.courseFaqs, { question: "", answer: "" }],
     }));
   };
  
   const removeFaq = (index) => {
-    const updatedFaqs = [...formData.faqs];
+    const updatedFaqs = [...formData.courseFaqs];
     updatedFaqs.splice(index, 1);
-    setFormData((prev) => ({ ...prev, faqs: updatedFaqs }));
+    setFormData((prev) => ({ ...prev, courseFaqs: updatedFaqs }));
   };
  
-  const handleSubmit = (e) => {
+  const handleBrandChange = (index, field, value) => {
+    const updatedBrands = [...formData.courseBrands];
+    updatedBrands[index][field] = value;
+    setFormData(prev => ({ ...prev, courseBrands: updatedBrands }));
+  };
+ 
+  const addBrand = () => {
+    setFormData(prev => ({
+      ...prev,
+      courseBrands: [...prev.courseBrands, { brandName: "", logo: null }]
+    }));
+  };
+ 
+  const removeBrand = (index) => {
+    const updatedBrands = [...formData.courseBrands];
+    updatedBrands.splice(index, 1);
+    setFormData(prev => ({ ...prev, courseBrands: updatedBrands }));
+  };
+ 
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const newCourse = {
-        ...formData,
-        id: Date.now().toString(),
-        createdAt: new Date().toISOString(),
-      };
- 
-      const existingCourses = JSON.parse(localStorage.getItem("courses") || "[]");
-      const updatedCourses = [...existingCourses, newCourse];
-      localStorage.setItem("courses", JSON.stringify(updatedCourses));
- 
+      const formDataToSend = new FormData();
+      
+      // Get token from cookie
+      const token = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('TOKEN='))
+        ?.split('=')[1];
+
+      if (!token) {
+        throw new Error('Authentication token not found');
+      }
+
+      // Append basic fields
+      Object.keys(formData).forEach(key => {
+        if (!['courseImage', 'brochure', 'certificate', 'courseLessons', 'courseFaqs', 'courseBrands'].includes(key)) {
+          formDataToSend.append(key, formData[key]);
+        }
+      });
+
+      // Append files
+      if (formData.courseImage) formDataToSend.append('courseImage', formData.courseImage);
+      if (formData.brochure) formDataToSend.append('brochure', formData.brochure);
+      if (formData.certificate) formDataToSend.append('certificate', formData.certificate);
+
+      // Append arrays as JSON strings
+      formDataToSend.append('courseLessons', JSON.stringify(formData.courseLessons));
+      formDataToSend.append('courseFaqs', JSON.stringify(formData.courseFaqs));
+      formDataToSend.append('courseBrands', JSON.stringify(formData.courseBrands));
+
+      const response = await fetch('http://localhost:9098/qubicgen/newCourse', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: formDataToSend
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create course');
+      }
+
       toast.success("Course created successfully!");
+      // Reset form
       setFormData({
         courseName: "",
         courseType: "",
-        description: "",
         duration: "",
-        mentees: "",
+        maxMentees: "",
+        technologies: "",
+        rating: "",
         startDate: "",
         endDate: "",
-        rating: "",
+        courseDescription: "",
         courseImage: null,
         brochure: null,
-        certificateImage: null,
-        technologies: "",
-        lessons: [{ name: "", description: "" }],
-        faqs: [{ question: "", answer: "" }],
-        brands: [],
+        certificate: null,
+        courseLessons: [{ lessonTitle: "", content: "" }],
+        courseFaqs: [{ question: "", answer: "" }],
+        courseBrands: [{ brandName: "", logo: null }]
       });
     } catch (error) {
-      toast.error("Error creating course. Please try again.");
+      toast.error(error.message || "Error creating course. Please try again.");
       console.error("Error creating course:", error);
     }
   };
@@ -449,23 +537,28 @@ const CreateCourse = () => {
               </div>
               <div>
                 <label className="block text-yellow-500 mb-2">Course Type *</label>
-                <input
-                  type="text"
+                <select
                   name="courseType"
                   value={formData.courseType}
                   onChange={handleInputChange}
                   className="w-full p-2 rounded bg-gray-800 text-white"
                   required
-                />
+                >
+                  <option value="">Select Type</option>
+                  <option value="Technology">Technology</option>
+                  <option value="AI & ML">AI & ML</option>
+                  <option value="Data Science">Data Science</option>
+                  {/* Add other options */}
+                </select>
               </div>
               <div>
-                <label className="block text-yellow-500 mb-2">Duration *</label>
+                <label className="block text-yellow-500 mb-2">Duration (hours) *</label>
                 <input
-                  type="text"
+                  type="number"
                   name="duration"
                   value={formData.duration}
                   onChange={handleInputChange}
-                  className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+                  className="w-full p-2 rounded bg-gray-800 text-white"
                   required
                 />
               </div>
@@ -473,10 +566,10 @@ const CreateCourse = () => {
                 <label className="block text-yellow-500 mb-2">Max Mentees *</label>
                 <input
                   type="number"
-                  name="mentees"
-                  value={formData.mentees}
+                  name="maxMentees"
+                  value={formData.maxMentees}
                   onChange={handleInputChange}
-                  className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+                  className="w-full p-2 rounded bg-gray-800 text-white"
                   required
                 />
               </div>
@@ -530,8 +623,8 @@ const CreateCourse = () => {
             <div>
               <label className="block text-yellow-500 mb-2">Course Description *</label>
               <textarea
-                name="description"
-                value={formData.description}
+                name="courseDescription"
+                value={formData.courseDescription}
                 onChange={handleInputChange}
                 rows="4"
                 className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
@@ -562,39 +655,84 @@ const CreateCourse = () => {
               <label className="block text-yellow-500 mb-2">Certificate *</label>
               <input
                 type="file"
-                name="certificateImage"
+                name="certificate"
                 onChange={handleInputChange}
                 className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
               />
             </div>
             <div>
-              <label className="block text-yellow-500 mb-2">Brands *</label>
-              <input
-                type="file"
-                name="brands"
-                multiple
-                onChange={handleInputChange}
-                className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
-              />
+              <label className="block text-yellow-500 mb-2">Course Brands *</label>
+              {formData.courseBrands.map((brand, index) => (
+                <div key={index} className="mb-4 p-4 bg-gray-800 rounded-lg">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-yellow-500 mb-2">Brand Name *</label>
+                      <input
+                        type="text"
+                        value={brand.brandName}
+                        onChange={(e) => handleBrandChange(index, "brandName", e.target.value)}
+                        className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-yellow-500 mb-2">Brand Logo *</label>
+                      <input
+                        type="file"
+                        onChange={(e) => handleBrandChange(index, "logo", e.target.files[0])}
+                        className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600"
+                        accept="image/*"
+                        required
+                      />
+                    </div>
+                  </div>
+                  {formData.courseBrands.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => removeBrand(index)}
+                      className="mt-2 text-red-400 hover:text-red-300 text-sm"
+                    >
+                      Remove Brand
+                    </button>
+                  )}
+                </div>
+              ))}
+              <button
+                type="button"
+                onClick={addBrand}
+                className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-400"
+              >
+                Add Brand
+              </button>
             </div>
             <div>
               <label className="block text-yellow-500 mb-2">Lessons *</label>
-              {formData.lessons.map((lesson, index) => (
+              {formData.courseLessons.map((lesson, index) => (
                 <div key={index} className="mb-4">
                   <input
                     type="text"
-                    value={lesson.name}
-                    onChange={(e) => handleLessonChange(index, "name", e.target.value)}
-                    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 mb-2"
+                    value={lesson.lessonTitle}
+                    onChange={(e) => {
+                      const updatedLessons = [...formData.courseLessons];
+                      updatedLessons[index].lessonTitle = e.target.value;
+                      setFormData({...formData, courseLessons: updatedLessons});
+                    }}
+                    placeholder="Lesson Title"
+                    className="w-full p-2 rounded bg-gray-800 text-white mb-2"
                     required
                   />
                   <textarea
-                    value={lesson.description}
-                    onChange={(e) => handleLessonChange(index, "description", e.target.value)}
-                    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 mb-2"
+                    value={lesson.content}
+                    onChange={(e) => {
+                      const updatedLessons = [...formData.courseLessons];
+                      updatedLessons[index].content = e.target.value;
+                      setFormData({...formData, courseLessons: updatedLessons});
+                    }}
+                    placeholder="Lesson Content"
+                    className="w-full p-2 rounded bg-gray-800 text-white"
                     rows="3"
                     required
-                  ></textarea>
+                  />
                   <button
                     type="button"
                     onClick={() => removeLesson(index)}
@@ -614,7 +752,7 @@ const CreateCourse = () => {
             </div>
             <div>
               <label className="block text-yellow-500 mb-2">FAQs *</label>
-              {formData.faqs.map((faq, index) => (
+              {formData.courseFaqs.map((faq, index) => (
                 <div key={index} className="mb-4">
                   <input
                     type="text"
@@ -666,10 +804,21 @@ const MyCourses = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    const savedCourses = localStorage.getItem("courses");
-    if (savedCourses) {
-      setCourses(JSON.parse(savedCourses));
-    }
+    const fetchCourses = async () => {
+      try {
+        const response = await fetch('http://localhost:9098/qubicgen/allCourses');
+        if (!response.ok) {
+          throw new Error('Failed to fetch courses');
+        }
+        const data = await response.json();
+        setCourses(data);
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+        toast.error("Error fetching courses. Please try again.");
+      }
+    };
+
+    fetchCourses();
   }, []);
 
   return (
@@ -684,7 +833,7 @@ const MyCourses = () => {
                 className="bg-gray-900 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
               >
                 <h3 className="text-xl font-bold mb-2 text-white">{course.courseName}</h3>
-                <p className="text-gray-400 mb-4">{course.description}</p>
+                <p className="text-gray-400 mb-4">{course.courseDescription}</p>
                 <div className="flex justify-between items-center">
                   <span className="text-yellow-500">{course.courseType}</span>
                   <span className="text-gray-400">{course.duration}</span>
