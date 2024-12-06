@@ -68,6 +68,10 @@ const Technologymain = () => {
           startDate={courseData?.startDate}
           duration={courseData?.duration}
           rating={courseData?.rating}
+          courseImage={courseData?.courseImage}
+          courseBanner={courseData?.courseBanner}
+          brochure = {courseData?.brochure}
+
         />
       </div>
 

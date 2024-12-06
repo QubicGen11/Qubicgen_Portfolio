@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FaUser, FaEnvelope, FaBriefcase, FaQuoteRight, FaImage } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaBriefcase, FaQuoteRight } from 'react-icons/fa';
 
 const TestimonialsForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: '',
     designation: '',
-    image: null
+    testimonial: ''
   });
 
   const handleInputChange = (e) => {
@@ -23,23 +22,26 @@ const TestimonialsForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const existingTestimonials = JSON.parse(localStorage.getItem('testimonials') || '[]');
-      const newTestimonial = {
-        ...formData,
-        id: Date.now().toString(),
-        createdAt: new Date().toISOString()
-      };
-      
-      localStorage.setItem('testimonials', JSON.stringify([...existingTestimonials, newTestimonial]));
+      const response = await fetch('http://localhost:9098/qubicgen/newTestimonial', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit testimonial');
+      }
+
       toast.success('Thank you for your testimonial!');
       
       // Reset form
       setFormData({
         name: '',
         email: '',
-        message: '',
         designation: '',
-        image: null
+        testimonial: ''
       });
     } catch (error) {
       console.error('Error submitting testimonial:', error);
@@ -120,11 +122,11 @@ const TestimonialsForm = () => {
                 />
               </div>
 
-              {/* Message */}
+              {/* Testimonial */}
               <div>
                 <textarea
-                  name="message"
-                  value={formData.message}
+                  name="testimonial"
+                  value={formData.testimonial}
                   onChange={handleInputChange}
                   placeholder="Share your experience..."
                   rows="3"

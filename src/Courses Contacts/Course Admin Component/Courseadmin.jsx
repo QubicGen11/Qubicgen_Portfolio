@@ -568,12 +568,12 @@ const CreateCourse = () => {
         throw new Error('Authentication token not found');
       }
 
-      // Prepare the request body with the correct key names
+      // Prepare the request body with both courseImage and courseBanner
       const requestBody = {
         courseName: formData.courseName,
         courseType: formData.courseType,
-        courseImg: null,
-        courseBanner: null,
+        courseImage: null,        // Include courseImage
+        courseBanner: null,       // Include courseBanner
         duration: parseInt(formData.duration),
         maxMentees: parseInt(formData.maxMentees),
         technologies: formData.technologies,

@@ -36,7 +36,6 @@ const Dashboard = () => {
     try {
       const token = cookies.get('TOKEN');
       
-      // Check if token exists
       if (!token) {
         console.log('No token found');
         navigate('/admin/login');
@@ -50,22 +49,23 @@ const Dashboard = () => {
 
       const axiosConfig = {
         headers,
-        withCredentials: true // Enable credentials
+        withCredentials: true
       };
 
-      // Fetch all data in parallel
       const [
         getInTouchRes,
         queriesRes,
         studentFormsRes,
         projectsRes,
-        careersRes
+        careersRes,
+        courseEnrollmentsRes
       ] = await Promise.all([
         axios.get('https://qg.vidyantra-dev.com/qubicgen/allRequests', axiosConfig),
         axios.get('https://qg.vidyantra-dev.com/qubicgen/allQueries', axiosConfig),
         axios.get('https://qg.vidyantra-dev.com/qubicgen/student-forms', axiosConfig),
         axios.get('https://qg.vidyantra-dev.com/qubicgen/projects', axiosConfig),
-        axios.get('https://qg.vidyantra-dev.com/qubicgen/allCareers', axiosConfig)
+        axios.get('https://qg.vidyantra-dev.com/qubicgen/allCareers', axiosConfig),
+        axios.get('http://localhost:9098/qubicgen/allCourseEnrollments', axiosConfig)
       ]);
 
       setData({
@@ -74,13 +74,12 @@ const Dashboard = () => {
         students: studentFormsRes.data || [],
         projects: projectsRes.data || [],
         jobApplications: careersRes.data || [],
-        // newJobs: [] // Keep if needed
+        courseEnrollments: courseEnrollmentsRes.data || []
       });
     } catch (error) {
       console.error('Error fetching data:', error);
-      // If unauthorized, redirect to login
       if (error.response?.status === 401 || error.response?.status === 403) {
-        cookies.remove('TOKEN', { path: '/' }); // Clear invalid token
+        cookies.remove('TOKEN', { path: '/' });
         navigate('/admin/login');
       }
     }
@@ -263,6 +262,16 @@ const Dashboard = () => {
             'Email': touch.email,
             'Message': touch.message,
             'Date': new Date(touch.date).toLocaleString()
+          }));
+          break;
+
+        case 'CourseEnrollments':
+          exportData = data.courseEnrollments.map(enrollment => ({
+            'Full Name': enrollment.fullName,
+            'Contact Number': enrollment.contactNumber,
+            'Email': enrollment.email,
+            'College Name': enrollment.collegeName,
+            'Date': new Date(enrollment.createdAt).toLocaleString()
           }));
           break;
 
@@ -610,6 +619,37 @@ const Dashboard = () => {
           </TableContainer>
         );
 
+      case 'courseEnrollments':
+        const filteredEnrollments = getFilteredData(data.courseEnrollments);
+        return (
+          <TableContainer>
+            <table className={tableStyles.tableWrapper}>
+              <thead className={tableStyles.stickyHeader}>
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Full Name</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Contact Number</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Email</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">College Name</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Date</th>
+                </tr>
+              </thead>
+              <tbody className="backdrop-blur-md bg-white/70 divide-y divide-gray-200/30">
+                {filteredEnrollments.map((enrollment) => (
+                  <tr key={enrollment.id} className="hover:bg-white/80">
+                    <td className={tableStyles.cell}>{enrollment.fullName}</td>
+                    <td className={tableStyles.cell}>{enrollment.contactNumber}</td>
+                    <td className={tableStyles.cell}>{enrollment.email}</td>
+                    <td className={tableStyles.cell}>{enrollment.collegeName}</td>
+                    <td className={tableStyles.cell}>
+                      {new Date(enrollment.createdAt).toLocaleString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </TableContainer>
+        );
+
       default:
         return <div>No content available</div>;
     }
@@ -638,7 +678,7 @@ const Dashboard = () => {
 
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           {/* Stats Overview */}
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 mb-6">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6 mb-6">
             <div className="backdrop-blur-md bg-white/30 overflow-hidden shadow rounded-lg flex justify-center items-center">
               <div className="p-5">
                 <div className="flex items-center">
@@ -689,7 +729,20 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-           
+            <div className="backdrop-blur-md bg-white/30 overflow-hidden shadow rounded-lg flex justify-center items-center">
+              <div className="p-5">
+                <div className="flex items-center">
+                  <div className="flex-col justify-center items-center">
+                    <div className="text-2xl font-bold text-white text-center">
+                      {data?.courseEnrollments?.length || 0}
+                    </div>
+                    <div className="mt-1 text-sm text-white text-center">
+                      Course Enrollments
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Tabs */}
@@ -705,7 +758,7 @@ const Dashboard = () => {
                 <option value="students">Students</option>
                 <option value="getInTouches">Get In Touches</option>
                 <option value="jobApplications">Job Applications</option>
-                {/* <option value="newJobs">New Jobs</option> */}
+                <option value="courseEnrollments">Course Enrollments</option>
               </select>
             </div>
             <div className="hidden sm:block">
@@ -717,7 +770,7 @@ const Dashboard = () => {
                     'jobApplications',
                     'projects',
                     'students',
-                    
+                    'courseEnrollments',
                   ].map((tab) => (
                     <button
                       key={tab}
