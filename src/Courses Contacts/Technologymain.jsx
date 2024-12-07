@@ -10,6 +10,7 @@ import FaqSection from "./Technology Overview Componnets/Faq";
 import Navbar from "../HomeComponents/Navbar";
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { ThreeDots } from 'react-loader-spinner'; // Import the loader
 
 const Technologymain = () => {
   const { courseId } = useParams();
@@ -49,8 +50,15 @@ const Technologymain = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-xl">Loading course details...</div>
+      <div className="min-h-screen flex items-center justify-center bg-[#1a1a1a]">
+        <ThreeDots 
+          height="80" 
+          width="80" 
+          color="#FFD700" 
+          ariaLabel='loading' 
+          visible={true} 
+        />
+        {/* <div className="text-xl ml-4 ">Loading course details...</div> */}
       </div>
     );
   }
@@ -70,8 +78,7 @@ const Technologymain = () => {
           rating={courseData?.rating}
           courseImage={courseData?.courseImage}
           courseBanner={courseData?.courseBanner}
-          brochure = {courseData?.brochure}
-
+          brochure={courseData?.brochure}
         />
       </div>
 
@@ -82,55 +89,37 @@ const Technologymain = () => {
       >
         <div className="container mx-auto px-6 py-3 flex justify-center">
           <ul className="flex space-x-12 text-base md:text-lg font-medium">
-            <li
-              className="cursor-pointer relative group"
-              onClick={() => scrollToSection("overview")}
-            >
+            <li className="cursor-pointer relative group" onClick={() => scrollToSection("overview")}>
               <span className="hover:text-yellow-400 transition duration-300 text-md" style={{fontFamily:'sans-serif'}}>
                 Overview
               </span>
               <div className="absolute w-0 h-[2px] bg-yellow-400 rounded-full bottom-0 left-0 group-hover:w-full transition-all duration-300"></div>
             </li>
-            <li
-              className="cursor-pointer relative group"
-              onClick={() => scrollToSection("secureplacements")}
-            >
+            <li className="cursor-pointer relative group" onClick={() => scrollToSection("secureplacements")}>
               <span className="hover:text-yellow-400 transition duration-300 text-md" style={{fontFamily:'sans-serif'}}>
                 Placements
               </span>
               <div className="absolute w-0 h-[2px] bg-yellow-400 rounded-full bottom-0 left-0 group-hover:w-full transition-all duration-300"></div>
             </li>
-            <li
-              className="cursor-pointer relative group"
-              onClick={() => scrollToSection("syllabus")}
-            >
+            <li className="cursor-pointer relative group" onClick={() => scrollToSection("syllabus")}>
               <span className="hover:text-yellow-400 transition duration-300 text-md" style={{fontFamily:'sans-serif'}}>
                 Syllabus
               </span>
               <div className="absolute w-0 h-[2px] bg-yellow-400 rounded-full bottom-0 left-0 group-hover:w-full transition-all duration-300"></div>
             </li>
-            <li
-              className="cursor-pointer relative group"
-              onClick={() => scrollToSection("certifications")}
-            >
+            <li className="cursor-pointer relative group" onClick={() => scrollToSection("certifications")}>
               <span className="hover:text-yellow-400 transition duration-300 text-md" style={{fontFamily:'sans-serif'}}>
                 Certifications
               </span>
               <div className="absolute w-0 h-[2px] bg-yellow-400 rounded-full bottom-0 left-0 group-hover:w-full transition-all duration-300"></div>
             </li>
-            <li
-              className="cursor-pointer relative group"
-              onClick={() => scrollToSection("testimonials")}
-            >
+            <li className="cursor-pointer relative group" onClick={() => scrollToSection("testimonials")}>
               <span className="hover:text-yellow-400 transition duration-300 text-md" style={{fontFamily:'sans-serif'}}>
                 Reviews
               </span>
               <div className="absolute w-0 h-[2px] bg-yellow-400 rounded-full bottom-0 left-0 group-hover:w-full transition-all duration-300"></div>
             </li>
-            <li
-              className="cursor-pointer relative group"
-              onClick={() => scrollToSection("faq")}
-            >
+            <li className="cursor-pointer relative group" onClick={() => scrollToSection("faq")}>
               <span className="hover:text-yellow-400 transition duration-300 text-md" style={{fontFamily:'sans-serif'}}>
                 FAQs
               </span>

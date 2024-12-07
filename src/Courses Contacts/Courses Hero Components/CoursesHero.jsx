@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../../HomeComponents/Navbar';
 
-const CoursesHero = () => {
+const CoursesHero = ({ onApplyNow }) => {
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -72,6 +72,7 @@ const CoursesHero = () => {
               className="mt-8 px-8 py-4 bg-gradient-to-r from-[#FFD700] to-[#FFA500] hover:from-[#FFA500] hover:to-[#FF8C00] text-[#242424] font-semibold rounded-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={onApplyNow}
             >
               Start Your Journey
             </motion.button>

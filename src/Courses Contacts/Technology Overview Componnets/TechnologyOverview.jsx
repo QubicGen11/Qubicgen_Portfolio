@@ -24,7 +24,7 @@ const TechnologyOverview = ({
 
   const handleFormSubmit = async (formData) => {
     try {
-      const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/newEnrollment', {
+      const response = await fetch('http://localhost:9098/qubicgen/newEnrollment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -119,7 +119,7 @@ const TechnologyOverview = ({
         <div className=' mx-auto my-auto'>
 
         <motion.div 
-          className="max-w-2xl text-center mx-auto"
+          className="max-w-2xl text-center md:text-left"
           variants={textVariants}
           initial="hidden"
           animate="visible"
@@ -137,12 +137,12 @@ const TechnologyOverview = ({
           >
             <span className="bg-gradient-to-r from-[#00FF00] to-[#98FB98] text-transparent bg-clip-text">{title}</span>
           </motion.h1>
-          <p className="text-lg md:text-xl text-gray-300 mt-6 max-w-lg mx-auto">
+          <p className="text-lg md:text-xl text-gray-300 mt-6 max-w-lg">
             {description}
           </p>
 
           {/* Enhanced Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mt-8 mx-auto">
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
             <motion.button 
               className="px-8 py-4 bg-gradient-to-r from-white to-gray-100 text-[#0e1a25] font-semibold rounded-lg shadow-xl hover:shadow-2xl backdrop-blur-sm"
               whileHover={{ 

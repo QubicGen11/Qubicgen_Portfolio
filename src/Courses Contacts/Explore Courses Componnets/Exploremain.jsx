@@ -3,11 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { ThreeDots } from 'react-loader-spinner';
 
 const Exploremain = () => {
   const [courses, setCourses] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [loading, setLoading] = useState(true);
+  const [detailsLoading, setDetailsLoading] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,20 +36,21 @@ const Exploremain = () => {
   const handleCourseClick = async (courseId, action) => {
     try {
       if (action === 'details') {
+        setDetailsLoading(courseId);
         const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/courses/${courseId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch course details');
         }
         const courseDetails = await response.json();
-        // Navigate to course details page with the data
         navigate(`/technology/${courseId}`, { state: { courseDetails } });
       } else if (action === 'enroll') {
-        // Handle enrollment logic
         toast.success("Enrollment feature coming soon!");
       }
     } catch (error) {
       console.error("Error:", error);
       toast.error("Error fetching course details");
+    } finally {
+      setDetailsLoading(null);
     }
   };
 
@@ -60,7 +63,14 @@ const Exploremain = () => {
   if (loading) {
     return (
       <div className="bg-[#1a1a1a] text-white py-16 min-h-screen flex items-center justify-center">
-        <div className="text-xl">Loading courses...</div>
+        <ThreeDots 
+          height="80" 
+          width="80" 
+          color="#FFD700" 
+          ariaLabel='loading' 
+          visible={true} 
+        />
+        <div className="text-xl ml-4">Loading courses...</div>
       </div>
     );
   }
@@ -163,7 +173,17 @@ const Exploremain = () => {
                     onClick={() => handleCourseClick(course.id, 'details')}
                     className="relative overflow-hidden px-4 py-2 rounded-lg font-semibold text-[#FFD700] group-hover:text-black transition-colors duration-300"
                   >
-                    <span className="relative z-10">Know More</span>
+                    {detailsLoading === course.id ? (
+                      <ThreeDots 
+                        height="20" 
+                        width="20" 
+                        color="#FFD700" 
+                        ariaLabel='loading' 
+                        visible={true} 
+                      />
+                    ) : (
+                      <span className="relative z-10">Know More</span>
+                    )}
                     <span className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#FFA500] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
                   </button>
                 </div>

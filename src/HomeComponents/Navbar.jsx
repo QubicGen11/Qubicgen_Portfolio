@@ -597,7 +597,7 @@ navbar.style.backgroundColor = newColor;
       </div>
 
       <div
-        className={`coursesec ${visibleSection === "courses" ? "show" : ""}`}
+        className={`coursesec  ${visibleSection === "courses" ? "show" : ""}`}
         onMouseEnter={() => showSection("courses")}
         onMouseLeave={hideSections}
       >
