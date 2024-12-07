@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaUser, FaEnvelope, FaBriefcase, FaQuoteRight } from 'react-icons/fa';
 
@@ -12,6 +12,8 @@ const TestimonialsForm = () => {
     testimonial: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false); // New state for handling submission status
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -22,6 +24,7 @@ const TestimonialsForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true); // Set submitting state to true
     try {
       const response = await fetch('http://localhost:9098/qubicgen/newTestimonial', {
         method: 'POST',
@@ -47,6 +50,8 @@ const TestimonialsForm = () => {
     } catch (error) {
       console.error('Error submitting testimonial:', error);
       toast.error('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false); // Reset submitting state
     }
   };
 
@@ -65,6 +70,7 @@ const TestimonialsForm = () => {
 
   return (
     <div className="min-h-screen bg-[#1C1C1C] relative">
+           <ToastContainer />
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 z-0"
@@ -166,9 +172,10 @@ const TestimonialsForm = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-purple-500/20 transform hover:-translate-y-0.5 transition-all duration-300"
+                  className={`w-full py-4 ${isSubmitting ? 'bg-gray-500' : 'bg-gradient-to-r from-purple-500 to-pink-500'} text-white font-semibold rounded-xl shadow-lg hover:shadow-purple-500/20 transform hover:-translate-y-0.5 transition-all duration-300`}
+                  disabled={isSubmitting} // Disable button while submitting
                 >
-                  Submit Testimonial
+                  {isSubmitting ? 'Submitting...' : 'Submit Testimonial'}
                 </button>
               </form>
             </div>

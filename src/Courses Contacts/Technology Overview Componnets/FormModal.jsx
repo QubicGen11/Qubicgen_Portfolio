@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { toast } from 'react-hot-toast';
+import { ToastContainer } from 'react-toastify';
 
 const FormModal = ({ isOpen, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -8,22 +10,46 @@ const FormModal = ({ isOpen, onClose, onSubmit }) => {
     email: '',
     collegeName: ''
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    setLoading(true);
+    try {
+      await onSubmit(formData);
+      toast.success("Form submitted successfully!");
+
+      // Trigger download
+      const fileData = JSON.stringify(formData, null, 2); // Convert form data to JSON
+      const blob = new Blob([fileData], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'formData.json'; // Name of the downloaded file
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url); // Clean up the URL object
+
+      onClose(); // Close the modal after submission
+    } catch (error) {
+      toast.error("Error submitting the form.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <ToastContainer/>
       <motion.div
-        className="bg-[#1e1e1e] text-white rounded-lg p-8 shadow-md"
+        className="bg-[#1e1e1e] text-white rounded-lg p-8 shadow-md z-50 relative mt-10"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3 }}
@@ -96,11 +122,12 @@ const FormModal = ({ isOpen, onClose, onSubmit }) => {
             </button>
             <motion.button
               type="submit"
-              className="px-4 py-2 bg-gradient-to-r from-[#FFA500] to-[#FF4500] text-white font-semibold rounded-lg"
+              className={`px-4 py-2 bg-gradient-to-r from-[#FFA500] to-[#FF4500] text-white font-semibold rounded-lg ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              disabled={loading}
             >
-              Submit
+              {loading ? 'Submitting...' : 'Submit'}
             </motion.button>
           </div>
         </form>

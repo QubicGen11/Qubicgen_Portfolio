@@ -137,7 +137,9 @@ const Exploremain = () => {
                   </span>
                 </div>
                 <p className="text-gray-400 text-sm mb-4">
-                  {course.courseDescription || 'No description available'}
+                  {course.courseDescription && course.courseDescription.length > 14 
+                    ? `${course.courseDescription.substring(0, 14)}...` 
+                    : course.courseDescription || 'No description available'}
                 </p>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-4">

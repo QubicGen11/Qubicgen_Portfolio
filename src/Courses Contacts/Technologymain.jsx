@@ -77,7 +77,7 @@ const Technologymain = () => {
 
       {/* Sticky Program-Specific Navbar */}
       <nav
-        className="bg-black/70 text-white sticky top-[90px] z-50 shadow-lg backdrop-blur-md"
+        className="bg-black/70 text-white sticky top-[90px] z-10 shadow-lg backdrop-blur-md"
         style={{ backdropFilter: "blur(10px)" }}
       >
         <div className="container mx-auto px-6 py-3 flex justify-center">

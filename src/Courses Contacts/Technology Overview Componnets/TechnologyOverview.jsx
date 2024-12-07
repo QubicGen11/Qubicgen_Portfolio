@@ -31,20 +31,30 @@ const TechnologyOverview = ({
         },
         body: JSON.stringify(formData)
       });
-
+  
       if (!response.ok) {
         throw new Error('Failed to submit form');
       }
-
-      // Close the modal and download the brochure
+  
+      // Close the modal
       handleModalClose();
+      
+  
+      // Trigger download of the brochure
       if (brochure) {
-        window.open(brochure, '_blank');
+        const a = document.createElement('a');
+        a.href = brochure; // Direct link to the PDF
+        a.download = 'brochure.pdf'; // Specify the file name
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
       }
     } catch (error) {
       console.error('Error submitting form:', error);
     }
   };
+
+  
 
   // Enhanced text variants with stagger effect
   const textVariants = {
@@ -106,8 +116,10 @@ const TechnologyOverview = ({
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 h-full flex flex-col md:flex-row items-center justify-between">
         {/* Left Text Content */}
+        <div className=' mx-auto my-auto'>
+
         <motion.div 
-          className="max-w-2xl text-center md:text-left"
+          className="max-w-2xl text-center mx-auto"
           variants={textVariants}
           initial="hidden"
           animate="visible"
@@ -125,12 +137,12 @@ const TechnologyOverview = ({
           >
             <span className="bg-gradient-to-r from-[#00FF00] to-[#98FB98] text-transparent bg-clip-text">{title}</span>
           </motion.h1>
-          <p className="text-lg md:text-xl text-gray-300 mt-6 max-w-lg">
+          <p className="text-lg md:text-xl text-gray-300 mt-6 max-w-lg mx-auto">
             {description}
           </p>
 
           {/* Enhanced Buttons */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
+          <div className="flex flex-wrap justify-center gap-4 mt-8 mx-auto">
             <motion.button 
               className="px-8 py-4 bg-gradient-to-r from-white to-gray-100 text-[#0e1a25] font-semibold rounded-lg shadow-xl hover:shadow-2xl backdrop-blur-sm"
               whileHover={{ 
@@ -155,6 +167,7 @@ const TechnologyOverview = ({
             </motion.button>
           </div>
         </motion.div>
+        </div>
 
         {/* Right Program Details with enhanced animations */}
         <motion.div
