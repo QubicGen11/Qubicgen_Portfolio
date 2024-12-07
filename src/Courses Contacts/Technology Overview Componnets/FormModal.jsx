@@ -54,10 +54,10 @@ const FormModal = ({ isOpen, onClose, onSubmit }) => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <h2 className="text-3xl font-bold mb-6">Register for Our Program</h2>
+        <h2 className="text-2xl font-bold mb-6">Register for Our Program</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-lg font-semibold text-gray-300 mb-2">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
               Full Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -65,13 +65,13 @@ const FormModal = ({ isOpen, onClose, onSubmit }) => {
               name="fullName"
               value={formData.fullName}
               onChange={handleChange}
-              className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Enter your full name"
               required
             />
           </div>
           <div>
-            <label className="block text-lg font-semibold text-gray-300 mb-2">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
               Contact Number <span className="text-red-500">*</span>
             </label>
             <input
@@ -79,13 +79,13 @@ const FormModal = ({ isOpen, onClose, onSubmit }) => {
               name="contactNumber"
               value={formData.contactNumber}
               onChange={handleChange}
-              className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Enter your contact number"
               required
             />
           </div>
           <div>
-            <label className="block text-lg font-semibold text-gray-300 mb-2">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
               Email Address <span className="text-red-500">*</span>
             </label>
             <input
@@ -93,13 +93,13 @@ const FormModal = ({ isOpen, onClose, onSubmit }) => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Enter your email address"
               required
             />
           </div>
           <div>
-            <label className="block text-lg font-semibold text-gray-300 mb-2">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
               College Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -107,7 +107,7 @@ const FormModal = ({ isOpen, onClose, onSubmit }) => {
               name="collegeName"
               value={formData.collegeName}
               onChange={handleChange}
-              className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Enter your college name"
               required
             />

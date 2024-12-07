@@ -13,8 +13,11 @@ const TechnologyOverview = ({
   brochure
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDownloadingBrochure, setIsDownloadingBrochure] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
-  const handleModalOpen = () => {
+  const handleModalOpen = (isBrochure = false) => {
+    setIsDownloadingBrochure(isBrochure);
     setIsModalOpen(true);
   };
 
@@ -39,16 +42,16 @@ const TechnologyOverview = ({
       // Close the modal
       handleModalClose();
       
-  
-      // Trigger download of the brochure
-      if (brochure) {
-        const a = document.createElement('a');
-        a.href = brochure; // Direct link to the PDF
-        a.download = 'brochure.pdf'; // Specify the file name
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      }
+      // Display success message
+      setSuccessMessage("Our team will contact you soon!");
+      
+      // Wait for 3 seconds before opening the brochure
+      setTimeout(() => {
+        if (isDownloadingBrochure && brochure) {
+          window.open(brochure, "_blank"); // Open the brochure in a new tab
+        }
+        setSuccessMessage(""); // Clear the success message after download
+      }, 3000); // 3000 milliseconds = 3 seconds
     } catch (error) {
       console.error('Error submitting form:', error);
     }
@@ -150,7 +153,7 @@ const TechnologyOverview = ({
                 boxShadow: "0 0 20px rgba(255,255,255,0.3)"
               }}
               whileTap={{ scale: 0.95 }}
-              onClick={handleModalOpen}
+              onClick={() => handleModalOpen(true)}
             >
               Download Brochure
             </motion.button>
@@ -161,7 +164,7 @@ const TechnologyOverview = ({
                 boxShadow: "0 0 20px rgba(255,215,0,0.3)"
               }}
               whileTap={{ scale: 0.95 }}
-              onClick={handleModalOpen}
+              onClick={() => handleModalOpen(false)}
             >
               Apply Now
             </motion.button>
@@ -195,7 +198,7 @@ const TechnologyOverview = ({
             <div>
               <div className="text-lg font-semibold">Batch Starting</div>
               <div className="text-3xl font-bold text-[#ADFF2F]">{formatDate(startDate)}</div>
-              <div className="text-sm mt-2 text-[#FF4500]">5 seats left</div>
+              <div className="text-sm mt-2 text-[#FF4500]">Limited Seats Only</div>
             </div>
             <div className="text-4xl">📅</div>
           </motion.div>
@@ -242,6 +245,18 @@ const TechnologyOverview = ({
         onClose={handleModalClose} 
         onSubmit={handleFormSubmit} 
       />
+
+      {/* Success Message Popup */}
+      {successMessage && (
+        <motion.div
+          className="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {successMessage}
+        </motion.div>
+      )}
     </motion.div>
   );
 };
