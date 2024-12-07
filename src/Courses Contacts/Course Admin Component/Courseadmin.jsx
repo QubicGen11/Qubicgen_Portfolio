@@ -92,61 +92,103 @@ const EditCourses = () => {
  
   const handleUpdate = async (updatedCourse) => {
     try {
-      const token = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('TOKEN='))
-        ?.split('=')[1];
+        const token = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('TOKEN='))
+            ?.split('=')[1];
 
-      if (!token) {
-        throw new Error('Authentication token not found');
-      }
-
-      const formData = new FormData();
-      
-      // Append basic fields
-      Object.keys(updatedCourse).forEach(key => {
-        if (!['courseImage', 'brochure', 'certificate', 'courseBanner', 'courseLessons', 'courseFaqs', 'courseBrands'].includes(key)) {
-          formData.append(key, updatedCourse[key]);
+        if (!token) {
+            throw new Error('Authentication token not found');
         }
-      });
 
-      // Append files if they exist
-      if (updatedCourse.courseImage) formData.append('courseImage', updatedCourse.courseImage);
-      if (updatedCourse.brochure) formData.append('brochure', updatedCourse.brochure);
-      if (updatedCourse.certificate) formData.append('certificate', updatedCourse.certificate);
-      if (updatedCourse.courseBanner) formData.append('courseBanner', updatedCourse.courseBanner);
+        // Log the updated course state before preparing the payload
+        console.log("Updated Course State:", updatedCourse);
 
-      // Append arrays as JSON strings
-      formData.append('courseLessons', JSON.stringify(updatedCourse.courseLessons));
-      formData.append('courseFaqs', JSON.stringify(updatedCourse.courseFaqs));
-      formData.append('courseBrands', JSON.stringify(updatedCourse.courseBrands));
+        // Prepare the payload
+        const payload = {
+            id: updatedCourse.id,
+            courseName: updatedCourse.courseName,
+            courseType: updatedCourse.courseType,
+            duration: updatedCourse.duration,
+            maxMentees: updatedCourse.maxMentees,
+            technologies: updatedCourse.technologies,
+            rating: updatedCourse.rating,
+            startDate: updatedCourse.startDate,
+            endDate: updatedCourse.endDate,
+            courseDescription: updatedCourse.courseDescription,
+            courseImage: updatedCourse.courseImage || null,
+            courseBanner: null, // Initialize as null, will be set after upload
+            brochure: updatedCourse.brochure,
+            certificate: updatedCourse.certificate,
+            lessons: (updatedCourse.courseLessons || []).map(lesson => ({
+                lessonTitle: lesson.lessonTitle,
+                lessonDescription: lesson.lessonDescription,
+            })),
+            faqs: (updatedCourse.courseFaqs || []).map(faq => ({
+                question: faq.question,
+                answer: faq.answer,
+            })),
+            brands: (updatedCourse.courseBrands || []).map(brand => ({
+                brandLogo: typeof brand.brandLogo === 'string' ? brand.brandLogo : null, // Ensure this is a string or null
+            })),
+        };
 
-      const response = await fetch(`http://localhost:9098/qubicgen/updateCourse/${updatedCourse.id}`, {
-        method: 'PUT',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        },
-        body: formData
-      });
+        // Log the payload before uploading
+        console.log("Payload before upload:", JSON.stringify(payload, null, 2));
 
-      if (!response.ok) {
-        throw new Error('Failed to update course');
-      }
+        // Upload courseBanner if it's a file
+        if (updatedCourse.courseBanner && typeof updatedCourse.courseBanner === 'object') {
+            const formData = new FormData();
+            formData.append('file', updatedCourse.courseBanner); // Assuming courseBanner is a File object
 
-      // Refresh the courses list
-      const refreshResponse = await fetch('http://localhost:9098/qubicgen/allCourses');
-      if (refreshResponse.ok) {
-        const data = await refreshResponse.json();
-        setCourses(data);
-      }
+            const uploadResponse = await fetch('https://image.qubinest.com/upload', {
+                method: 'POST',
+                body: formData,
+            });
 
-      setEditingCourse(null);
-      toast.success("Course updated successfully!");
+            if (!uploadResponse.ok) {
+                throw new Error('Failed to upload course banner');
+            }
+
+            const uploadData = await uploadResponse.json();
+            payload.courseBanner = uploadData.url; // Set the URL from the upload response
+        }
+
+        // Log the final payload being sent
+        console.log("Final Payload being sent:", JSON.stringify(payload, null, 2));
+
+        if (updatedCourse.certificate) {
+            const certificateUrl = await uploadFile(updatedCourse.certificate); // Assuming uploadFile handles the upload
+            payload.certificate = certificateUrl; // Set the URL from the upload response
+        }
+
+        const response = await fetch(`http://localhost:9098/qubicgen/updateCourse/${updatedCourse.id}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to update course');
+        }
+
+        // Refresh the courses list
+        const refreshResponse = await fetch('http://localhost:9098/qubicgen/allCourses');
+        if (refreshResponse.ok) {
+            const data = await refreshResponse.json();
+            setCourses(data);
+        }
+
+        setEditingCourse(null);
+        toast.success("Course updated successfully!");
     } catch (error) {
-      toast.error(error.message || "Error updating course. Please try again.");
-      console.error("Error updating course:", error);
+        toast.error(error.message || "Error updating course. Please try again.");
+        console.error("Error updating course:", error);
     }
-  };
+};
  
   const addBrand = () => {
     const newBrand = { id: Date.now(), brandLogo: null };
@@ -193,6 +235,21 @@ const EditCourses = () => {
     }));
   };
  
+  const handleCertificateChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        setEditingCourse((prev) => ({
+            ...prev,
+            certificate: file, // Store the file object
+        }));
+    } else {
+        setEditingCourse((prev) => ({
+            ...prev,
+            certificate: null,
+        }));
+    }
+};
+ 
   if (loading) {
     return (
       <div className="min-h-screen bg-cover bg-center flex items-center justify-center">
@@ -220,7 +277,7 @@ const EditCourses = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-yellow-500 mb-2">Course Type *</label>
+                  <label className="block text-yellow-500 mb-2">Course Category *</label>
                   <select
                     value={editingCourse.courseType || ''}
                     onChange={(e) => setEditingCourse({...editingCourse, courseType: e.target.value})}
@@ -305,7 +362,20 @@ const EditCourses = () => {
                   <label className="block text-yellow-500 mb-2">Course Banner</label>
                   <input
                     type="file"
-                    onChange={(e) => setEditingCourse({...editingCourse, courseBanner: e.target.files[0]})}
+                    onChange={(e) => {
+                        const file = e.target.files[0];
+                        if (file) {
+                            setEditingCourse((prev) => ({
+                                ...prev,
+                                courseBanner: file,
+                            }));
+                        } else {
+                            setEditingCourse((prev) => ({
+                                ...prev,
+                                courseBanner: null,
+                            }));
+                        }
+                    }}
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                   />
                   {editingCourse.courseBanner && <p className="text-gray-400 mt-2">Current: {editingCourse.courseBanner.name}</p>}
@@ -424,6 +494,14 @@ const EditCourses = () => {
                     + Add FAQ
                   </button>
                 </div>
+                <div>
+                  <label className="block text-yellow-500 mb-2">Certificate *</label>
+                  <input
+                    type="file"
+                    onChange={handleCertificateChange}
+                    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+                  />
+                </div>
               </div>
 
               <div className="flex justify-end space-x-4">
@@ -481,112 +559,6 @@ const EditCourses = () => {
     </div>
   );
 };
- 
-// Add this utility function at the top
-const convertToBase64 = (file) => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
-};
-
-const handleImageUpload = async (file) => {
-  try {
-    // Basic image compression before upload
-    const compressedFile = await compressImage(file);
-    
-    const formData = new FormData();
-    formData.append('file', compressedFile);
-
-    const response = await fetch('https://image.qubinest.com/upload', {
-      method: 'POST',
-      body: formData,
-    });
-
-    if (!response.ok) {
-      throw new Error('Image upload failed');
-    }
-
-    const data = await response.json();
-    return `https://image.qubinest.com/${data.url}`;
-  } catch (error) {
-    console.error('Error uploading image:', error);
-    throw error;
-  }
-};
-
-// Image compression utility
-const compressImage = (file) => {
-  return new Promise((resolve) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = (event) => {
-      const img = new Image();
-      img.src = event.target.result;
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        let width = img.width;
-        let height = img.height;
-
-        // Max dimensions
-        const MAX_WIDTH = 800;
-        const MAX_HEIGHT = 600;
-
-        if (width > height) {
-          if (width > MAX_WIDTH) {
-            height *= MAX_WIDTH / width;
-            width = MAX_WIDTH;
-          }
-        } else {
-          if (height > MAX_HEIGHT) {
-            width *= MAX_HEIGHT / height;
-            height = MAX_HEIGHT;
-          }
-        }
-
-        canvas.width = width;
-        canvas.height = height;
-
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0, width, height);
-
-        canvas.toBlob((blob) => {
-          resolve(new File([blob], file.name, {
-            type: 'image/jpeg',
-            lastModified: Date.now(),
-          }));
-        }, 'image/jpeg', 0.7); // Compress with 70% quality
-      };
-    };
-  });
-};
-
-// Add this helper function before handleSubmit
-const uploadFile = async (file, shouldCompress = true) => {
-  try {
-    const formData = new FormData();
-    
-    if (shouldCompress && file.type.startsWith('image/')) {
-      const compressedFile = await compressImage(file);
-      formData.append('file', compressedFile);
-    } else {
-      formData.append('file', file);
-    }
-    
-    const response = await fetch('https://image.qubinest.com/upload', {
-      method: 'POST',
-      body: formData,
-    });
-    
-    if (!response.ok) throw new Error('File upload failed');
-    const data = await response.json();
-    return data.url; // Use the URL directly from the response
-  } catch (error) {
-    throw new Error(`File upload failed: ${error.message}`);
-  }
-};
 
 const CreateCourse = () => {
   const [formData, setFormData] = useState({
@@ -608,17 +580,25 @@ const CreateCourse = () => {
   });
  
   const handleInputChange = (e) => {
-    const { name, value, type, files } = e.target;
+    const { name, type, files } = e.target;
     if (type === "file") {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: Array.from(files),
-      }));
+        const file = files[0];
+        if (file) {
+            setFormData((prev) => ({
+                ...prev,
+                [name]: file, // Set the courseBanner to the file object
+            }));
+        } else {
+            setFormData((prev) => ({
+                ...prev,
+                [name]: null, // Reset to null if no file is selected
+            }));
+        }
     } else {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
+        setFormData((prev) => ({
+            ...prev,
+            [name]: e.target.value,
+        }));
     }
   };
  
@@ -634,6 +614,8 @@ const CreateCourse = () => {
       lessons: [...prev.lessons, { lessonTitle: "", lessonDescription: "" }]
     }));
   };
+
+
  
   const removeLesson = (index) => {
     const updatedLessons = [...formData.lessons];
@@ -680,6 +662,23 @@ const CreateCourse = () => {
     updatedBrands.splice(index, 1);
     setFormData(prev => ({ ...prev, brands: updatedBrands }));
   };
+
+  const uploadFile = async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const response = await fetch('https://image.qubinest.com/upload', {
+        method: 'POST',
+        body: formData,
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to upload file');
+    }
+
+    const data = await response.json();
+    return data.url; // Assuming the response contains the URL of the uploaded file
+};
  
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -714,23 +713,23 @@ const CreateCourse = () => {
       };
 
       // Handle file uploads
-      if (formData.courseImg?.[0]) {
-        const courseImgUrl = await uploadFile(formData.courseImg[0]);
+      if (formData.courseImg) {
+        const courseImgUrl = await uploadFile(formData.courseImg);
         requestBody.courseImg = courseImgUrl;
       }
 
-      if (formData.courseBanner?.[0]) {
-        const courseBannerUrl = await uploadFile(formData.courseBanner[0]);
+      if (formData.courseBanner) {
+        const courseBannerUrl = await uploadFile(formData.courseBanner);
         requestBody.courseBanner = courseBannerUrl;
       }
 
-      if (formData.brochure?.[0]) {
-        const brochureUrl = await uploadFile(formData.brochure[0], false); // Don't compress PDFs
+      if (formData.brochure) {
+        const brochureUrl = await uploadFile(formData.brochure); // Don't compress PDFs
         requestBody.brochure = brochureUrl;
       }
 
-      if (formData.certificate?.[0]) {
-        const certificateUrl = await uploadFile(formData.certificate[0], false); // Don't compress PDFs
+      if (formData.certificate) {
+        const certificateUrl = await uploadFile(formData.certificate); // Don't compress PDFs
         requestBody.certificate = certificateUrl;
       }
 
@@ -804,7 +803,7 @@ const CreateCourse = () => {
                 />
               </div>
               <div>
-                <label className="block text-yellow-500 mb-2">Course Type *</label>
+                <label className="block text-yellow-500 mb-2">Course Category *</label>
                 <input
                   type="text"
                   name="courseType"
