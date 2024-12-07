@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Dashboard from "../../Admin/Dashboard";
 import Cookies from 'universal-cookie';
 import AdminNavbar from "../../Admin/AdminNavbar";
+import { Modal, Button, IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const cookies = new Cookies();
 
@@ -42,7 +44,9 @@ const EditCourses = () => {
   const [courses, setCourses] = useState([]);
   const [editingCourse, setEditingCourse] = useState(null);
   const [loading, setLoading] = useState(true);
- 
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [courseToDelete, setCourseToDelete] = useState(null);
+
   useEffect(() => {
     const fetchCourses = async () => {
       try {
@@ -64,7 +68,7 @@ const EditCourses = () => {
 
     fetchCourses();
   }, []);
- 
+
   const handleEdit = async (courseId) => {
     try {
       const token = document.cookie
@@ -93,7 +97,48 @@ const EditCourses = () => {
       toast.error(error.message || "Error fetching course details. Please try again.");
     }
   };
- 
+
+  const handleDelete = async () => {
+    try {
+      const token = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('TOKEN='))
+        ?.split('=')[1];
+
+      if (!token) {
+        throw new Error('Authentication token not found');
+      }
+
+      const response = await fetch(`http://localhost:9098/qubicgen/deleteCourse/${courseToDelete}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to delete course');
+      }
+      
+      toast.success("Course deleted successfully!");
+      setCourses(courses.filter(course => course.id !== courseToDelete));
+    } catch (error) {
+      toast.error(error.message || "Error deleting course. Please try again.");
+    } finally {
+      closeDeleteModal();
+    }
+  };
+
+  const openDeleteModal = (courseId) => {
+    setCourseToDelete(courseId);
+    setIsDeleteModalOpen(true);
+  };
+
+  const closeDeleteModal = () => {
+    setIsDeleteModalOpen(false);
+    setCourseToDelete(null);
+  };
+
   const handleUpdate = async (updatedCourse) => {
     try {
         const token = document.cookie
@@ -538,7 +583,7 @@ const EditCourses = () => {
           {courses.map((course) => (
             <div
               key={course.id}
-              className="bg-gray-900 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
+              className="bg-gray-900 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow relative"
             >
               <h3 className="text-xl font-bold mb-2 text-white">{course.courseName}</h3>
               <p className="text-gray-400 mb-4">{course.courseDescription}</p>
@@ -550,6 +595,11 @@ const EditCourses = () => {
                 <span className="text-gray-400">Duration: {course.duration}</span>
                 <span className="text-gray-400">Mentees: {course.maxMentees}</span>
               </div>
+              <div className="absolute top-2 right-2">
+                <IconButton onClick={() => openDeleteModal(course.id)} color="error">
+                  <DeleteIcon />
+                </IconButton>
+              </div>
               <button
                 onClick={() => handleEdit(course.id)}
                 className="mt-4 w-full bg-yellow-500 text-black px-4 py-2 rounded-lg hover:bg-yellow-400"
@@ -560,6 +610,18 @@ const EditCourses = () => {
           ))}
         </div>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      <Modal open={isDeleteModalOpen} onClose={closeDeleteModal}>
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold mb-4">Confirm Deletion</h2>
+          <p>Are you sure you want to delete this course?</p>
+          <div className="flex justify-end space-x-4 mt-4">
+            <Button onClick={closeDeleteModal} variant="outlined">Cancel</Button>
+            <Button onClick={handleDelete} variant="contained" color="error">Delete</Button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };
@@ -1160,7 +1222,7 @@ const AdminPage = () => {
         </div>
       </div>
       <div className="flex-1 ml-64 bg-gray-100">
-      <AdminNavbar/>
+          <AdminNavbar/>
         <Toaster position="top-right" />
         {renderView()}
       </div>
