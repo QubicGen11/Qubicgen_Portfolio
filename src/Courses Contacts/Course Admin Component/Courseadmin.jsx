@@ -46,6 +46,7 @@ const EditCourses = () => {
   const [loading, setLoading] = useState(true);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [courseToDelete, setCourseToDelete] = useState(null);
+  const [updating, setUpdating] = useState(false);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -114,7 +115,7 @@ const EditCourses = () => {
         headers: {
           'Authorization': `Bearer ${token}`
         }
-      });
+      }); 
       
       if (!response.ok) {
         throw new Error('Failed to delete course');
@@ -141,6 +142,7 @@ const EditCourses = () => {
 
   const handleUpdate = async (updatedCourse) => {
     try {
+        setUpdating(true);
         const token = document.cookie
             .split('; ')
             .find(row => row.startsWith('TOKEN='))
@@ -150,10 +152,6 @@ const EditCourses = () => {
             throw new Error('Authentication token not found');
         }
 
-        // Log the updated course state before preparing the payload
-        console.log("Updated Course State:", updatedCourse);
-
-        // Prepare the payload
         const payload = {
             id: updatedCourse.id,
             courseName: updatedCourse.courseName,
@@ -166,9 +164,9 @@ const EditCourses = () => {
             endDate: updatedCourse.endDate,
             courseDescription: updatedCourse.courseDescription,
             courseImage: updatedCourse.courseImage || null,
-            courseBanner: null, // Initialize as null, will be set after upload
+            courseBanner: null,
             brochure: updatedCourse.brochure,
-            certificate: updatedCourse.certificate,
+            certificate: null,
             lessons: (updatedCourse.courseLessons || []).map(lesson => ({
                 lessonTitle: lesson.lessonTitle,
                 lessonDescription: lesson.lessonDescription,
@@ -178,17 +176,13 @@ const EditCourses = () => {
                 answer: faq.answer,
             })),
             brands: (updatedCourse.courseBrands || []).map(brand => ({
-                brandLogo: typeof brand.brandLogo === 'string' ? brand.brandLogo : null, // Ensure this is a string or null
+                brandLogo: typeof brand.brandLogo === 'string' ? brand.brandLogo : null,
             })),
         };
 
-        // Log the payload before uploading
-        console.log("Payload before upload:", JSON.stringify(payload, null, 2));
-
-        // Upload courseBanner if it's a file
         if (updatedCourse.courseBanner && typeof updatedCourse.courseBanner === 'object') {
             const formData = new FormData();
-            formData.append('file', updatedCourse.courseBanner); // Assuming courseBanner is a File object
+            formData.append('file', updatedCourse.courseBanner);
 
             const uploadResponse = await fetch('https://image.qubinest.com/upload', {
                 method: 'POST',
@@ -200,15 +194,28 @@ const EditCourses = () => {
             }
 
             const uploadData = await uploadResponse.json();
-            payload.courseBanner = uploadData.url; // Set the URL from the upload response
+            payload.courseBanner = uploadData.url;
+        } else {
+            payload.courseBanner = updatedCourse.courseBanner;
         }
 
-        // Log the final payload being sent
-        console.log("Final Payload being sent:", JSON.stringify(payload, null, 2));
+        if (updatedCourse.certificate && typeof updatedCourse.certificate === 'object') {
+            const formData = new FormData();
+            formData.append('file', updatedCourse.certificate);
 
-        if (updatedCourse.certificate) {
-            const certificateUrl = await uploadFile(updatedCourse.certificate); // Assuming uploadFile handles the upload
-            payload.certificate = certificateUrl; // Set the URL from the upload response
+            const uploadResponse = await fetch('https://image.qubinest.com/upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!uploadResponse.ok) {
+                throw new Error('Failed to upload certificate');
+            }
+
+            const uploadData = await uploadResponse.json();
+            payload.certificate = uploadData.url;
+        } else {
+            payload.certificate = updatedCourse.certificate;
         }
 
         const response = await fetch(`http://localhost:9098/qubicgen/updateCourse/${updatedCourse.id}`, {
@@ -224,18 +231,13 @@ const EditCourses = () => {
             throw new Error('Failed to update course');
         }
 
-        // Refresh the courses list
-        const refreshResponse = await fetch('http://localhost:9098/qubicgen/allCourses');
-        if (refreshResponse.ok) {
-            const data = await refreshResponse.json();
-            setCourses(data);
-        }
-
         setEditingCourse(null);
         toast.success("Course updated successfully!");
     } catch (error) {
         toast.error(error.message || "Error updating course. Please try again.");
         console.error("Error updating course:", error);
+    } finally {
+        setUpdating(false);
     }
 };
  
@@ -315,6 +317,15 @@ const EditCourses = () => {
             <h2 className="text-3xl font-bold mb-8 text-white">Edit Course</h2>
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-yellow-500 mb-2">Course Description *</label>
+                  <textarea
+                    value={editingCourse.courseDescription || ''}
+                    onChange={(e) => setEditingCourse({...editingCourse, courseDescription: e.target.value})}
+                    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+                    required
+                  />
+                </div>
                 <div>
                   <label className="block text-yellow-500 mb-2">Course Name *</label>
                   <input
@@ -565,8 +576,9 @@ const EditCourses = () => {
                   type="button"
                   onClick={() => handleUpdate(editingCourse)}
                   className="px-6 py-2 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400"
+                  disabled={updating}
                 >
-                  Save Changes
+                  {updating ? "Saving..." : "Save Changes"}
                 </button>
               </div>
             </form>
@@ -644,36 +656,42 @@ const CreateCourse = () => {
     faqs: [{ question: "", answer: "" }],
     brands: [{ brandLogo: null }]
   });
- 
+
+  const [loading, setLoading] = useState(false);
+
   const handleInputChange = (e) => {
     const { name, type, files } = e.target;
     if (type === "file") {
-        const file = files[0];
-        if (file) {
-            setFormData((prev) => ({
-                ...prev,
-                [name]: file, // Set the courseBanner to the file object
-            }));
-        } else {
-            setFormData((prev) => ({
-                ...prev,
-                [name]: null, // Reset to null if no file is selected
-            }));
+      const file = files[0];
+      if (file) {
+        if (file.size > 5 * 1024 * 1024) { // Check if file size exceeds 5 MB
+          alert("File size exceeds 5 MB. Please select a smaller file.");
+          return; // Exit the function if the file is too large
         }
-    } else {
         setFormData((prev) => ({
-            ...prev,
-            [name]: e.target.value,
+          ...prev,
+          [name]: file, // Set the courseBanner to the file object
         }));
+      } else {
+        setFormData((prev) => ({
+          ...prev,
+          [name]: null, // Reset to null if no file is selected
+        }));
+      }
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: e.target.value,
+      }));
     }
   };
- 
+
   const handleLessonChange = (index, field, value) => {
     const updatedLessons = [...formData.lessons];
     updatedLessons[index][field] = value;
     setFormData(prev => ({ ...prev, lessons: updatedLessons }));
   };
- 
+
   const addLesson = () => {
     setFormData(prev => ({
       ...prev,
@@ -681,33 +699,31 @@ const CreateCourse = () => {
     }));
   };
 
-
- 
   const removeLesson = (index) => {
     const updatedLessons = [...formData.lessons];
     updatedLessons.splice(index, 1);
     setFormData(prev => ({ ...prev, lessons: updatedLessons }));
   };
- 
+
   const handleFaqChange = (index, field, value) => {
     const updatedFaqs = [...formData.faqs];
     updatedFaqs[index][field] = value;
     setFormData(prev => ({ ...prev, faqs: updatedFaqs }));
   };
- 
+
   const addFaq = () => {
     setFormData(prev => ({
       ...prev,
       faqs: [...prev.faqs, { question: "", answer: "" }]
     }));
   };
- 
+
   const removeFaq = (index) => {
     const updatedFaqs = [...formData.faqs];
     updatedFaqs.splice(index, 1);
     setFormData(prev => ({ ...prev, faqs: updatedFaqs }));
   };
- 
+
   const handleBrandChange = (index, files) => {
     if (files && files[0]) {
       const updatedBrands = [...formData.brands];
@@ -715,14 +731,14 @@ const CreateCourse = () => {
       setFormData(prev => ({ ...prev, brands: updatedBrands }));
     }
   };
- 
+
   const addBrand = () => {
     setFormData(prev => ({
       ...prev,
       brands: [...prev.brands, { brandLogo: null }]
     }));
   };
- 
+
   const removeBrand = (index) => {
     const updatedBrands = [...formData.brands];
     updatedBrands.splice(index, 1);
@@ -733,21 +749,32 @@ const CreateCourse = () => {
     const formData = new FormData();
     formData.append('file', file);
 
-    const response = await fetch('https://image.qubinest.com/upload', {
-        method: 'POST',
-        body: formData,
-    });
+    try {
+        const response = await fetch('https://image.qubinest.com/upload', {
+            method: 'POST',
+            body: formData,
+        });
 
-    if (!response.ok) {
-        throw new Error('Failed to upload file');
+        if (!response.ok) {
+            // Check if the response status is 413
+            if (response.status === 413) {
+                alert("File size exceeds the server limit. Please select a smaller file.");
+                throw new Error('File size exceeds the server limit.');
+            }
+            throw new Error('Failed to upload file');
+        }
+
+        const data = await response.json();
+        return data.url; // Assuming the response contains the URL of the uploaded file
+    } catch (error) {
+        console.error("Error uploading file:", error);
+        throw error; // Re-throw the error to be handled in handleSubmit
     }
-
-    const data = await response.json();
-    return data.url; // Assuming the response contains the URL of the uploaded file
 };
- 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const token = document.cookie
         .split('; ')
@@ -847,12 +874,13 @@ const CreateCourse = () => {
     } catch (error) {
       toast.error(error.message || "Error creating course. Please try again.");
       console.error("Error creating course:", error);
+    } finally {
+      setLoading(false);
     }
   };
- 
-  return (
 
-      <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1665686308827-eb62e4f6604d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+  return (
+    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1665686308827-eb62e4f6604d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
       <div className="bg-black bg-opacity-50 min-h-screen p-8">
         <div className="max-w-4xl mx-auto bg-gray-900 p-8 rounded-lg shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -878,9 +906,6 @@ const CreateCourse = () => {
                   className="w-full p-2 rounded bg-gray-800 text-white"
                   required
                 />
-
-
-             
               </div>
               <div>
                 <label className="block text-yellow-500 mb-2">Duration (hours) *</label>
@@ -1095,8 +1120,9 @@ const CreateCourse = () => {
               <button
                 type="submit"
                 className="bg-yellow-500 text-black px-6 py-2 rounded-lg hover:bg-yellow-400"
+                disabled={loading}
               >
-                Create Course
+                {loading ? "Submitting..." : "Create Course"}
               </button>
             </div>
           </form>
@@ -1105,7 +1131,7 @@ const CreateCourse = () => {
     </div>
   );
 };
- 
+
 const MyCourses = () => {
   const [courses, setCourses] = useState([]);
 
@@ -1152,7 +1178,7 @@ const MyCourses = () => {
     </div>
   );
 };
- 
+
 const AdminPage = () => {
   const [currentView, setCurrentView] = useState('dashboard');
   const navigate = useNavigate();
