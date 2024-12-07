@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Dashboard from "../../Admin/Dashboard";
- 
+import Cookies from 'universal-cookie';
+import AdminNavbar from "../../Admin/AdminNavbar";
+
+const cookies = new Cookies();
+
 // New CourseList component
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
@@ -1089,6 +1093,15 @@ const MyCourses = () => {
  
 const AdminPage = () => {
   const [currentView, setCurrentView] = useState('dashboard');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = cookies.get('TOKEN');
+    if (!token) {
+      console.log('No token found, redirecting to login');
+      navigate('/admin/login'); // Redirect to login if no token
+    }
+  }, [navigate]);
   
   const renderView = () => {
     switch(currentView) {
@@ -1105,7 +1118,9 @@ const AdminPage = () => {
  
   return (
     <div className="flex min-h-screen">
+      
       <div className="w-64 bg-gradient-to-b from-gray-800 to-gray-900 text-gray-100 h-screen fixed left-0 top-0 shadow-xl">
+      
         <div className="p-6">
           <h2 className="text-2xl font-bold mb-6 text-white border-b border-gray-700 pb-4">Menu</h2>
           <ul className="space-y-4">
@@ -1145,6 +1160,7 @@ const AdminPage = () => {
         </div>
       </div>
       <div className="flex-1 ml-64 bg-gray-100">
+      <AdminNavbar/>
         <Toaster position="top-right" />
         {renderView()}
       </div>

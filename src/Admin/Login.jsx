@@ -50,7 +50,7 @@ const Login = () => {
 
         toast.success('Login successful!');
         setTimeout(() => {
-          navigate('/admin/dashboard');
+          navigate('/courseadmin');
         }, 1000);
       }
     } catch (error) {

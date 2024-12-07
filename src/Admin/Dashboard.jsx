@@ -36,12 +36,6 @@ const Dashboard = () => {
     try {
       const token = cookies.get('TOKEN');
       
-      if (!token) {
-        console.log('No token found');
-        navigate('/admin/login');
-        return;
-      }
-
       const headers = {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -78,10 +72,6 @@ const Dashboard = () => {
       });
     } catch (error) {
       console.error('Error fetching data:', error);
-      if (error.response?.status === 401 || error.response?.status === 403) {
-        cookies.remove('TOKEN', { path: '/' });
-        navigate('/admin/login');
-      }
     }
   };
 
@@ -95,9 +85,8 @@ const Dashboard = () => {
       setDownloadStatus(prev => ({ ...prev, [jobId]: 'downloading' }));
       
       const token = cookies.get('TOKEN');
-      // Use the complete URL to your backend
       const response = await fetch(
-        `https://qg.vidyantra-dev.com/${resumePath}`, // resumePath already contains 'uploads/resumes/filename'
+        `https://qg.vidyantra-dev.com/${resumePath}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -109,31 +98,23 @@ const Dashboard = () => {
         throw new Error('Download failed');
       }
 
-      // Get original filename from the path
       const originalFilename = resumePath.split('/').pop();
-
       const blob = await response.blob();
-      // Create a URL for the blob
       const url = window.URL.createObjectURL(blob);
       
-      // Create temporary link element
       const a = document.createElement('a');
       a.href = url;
-      a.download = originalFilename; // Use the original filename
+      a.download = originalFilename;
       
-      // Trigger download
       document.body.appendChild(a);
       a.click();
       
-      // Cleanup
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
       
-      // Show success status
       setDownloadStatus(prev => ({ ...prev, [jobId]: 'success' }));
       toast.success('Resume downloaded successfully');
 
-      // Reset status after 3 seconds
       setTimeout(() => {
         setDownloadStatus(prev => ({ ...prev, [jobId]: undefined }));
       }, 3000);
@@ -143,7 +124,6 @@ const Dashboard = () => {
       setDownloadStatus(prev => ({ ...prev, [jobId]: 'error' }));
       toast.error('Failed to download resume');
 
-      // Reset error status after 3 seconds
       setTimeout(() => {
         setDownloadStatus(prev => ({ ...prev, [jobId]: undefined }));
       }, 3000);
@@ -658,23 +638,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1665686308827-eb62e4f6604d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
       <div className="bg-black bg-opacity-50 min-h-screen">
-        <nav className="backdrop-blur-md bg-white/30 shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
-              <div className="flex items-center">
-                <h1 className="text-2xl font-bold text-white">Admin Dashboard</h1>
-              </div>
-              <div className="flex items-center">
-                <button
-                  onClick={handleLogout}
-                  className="ml-3 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Logout
-                </button>
-              </div>
-            </div>
-          </div>
-        </nav>
+    
 
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           {/* Stats Overview */}

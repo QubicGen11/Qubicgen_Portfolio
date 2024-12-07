@@ -97,18 +97,28 @@ const App = () => {
             <Route path="/projectform" element={<Projectform/>} />
             <Route path="/newjobapplication" element={<NewjobApplication/>} />
             <Route path="/admin/login" element={<Login />} />
-            <Route
-              path="/admin/dashboard"
-              element={
-                <ProtectedRoutes>
-                  <AdminDashboard />
-                </ProtectedRoutes>
-              }
-            />
+  
             <Route path="*" element={<Nopage />} /> 
             <Route path="/courses" element={<Coursesmain/>} />
             <Route path="/technology/:courseId" element={<Technologymain />} />
-            <Route path="/courseadmin" element={<AdminPage/>} />
+            <Route path="" element={<AdminPage/>} />
+            <Route
+              path="/admin/dashboard"
+              element={
+          
+                  <AdminDashboard />
+               
+              }
+            />
+            <Route
+              path="/courseadmin"
+              element={
+                <ProtectedRoutes>
+                  <AdminPage />
+                </ProtectedRoutes>
+              }
+            />
+
 
           </Routes>
         </Suspense>
