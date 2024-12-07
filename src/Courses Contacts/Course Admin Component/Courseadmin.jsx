@@ -63,7 +63,6 @@ const EditCourses = () => {
  
   const handleEdit = async (courseId) => {
     try {
-      // Get token from cookie
       const token = document.cookie
         .split('; ')
         .find(row => row.startsWith('TOKEN='))
@@ -93,7 +92,6 @@ const EditCourses = () => {
  
   const handleUpdate = async (updatedCourse) => {
     try {
-      // Get token from cookie
       const token = document.cookie
         .split('; ')
         .find(row => row.startsWith('TOKEN='))
@@ -107,7 +105,7 @@ const EditCourses = () => {
       
       // Append basic fields
       Object.keys(updatedCourse).forEach(key => {
-        if (!['courseImage', 'brochure', 'certificate', 'courseLessons', 'courseFaqs', 'courseBrands'].includes(key)) {
+        if (!['courseImage', 'brochure', 'certificate', 'courseBanner', 'courseLessons', 'courseFaqs', 'courseBrands'].includes(key)) {
           formData.append(key, updatedCourse[key]);
         }
       });
@@ -116,6 +114,7 @@ const EditCourses = () => {
       if (updatedCourse.courseImage) formData.append('courseImage', updatedCourse.courseImage);
       if (updatedCourse.brochure) formData.append('brochure', updatedCourse.brochure);
       if (updatedCourse.certificate) formData.append('certificate', updatedCourse.certificate);
+      if (updatedCourse.courseBanner) formData.append('courseBanner', updatedCourse.courseBanner);
 
       // Append arrays as JSON strings
       formData.append('courseLessons', JSON.stringify(updatedCourse.courseLessons));
@@ -147,6 +146,51 @@ const EditCourses = () => {
       toast.error(error.message || "Error updating course. Please try again.");
       console.error("Error updating course:", error);
     }
+  };
+ 
+  const addBrand = () => {
+    const newBrand = { id: Date.now(), brandLogo: null };
+    setEditingCourse((prev) => ({
+      ...prev,
+      courseBrands: [...(prev.courseBrands || []), newBrand],
+    }));
+  };
+ 
+  const removeBrand = (index) => {
+    setEditingCourse((prev) => ({
+      ...prev,
+      courseBrands: prev.courseBrands.filter((_, i) => i !== index),
+    }));
+  };
+ 
+  const addLesson = () => {
+    const newLesson = { id: Date.now(), lessonTitle: "", lessonDescription: "" };
+    setEditingCourse((prev) => ({
+      ...prev,
+      courseLessons: [...(prev.courseLessons || []), newLesson],
+    }));
+  };
+ 
+  const removeLesson = (index) => {
+    setEditingCourse((prev) => ({
+      ...prev,
+      courseLessons: prev.courseLessons.filter((_, i) => i !== index),
+    }));
+  };
+ 
+  const addFAQ = () => {
+    const newFAQ = { id: Date.now(), question: "", answer: "" };
+    setEditingCourse((prev) => ({
+      ...prev,
+      courseFaqs: [...(prev.courseFaqs || []), newFAQ],
+    }));
+  };
+ 
+  const removeFAQ = (index) => {
+    setEditingCourse((prev) => ({
+      ...prev,
+      courseFaqs: prev.courseFaqs.filter((_, i) => i !== index),
+    }));
   };
  
   if (loading) {
@@ -257,48 +301,129 @@ const EditCourses = () => {
                     required
                   />
                 </div>
-              </div>
-
-              <div>
-                <label className="block text-yellow-500 mb-2">Course Description *</label>
-                <textarea
-                  value={editingCourse.courseDescription || ''}
-                  onChange={(e) => setEditingCourse({...editingCourse, courseDescription: e.target.value})}
-                  rows="4"
-                  className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
-                  required
-                ></textarea>
-              </div>
-
-              <div>
-                <label className="block text-yellow-500 mb-2">Course Image</label>
-                <input
-                  type="file"
-                  onChange={(e) => setEditingCourse({...editingCourse, courseImage: e.target.files[0]})}
-                  className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
-                />
-                {editingCourse.courseImage && <p className="text-gray-400 mt-2">Current: {editingCourse.courseImage}</p>}
-              </div>
-
-              <div>
-                <label className="block text-yellow-500 mb-2">Brochure (PDF)</label>
-                <input
-                  type="file"
-                  accept=".pdf"
-                  onChange={(e) => setEditingCourse({...editingCourse, brochure: e.target.files[0]})}
-                  className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
-                />
-                {editingCourse.brochure && <p className="text-gray-400 mt-2">Current: {editingCourse.brochure}</p>}
-              </div>
-
-              <div>
-                <label className="block text-yellow-500 mb-2">Certificate</label>
-                <input
-                  type="file"
-                  onChange={(e) => setEditingCourse({...editingCourse, certificate: e.target.files[0]})}
-                  className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
-                />
-                {editingCourse.certificate && <p className="text-gray-400 mt-2">Current: {editingCourse.certificate}</p>}
+                <div>
+                  <label className="block text-yellow-500 mb-2">Course Banner</label>
+                  <input
+                    type="file"
+                    onChange={(e) => setEditingCourse({...editingCourse, courseBanner: e.target.files[0]})}
+                    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+                  />
+                  {editingCourse.courseBanner && <p className="text-gray-400 mt-2">Current: {editingCourse.courseBanner.name}</p>}
+                </div>
+                <div>
+                  <h3 className="text-yellow-500 mb-2">Course Brands</h3>
+                  {editingCourse.courseBrands?.map((brand, index) => (
+                    <div key={index} className="flex items-center mb-4">
+                      <input
+                        type="file"
+                        onChange={(e) => {
+                          const updatedBrands = [...editingCourse.courseBrands];
+                          updatedBrands[index].brandLogo = e.target.files[0];
+                          setEditingCourse({...editingCourse, courseBrands: updatedBrands});
+                        }}
+                        className="w-full p-2 border border-gray-300 rounded"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeBrand(index)}
+                        className="ml-2 text-red-500"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={addBrand}
+                    className="px-4 py-2 bg-blue-500 text-white rounded"
+                  >
+                    + Add Brand
+                  </button>
+                </div>
+                <div>
+                  <h3 className="text-yellow-500 mb-2">Course Lessons</h3>
+                  {editingCourse.courseLessons?.map((lesson, index) => (
+                    <div key={index} className="mb-4">
+                      <input
+                        type="text"
+                        value={lesson.lessonTitle}
+                        onChange={(e) => {
+                          const updatedLessons = [...editingCourse.courseLessons];
+                          updatedLessons[index].lessonTitle = e.target.value;
+                          setEditingCourse({...editingCourse, courseLessons: updatedLessons});
+                        }}
+                        placeholder="Lesson Title"
+                        className="w-full p-2 border border-gray-300 rounded mb-2"
+                      />
+                      <textarea
+                        value={lesson.lessonDescription}
+                        onChange={(e) => {
+                          const updatedLessons = [...editingCourse.courseLessons];
+                          updatedLessons[index].lessonDescription = e.target.value;
+                          setEditingCourse({...editingCourse, courseLessons: updatedLessons});
+                        }}
+                        placeholder="Lesson Description"
+                        className="w-full p-2 border border-gray-300 rounded"
+                      ></textarea>
+                      <button
+                        type="button"
+                        onClick={() => removeLesson(index)}
+                        className="text-red-500"
+                      >
+                        Remove Lesson
+                      </button>
+                    </div>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={addLesson}
+                    className="px-4 py-2 bg-blue-500 text-white rounded"
+                  >
+                    + Add Lesson
+                  </button>
+                </div>
+                <div>
+                  <h3 className="text-yellow-500 mb-2">Course FAQs</h3>
+                  {editingCourse.courseFaqs?.map((faq, index) => (
+                    <div key={index} className="mb-4">
+                      <input
+                        type="text"
+                        value={faq.question}
+                        onChange={(e) => {
+                          const updatedFaqs = [...editingCourse.courseFaqs];
+                          updatedFaqs[index].question = e.target.value;
+                          setEditingCourse({...editingCourse, courseFaqs: updatedFaqs});
+                        }}
+                        placeholder="FAQ Question"
+                        className="w-full p-2 border border-gray-300 rounded mb-2"
+                      />
+                      <textarea
+                        value={faq.answer}
+                        onChange={(e) => {
+                          const updatedFaqs = [...editingCourse.courseFaqs];
+                          updatedFaqs[index].answer = e.target.value;
+                          setEditingCourse({...editingCourse, courseFaqs: updatedFaqs});
+                        }}
+                        placeholder="FAQ Answer"
+                        className="w-full p-2 border border-gray-300 rounded"
+                      ></textarea>
+                      <button
+                        type="button"
+                        onClick={() => removeFAQ(index)}
+                        className="text-red-500"
+                      >
+                        Remove FAQ
+                      </button>
+                    </div>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={addFAQ}
+                    className="px-4 py-2 bg-blue-500 text-white rounded"
+                  >
+                    + Add FAQ
+                  </button>
+                </div>
               </div>
 
               <div className="flex justify-end space-x-4">
