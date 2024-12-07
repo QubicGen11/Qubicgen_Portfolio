@@ -52,7 +52,7 @@ const EditCourses = () => {
     const fetchCourses = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:9098/qubicgen/allCourses');
+        const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/allCourses');
         if (!response.ok) {
           throw new Error('Failed to fetch courses');
         }
@@ -81,7 +81,7 @@ const EditCourses = () => {
         throw new Error('Authentication token not found');
       }
 
-      const response = await fetch(`http://localhost:9098/qubicgen/courses/${courseId}`, {
+      const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/courses/${courseId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -110,7 +110,7 @@ const EditCourses = () => {
         throw new Error('Authentication token not found');
       }
 
-      const response = await fetch(`http://localhost:9098/qubicgen/deleteCourse/${courseToDelete}`, {
+      const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/deleteCourse/${courseToDelete}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -218,7 +218,7 @@ const EditCourses = () => {
             payload.certificate = updatedCourse.certificate;
         }
 
-        const response = await fetch(`http://localhost:9098/qubicgen/updateCourse/${updatedCourse.id}`, {
+        const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/updateCourse/${updatedCourse.id}`, {
             method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -838,7 +838,7 @@ const CreateCourse = () => {
       }
 
       // Create course
-      const response = await fetch('http://localhost:9098/qubicgen/newCourse', {
+      const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/newCourse', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -1138,7 +1138,7 @@ const MyCourses = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch('http://localhost:9098/qubicgen/allCourses');
+        const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/allCourses');
         if (!response.ok) {
           throw new Error('Failed to fetch courses');
         }

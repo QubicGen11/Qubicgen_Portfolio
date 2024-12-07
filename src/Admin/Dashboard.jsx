@@ -59,7 +59,7 @@ const Dashboard = () => {
         axios.get('https://qg.vidyantra-dev.com/qubicgen/student-forms', axiosConfig),
         axios.get('https://qg.vidyantra-dev.com/qubicgen/projects', axiosConfig),
         axios.get('https://qg.vidyantra-dev.com/qubicgen/allCareers', axiosConfig),
-        axios.get('http://localhost:9098/qubicgen/allCourseEnrollments', axiosConfig)
+        axios.get('https://qg.vidyantra-dev.com/qubicgen/allCourseEnrollments', axiosConfig)
       ]);
 
       setData({

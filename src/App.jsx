@@ -101,7 +101,7 @@ const App = () => {
             <Route path="*" element={<Nopage />} /> 
             <Route path="/courses" element={<Coursesmain/>} />
             <Route path="/technology/:courseId" element={<Technologymain />} />
-            <Route path="" element={<AdminPage/>} />
+            {/* <Route path="" element={<AdminPage/>} /> */}
             <Route
               path="/admin/dashboard"
               element={
@@ -110,6 +110,10 @@ const App = () => {
                
               }
             />
+
+
+
+
             <Route
               path="/courseadmin"
               element={

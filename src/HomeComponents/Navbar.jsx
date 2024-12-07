@@ -124,7 +124,7 @@ navbar.style.backgroundColor = newColor;
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch('http://localhost:9098/qubicgen/allCourses');
+        const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/allCourses');
         if (!response.ok) throw new Error('Failed to fetch courses');
         const data = await response.json();
         setCourses(data);

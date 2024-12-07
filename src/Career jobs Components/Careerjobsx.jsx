@@ -292,7 +292,7 @@ const Careerjobsx = () => {
           }
         });
 
-        const response = await fetch('http://localhost:3000/api/newjob', {
+        const response = await fetch('https://qg.vidyantra-dev.com/api/newjob', {
           method: 'POST',
           body: submitData,
         });

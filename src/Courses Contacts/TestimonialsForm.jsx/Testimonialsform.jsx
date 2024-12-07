@@ -26,7 +26,7 @@ const TestimonialsForm = () => {
     e.preventDefault();
     setIsSubmitting(true); // Set submitting state to true
     try {
-      const response = await fetch('http://localhost:9098/qubicgen/newTestimonial', {
+      const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/newTestimonial', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

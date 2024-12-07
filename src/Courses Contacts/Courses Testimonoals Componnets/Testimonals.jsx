@@ -145,7 +145,7 @@ const Testimonials = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await fetch('http://localhost:9098/qubicgen/allTestimonials');
+        const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/allTestimonials');
         if (!response.ok) {
           throw new Error('Failed to fetch testimonials');
         }
