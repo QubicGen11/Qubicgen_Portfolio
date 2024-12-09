@@ -59,7 +59,7 @@ const Dashboard = () => {
         axios.get('https://qg.vidyantra-dev.com/qubicgen/student-forms', axiosConfig),
         axios.get('https://qg.vidyantra-dev.com/qubicgen/projects', axiosConfig),
         axios.get('https://qg.vidyantra-dev.com/qubicgen/allCareers', axiosConfig),
-        axios.get('https://qg.vidyantra-dev.com/qubicgen/allCourseEnrollments', axiosConfig)
+        axios.get('http://localhost:9098/qubicgen/allCourseEnrollments', axiosConfig)
       ]);
 
       setData({
@@ -251,7 +251,9 @@ const Dashboard = () => {
             'Contact Number': enrollment.contactNumber,
             'Email': enrollment.email,
             'College Name': enrollment.collegeName,
-            'Date': new Date(enrollment.createdAt).toLocaleString()
+              'coursePrice':enrollment.coursePrice,
+             'programName':enrollment.programName,
+             'Date': new Date(enrollment.createdAt).toLocaleString()
           }));
           break;
 
@@ -609,6 +611,8 @@ const Dashboard = () => {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Full Name</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Contact Number</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Email</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Course Price</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Program Name</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">College Name</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">Date</th>
                 </tr>
@@ -619,7 +623,10 @@ const Dashboard = () => {
                     <td className={tableStyles.cell}>{enrollment.fullName}</td>
                     <td className={tableStyles.cell}>{enrollment.contactNumber}</td>
                     <td className={tableStyles.cell}>{enrollment.email}</td>
+                    <td className={tableStyles.cell}>{enrollment.coursePrice}</td>
+                    <td className={tableStyles.cell}>{enrollment.programName}</td>
                     <td className={tableStyles.cell}>{enrollment.collegeName}</td>
+
                     <td className={tableStyles.cell}>
                       {new Date(enrollment.createdAt).toLocaleString()}
                     </td>
