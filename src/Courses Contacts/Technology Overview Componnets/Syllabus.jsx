@@ -34,7 +34,7 @@ const SyllabusSection = ({ lessons }) => {
   };
 
   return (
-    <div className="bg-[#1a1a1a] py-24 px-6">
+    <div className="bg-[#1a1a1a] py-5 px-6">
       <motion.div 
         className="container mx-auto max-w-7xl"
         variants={containerVariants}

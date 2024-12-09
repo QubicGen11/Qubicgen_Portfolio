@@ -11,6 +11,7 @@ import Navbar from "../HomeComponents/Navbar";
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { ThreeDots } from 'react-loader-spinner'; // Import the loader
+import Pricing from "./Pricing section/Pricing";
 
 const Technologymain = () => {
   const { courseId } = useParams();
@@ -119,6 +120,12 @@ const Technologymain = () => {
               </span>
               <div className="absolute w-0 h-[2px] bg-yellow-400 rounded-full bottom-0 left-0 group-hover:w-full transition-all duration-300"></div>
             </li>
+            <li className="cursor-pointer relative group" onClick={() => scrollToSection("pricing")}>
+              <span className="hover:text-yellow-400 transition duration-300 text-md" style={{fontFamily:'sans-serif'}}>
+                Pricing
+              </span>
+              <div className="absolute w-0 h-[2px] bg-yellow-400 rounded-full bottom-0 left-0 group-hover:w-full transition-all duration-300"></div>
+            </li>
             <li className="cursor-pointer relative group" onClick={() => scrollToSection("faq")}>
               <span className="hover:text-yellow-400 transition duration-300 text-md" style={{fontFamily:'sans-serif'}}>
                 FAQs
@@ -133,19 +140,23 @@ const Technologymain = () => {
       <div id="overviewsection" className=" ">
         <OverviewSection startDate={courseData?.startDate}/>
       </div>
-      <div id="secureplacements" className="pt-24 pb-12">
+      <div id="secureplacements" >
         <Secureplacements />
       </div>
-      <div id="syllabus" className="pt-24 pb-12">
+      <div id="syllabus" className="">
         <SyllabusSection lessons={courseData?.courseLessons} />
       </div>
-      <div id="certifications" className="pt-24 pb-12">
+      <div id="certifications" >
         <CertificateSection certificate={courseData?.certificate} />
       </div>
-      <div id="testimonials" className="pt-24 pb-12">
+      <div id="testimonials" >
         <Testimonials />
       </div>
-      <div id="faq" className="pt-24 pb-12">
+      <div id="pricing">
+        <Pricing />
+
+      </div>
+      <div id="faq" >
         <FaqSection faqs={courseData?.courseFaqs} />
       </div>
 

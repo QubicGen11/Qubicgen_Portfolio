@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import FormModal from './FormModal'; // Import the modal component
 
 const TechnologyOverview = ({ 
   title, 
@@ -57,7 +56,37 @@ const TechnologyOverview = ({
     }
   };
 
-  
+  const handleDownloadBrochure = async () => {
+    if (brochure) {
+      try {
+        const response = await fetch(brochure);
+        if (!response.ok) throw new Error('Failed to download brochure');
+
+        const blob = await response.blob();
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.setAttribute('download', 'brochure.pdf'); // Set a default file name
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setSuccessMessage("Thank you for downloading!"); // Set success message
+
+        // Remove the success message after 2 seconds
+        setTimeout(() => {
+          setSuccessMessage(""); // Clear the success message
+        }, 2000); // 2000 milliseconds = 2 seconds
+      } catch (error) {
+        console.error('Error downloading brochure:', error);
+      }
+    }
+  };
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   // Enhanced text variants with stagger effect
   const textVariants = {
@@ -153,7 +182,7 @@ const TechnologyOverview = ({
                 boxShadow: "0 0 20px rgba(255,255,255,0.3)"
               }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => handleModalOpen(true)}
+              onClick={handleDownloadBrochure}
             >
               Download Brochure
             </motion.button>
@@ -164,7 +193,10 @@ const TechnologyOverview = ({
                 boxShadow: "0 0 20px rgba(255,215,0,0.3)"
               }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => handleModalOpen(false)}
+              onClick={() => {
+                handleModalOpen(false); // Close the modal (if it was open)
+                scrollToSection("pricing"); // Scroll to the pricing section
+              }}
             >
               Apply Now
             </motion.button>
@@ -238,13 +270,6 @@ const TechnologyOverview = ({
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Form Modal */}
-      <FormModal 
-        isOpen={isModalOpen} 
-        onClose={handleModalClose} 
-        onSubmit={handleFormSubmit} 
-      />
 
       {/* Success Message Popup */}
       {successMessage && (

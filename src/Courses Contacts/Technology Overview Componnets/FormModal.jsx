@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-hot-toast';
 import { ToastContainer } from 'react-toastify';
 
-const FormModal = ({ isOpen, onClose, onSubmit }) => {
+const FormModal = ({ isOpen, onClose, onSubmit, programType }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     contactNumber: '',
     email: '',
-    collegeName: ''
+    collegeName: '',
+    programType: '' // Initialize as empty
   });
   const [loading, setLoading] = useState(false);
+
+  // Update formData when programType changes
+  useEffect(() => {
+    if (isOpen) {
+      setFormData((prevData) => ({
+        ...prevData,
+        programType: programType || '' // Update programType when modal opens
+      }));
+    }
+  }, [programType, isOpen]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,18 +35,18 @@ const FormModal = ({ isOpen, onClose, onSubmit }) => {
       toast.success("Form submitted successfully!");
 
       // Trigger download
-      const fileData = JSON.stringify(formData, null, 2); // Convert form data to JSON
+      const fileData = JSON.stringify(formData, null, 2);
       const blob = new Blob([fileData], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'formData.json'; // Name of the downloaded file
+      a.download = 'formData.json';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      URL.revokeObjectURL(url); // Clean up the URL object
+      URL.revokeObjectURL(url);
 
-      onClose(); // Close the modal after submission
+      onClose();
     } catch (error) {
       toast.error("Error submitting the form.");
     } finally {
@@ -47,7 +58,7 @@ const FormModal = ({ isOpen, onClose, onSubmit }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <ToastContainer/>
+      <ToastContainer />
       <motion.div
         className="bg-[#1e1e1e] text-white rounded-lg p-8 shadow-md z-50 relative mt-10"
         initial={{ scale: 0.8, opacity: 0 }}
@@ -110,6 +121,18 @@ const FormModal = ({ isOpen, onClose, onSubmit }) => {
               className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="Enter your college name"
               required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
+              Program Type <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="programType"
+              value={formData.programType}
+              readOnly
+              className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
           <div className="flex justify-end space-x-4">

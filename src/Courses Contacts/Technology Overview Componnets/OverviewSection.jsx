@@ -46,7 +46,7 @@ const OverviewSection = ({ courseData }) => {
 
   return (
     <motion.div
-      className="bg-gradient-to-b from-[#121212] to-[#1a1a1a] py-16 px-6 font-sans"
+      className="py-5 px-6 font-sans"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
