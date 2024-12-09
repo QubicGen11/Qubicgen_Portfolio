@@ -22,7 +22,7 @@ const Technologymain = () => {
     const fetchCourseDetails = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:9098/qubicgen/courses/${courseId}`);
+        const response = await fetch(`https://qg.vidyantra-dev.com/qubicgencourses/${courseId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch course details');
         }

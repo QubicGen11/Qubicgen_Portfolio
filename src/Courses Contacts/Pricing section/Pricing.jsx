@@ -11,7 +11,7 @@ const Pricing = ({ selfPaced, mentorship, dualPath }) => {
 useEffect(() => {
     const fetchPricingData = async () => {
         try {
-            const response = await fetch("http://localhost:9098/qubicgen/allCourses");
+            const response = await fetch("https://qg.vidyantra-dev.com/qubicgenallCourses");
             const data = await response.json();
             
             // Extract only the required pricing fields from the first course
