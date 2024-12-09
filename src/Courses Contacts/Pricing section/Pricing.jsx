@@ -1,11 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaQuestionCircle, FaRupeeSign } from "react-icons/fa";
 import FormModal from "../Technology Overview Componnets/FormModal";
 
-const Pricing = () => {
+const Pricing = ({ selfPaced, mentorship, dualPath }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedProgram, setSelectedProgram] = useState('');
+    const [pricingData, setPricingData] = useState({});
+
+useEffect(() => {
+    const fetchPricingData = async () => {
+        try {
+            const response = await fetch("http://localhost:9098/qubicgen/allCourses");
+            const data = await response.json();
+            
+            // Extract only the required pricing fields from the first course
+            if (data && data.length > 0) {
+                const { selfPaced, mentorship, dualPath } = data[0]; // Assuming the first course has the relevant pricing fields
+                setPricingData({ selfPaced, mentorship, dualPath });
+            }
+        } catch (error) {
+            console.error("Error fetching pricing data:", error);
+        }
+    };
+
+    fetchPricingData();
+}, []);
+
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -77,19 +98,14 @@ const Pricing = () => {
                 >
                     <h3 className="text-xl font-semibold mb-4 text-purple-400">Ignite Learn Program</h3>
                     <p className="text-sm text-white mb-2">Self-Paced</p>
-                 
-
                     <div className="flex justify-between">
                         <div>
-
-                            <p className="text-2xl font-bold mb-4 text-white">1 Month</p>
+                            <p className="text-2xl font-bold mb-4 text-white">2 Months</p>
                         </div>
                         <div className="flex justify-center items-center ">
-                            <p className="text-2xl font-bold mb-4 text-white">  199</p>
-                            <span className="text-2xl font-bold mb-4 text-white"><FaRupeeSign /> </span>
-
+                            <p className="text-2xl font-bold mb-4 text-white">    {selfPaced || "N/A"}</p>
+                            <span className="text-2xl font-bold mb-4 text-white"><FaRupeeSign /></span>
                         </div>
-
                     </div>
                     <button
                         className="bg-purple-500 text-white font-semibold py-2 px-4 rounded mb-6 hover:bg-purple-600 transition-colors"
@@ -115,15 +131,12 @@ const Pricing = () => {
                     <p className="text-sm mb-2 text-white">Mentorship</p>
                     <div className="flex justify-between">
                         <div>
-
-                            <p className="text-2xl font-bold mb-4 text-white">2 Months</p>
+                            <p className="text-2xl font-bold mb-4 text-white">4 Months</p>
                         </div>
                         <div className="flex justify-center items-center ">
-                            <p className="text-2xl font-bold mb-4 text-white">  249</p>
-                            <span className="text-2xl font-bold mb-4 text-white"><FaRupeeSign /> </span>
-
+                            <p className="text-2xl font-bold mb-4 text-white">    {mentorship || "N/A"}</p>
+                            <span className="text-2xl font-bold mb-4 text-white"><FaRupeeSign /></span>
                         </div>
-
                     </div>
                     <button
                         className="bg-blue-500 text-white font-semibold py-2 px-4 rounded mb-6 hover:bg-blue-600 transition-colors"
@@ -149,15 +162,12 @@ const Pricing = () => {
                     <p className="text-sm mb-2 text-white">Dual Path</p>
                     <div className="flex justify-between">
                         <div>
-
-                            <p className="text-2xl font-bold mb-4 text-white">4 Months</p>
+                            <p className="text-2xl font-bold mb-4 text-white">6 Months</p>
                         </div>
                         <div className="flex justify-center items-center ">
-                            <p className="text-2xl font-bold mb-4 text-white">  449</p>
-                            <span className="text-2xl font-bold mb-4 text-white"><FaRupeeSign /> </span>
-
+                            <p className="text-2xl font-bold mb-4 text-white"> {dualPath || "N/A"}</p>
+                            <span className="text-2xl font-bold mb-4 text-white"><FaRupeeSign /></span>
                         </div>
-
                     </div>
                     <button
                         className="bg-purple-500 text-white font-semibold py-2 px-4 rounded mb-6 hover:bg-purple-600 transition-colors"

@@ -42,7 +42,11 @@ const CourseList = () => {
 // New EditCourses component
 const EditCourses = () => {
   const [courses, setCourses] = useState([]);
-  const [editingCourse, setEditingCourse] = useState(null);
+  const [editingCourse, setEditingCourse] = useState({
+    selfPaced: 0,
+    mentorship: 0,
+    dualPath: 0,
+  });
   const [loading, setLoading] = useState(true);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [courseToDelete, setCourseToDelete] = useState(null);
@@ -52,7 +56,8 @@ const EditCourses = () => {
     const fetchCourses = async () => {
       try {
         setLoading(true);
-        const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/allCourses');
+        // const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/allCourses');
+        const response = await fetch('http://localhost:9098/qubicgen/allCourses');
         if (!response.ok) {
           throw new Error('Failed to fetch courses');
         }
@@ -81,7 +86,7 @@ const EditCourses = () => {
         throw new Error('Authentication token not found');
       }
 
-      const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/courses/${courseId}`, {
+      const response = await fetch(`http://localhost:9098/qubicgen/courses/${courseId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -178,6 +183,10 @@ const EditCourses = () => {
             brands: (updatedCourse.courseBrands || []).map(brand => ({
                 brandLogo: typeof brand.brandLogo === 'string' ? brand.brandLogo : null,
             })),
+           
+            selfPaced: parseInt(updatedCourse.selfPaced), // Convert to number
+            mentorship: parseInt(updatedCourse.mentorship), // Convert to number
+            dualPath: parseInt(updatedCourse.dualPath), // Convert to number
         };
 
         if (updatedCourse.courseBanner && typeof updatedCourse.courseBanner === 'object') {
@@ -218,7 +227,7 @@ const EditCourses = () => {
             payload.certificate = updatedCourse.certificate;
         }
 
-        const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/updateCourse/${updatedCourse.id}`, {
+        const response = await fetch(`http://localhost:9098/qubicgen/updateCourse/${updatedCourse.id}`, {
             method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -562,6 +571,36 @@ const EditCourses = () => {
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                   />
                 </div>
+                <div>
+                  <label className="block text-yellow-500 mb-2">Self Paced Price *</label>
+                  <input
+                    type="number"
+                    value={editingCourse.selfPaced || ''}
+                    onChange={(e) => setEditingCourse({...editingCourse, selfPaced: e.target.value})}
+                    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-yellow-500 mb-2">Mentorship Price *</label>
+                  <input
+                    type="number"
+                    value={editingCourse.mentorship || ''}
+                    onChange={(e) => setEditingCourse({...editingCourse, mentorship: e.target.value})}
+                    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-yellow-500 mb-2">Dual Path Price *</label>
+                  <input
+                    type="number"
+                    value={editingCourse.dualPath || ''}
+                    onChange={(e) => setEditingCourse({...editingCourse, dualPath: e.target.value})}
+                    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+                    required
+                  />
+                </div>
               </div>
 
               <div className="flex justify-end space-x-4">
@@ -647,6 +686,9 @@ const CreateCourse = () => {
     technologies: "",
     rating: "",
     startDate: "",
+    selfPaced:"",
+    mentorship:"",
+    dualPath:"",
     endDate: "",
     courseDescription: "",
     courseImage: null,
@@ -732,18 +774,7 @@ const CreateCourse = () => {
     }
   };
 
-  const addBrand = () => {
-    setFormData(prev => ({
-      ...prev,
-      brands: [...prev.brands, { brandLogo: null }]
-    }));
-  };
 
-  const removeBrand = (index) => {
-    const updatedBrands = [...formData.brands];
-    updatedBrands.splice(index, 1);
-    setFormData(prev => ({ ...prev, brands: updatedBrands }));
-  };
 
   const uploadFile = async (file) => {
     const formData = new FormData();
@@ -801,6 +832,9 @@ const CreateCourse = () => {
         endDate: formData.endDate,
         courseDescription: formData.courseDescription,
         lessons: formData.lessons,
+        selfPaced: parseInt(formData.selfPaced), // Convert to number
+        mentorship: parseInt(formData.mentorship), // Convert to number
+        dualPath: parseInt(formData.dualPath), // Convert to number
         faqs: formData.faqs,
         brands: []
       };
@@ -838,7 +872,7 @@ const CreateCourse = () => {
       }
 
       // Create course
-      const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/newCourse', {
+      const response = await fetch('http://localhost:9098/qubicgen/newCourse', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -865,6 +899,9 @@ const CreateCourse = () => {
         startDate: "",
         endDate: "",
         courseDescription: "",
+        selfPaced: "", // Reset to empty string
+        mentorship: "", // Reset to empty string
+        dualPath: "", // Reset to empty string
         brochure: null,
         certificate: null,
         lessons: [{ lessonTitle: "", lessonDescription: "" }],
@@ -1100,6 +1137,41 @@ const CreateCourse = () => {
                 Add FAQ
               </button>
             </div>
+   
+            <div>
+              <label className="block text-yellow-500 mb-2">Self Paced Price*</label>
+              <input
+                type="number"
+                name="selfPaced"
+                value={formData.selfPaced}
+                onChange={handleInputChange}
+                className="w-full p-2 rounded bg-gray-800 text-white"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-yellow-500 mb-2">Mentorship Price *</label>
+              <input
+                type="number"
+                name="mentorship"
+                value={formData.mentorship}
+                onChange={handleInputChange}
+                className="w-full p-2 rounded bg-gray-800 text-white"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-yellow-500 mb-2">Dual Path Price*</label>
+              <input
+                type="number"
+                name="dualPath"
+                value={formData.dualPath}
+                onChange={handleInputChange}
+                className="w-full p-2 rounded bg-gray-800 text-white"
+                required
+              />
+            </div>
+
             <div className="space-y-4">
               <h3 className="text-xl font-bold text-yellow-500">Brand Logo</h3>
               <div className="p-4 bg-gray-800 rounded-lg space-y-3">

@@ -177,7 +177,7 @@ const Exploremain = () => {
                       <ThreeDots 
                         height="20" 
                         width="20" 
-                        color="#FFD700" 
+                        color="black" 
                         ariaLabel='loading' 
                         visible={true} 
                       />

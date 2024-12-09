@@ -22,7 +22,7 @@ const Technologymain = () => {
     const fetchCourseDetails = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/courses/${courseId}`);
+        const response = await fetch(`http://localhost:9098/qubicgen/courses/${courseId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch course details');
         }
@@ -153,9 +153,13 @@ const Technologymain = () => {
         <Testimonials />
       </div>
       <div id="pricing">
-        <Pricing />
+  <Pricing
+    selfPaced={courseData?.selfPaced}
+    mentorship={courseData?.mentorship}
+    dualPath={courseData?.dualPath}
+  />
+</div>
 
-      </div>
       <div id="faq" >
         <FaqSection faqs={courseData?.courseFaqs} />
       </div>
