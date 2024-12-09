@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
 
 
-const FormModal = ({ isOpen, onClose, onSubmit, programType, coursePrice }) => {
+const FormModal = ({ isOpen, onClose, onSubmit, programName, coursePrice }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     contactNumber: '',
     email: '',
     collegeName: '',
-    programType: '',
+    programName: '',
     coursePrice: 0,
-    programName: ''
+  
   });
   const [loading, setLoading] = useState(false);
 
@@ -19,12 +19,12 @@ const FormModal = ({ isOpen, onClose, onSubmit, programType, coursePrice }) => {
     if (isOpen) {
       setFormData((prevData) => ({
         ...prevData,
-        programType: programType || '',
+        programName: programName || '',
         coursePrice: coursePrice || 0,
-        programName: programType
+        programName: programName
       }));
     }
-  }, [programType, coursePrice, isOpen]);
+  }, [programName, coursePrice, isOpen]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -131,8 +131,8 @@ const FormModal = ({ isOpen, onClose, onSubmit, programType, coursePrice }) => {
             </label>
             <input
               type="text"
-              name="programType"
-              value={formData.programType}
+              name="programName"
+              value={formData.programName}
               readOnly
               className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
             />

@@ -52,9 +52,10 @@ useEffect(() => {
         },
     };
 
-    const handleRegisterNow = (programName) => {
+    const handleRegisterNow = (programName, coursePrice) => {
         setSelectedProgram(programName);
         setIsModalOpen(true);
+        setPricingData((prev) => ({ ...prev, selectedPrice: coursePrice }));
     };
 
     const handleModalClose = () => {
@@ -109,7 +110,7 @@ useEffect(() => {
                     </div>
                     <button
                         className="bg-purple-500 text-white font-semibold py-2 px-4 rounded mb-6 hover:bg-purple-600 transition-colors"
-                        onClick={() => handleRegisterNow("Ignite Learn Program")}
+                        onClick={() => handleRegisterNow("Ignite Learn Program",selfPaced)}
                     >
                         Register Now
                     </button>
@@ -140,7 +141,7 @@ useEffect(() => {
                     </div>
                     <button
                         className="bg-blue-500 text-white font-semibold py-2 px-4 rounded mb-6 hover:bg-blue-600 transition-colors"
-                        onClick={() => handleRegisterNow("Propel Path Program")}
+                        onClick={() => handleRegisterNow("Propel Path Program",mentorship)}
                     >
                         Register Now
                     </button>
@@ -171,7 +172,7 @@ useEffect(() => {
                     </div>
                     <button
                         className="bg-purple-500 text-white font-semibold py-2 px-4 rounded mb-6 hover:bg-purple-600 transition-colors"
-                        onClick={() => handleRegisterNow("Fusion Learn Program")}
+                        onClick={() => handleRegisterNow("Fusion Learn Program",dualPath)}
                     >
                         Register Now
                     </button>
@@ -185,11 +186,12 @@ useEffect(() => {
             </motion.div>
 
             <FormModal
-                isOpen={isModalOpen}
-                onClose={handleModalClose}
-                onSubmit={handleFormSubmit}
-                programType={selectedProgram}
-            />
+    isOpen={isModalOpen}
+    onClose={handleModalClose}
+    onSubmit={handleFormSubmit}
+    programName={selectedProgram}
+    coursePrice={pricingData.selectedPrice}
+/>
         </div>
     );
 };
