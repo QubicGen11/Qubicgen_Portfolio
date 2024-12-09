@@ -22,7 +22,8 @@ const Technologymain = () => {
     const fetchCourseDetails = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/courses/${courseId}`);
+        // const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/courses/${courseId}`);
+         const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/courses/${courseId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch course details');
         }
@@ -147,7 +148,7 @@ const Technologymain = () => {
         <SyllabusSection lessons={courseData?.courseLessons} />
       </div>
       <div id="certifications" >
-        <CertificateSection certificate={courseData?.certificate} />
+        <CertificateSection certificate={courseData?.certificate} certificate2={courseData?.certificate2}  />
       </div>
       <div id="testimonials" >
         <Testimonials />

@@ -1,8 +1,22 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaCertificate } from 'react-icons/fa';
 
-const CertificateSection = ({ certificate }) => {
+const CertificateSection = ({ certificate, certificate2 }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const certificates = [certificate, certificate2].filter(Boolean);
+
+  useEffect(() => {
+    if (certificates.length <= 1 || isHovered) return;
+
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % certificates.length);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [certificates.length, isHovered]);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -128,32 +142,52 @@ const CertificateSection = ({ certificate }) => {
               </motion.ul>
             </div>
             
-            <div className="w-full md:w-1/2">
-              {certificate ? (
+            <div 
+              className="w-full md:w-1/2"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <AnimatePresence mode="wait">
                 <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
                   className="relative group h-[400px]"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 200 }}
                 >
-                  <motion.img
-                    src={certificate}
-                    alt="Course Certificate"
-                    className="w-full h-full object-cover rounded-lg shadow-[0_5px_15px_rgba(0,0,0,0.3)] group-hover:shadow-[0_10px_30px_rgba(139,92,246,0.3)] transition-all duration-500"
-                    variants={itemVariants}
-                    loading="lazy"
-                  />
+                  {certificates[currentIndex] ? (
+                    <motion.img
+                      src={certificates[currentIndex]}
+                      alt={`Certificate ${currentIndex + 1}`}
+                      className="w-full h-full object-cover rounded-lg shadow-[0_5px_15px_rgba(0,0,0,0.3)] group-hover:shadow-[0_10px_30px_rgba(139,92,246,0.3)] transition-all duration-500"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-[#252525] rounded-lg flex items-center justify-center">
+                      <span className="text-gray-500 text-xl">Certificate preview not available</span>
+                    </div>
+                  )}
                   <motion.div 
                     className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"
                   />
                 </motion.div>
-              ) : (
-                <motion.div 
-                  className="w-full h-[400px] bg-[#252525] rounded-lg flex items-center justify-center shadow-lg"
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <span className="text-gray-500 text-xl">Certificate preview not available</span>
-                </motion.div>
+              </AnimatePresence>
+
+              {certificates.length > 1 && (
+                <div className="flex justify-center mt-4 gap-2">
+                  {certificates.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        currentIndex === index 
+                          ? 'bg-purple-500 w-4' 
+                          : 'bg-gray-500 hover:bg-purple-400'
+                      }`}
+                    />
+                  ))}
+                </div>
               )}
             </div>
           </div>

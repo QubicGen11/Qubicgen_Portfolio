@@ -166,12 +166,16 @@ const EditCourses = () => {
             technologies: updatedCourse.technologies,
             rating: updatedCourse.rating,
             startDate: updatedCourse.startDate,
-            endDate: updatedCourse.endDate,
+            endDate: updatedCourse.endDate, 
             courseDescription: updatedCourse.courseDescription,
             courseImage: updatedCourse.courseImage || null,
-            courseBanner: null,
+          
+            courseBanner: updatedCourse.courseBanner || null,
+        
+      
             brochure: updatedCourse.brochure,
-            certificate: null,
+            certificate: updatedCourse.certificate || null,
+            certificate2: updatedCourse.certificate2 || null, // Add certificate2
             lessons: (updatedCourse.courseLessons || []).map(lesson => ({
                 lessonTitle: lesson.lessonTitle,
                 lessonDescription: lesson.lessonDescription,
@@ -183,12 +187,12 @@ const EditCourses = () => {
             brands: (updatedCourse.courseBrands || []).map(brand => ({
                 brandLogo: typeof brand.brandLogo === 'string' ? brand.brandLogo : null,
             })),
-           
             selfPaced: parseInt(updatedCourse.selfPaced), // Convert to number
             mentorship: parseInt(updatedCourse.mentorship), // Convert to number
             dualPath: parseInt(updatedCourse.dualPath), // Convert to number
         };
 
+        // Upload course banner if it is an object
         if (updatedCourse.courseBanner && typeof updatedCourse.courseBanner === 'object') {
             const formData = new FormData();
             formData.append('file', updatedCourse.courseBanner);
@@ -208,6 +212,7 @@ const EditCourses = () => {
             payload.courseBanner = updatedCourse.courseBanner;
         }
 
+        // Upload certificate if it is an object
         if (updatedCourse.certificate && typeof updatedCourse.certificate === 'object') {
             const formData = new FormData();
             formData.append('file', updatedCourse.certificate);
@@ -227,7 +232,28 @@ const EditCourses = () => {
             payload.certificate = updatedCourse.certificate;
         }
 
-        const response = await fetch(`https://qg.vidyantra-dev.com/qubicgenupdateCourse/${updatedCourse.id}`, {
+        // Upload certificate2 if it is an object
+        if (updatedCourse.certificate2 && typeof updatedCourse.certificate2 === 'object') {
+            const formData = new FormData();
+            formData.append('file', updatedCourse.certificate2);
+
+            const uploadResponse = await fetch('https://image.qubinest.com/upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!uploadResponse.ok) {
+                throw new Error('Failed to upload certificate2');
+            }
+
+            const uploadData = await uploadResponse.json();
+            payload.certificate2 = uploadData.url;
+        } else {
+            payload.certificate2 = updatedCourse.certificate2;
+        }
+
+        // Update course
+        const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/updateCourse/${updatedCourse.id}`, {
             method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -249,6 +275,7 @@ const EditCourses = () => {
         setUpdating(false);
     }
 };
+
  
   const addBrand = () => {
     const newBrand = { id: Date.now(), brandLogo: null };
@@ -306,6 +333,20 @@ const EditCourses = () => {
         setEditingCourse((prev) => ({
             ...prev,
             certificate: null,
+        }));
+    }
+};
+  const handleCertificateChange2 = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        setEditingCourse((prev) => ({
+            ...prev,
+            certificate2: file, // Store the file object
+        }));
+    } else {
+        setEditingCourse((prev) => ({
+            ...prev,
+            certificate2: null,
         }));
     }
 };
@@ -571,6 +612,44 @@ const EditCourses = () => {
                     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
                   />
                 </div>
+
+                <div>
+  <label className="block text-yellow-500 mb-2">Course Image *</label>
+  <input
+    type="file"
+    onChange={(e) => {
+      const file = e.target.files[0];
+      if (file) {
+        setEditingCourse((prev) => ({
+          ...prev,
+          courseImg: file, // Update with the file object
+        }));
+      }
+    }}
+    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+    accept="image/*"
+  />
+  {editingCourse.courseImg && typeof editingCourse.courseImg === 'string' && (
+    <img
+      src={`path/to/image/${editingCourse.courseImg}`} // Adjust based on actual image path
+      alt="Course"
+      className="w-full h-48 object-cover rounded-lg mt-2"
+    />
+  )}
+</div>
+
+                <div>
+
+  <label className="block text-yellow-500 mb-2">Certificate2 *</label>
+  <input
+    type="file"
+    name="certificate2" // Ensure the name matches your state key
+    onChange={handleCertificateChange2} // Use the appropriate handler for file inputs
+    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+
+  />
+</div>
+
                 <div>
                   <label className="block text-yellow-500 mb-2">Self Paced Price *</label>
                   <input
@@ -694,6 +773,7 @@ const CreateCourse = () => {
     courseImage: null,
     brochure: null,
     certificate: null,
+    certificate2: null, // New field
     lessons: [{ lessonTitle: "", lessonDescription: "" }],
     faqs: [{ question: "", answer: "" }],
     brands: [{ brandLogo: null }]
@@ -816,6 +896,8 @@ const CreateCourse = () => {
         throw new Error('Authentication token not found');
       }
 
+
+
       // Prepare the request body with both courseImage and courseBanner
       const requestBody = {
         courseName: formData.courseName,
@@ -828,6 +910,7 @@ const CreateCourse = () => {
         rating: parseFloat(formData.rating),
         brochure: null,
         certificate: null,
+        certificate2: null,
         startDate: formData.startDate,
         endDate: formData.endDate,
         courseDescription: formData.courseDescription,
@@ -845,6 +928,7 @@ const CreateCourse = () => {
         requestBody.courseImg = courseImgUrl;
       }
 
+      
       if (formData.courseBanner) {
         const courseBannerUrl = await uploadFile(formData.courseBanner);
         requestBody.courseBanner = courseBannerUrl;
@@ -860,6 +944,10 @@ const CreateCourse = () => {
         requestBody.certificate = certificateUrl;
       }
 
+      if (formData.certificate2) {
+        const certificate2Url = await uploadFile(formData.certificate2); // Upload `certificate2`
+        requestBody.certificate2 = certificate2Url;
+      }
       // Handle brand logos
       if (formData.brands?.length) {
         requestBody.brands = await Promise.all(formData.brands.map(async (brand) => {
@@ -904,6 +992,7 @@ const CreateCourse = () => {
         dualPath: "", // Reset to empty string
         brochure: null,
         certificate: null,
+        certificate2: null,
         lessons: [{ lessonTitle: "", lessonDescription: "" }],
         faqs: [{ question: "", answer: "" }],
         brands: [{ brandLogo: null }]
@@ -1063,6 +1152,18 @@ const CreateCourse = () => {
                 className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
               />
             </div>
+
+            <div>
+  <label className="block text-yellow-500 mb-2">Certificate 2 *</label>
+  <input
+    type="file"
+    name="certificate2"
+    onChange={handleInputChange}
+    className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+    
+  />
+</div>
+
             <div className="space-y-4">
               <h3 className="text-xl font-bold text-yellow-500">Course Lessons</h3>
               {formData.lessons.map((lesson, index) => (
