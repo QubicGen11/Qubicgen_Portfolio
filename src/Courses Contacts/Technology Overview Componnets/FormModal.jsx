@@ -1,27 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { toast } from 'react-hot-toast';
-import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
-const FormModal = ({ isOpen, onClose, onSubmit, programType }) => {
+
+const FormModal = ({ isOpen, onClose, onSubmit, programType, coursePrice }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     contactNumber: '',
     email: '',
     collegeName: '',
-    programType: '' // Initialize as empty
+    programType: '',
+    coursePrice: 0,
+    programName: ''
   });
   const [loading, setLoading] = useState(false);
 
-  // Update formData when programType changes
   useEffect(() => {
     if (isOpen) {
       setFormData((prevData) => ({
         ...prevData,
-        programType: programType || '' // Update programType when modal opens
+        programType: programType || '',
+        coursePrice: coursePrice || 0,
+        programName: programType
       }));
     }
-  }, [programType, isOpen]);
+  }, [programType, coursePrice, isOpen]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,20 +34,20 @@ const FormModal = ({ isOpen, onClose, onSubmit, programType }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      await onSubmit(formData);
-      toast.success("Form submitted successfully!");
+      const response = await fetch('http://localhost:9098/qubicgen/newEnrollment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      // Trigger download
-      const fileData = JSON.stringify(formData, null, 2);
-      const blob = new Blob([fileData], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'formData.json';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      await onSubmit(formData);
+      toast.success("Successfully submitted! Our team will reach out to you.");
 
       onClose();
     } catch (error) {
@@ -58,7 +61,6 @@ const FormModal = ({ isOpen, onClose, onSubmit, programType }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <ToastContainer />
       <motion.div
         className="bg-[#1e1e1e] text-white rounded-lg p-8 shadow-md z-50 relative mt-10"
         initial={{ scale: 0.8, opacity: 0 }}
@@ -131,6 +133,18 @@ const FormModal = ({ isOpen, onClose, onSubmit, programType }) => {
               type="text"
               name="programType"
               value={formData.programType}
+              readOnly
+              className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
+              Course Price <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="number"
+              name="coursePrice"
+              value={formData.coursePrice}
               readOnly
               className="w-full border border-gray-600 bg-[#1a1a1a] text-white rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
             />

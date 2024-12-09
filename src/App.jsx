@@ -49,6 +49,8 @@ import TechnologyOverview from "./Courses Contacts/Technology Overview Componnet
 import Technologymain from "./Courses Contacts/Technologymain";
 import AdminPage from "./Courses Contacts/Course Admin Component/Courseadmin";
 import Pricing from "./Courses Contacts/Pricing section/Pricing";
+import { ToastContainer } from "react-toastify";
+
 // import TechnologyOverview from "./Courses Contacts/Technology Overview Componnets/TechnologyOverview";
 const Nopage = lazy(()=>import ( './404') );
 // Import the NotFound component
@@ -58,6 +60,9 @@ const Nopage = lazy(()=>import ( './404') );
 
 const App = () => {
   return (
+    <div>
+      <ToastContainer/>
+
     <HelmetProvider> {/* Wrap your App component with HelmetProvider */}
 
       <Router>
@@ -130,6 +135,7 @@ const App = () => {
         </Suspense>
       </Router>
       </HelmetProvider>
+    </div>
 
   );
 };
