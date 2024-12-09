@@ -11,7 +11,7 @@ const Pricing = ({ selfPaced, mentorship, dualPath }) => {
 useEffect(() => {
     const fetchPricingData = async () => {
         try {
-            const response = await fetch("https://qg.vidyantra-dev.com/qubicgenallCourses");
+            const response = await fetch("https://qg.vidyantra-dev.com/qubicgen/allCourses");
             const data = await response.json();
             
             // Extract only the required pricing fields from the first course
@@ -132,7 +132,7 @@ useEffect(() => {
                     <p className="text-sm mb-2 text-white">Mentorship</p>
                     <div className="flex justify-between">
                         <div>
-                            <p className="text-2xl font-bold mb-4 text-white">4 Months</p>
+                            <p className="text-2xl font-bold mb-4 text-white">2 Months</p>
                         </div>
                         <div className="flex justify-center items-center ">
                             <p className="text-2xl font-bold mb-4 text-white">    {mentorship || "N/A"}</p>
@@ -146,10 +146,12 @@ useEffect(() => {
                         Register Now
                     </button>
                     <ul className="space-y-2 text-gray-300">
-                        <li>✔ 30+ Hours of Live Mentorship</li>
-                        <li>✔ 6 Case Studies & 1 Capstone Project</li>
-                        <li>✔ Career Guidance & Mock Interviews</li>
-                        <li>✔ Personalized Weekly Check-Ins</li>
+                        <li>✔ 20+ High-Quality Mentorship Live Classes</li>
+                        <li>✔ Self-Paced Access to Recorded Content</li>
+                        
+                        <li>✔ 5 Mini Projects & 1 Capstone Project</li>
+                        <li>✔ Certifications for Completion & Excellence</li>
+                        <li>✔ Learn at your own pace</li>
                     </ul>
                 </motion.div>
 
@@ -163,7 +165,7 @@ useEffect(() => {
                     <p className="text-sm mb-2 text-white">Dual Path</p>
                     <div className="flex justify-between">
                         <div>
-                            <p className="text-2xl font-bold mb-4 text-white">6 Months</p>
+                            <p className="text-2xl font-bold mb-4 text-white">4 Months</p>
                         </div>
                         <div className="flex justify-center items-center ">
                             <p className="text-2xl font-bold mb-4 text-white"> {dualPath || "N/A"}</p>
@@ -179,6 +181,7 @@ useEffect(() => {
                     <ul className="space-y-2 text-gray-300">
                         <li>✔ 40+ Hours of Live Sessions</li>
                         <li>✔ Self-Paced Access to Recorded Content</li>
+                        <li>✔ Certifications for Completion & Excellence</li>
                         <li>✔ 10 Mini Projects & 2 Capstone Projects</li>
                         <li>✔ Collaboration Excellence Certificate</li>
                     </ul>

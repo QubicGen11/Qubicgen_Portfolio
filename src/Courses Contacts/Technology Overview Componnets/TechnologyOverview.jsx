@@ -26,7 +26,7 @@ const TechnologyOverview = ({
 
   const handleFormSubmit = async (formData) => {
     try {
-      const response = await fetch('https://qg.vidyantra-dev.com/qubicgennewEnrollment', {
+      const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/newEnrollment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
