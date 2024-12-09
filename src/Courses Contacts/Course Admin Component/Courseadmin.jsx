@@ -57,7 +57,7 @@ const EditCourses = () => {
       try {
         setLoading(true);
         // const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/allCourses');
-        const response = await fetch('https://qg.vidyantra-dev.com/qubicgenallCourses');
+        const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/allCourses');
         if (!response.ok) {
           throw new Error('Failed to fetch courses');
         }
@@ -86,7 +86,7 @@ const EditCourses = () => {
         throw new Error('Authentication token not found');
       }
 
-      const response = await fetch(`https://qg.vidyantra-dev.com/qubicgencourses/${courseId}`, {
+      const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/courses/${courseId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -872,7 +872,7 @@ const CreateCourse = () => {
       }
 
       // Create course
-      const response = await fetch('https://qg.vidyantra-dev.com/qubicgennewCourse', {
+      const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/newCourse', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

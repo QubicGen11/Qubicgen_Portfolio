@@ -8,24 +8,7 @@ const Pricing = ({ selfPaced, mentorship, dualPath }) => {
     const [selectedProgram, setSelectedProgram] = useState('');
     const [pricingData, setPricingData] = useState({});
 
-useEffect(() => {
-    const fetchPricingData = async () => {
-        try {
-            const response = await fetch("https://qg.vidyantra-dev.com/qubicgen/allCourses");
-            const data = await response.json();
-            
-            // Extract only the required pricing fields from the first course
-            if (data && data.length > 0) {
-                const { selfPaced, mentorship, dualPath } = data[0]; // Assuming the first course has the relevant pricing fields
-                setPricingData({ selfPaced, mentorship, dualPath });
-            }
-        } catch (error) {
-            console.error("Error fetching pricing data:", error);
-        }
-    };
 
-    fetchPricingData();
-}, []);
 
 
     const containerVariants = {
