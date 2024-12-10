@@ -117,9 +117,26 @@ const SyllabusSection = ({ lessons }) => {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="px-8 py-6 text-gray-300 text-lg border-t border-purple-500/20 bg-[#1a1a1a]">
-                  {item.lessonDescription}
-                </div>
+   
+
+
+<div className="px-8 py-6 text-gray-300 text-lg border-t border-purple-500/20 bg-[#1a1a1a]">
+  <ul className="list-none space-y-2 ml-14">
+    {item.lessonDescription.split('\n').filter(line => line.trim()).map((line, i) => {
+      const bulletPoints = [ '▶', ]; // Array of different bullet symbols
+      const bulletPoint = bulletPoints[i % bulletPoints.length]; // Cycle through bullet points
+      
+      return (
+        <li key={i} className="flex items-start gap-3">
+          <span className="text-purple-400 mt-1">{bulletPoint}</span>
+          <span>{line}</span>
+        </li>
+      );
+    })}
+  </ul>
+</div>
+
+
               </motion.div>
             </motion.div>
           ))}
