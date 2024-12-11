@@ -133,7 +133,8 @@ const Exploremain = () => {
                 <img
                   src={course.courseImage || 'https://corizo.in/wp-content/uploads/2024/09/UI_Design.jpg'}
                   alt={course.courseName}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-contain"
+                  
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
@@ -147,8 +148,8 @@ const Exploremain = () => {
                   </span>
                 </div>
                 <p className="text-gray-400 text-sm mb-4">
-                  {course.courseDescription && course.courseDescription.length > 14 
-                    ? `${course.courseDescription.substring(0, 14)}...` 
+                  {course.courseDescription && course.courseDescription.length > 50
+                    ? `${course.courseDescription.substring(0, 50)}...` 
                     : course.courseDescription || 'No description available'}
                 </p>
                 <div className="flex items-center justify-between mb-4">

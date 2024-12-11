@@ -160,8 +160,9 @@ const CertificateSection = ({ certificate, certificate2 }) => {
                     <motion.img
                       src={certificates[currentIndex]}
                       alt={`Certificate ${currentIndex + 1}`}
-                      className="w-full h-full object-cover rounded-lg shadow-[0_5px_15px_rgba(0,0,0,0.3)] group-hover:shadow-[0_10px_30px_rgba(139,92,246,0.3)] transition-all duration-500"
+                      className="w-full h-full object-contain rounded-lg shadow-[0_5px_15px_rgba(0,0,0,0.3)] group-hover:shadow-[0_10px_30px_rgba(139,92,246,0.3)] transition-all duration-500"
                       loading="lazy"
+                      style={{ objectFit: 'contain' }}
                     />
                   ) : (
                     <div className="w-full h-full bg-[#252525] rounded-lg flex items-center justify-center">
