@@ -17,6 +17,7 @@ const Exploremain = () => {
       try {
         setLoading(true);
         const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/allCourses');
+        // const response = await fetch('http://localhost:9098/qubicgen/allCourses');
         if (!response.ok) {
           throw new Error('Failed to fetch courses');
         }
@@ -131,7 +132,7 @@ const Exploremain = () => {
             >
               <div className="relative">
                 <img
-                  src={course.courseImage || 'https://corizo.in/wp-content/uploads/2024/09/UI_Design.jpg'}
+                  src={course.courseImage || ''}
                   alt={course.courseName}
                   className="w-full h-48 object-contain"
                   

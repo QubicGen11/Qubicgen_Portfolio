@@ -9,48 +9,30 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const cookies = new Cookies();
 
-// New CourseList component
-const CourseList = () => {
-  const [courses, setCourses] = useState([]);
- 
-  useEffect(() => {
-    const savedCourses = localStorage.getItem("courses");
-    if (savedCourses) {
-      setCourses(JSON.parse(savedCourses));
-    }
-  }, []);
- 
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {courses.map((course) => (
-        <div
-          key={course.id}
-          className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
-        >
-          <h3 className="text-xl font-bold mb-2">{course.courseName}</h3>
-          <p className="text-gray-600 mb-4">{course.description}</p>
-          <div className="flex justify-between items-center">
-            <span className="text-sm text-gray-500">{course.courseType}</span>
-            <span className="text-sm text-gray-500">Rating: {course.rating || 'N/A'}</span>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+const checkTokenValidity = () => {
+  const token = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('TOKEN='))
+    ?.split('=')[1];
+
+  if (!token) {
+    toast.error("Please login to continue");
+    return null;
+  }
+  return token;
 };
- 
+
+// New CourseList component
+
 // New EditCourses component
 const EditCourses = () => {
   const [courses, setCourses] = useState([]);
-  const [editingCourse, setEditingCourse] = useState({
-    selfPaced: 0,
-    mentorship: 0,
-    dualPath: 0,
-  });
+  const [editingCourse, setEditingCourse] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [courseToDelete, setCourseToDelete] = useState(null);
   const [updating, setUpdating] = useState(false);
+  const [editLoading, setEditLoading] = useState(null);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -76,21 +58,25 @@ const EditCourses = () => {
   }, []);
 
   const handleEdit = async (courseId) => {
+    const token = checkTokenValidity();
+    if (!token) {
+      navigate('/admin/login');
+      return;
+    }
+
     try {
-      const token = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('TOKEN='))
-        ?.split('=')[1];
-
-      if (!token) {
-        throw new Error('Authentication token not found');
-      }
-
+      setEditLoading(courseId);
       const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/courses/${courseId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
       });
+      
+      if (response.status === 401) {
+        toast.error("Session expired. Please login again");
+        navigate('/admin/login');
+        return;
+      }
       
       if (!response.ok) {
         throw new Error('Failed to fetch course details');
@@ -101,26 +87,31 @@ const EditCourses = () => {
     } catch (error) {
       console.error("Error fetching course details:", error);
       toast.error(error.message || "Error fetching course details. Please try again.");
+    } finally {
+      setEditLoading(null);
     }
   };
 
   const handleDelete = async () => {
+    const token = checkTokenValidity();
+    if (!token) {
+      navigate('/admin/login');
+      return;
+    }
+
     try {
-      const token = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('TOKEN='))
-        ?.split('=')[1];
-
-      if (!token) {
-        throw new Error('Authentication token not found');
-      }
-
       const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/deleteCourse/${courseToDelete}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
         }
       }); 
+      
+      if (response.status === 401) {
+        toast.error("Session expired. Please login again");
+        navigate('/admin/login');
+        return;
+      }
       
       if (!response.ok) {
         throw new Error('Failed to delete course');
@@ -157,6 +148,25 @@ const EditCourses = () => {
             throw new Error('Authentication token not found');
         }
 
+        // Handle course image upload first
+        let courseImgUrl = updatedCourse.courseImg; // Changed from courseImage to courseImg
+        if (updatedCourse.courseImg && typeof updatedCourse.courseImg === 'object') {
+            const formData = new FormData();
+            formData.append('file', updatedCourse.courseImg);
+
+            const uploadResponse = await fetch('https://image.qubinest.com/upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!uploadResponse.ok) {
+                throw new Error('Failed to upload course image');
+            }
+
+            const uploadData = await uploadResponse.json();
+            courseImgUrl = uploadData.url;
+        }
+
         const payload = {
             id: updatedCourse.id,
             courseName: updatedCourse.courseName,
@@ -168,14 +178,11 @@ const EditCourses = () => {
             startDate: updatedCourse.startDate,
             endDate: updatedCourse.endDate, 
             courseDescription: updatedCourse.courseDescription,
-            courseImage: updatedCourse.courseImage || null,
-          
+            courseImg: courseImgUrl, // Changed from courseImage to courseImg
             courseBanner: updatedCourse.courseBanner || null,
-        
-      
             brochure: updatedCourse.brochure,
             certificate: updatedCourse.certificate || null,
-            certificate2: updatedCourse.certificate2 || null, // Add certificate2
+            certificate2: updatedCourse.certificate2 || null,
             lessons: (updatedCourse.courseLessons || []).map(lesson => ({
                 lessonTitle: lesson.lessonTitle,
                 lessonDescription: lesson.lessonDescription,
@@ -187,72 +194,13 @@ const EditCourses = () => {
             brands: (updatedCourse.courseBrands || []).map(brand => ({
                 brandLogo: typeof brand.brandLogo === 'string' ? brand.brandLogo : null,
             })),
-            selfPaced: parseInt(updatedCourse.selfPaced), // Convert to number
-            mentorship: parseInt(updatedCourse.mentorship), // Convert to number
-            dualPath: parseInt(updatedCourse.dualPath), // Convert to number
+            selfPaced: parseInt(updatedCourse.selfPaced),
+            mentorship: parseInt(updatedCourse.mentorship),
+            dualPath: parseInt(updatedCourse.dualPath),
         };
 
-        // Upload course banner if it is an object
-        if (updatedCourse.courseBanner && typeof updatedCourse.courseBanner === 'object') {
-            const formData = new FormData();
-            formData.append('file', updatedCourse.courseBanner);
+        console.log('Payload being sent:', payload);
 
-            const uploadResponse = await fetch('https://image.qubinest.com/upload', {
-                method: 'POST',
-                body: formData,
-            });
-
-            if (!uploadResponse.ok) {
-                throw new Error('Failed to upload course banner');
-            }
-
-            const uploadData = await uploadResponse.json();
-            payload.courseBanner = uploadData.url;
-        } else {
-            payload.courseBanner = updatedCourse.courseBanner;
-        }
-
-        // Upload certificate if it is an object
-        if (updatedCourse.certificate && typeof updatedCourse.certificate === 'object') {
-            const formData = new FormData();
-            formData.append('file', updatedCourse.certificate);
-
-            const uploadResponse = await fetch('https://image.qubinest.com/upload', {
-                method: 'POST',
-                body: formData,
-            });
-
-            if (!uploadResponse.ok) {
-                throw new Error('Failed to upload certificate');
-            }
-
-            const uploadData = await uploadResponse.json();
-            payload.certificate = uploadData.url;
-        } else {
-            payload.certificate = updatedCourse.certificate;
-        }
-
-        // Upload certificate2 if it is an object
-        if (updatedCourse.certificate2 && typeof updatedCourse.certificate2 === 'object') {
-            const formData = new FormData();
-            formData.append('file', updatedCourse.certificate2);
-
-            const uploadResponse = await fetch('https://image.qubinest.com/upload', {
-                method: 'POST',
-                body: formData,
-            });
-
-            if (!uploadResponse.ok) {
-                throw new Error('Failed to upload certificate2');
-            }
-
-            const uploadData = await uploadResponse.json();
-            payload.certificate2 = uploadData.url;
-        } else {
-            payload.certificate2 = updatedCourse.certificate2;
-        }
-
-        // Update course
         const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/updateCourse/${updatedCourse.id}`, {
             method: 'PUT',
             headers: {
@@ -263,8 +211,12 @@ const EditCourses = () => {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to update course');
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Failed to update course');
         }
+
+        const responseData = await response.json();
+        console.log('Response from server:', responseData);
 
         setEditingCourse(null);
         toast.success("Course updated successfully!");
@@ -353,17 +305,37 @@ const EditCourses = () => {
  
   if (loading) {
     return (
-      <div className="min-h-screen bg-cover bg-center flex items-center justify-center">
-        <div className="text-white text-xl">Loading courses...</div>
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <svg className="animate-spin h-12 w-12 mx-auto mb-4 text-yellow-500" viewBox="0 0 24 24">
+            <circle 
+              className="opacity-25" 
+              cx="12" 
+              cy="12" 
+              r="10" 
+              stroke="currentColor" 
+              strokeWidth="4"
+            />
+            <path 
+              className="opacity-75" 
+              fill="currentColor" 
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            />
+          </svg>
+          <p className="text-xl text-white">Loading Courses...</p>
+          <p className="text-gray-400 mt-2">Please wait while we fetch the course data</p>
+        </div>
       </div>
     );
   }
  
   if (editingCourse) {
     return (
-      <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1665686308827-eb62e4f6604d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+      <div className="min-h-screen bg-cover bg-center bg-gray-900"  >
         <div className="bg-black bg-opacity-50 min-h-screen p-8">
-          <div className="bg-gray-900 p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
+          <div className="bg-[#192230] p-8 rounded-lg shadow-2xl max-w-4xl mx-auto bg-gray-800"  style={{
+    boxShadow: "0px 4px 20px 2px rgba(113, 181, 241, 0.5), 0px 6px 15px 4px rgba(126, 24, 145, 0.4)",
+  }}>
             <h2 className="text-3xl font-bold mb-8 text-white">Edit Course</h2>
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -622,19 +594,25 @@ const EditCourses = () => {
       if (file) {
         setEditingCourse((prev) => ({
           ...prev,
-          courseImg: file, // Update with the file object
+          courseImg: file,
         }));
       }
     }}
     className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
     accept="image/*"
   />
-  {editingCourse.courseImg && typeof editingCourse.courseImg === 'string' && (
-    <img
-      src={`path/to/image/${editingCourse.courseImg}`} // Adjust based on actual image path
-      alt="Course"
-      className="w-full h-48 object-cover rounded-lg mt-2"
-    />
+  {editingCourse.courseImg && (
+    <div className="mt-2">
+      {typeof editingCourse.courseImg === 'string' ? (
+        <img
+          src={editingCourse.courseImg}
+          alt="Course"
+          className="w-full h-48 object-cover rounded-lg"
+        />
+      ) : (
+        <p className="text-gray-400">New image selected: {editingCourse.courseImg.name}</p>
+      )}
+    </div>
   )}
 </div>
 
@@ -707,8 +685,9 @@ const EditCourses = () => {
   }
  
   return (
-    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1665686308827-eb62e4f6604d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+    <div className="min-h-screen bg-cover bg-center bg-gray-900">
       <div className="bg-black bg-opacity-50 min-h-screen p-8">
+        <h2 className="text-3xl font-bold mb-8 text-white">Manage Courses</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course) => (
             <div
@@ -732,9 +711,35 @@ const EditCourses = () => {
               </div>
               <button
                 onClick={() => handleEdit(course.id)}
-                className="mt-4 w-full bg-yellow-500 text-black px-4 py-2 rounded-lg hover:bg-yellow-400"
+                className={`mt-4 w-full px-4 py-2 rounded-lg ${
+                  editLoading === course.id 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-yellow-500 hover:bg-yellow-400'
+                } text-black`}
+                disabled={editLoading === course.id}
               >
-                Edit Course
+                {editLoading === course.id ? (
+                  <div className="flex items-center justify-center">
+                    <svg className="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
+                      <circle 
+                        className="opacity-25" 
+                        cx="12" 
+                        cy="12" 
+                        r="10" 
+                        stroke="currentColor" 
+                        strokeWidth="4"
+                      />
+                      <path 
+                        className="opacity-75" 
+                        fill="currentColor" 
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    Loading...
+                  </div>
+                ) : (
+                  'Edit Course'
+                )}
               </button>
             </div>
           ))}
@@ -885,19 +890,14 @@ const CreateCourse = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = checkTokenValidity();
+    if (!token) {
+      navigate('/admin/login');
+      return;
+    }
+
     setLoading(true);
     try {
-      const token = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('TOKEN='))
-        ?.split('=')[1];
-
-      if (!token) {
-        throw new Error('Authentication token not found');
-      }
-
-
-
       // Prepare the request body with both courseImage and courseBanner
       const requestBody = {
         courseName: formData.courseName,
@@ -1006,9 +1006,11 @@ const CreateCourse = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1665686308827-eb62e4f6604d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+    <div className="min-h-screen bg-cover bg-center bg-gray-900" >
       <div className="bg-black bg-opacity-50 min-h-screen p-8">
-        <div className="max-w-4xl mx-auto bg-gray-900 p-8 rounded-lg shadow-lg">
+      <div className="bg-[#192230] p-8 rounded-lg shadow-2xl max-w-4xl mx-auto bg-gray-800"  style={{
+    boxShadow: "0px 4px 20px 2px rgba(113, 181, 241, 0.5), 0px 6px 15px 4px rgba(126, 24, 145, 0.4)",
+  }}>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -1307,29 +1309,79 @@ const CreateCourse = () => {
 
 const MyCourses = () => {
   const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCourses = async () => {
+      const token = checkTokenValidity();
+      if (!token) {
+        navigate('/admin/login');
+        return;
+      }
+
       try {
-        const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/allCourses');
+        setLoading(true);
+        const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/allCourses', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (response.status === 401) {
+          toast.error("Session expired. Please login again");
+          navigate('/admin/login');
+          return;
+        }
+
         if (!response.ok) {
           throw new Error('Failed to fetch courses');
         }
+
         const data = await response.json();
         setCourses(data);
       } catch (error) {
         console.error("Error fetching courses:", error);
         toast.error("Error fetching courses. Please try again.");
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchCourses();
-  }, []);
+  }, [navigate]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <svg className="animate-spin h-12 w-12 mx-auto mb-4 text-yellow-500" viewBox="0 0 24 24">
+            <circle 
+              className="opacity-25" 
+              cx="12" 
+              cy="12" 
+              r="10" 
+              stroke="currentColor" 
+              strokeWidth="4"
+            />
+            <path 
+              className="opacity-75" 
+              fill="currentColor" 
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            />
+          </svg>
+          <p className="text-xl text-white">Loading Courses...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1665686308827-eb62e4f6604d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+    <div className="min-h-screen bg-cover bg-center bg-gray-900" >
       <div className="bg-black bg-opacity-50 min-h-screen p-8">
-        <div className="max-w-7xl mx-auto">
+      <div className="bg-[#192230] p-8 rounded-lg shadow-2xl max-w-8xl mx-auto bg-gray-800"  style={{
+    boxShadow: "0px 4px 20px 2px rgba(113, 181, 241, 0.5), 0px 6px 15px 4px rgba(126, 24, 145, 0.4)",
+  }}>
           <h2 className="text-3xl font-bold mb-8 text-white">My Courses</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {courses.map((course) => (
