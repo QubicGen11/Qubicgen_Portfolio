@@ -1463,6 +1463,8 @@ const AdminPage = () => {
         return <EditCourses />;
       case 'admin-dashboard':
         return <Dashboard />;
+      case 'testimonials':
+        return <Testimonials />;
       default:
         return <CreateCourse />;
     }
@@ -1508,6 +1510,14 @@ const AdminPage = () => {
                 <span>Admin Dashboard</span>
               </button>
             </li>
+            <li>
+              <button
+                onClick={() => setCurrentView('testimonials')}
+                className={`flex items-center space-x-2 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-700 hover:text-white w-full ${currentView === 'testimonials' ? 'bg-gray-700' : ''}`}
+              >
+                <span>Testimonials</span>
+              </button>
+            </li>
           </ul>
         </div>
       </div>
@@ -1516,6 +1526,294 @@ const AdminPage = () => {
         <Toaster position="top-right" />
         {renderView()}
       </div>
+    </div>
+  );
+};
+
+
+const Testimonials = () => {
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [editingTestimonial, setEditingTestimonial] = useState(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [testimonialToDelete, setTestimonialToDelete] = useState(null);
+  const [editLoading, setEditLoading] = useState(null);
+  const [deleteLoading, setDeleteLoading] = useState(false);
+  const [updateLoading, setUpdateLoading] = useState(false);
+
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
+  const fetchTestimonials = async () => {
+    const token = cookies.get('TOKEN');
+    try {
+      const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/allTestimonials', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      
+      if (!response.ok) throw new Error('Failed to fetch testimonials');
+      const data = await response.json();
+      setTestimonials(data);
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error('Failed to fetch testimonials');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleEdit = async (id) => {
+    setEditLoading(id);
+    const token = cookies.get('TOKEN');
+    try {
+      const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/testimonials/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      if (!response.ok) throw new Error('Failed to fetch testimonial');
+      const data = await response.json();
+      setEditingTestimonial(data);
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error('Failed to fetch testimonial details');
+    } finally {
+      setEditLoading(null);
+    }
+  };
+
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    setUpdateLoading(true);
+    const token = cookies.get('TOKEN');
+    try {
+      const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/testimonials/${editingTestimonial.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(editingTestimonial),
+      });
+
+      if (!response.ok) throw new Error('Failed to update testimonial');
+      
+      toast.success('Testimonial updated successfully');
+      setEditingTestimonial(null);
+      fetchTestimonials();
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error('Failed to update testimonial');
+    } finally {
+      setUpdateLoading(false);
+    }
+  };
+
+  const handleDelete = async () => {
+    setDeleteLoading(true);
+    const token = cookies.get('TOKEN');
+    try {
+      const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/deleteTestimonials/${testimonialToDelete}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) throw new Error('Failed to delete testimonial');
+
+      toast.success('Testimonial deleted successfully');
+      fetchTestimonials();
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error('Failed to delete testimonial');
+    } finally {
+      setDeleteLoading(false);
+      closeDeleteModal();
+    }
+  };
+
+  const openDeleteModal = (id) => {
+    setTestimonialToDelete(id);
+    setIsDeleteModalOpen(true);
+  };
+
+  const closeDeleteModal = () => {
+    setIsDeleteModalOpen(false);
+    setTestimonialToDelete(null);
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <svg className="animate-spin h-12 w-12 mx-auto mb-4 text-yellow-500" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+          </svg>
+          <p className="text-xl text-white">Loading Testimonials...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (editingTestimonial) {
+    return (
+      <div className="min-h-screen bg-gray-900 p-8">
+        <div className="max-w-2xl mx-auto bg-gray-800 rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-white mb-6">Edit Testimonial</h2>
+          <form onSubmit={handleUpdate} className="space-y-4">
+            <div>
+              <label className="block text-yellow-500 mb-2">Name</label>
+              <input
+                type="text"
+                value={editingTestimonial.name}
+                onChange={(e) => setEditingTestimonial({...editingTestimonial, name: e.target.value})}
+                className="w-full p-2 bg-gray-700 text-white rounded"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-yellow-500 mb-2">Email</label>
+              <input
+                type="email"
+                value={editingTestimonial.email}
+                onChange={(e) => setEditingTestimonial({...editingTestimonial, email: e.target.value})}
+                className="w-full p-2 bg-gray-700 text-white rounded"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-yellow-500 mb-2">Designation</label>
+              <input
+                type="text"
+                value={editingTestimonial.designation}
+                onChange={(e) => setEditingTestimonial({...editingTestimonial, designation: e.target.value})}
+                className="w-full p-2 bg-gray-700 text-white rounded"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-yellow-500 mb-2">Testimonial</label>
+              <textarea
+                value={editingTestimonial.testimonial}
+                onChange={(e) => setEditingTestimonial({...editingTestimonial, testimonial: e.target.value})}
+                className="w-full p-2 bg-gray-700 text-white rounded"
+                rows="4"
+                required
+              />
+            </div>
+            <div className="flex justify-end space-x-4">
+              <button
+                type="button"
+                onClick={() => setEditingTestimonial(null)}
+                className="px-4 py-2 text-gray-400 hover:text-white"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="px-4 py-2 bg-yellow-500 text-black rounded hover:bg-yellow-400"
+              >
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-900 p-8">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-white mb-8 animate-pulse">Testimonials</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.map((testimonial) => (
+            <div 
+              key={testimonial.id} 
+              className="bg-gray-800 rounded-lg p-6 relative transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              style={{
+                boxShadow: "0 0 15px rgba(66, 153, 225, 0.3), 0 0 30px rgba(126, 34, 206, 0.2)",
+              }}
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg opacity-20 group-hover:opacity-30 transition-opacity"></div>
+              <div className="relative">
+                <h3 className="text-xl font-bold text-white mb-2">{testimonial.name}</h3>
+                <p className="text-gray-400 mb-2">{testimonial.designation}</p>
+                <p className="text-gray-300 mb-4">{testimonial.testimonial}</p>
+                <p className="text-gray-500 text-sm">{testimonial.email}</p>
+                <div className="absolute top-4 right-4 space-x-2">
+                  <button
+                    onClick={() => handleEdit(testimonial.id)}
+                    className="px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-200 flex items-center"
+                    disabled={editLoading === testimonial.id}
+                  >
+                    {editLoading === testimonial.id ? (
+                      <span className="flex items-center">
+                        <svg className="animate-spin h-4 w-4 mr-2" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                        </svg>
+                        Editing...
+                      </span>
+                    ) : (
+                      'Edit'
+                    )}
+                  </button>
+                  <button
+                    onClick={() => openDeleteModal(testimonial.id)}
+                    className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors duration-200"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Updated Delete Modal */}
+      <Modal open={isDeleteModalOpen} onClose={closeDeleteModal}>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 p-6 rounded-lg shadow-xl"
+             style={{
+               boxShadow: "0 0 20px rgba(239, 68, 68, 0.4)",
+             }}>
+          <h2 className="text-xl font-bold text-white mb-4">Confirm Deletion</h2>
+          <p className="text-gray-300 mb-6">Are you sure you want to delete this testimonial?</p>
+          <div className="flex justify-end space-x-4">
+            <Button 
+              onClick={closeDeleteModal} 
+              variant="outlined" 
+              className="text-gray-400 hover:bg-gray-700"
+            >
+              Cancel
+            </Button>
+            <Button 
+              onClick={handleDelete} 
+              variant="contained" 
+              color="error"
+              disabled={deleteLoading}
+            >
+              {deleteLoading ? (
+                <span className="flex items-center">
+                  <svg className="animate-spin h-4 w-4 mr-2" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                  </svg>
+                  Deleting...
+                </span>
+              ) : (
+                'Delete'
+              )}
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };
