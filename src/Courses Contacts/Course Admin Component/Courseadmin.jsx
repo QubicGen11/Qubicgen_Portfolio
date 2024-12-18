@@ -139,75 +139,81 @@ const EditCourses = () => {
   const handleUpdate = async (updatedCourse) => {
     try {
         setUpdating(true);
-        const token = document.cookie
-            .split('; ')
-            .find(row => row.startsWith('TOKEN='))
-            ?.split('=')[1];
-
+        const token = checkTokenValidity();
         if (!token) {
-            throw new Error('Authentication token not found');
+            navigate('/admin/login');
+            return;
         }
 
-        // Handle course image upload first
-        let courseImgUrl = updatedCourse.courseImg; // Changed from courseImage to courseImg
-        if (updatedCourse.courseImg && typeof updatedCourse.courseImg === 'object') {
-            const formData = new FormData();
-            formData.append('file', updatedCourse.courseImg);
-
-            const uploadResponse = await fetch('https://image.qubinest.com/upload', {
-                method: 'POST',
-                body: formData,
-            });
-
-            if (!uploadResponse.ok) {
-                throw new Error('Failed to upload course image');
-            }
-
-            const uploadData = await uploadResponse.json();
-            courseImgUrl = uploadData.url;
-        }
-
+        // Initialize payload with basic data
         const payload = {
             id: updatedCourse.id,
             courseName: updatedCourse.courseName,
             courseType: updatedCourse.courseType,
-            duration: updatedCourse.duration,
-            maxMentees: updatedCourse.maxMentees,
+            duration: parseInt(updatedCourse.duration),
+            maxMentees: parseInt(updatedCourse.maxMentees),
             technologies: updatedCourse.technologies,
-            rating: updatedCourse.rating,
+            rating: parseFloat(updatedCourse.rating),
             startDate: updatedCourse.startDate,
-            endDate: updatedCourse.endDate, 
+            endDate: updatedCourse.endDate,
             courseDescription: updatedCourse.courseDescription,
-            courseImg: courseImgUrl, // Changed from courseImage to courseImg
-            courseBanner: updatedCourse.courseBanner || null,
-            brochure: updatedCourse.brochure,
-            certificate: updatedCourse.certificate || null,
-            certificate2: updatedCourse.certificate2 || null,
-            lessons: (updatedCourse.courseLessons || []).map(lesson => ({
-                lessonTitle: lesson.lessonTitle,
-                lessonDescription: lesson.lessonDescription,
-            })),
-            faqs: (updatedCourse.courseFaqs || []).map(faq => ({
-                question: faq.question,
-                answer: faq.answer,
-            })),
-            brands: (updatedCourse.courseBrands || []).map(brand => ({
-                brandLogo: typeof brand.brandLogo === 'string' ? brand.brandLogo : null,
-            })),
-            selfPaced: parseInt(updatedCourse.selfPaced),
-            mentorship: parseInt(updatedCourse.mentorship),
-            dualPath: parseInt(updatedCourse.dualPath),
+            courseImg: updatedCourse.courseImg,
+            courseBanner: updatedCourse.courseBanner,
+            brochure: updatedCourse.brochure || null,
+            certificate: updatedCourse.certificate,
+            certificate2: updatedCourse.certificate2,
+            lessons: updatedCourse.courseLessons?.map(lesson => ({
+                lessonTitle: lesson.lessonTitle || '',
+                lessonDescription: lesson.lessonDescription || ''
+            })) || [],
+            faqs: updatedCourse.courseFaqs?.map(faq => ({
+                question: faq.question || '',
+                answer: faq.answer || ''
+            })) || [],
+            brands: updatedCourse.courseBrands?.map(brand => ({
+                brandLogo: typeof brand.brandLogo === 'string' ? brand.brandLogo : null
+            })) || [],
+            selfPaced: parseInt(updatedCourse.selfPaced) || 0,
+            mentorship: parseInt(updatedCourse.mentorship) || 0,
+            dualPath: parseInt(updatedCourse.dualPath) || 0
         };
 
-        console.log('Payload being sent:', payload);
+        // Handle file uploads
+        const uploadFile = async (file) => {
+            if (!file || typeof file === 'string') return file;
+            const formData = new FormData();
+            formData.append('file', file);
+            const response = await fetch('https://image.qubinest.com/upload', {
+                method: 'POST',
+                body: formData,
+            });
+            if (!response.ok) throw new Error('File upload failed');
+            const data = await response.json();
+            return data.url;
+        };
 
+        // Upload all files in parallel
+        const [courseImgUrl, courseBannerUrl, certificateUrl, certificate2Url] = await Promise.all([
+            uploadFile(updatedCourse.courseImg),
+            uploadFile(updatedCourse.courseBanner),
+            uploadFile(updatedCourse.certificate),
+            uploadFile(updatedCourse.certificate2)
+        ]);
+
+        // Update payload with uploaded file URLs
+        payload.courseImg = courseImgUrl || payload.courseImg;
+        payload.courseBanner = courseBannerUrl || payload.courseBanner;
+        payload.certificate = certificateUrl || payload.certificate;
+        payload.certificate2 = certificate2Url || payload.certificate2;
+
+        // Make the update request
         const response = await fetch(`https://qg.vidyantra-dev.com/qubicgen/updateCourse/${updatedCourse.id}`, {
             method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(payload),
+            body: JSON.stringify(payload)
         });
 
         if (!response.ok) {
@@ -216,13 +222,12 @@ const EditCourses = () => {
         }
 
         const responseData = await response.json();
-        console.log('Response from server:', responseData);
-
         setEditingCourse(null);
         toast.success("Course updated successfully!");
+        
     } catch (error) {
-        toast.error(error.message || "Error updating course. Please try again.");
         console.error("Error updating course:", error);
+        toast.error(error.message || "Error updating course. Please try again.");
     } finally {
         setUpdating(false);
     }
