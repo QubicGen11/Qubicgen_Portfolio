@@ -6,6 +6,7 @@ import Cookies from 'universal-cookie';
 import AdminNavbar from "../../Admin/AdminNavbar";
 import { Modal, Button, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Swal from 'sweetalert2';
 
 const cookies = new Cookies();
 
@@ -16,10 +17,36 @@ const checkTokenValidity = () => {
     ?.split('=')[1];
 
   if (!token) {
-    toast.error("Please login to continue");
+    Swal.fire({
+      title: 'Session Expired',
+      text: 'Your session has expired. Please login again to continue.',
+      icon: 'warning',
+      confirmButtonText: 'Login',
+      confirmButtonColor: '#3085d6',
+      allowOutsideClick: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = '/admin/login';
+      }
+    });
     return null;
   }
   return token;
+};
+
+const handleSessionExpired = () => {
+  Swal.fire({
+    title: 'Session Expired',
+    text: 'Your session has expired. Please login again to continue.',
+    icon: 'warning',
+    confirmButtonText: 'Login',
+    confirmButtonColor: '#3085d6',
+    allowOutsideClick: false
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = '/admin/login';
+    }
+  });
 };
 
 // New CourseList component
@@ -73,8 +100,7 @@ const EditCourses = () => {
       });
       
       if (response.status === 401) {
-        toast.error("Session expired. Please login again");
-        navigate('/admin/login');
+        handleSessionExpired();
         return;
       }
       
@@ -108,8 +134,7 @@ const EditCourses = () => {
       }); 
       
       if (response.status === 401) {
-        toast.error("Session expired. Please login again");
-        navigate('/admin/login');
+        handleSessionExpired();
         return;
       }
       
@@ -1334,8 +1359,7 @@ const MyCourses = () => {
         });
 
         if (response.status === 401) {
-          toast.error("Session expired. Please login again");
-          navigate('/admin/login');
+          handleSessionExpired();
           return;
         }
 
@@ -1416,8 +1440,18 @@ const AdminPage = () => {
   useEffect(() => {
     const token = cookies.get('TOKEN');
     if (!token) {
-      console.log('No token found, redirecting to login');
-      navigate('/admin/login'); // Redirect to login if no token
+      Swal.fire({
+        title: 'Authentication Required',
+        text: 'Please login to access this page',
+        icon: 'warning',
+        confirmButtonText: 'Login',
+        confirmButtonColor: '#3085d6',
+        allowOutsideClick: false
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/admin/login');
+        }
+      });
     }
   }, [navigate]);
   

@@ -63,6 +63,7 @@
     "react-toastify": "^10.0.6",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.13",
+    "sweetalert2": "^11.15.2",
     "swiper": "^11.1.0",
     "tailwind-merge": "^2.2.2",
     "typewriter-effect": "^2.21.0",
