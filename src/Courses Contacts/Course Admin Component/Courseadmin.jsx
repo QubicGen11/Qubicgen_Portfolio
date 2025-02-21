@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Dashboard from "../../Admin/Dashboard";
 import Cookies from 'universal-cookie';
 import AdminNavbar from "../../Admin/AdminNavbar";
-import { Modal, Button, IconButton } from '@mui/material';
+import { Modal, Button, IconButton, Table, TableBody, TableCell, TableContainer, TableRow, Paper, TableHead } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Swal from 'sweetalert2';
 
@@ -1433,6 +1433,135 @@ const MyCourses = () => {
   );
 };
 
+const CmcContacts = () => {
+  const [contacts, setContacts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchContacts = async () => {
+      const token = checkTokenValidity();
+      if (!token) return;
+
+      try {
+        const response = await fetch('https://qg.vidyantra-dev.com/qubicgen/contact', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (response.status === 401) {
+          handleSessionExpired();
+          return;
+        }
+
+        if (!response.ok) throw new Error('Failed to fetch contacts');
+        
+        const data = await response.json();
+        setContacts(data);
+      } catch (error) {
+        console.error('Error fetching contacts:', error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchContacts();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <svg className="animate-spin h-12 w-12 mx-auto mb-4 text-yellow-500" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+          </svg>
+          <p className="text-xl text-white">Loading Contacts...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-center text-red-500">
+          <p className="text-xl">Error loading contacts:</p>
+          <p className="text-lg">{error}</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen p-8 relative">
+      {/* Background image with low opacity */}
+      <div 
+        className="absolute inset-0 "
+        // style={{ backgroundImage: `url('https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}
+
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url(https://images.unsplash.com/photo-1530099486328-e021101a494a?q=80&w=2147&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+          backgroundAttachment: "fixed",
+      }}
+      ></div>
+
+      {/* Content with blur effect */}
+      <div className="relative z-10">
+        <TableContainer className="backdrop-blur-md bg-transparent rounded-lg border border-white/20">
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell className="text-yellow-400 font- text-white">Name</TableCell>
+                <TableCell className="text-yellow-400 font- text-white">Email</TableCell>
+                <TableCell className="text-yellow-400 font- text-white">College</TableCell>
+                <TableCell className="text-yellow-400 font- text-white">Year</TableCell>
+                <TableCell className="text-yellow-400 font- text-white">Domain</TableCell>
+                <TableCell className="text-yellow-400 font- text-white">Amount Paid</TableCell>
+                <TableCell className="text-yellow-400 font- text-white">Balance Fees</TableCell>
+                <TableCell className="text-yellow-400 font- text-white">Referrals</TableCell>
+                <TableCell className="text-yellow-400 font- text-white">Discount</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {contacts.map((contact) => (
+                <TableRow 
+                  key={contact.id}
+                  className="backdrop-blur-sm bg-white/5 hover:bg-white/10 transition-colors"
+                >
+                  <TableCell className="text-white">{contact.name}</TableCell>
+                  <TableCell className="text-white">{contact.email}</TableCell>
+                  <TableCell className="text-white">{contact.college}</TableCell>
+                  <TableCell className="text-white">{contact.year}</TableCell>
+                  <TableCell className="text-white border-white/20">{contact.domain}</TableCell>
+                  <TableCell className="text-green-400 border-white/ text-white">₹{contact.amountPaid}</TableCell>
+                  <TableCell className="text-red-400 border-white/ text-white">₹{contact.balanceFees}</TableCell>
+                  <TableCell className="text-red-400 border-white/ text-white">₹{contact.totalFees}</TableCell>
+                  <TableCell className="text-white border-white/20">
+                    <ul className="list-disc pl-4">
+                      {contact.referrals.map((ref, index) => (
+                        <li key={index}>
+                          {ref.name} - {ref.contact}
+                        </li>
+                      ))}
+                    </ul>
+                  </TableCell>
+                
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
+    </div>
+  );
+};
+
 const AdminPage = () => {
   const [currentView, setCurrentView] = useState('dashboard');
   const navigate = useNavigate();
@@ -1465,6 +1594,8 @@ const AdminPage = () => {
         return <Dashboard />;
       case 'testimonials':
         return <Testimonials />;
+      case 'cmc':
+        return <CmcContacts />;
       default:
         return <CreateCourse />;
     }
@@ -1516,6 +1647,14 @@ const AdminPage = () => {
                 className={`flex items-center space-x-2 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-700 hover:text-white w-full ${currentView === 'testimonials' ? 'bg-gray-700' : ''}`}
               >
                 <span>Testimonials</span>
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => setCurrentView('cmc')}
+                className={`flex items-center space-x-2 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-700 hover:text-white w-full ${currentView === 'cmc' ? 'bg-gray-700' : ''}`}
+              >
+                <span>CMC Contacts</span>
               </button>
             </li>
           </ul>
@@ -1817,6 +1956,8 @@ const Testimonials = () => {
     </div>
   );
 };
+
+
  
 export default AdminPage;
  

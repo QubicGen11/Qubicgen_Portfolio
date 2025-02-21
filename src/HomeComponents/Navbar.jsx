@@ -49,28 +49,28 @@ const Navbar = () => {
     setIsContactOpen(!isContactOpen);
     setIsIndustriesOpen(false); // Close the industries dropdown
   };
-  
-  
+
+
   const toggleServices = () => {
     setIsServicesOpen(!isServicesOpen);
     setIsIndustriesOpen(false); // Close the industries dropdown
   };
 
   // Define showSections function
-const showSections = () => {
-  const dropdown = document.getElementById("dropdown");
-  if (dropdown) {
-    dropdown.classList.remove("hidden");
-  }
-};
+  const showSections = () => {
+    const dropdown = document.getElementById("dropdown");
+    if (dropdown) {
+      dropdown.classList.remove("hidden");
+    }
+  };
 
-// Define hideSections function
-const hideSectionss = () => {
-  const dropdown = document.getElementById("dropdown");
-  if (dropdown) {
-    dropdown.classList.add("hidden");
-  }
-};
+  // Define hideSections function
+  const hideSectionss = () => {
+    const dropdown = document.getElementById("dropdown");
+    if (dropdown) {
+      dropdown.classList.add("hidden");
+    }
+  };
 
 
   useEffect(() => {
@@ -81,11 +81,11 @@ const hideSectionss = () => {
       const scrollPosition = window.scrollY;
 
       const transparency = Math.min(scrollPosition / 200, 1);
-const newColor = `rgba(${0 - 0 * transparency}, ${0 - 0 * transparency}, ${0 - 0 * transparency}, 1)`;
-navbar.style.backgroundColor = newColor;
+      const newColor = `rgba(${0 - 0 * transparency}, ${0 - 0 * transparency}, ${0 - 0 * transparency}, 1)`;
+      navbar.style.backgroundColor = newColor;
 
-      
-   
+
+
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -182,34 +182,36 @@ navbar.style.backgroundColor = newColor;
 
   return (
     <>
-     <div className="head" style={{ position: "sticky", top: 0, zIndex: 1000, }}>
+      <div className="head" style={{ position: "sticky", top: 0, zIndex: 1000, }}>
         <div className="navli hover:cursor-auto">
-         <Link to="/"><img src={mainlogo} id="mainlogo" alt="" className="navli hover:cursor-auto" /></Link> 
+          <Link to="/"><img src={mainlogo} id="mainlogo" alt="" className="navli hover:cursor-auto" /></Link>
 
-       
+
         </div>
 
-        <nav  className={`nav  ${isMobile ? "mobile" : ""}`}>
-          <Link to="/" style={{ textDecoration: 'none' }}><li className="hover:cursor-pointer"  onMouseEnter={hideSections}>Home</li></Link>
-          <Link to="/about" style={{ textDecoration: 'none' }}><li className="hover:cursor-pointer"  onMouseEnter={hideSections}>About</li></Link>
+        <nav className={`nav  ${isMobile ? "mobile" : ""}`}>
+          <Link to="/" style={{ textDecoration: 'none' }}><li className="hover:cursor-pointer" onMouseEnter={hideSections}>Home</li></Link>
+          <Link to="/about" style={{ textDecoration: 'none' }}><li className="hover:cursor-pointer" onMouseEnter={hideSections}>About</li></Link>
           <div
             className="dropdown"
             onMouseEnter={() => showSection("industries")}
-            // onMouseLeave={hideSections} 
-            // onClick={() => handleDropdownClick("industries")}
+          // onMouseLeave={hideSections} 
+          // onClick={() => handleDropdownClick("industries")}
           >
             <li className="hover:cursor-pointer" >Industries</li>
           </div>
+
           <div
             className="dropdown"
             onMouseEnter={() => showSection("services")}
-            // onMouseLeave={hideSections}
-            // onClick={() => handleDropdownClick("services")}
+          // onMouseLeave={hideSections}
+          // onClick={() => handleDropdownClick("services")}
           >
             <li className="hover:cursor-pointer">Services</li>
           </div>
-         <Link to="/careers"><li className="hover:cursor-pointer" onMouseEnter={hideSections}
-            >Careers</li></Link> 
+
+          <Link to="/careers"><li className="hover:cursor-pointer" onMouseEnter={hideSections}
+          >Careers</li></Link>
           <div
             className="dropdown"
             onMouseEnter={() => showSection("courses")}
@@ -221,213 +223,217 @@ navbar.style.backgroundColor = newColor;
 
 
           <div>
-          <li
-      className="hover:cursor-pointer relative"
-      onMouseOver={showSectionss}
-      onMouseLeave={hideSectionsss}
-    >
-      Contact
-      <section className="absolute top-[70px] -right-20 bg-black p-2 hidden w-44" id="dropdown">
-        <ul className="text-center">
-          <Link to="/projectform"><li style={{fontWeight:'lighter',fontSize:'14px'}}>Project Form</li></Link> 
-          <Link to="/studentform"><li style={{fontWeight:'lighter',fontSize:'14px'}}>Student Form</li></Link>  
-          <Link to="/newjobapplication"><li style={{fontWeight:'lighter',fontSize:'14px'}}>Job Application</li></Link>  
-        </ul>
-      </section>
-    </li>
-
-
+ <li
+   className="hover:cursor-pointer relative"
+   onMouseOver={() => {
+     showSectionss();               // Your existing show function
+     setVisibleSection(null);       // Hide other sections (like Courses)
+     setIsIndustriesOpen(false);    // Hide Industries dropdown
+     setIsServicesOpen(false);      // Hide Services dropdown
+     setIsCoursesOpen(false);       // Hide Courses dropdown
+   }}
+   onMouseLeave={hideSectionsss}    // Keep your existing hide function
+ >
+   Contact
+   <section className="absolute top-[70px] -right-20 bg-black p-2 hidden w-44" id="dropdown">
+     <ul className="text-center">
+       <Link to="/projectform"><li style={{ fontWeight: 'lighter', fontSize: '14px' }}>Project Form</li></Link>
+       <Link to="/studentform"><li style={{ fontWeight: 'lighter', fontSize: '14px' }}>Student Form</li></Link>
+       <Link to="/newjobapplication"><li style={{ fontWeight: 'lighter', fontSize: '14px' }}>Job Application</li></Link>
+     </ul>
+   </section>
+ </li>
 </div>
 
 
-        
-        
-        
-          
-        
+
+
+
+
+
         </nav>
 
 
-{/* This is offcanvas btn starts */}
+        {/* This is offcanvas btn starts */}
 
 
-<button
-        id="otherOffcanvasBtn"
-        className="btn btn-primary"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#otherOffcanvas"
-        aria-controls="otherOffcanvas"
-        style={{ position: 'absolute', right: '40px',backgroundColor:'none' }}
-      >
-        
-        
-<img style={{height:'20px',width:'20px'}} src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710314651/QubicGen/Home%20Page/Nav%20Bar/icons8-menu-100_ulk92j.png" alt="" />      </button>
+        <button
+          id="otherOffcanvasBtn"
+          className="btn btn-primary"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#otherOffcanvas"
+          aria-controls="otherOffcanvas"
+          style={{ position: 'absolute', right: '40px', backgroundColor: 'none' }}
+        >
 
-      {/* Off-canvas component */}
-    <div
-  className="offcanvas offcanvas-end"
-  data-bs-scroll="true"
-  tabIndex="-1"
-  id="otherOffcanvas"
-  aria-labelledby="otherOffcanvasLabel"
-  style={{
-    backgroundColor: 'black',
-    color: 'white',
-    position: 'fixed',
-    top: 0,
-    zIndex: 20000000, // Increase the z-index value
-    height: '100vh',
-    overflowY: 'auto'
-  }}
->
-        <div className="offcanvas-header">
-          <button
-            type="button"
-            className="btn btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-            style={{ color: 'white', fontSize: '30px' }}
-          >
-            X
-          </button>
+
+          <img style={{ height: '20px', width: '20px' }} src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710314651/QubicGen/Home%20Page/Nav%20Bar/icons8-menu-100_ulk92j.png" alt="" />      </button>
+
+        {/* Off-canvas component */}
+        <div
+          className="offcanvas offcanvas-end"
+          data-bs-scroll="true"
+          tabIndex="-1"
+          id="otherOffcanvas"
+          aria-labelledby="otherOffcanvasLabel"
+          style={{
+            backgroundColor: 'black',
+            color: 'white',
+            position: 'fixed',
+            top: 0,
+            zIndex: 20000000, // Increase the z-index value
+            height: '100vh',
+            overflowY: 'auto'
+          }}
+        >
+          <div className="offcanvas-header">
+            <button
+              type="button"
+              className="btn btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+              style={{ color: 'white', fontSize: '30px' }}
+            >
+              X
+            </button>
           </div>
-  <div className="offcanvas-body" style={{padding:'80px'}}>
-   <Link to="/"><li className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1"  >HOME</li></Link> 
-   <Link to="/about"><li className="serviceseclist hover:cursor-pointer mb-4  pl-7 pt-1" >ABOUT US</li></Link>
+          <div className="offcanvas-body" style={{ padding: '80px' }}>
+            <Link to="/"><li className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1"  >HOME</li></Link>
+            <Link to="/about"><li className="serviceseclist hover:cursor-pointer mb-4  pl-7 pt-1" >ABOUT US</li></Link>
 
-    <div>
-        <div onClick={toggleIndustries} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">
-          INDUSTRIES <i className="fas fa-caret-down ml-3"></i>
-        </div>
-        {isIndustriesOpen && (
-          <ul id="industysec" className="relative right-11 w-72 pl-7 pt-1">
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link  to="/banking" style={{ color: 'white', textDecoration: 'none' }}>Banking, Financial Services and Insurance</Link>
-            </li>
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link  to="/energy" style={{ color: 'white', textDecoration: 'none' }}>Energy and Utilities</Link>
-            </li>
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link to="/media" style={{ color: 'white', textDecoration: 'none' }}>Media and Entertainment</Link>
-            </li>
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link to="/health" style={{ color: 'white', textDecoration: 'none' }}>Healthcare Life Sciences</Link>
-            </li>
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link to="/retail" style={{ color: 'white', textDecoration: 'none' }}>Retail and Consumer Goods</Link>
-            </li>
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link to="/travel" style={{ color: 'white', textDecoration: 'none' }}>Travel, Transportation, Hospitality and Logistics</Link>
-            </li>
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link to="/public" style={{ color: 'white', textDecoration: 'none' }}>Public Sector and Government</Link>
-            </li>
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link to="/oil" style={{ color: 'white', textDecoration: 'none' }}>Oil and Gas</Link>
-            </li>
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link to="/manufacturing" style={{ color: 'white', textDecoration: 'none' }}>Manufacturing</Link>
-            </li>
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link to="/summary" style={{ color: 'white', textDecoration: 'none' }}>Professional Services</Link>
-            </li>
-          </ul>
-        )}
+            <div>
+              <div onClick={toggleIndustries} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">
+                INDUSTRIES <i className="fas fa-caret-down ml-3"></i>
+              </div>
+              {isIndustriesOpen && (
+                <ul id="industysec" className="relative right-11 w-72 pl-7 pt-1">
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/banking" style={{ color: 'white', textDecoration: 'none' }}>Banking, Financial Services and Insurance</Link>
+                  </li>
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/energy" style={{ color: 'white', textDecoration: 'none' }}>Energy and Utilities</Link>
+                  </li>
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/media" style={{ color: 'white', textDecoration: 'none' }}>Media and Entertainment</Link>
+                  </li>
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/health" style={{ color: 'white', textDecoration: 'none' }}>Healthcare Life Sciences</Link>
+                  </li>
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/retail" style={{ color: 'white', textDecoration: 'none' }}>Retail and Consumer Goods</Link>
+                  </li>
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/travel" style={{ color: 'white', textDecoration: 'none' }}>Travel, Transportation, Hospitality and Logistics</Link>
+                  </li>
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/public" style={{ color: 'white', textDecoration: 'none' }}>Public Sector and Government</Link>
+                  </li>
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/oil" style={{ color: 'white', textDecoration: 'none' }}>Oil and Gas</Link>
+                  </li>
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/manufacturing" style={{ color: 'white', textDecoration: 'none' }}>Manufacturing</Link>
+                  </li>
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/summary" style={{ color: 'white', textDecoration: 'none' }}>Professional Services</Link>
+                  </li>
+                </ul>
+              )}
 
-        <div onClick={toggleServices} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1" >
-          SERVICES <i className="fas fa-caret-down ml-3"></i> 
-        </div>
-        {isServicesOpen && (
+              <div onClick={toggleServices} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1" >
+                SERVICES <i className="fas fa-caret-down ml-3"></i>
+              </div>
+              {isServicesOpen && (
 
-  <ul className="relative right-11 w-72 pl-7 pt-1" id="serviceseclist" >
-  <li className="serviceseclist pl-7 pt-1">
-    <Link  to="/rpa" style={{ color: 'white', textDecoration: 'none' }}>Robotic Process Automation</Link>
-  </li>
-  <li className="serviceseclist pl-7 pt-1">
-    <Link to="/webdevelopment" style={{ color: 'white', textDecoration: 'none' }}>Web Development</Link>
-  </li>
-  <li className="serviceseclist pl-7 pt-1">
-    <Link to="/sap" style={{ color: 'white', textDecoration: 'none' }}>SAP</Link>
-  </li>
-  <li className="serviceseclist pl-7 pt-1">
-    <Link to="/database" style={{ color: 'white', textDecoration: 'none' }}>Database</Link>
-  </li>
-  <li className="serviceseclist pl-7 pt-1">
-    <Link to="/digitalmarketing" style={{ color: 'white', textDecoration: 'none' }}>Digital Marketing</Link>
-  </li>
-  <li className="serviceseclist pl-7 pt-1">
-    <Link to="/digitalization" style={{ color: 'white', textDecoration: 'none' }}>Digitalization</Link>
-  </li>
-  <li className="serviceseclist pl-7 pt-1">
-    <Link to="/outsourcing" style={{ color: 'white', textDecoration: 'none' }}>Outsourcing</Link>
-  </li>
-  <li className="serviceseclist pl-7 pt-1">
-    <Link to="/cybersecurity" style={{ color: 'white', textDecoration: 'none' }}>Cyber Security</Link>
-  </li>
-  <li className="serviceseclist pl-7 pt-1">
-    <Link to="/dataanalytics" style={{ color: 'white', textDecoration: 'none' }}>Data Analytics</Link>
-  </li>
-  <li className="serviceseclist pl-7 pt-1">
-    <Link to="/testing" style={{ color: 'white', textDecoration: 'none' }}>Testing</Link>
-  </li>
-  <li className="serviceseclist pl-7 pt-1">
-    <Link to="/businessconsulting" style={{ color: 'white', textDecoration: 'none' }}>Business Consulting</Link>
-  </li>
-  <li className="serviceseclist pl-7 pt-1">
-    <Link to="/training" style={{ color: 'white', textDecoration: 'none' }}>Trainings and Certifications</Link>
-  </li>
-  </ul>
-          
-        )}
-      </div>
+                <ul className="relative right-11 w-72 pl-7 pt-1" id="serviceseclist" >
+                  <li className="serviceseclist pl-7 pt-1">
+                    <Link to="/rpa" style={{ color: 'white', textDecoration: 'none' }}>Robotic Process Automation</Link>
+                  </li>
+                  <li className="serviceseclist pl-7 pt-1">
+                    <Link to="/webdevelopment" style={{ color: 'white', textDecoration: 'none' }}>Web Development</Link>
+                  </li>
+                  <li className="serviceseclist pl-7 pt-1">
+                    <Link to="/sap" style={{ color: 'white', textDecoration: 'none' }}>SAP</Link>
+                  </li>
+                  <li className="serviceseclist pl-7 pt-1">
+                    <Link to="/database" style={{ color: 'white', textDecoration: 'none' }}>Database</Link>
+                  </li>
+                  <li className="serviceseclist pl-7 pt-1">
+                    <Link to="/digitalmarketing" style={{ color: 'white', textDecoration: 'none' }}>Digital Marketing</Link>
+                  </li>
+                  <li className="serviceseclist pl-7 pt-1">
+                    <Link to="/digitalization" style={{ color: 'white', textDecoration: 'none' }}>Digitalization</Link>
+                  </li>
+                  <li className="serviceseclist pl-7 pt-1">
+                    <Link to="/outsourcing" style={{ color: 'white', textDecoration: 'none' }}>Outsourcing</Link>
+                  </li>
+                  <li className="serviceseclist pl-7 pt-1">
+                    <Link to="/cybersecurity" style={{ color: 'white', textDecoration: 'none' }}>Cyber Security</Link>
+                  </li>
+                  <li className="serviceseclist pl-7 pt-1">
+                    <Link to="/dataanalytics" style={{ color: 'white', textDecoration: 'none' }}>Data Analytics</Link>
+                  </li>
+                  <li className="serviceseclist pl-7 pt-1">
+                    <Link to="/testing" style={{ color: 'white', textDecoration: 'none' }}>Testing</Link>
+                  </li>
+                  <li className="serviceseclist pl-7 pt-1">
+                    <Link to="/businessconsulting" style={{ color: 'white', textDecoration: 'none' }}>Business Consulting</Link>
+                  </li>
+                  <li className="serviceseclist pl-7 pt-1">
+                    <Link to="/training" style={{ color: 'white', textDecoration: 'none' }}>Trainings and Certifications</Link>
+                  </li>
+                </ul>
 
-    
-
-   
-   
+              )}
+            </div>
 
 
 
 
-   <Link to="/careers"><li className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">CAREERS</li></Link> 
 
 
-   <div>  
-        <div onClick={toggleContact} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1 ">
-          CONTACT US<i className="fas fa-caret-down ml-3"></i>
-        </div>
-        {isContactOpen && (
-          <ul id="industysec" className="relative right-11 w-72 pl-7 pb-10">
-         
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link to="/projectform" style={{ color: 'white', textDecoration: 'none' }}>Project Form</Link> 
-            </li>
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link to="/studentform" style={{ color: 'white', textDecoration: 'none' }}>Student Form</Link>
-            </li>
-            <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
-              <Link to="/newjobapplication" style={{ color: 'white', textDecoration: 'none' }}>Job Application</Link>
-            </li>
-          </ul>
-        )}
-
-   
-          
-    
-      </div>
 
 
-      
-   
+
+            <Link to="/careers"><li className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">CAREERS</li></Link>
 
 
-   
-   
-   
+            <div>
+              <div onClick={toggleContact} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1 ">
+                CONTACT US<i className="fas fa-caret-down ml-3"></i>
+              </div>
+              {isContactOpen && (
+                <ul id="industysec" className="relative right-11 w-72 pl-7 pb-10">
+
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/projectform" style={{ color: 'white', textDecoration: 'none' }}>Project Form</Link>
+                  </li>
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/studentform" style={{ color: 'white', textDecoration: 'none' }}>Student Form</Link>
+                  </li>
+                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                    <Link to="/newjobapplication" style={{ color: 'white', textDecoration: 'none' }}>Job Application</Link>
+                  </li>
+                </ul>
+              )}
 
 
-{/*       
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            {/*       
     <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8" >
                 <li className='falling-icon' data-aos-delay="0">
                   <a href="#" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
@@ -471,59 +477,59 @@ navbar.style.backgroundColor = newColor;
                 </li>
               </ul> */}
 
-<div>
-  <div onClick={toggleCourses} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">
-    COURSES <i className="fas fa-caret-down ml-3"></i>
-  </div>
-  {isCoursesOpen && (
-    <ul className="relative right-11 w-72 pl-7 pt-1">
-      {courses
-        .slice(coursePageIndex * 12, (coursePageIndex + 1) * 12)
-        .map((course) => (
-          <li key={course.id} className="serviceseclist pl-7 pt-1">
-            <Link to={`/technology/${course.id}`} style={{ color: 'white', textDecoration: 'none' }}>
-              {course.courseName}
-            </Link>
-          </li>
-        ))}
-      <div className="courses-navigation pl-7 pt-3" style={{ display: 'flex', gap: '20px' }}>
-        {coursePageIndex > 0 && (
-          <button 
-            onClick={(e) => {
-              e.stopPropagation();
-              handlePreviousCourses();
-            }}
-            className="text-white hover:text-gold"
-            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '14px' }}
-          >
-            <i className="fas fa-chevron-left mr-2"></i>
-            Previous Courses
-          </button>
-        )}
-        {courses.length > (coursePageIndex + 1) * 12 && (
-          <button 
-            onClick={(e) => {
-              e.stopPropagation();
-              handleNextCourses();
-            }}
-            className="text-white hover:text-gold"
-            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '14px' }}
-          >
-            Next Courses
-            <i className="fas fa-chevron-right ml-2"></i>
-          </button>
-        )}
-      </div>
-    </ul>
-  )}
-</div>
-  </div>
-</div>
+            <div>
+              <div onClick={toggleCourses} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">
+                COURSES <i className="fas fa-caret-down ml-3"></i>
+              </div>
+              {isCoursesOpen && (
+                <ul className="relative right-11 w-72 pl-7 pt-1">
+                  {courses
+                    .slice(coursePageIndex * 12, (coursePageIndex + 1) * 12)
+                    .map((course) => (
+                      <li key={course.id} className="serviceseclist pl-7 pt-1">
+                        <Link to={`/technology/${course.id}`} style={{ color: 'white', textDecoration: 'none' }}>
+                          {course.courseName}
+                        </Link>
+                      </li>
+                    ))}
+                  <div className="courses-navigation pl-7 pt-3" style={{ display: 'flex', gap: '20px' }}>
+                    {coursePageIndex > 0 && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handlePreviousCourses();
+                        }}
+                        className="text-white hover:text-gold"
+                        style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '14px' }}
+                      >
+                        <i className="fas fa-chevron-left mr-2"></i>
+                        Previous Courses
+                      </button>
+                    )}
+                    {courses.length > (coursePageIndex + 1) * 12 && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleNextCourses();
+                        }}
+                        className="text-white hover:text-gold"
+                        style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '14px' }}
+                      >
+                        Next Courses
+                        <i className="fas fa-chevron-right ml-2"></i>
+                      </button>
+                    )}
+                  </div>
+                </ul>
+              )}
+            </div>
+          </div>
+        </div>
 
-{/* This is offcanvas btn ends */}
+        {/* This is offcanvas btn ends */}
 
 
-{/* This is industries section starts */}
+        {/* This is industries section starts */}
       </div>
 
 
@@ -560,7 +566,7 @@ navbar.style.backgroundColor = newColor;
         </div>
       </div>
 
-{/* This is industries section ends */}
+      {/* This is industries section ends */}
 
       <div
         className={`servicesec ${visibleSection === "services" ? "show" : ""}`}
@@ -597,7 +603,8 @@ navbar.style.backgroundColor = newColor;
       </div>
 
       <div
-        className={`coursesec  ${visibleSection === "courses" ? "show" : ""}`}
+        className={`coursesec ${visibleSection === "courses" ? "show" : ""}`}
+        style={{ marginTop: '20px' }}
         onMouseEnter={() => showSection("courses")}
         onMouseLeave={hideSections}
       >
@@ -607,23 +614,21 @@ navbar.style.backgroundColor = newColor;
           </h2>
           <div className="courses-navigation" style={{ display: 'flex', gap: '20px', marginRight: '20px', alignItems: 'center' }}>
             {coursePageIndex > 0 && (
-              <button 
+              <button
                 className="prev-courses-btn"
                 onClick={handlePreviousCourses}
                 style={{ display: 'flex', alignItems: 'center', gap: '5px', background: 'none', border: 'none', color: 'white', cursor: 'pointer' }}
               >
-          
                 <span style={{ fontSize: '14px', fontFamily: 'Montserrat,sans-serif' }}>Previous Courses</span>
               </button>
             )}
             {courses.length > (coursePageIndex + 1) * 12 && (
-              <button 
+              <button
                 className="next-courses-btn"
                 onClick={handleNextCourses}
                 style={{ display: 'flex', alignItems: 'center', gap: '5px', background: 'none', border: 'none', color: 'white', cursor: 'pointer' }}
               >
                 <span style={{ fontSize: '14px', fontFamily: 'Montserrat,sans-serif' }}>Next Courses</span>
-          
               </button>
             )}
           </div>
@@ -631,38 +636,44 @@ navbar.style.backgroundColor = newColor;
         <p style={{ padding: '1px 20px 20px 20px', fontFamily: 'Montserrat,sans-serif', fontSize: '15px' }}>
           Elevate your skills with industry-focused programs designed to transform your career through expert training.
         </p>
-        <div className="coursemain" style={{ paddingLeft: '20px' }}>
-          <div className="course1">
-            <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
-            {courses
-              .slice(coursePageIndex * 12, coursePageIndex * 12 + 4)
-              .map((course) => (
-                <Link key={course.id} to={`/technology/${course.id}`}>
-                  <li className="hover:cursor-pointer">{course.courseName}</li>
-                </Link>
-              ))}
+        {!courses.length ? (
+          <div className="flex justify-center items-center h-40">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-400"></div>
           </div>
-          <div className="course2">
-            <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
-            {courses
-              .slice(coursePageIndex * 12 + 4, coursePageIndex * 12 + 8)
-              .map((course) => (
-                <Link key={course.id} to={`/technology/${course.id}`}>
-                  <li className="hover:cursor-pointer">{course.courseName}</li>
-                </Link>
-              ))}
+        ) : (
+          <div className="coursemain" style={{ paddingLeft: '20px' }}>
+            <div className="course1">
+              <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
+              {courses
+                .slice(coursePageIndex * 12, coursePageIndex * 12 + 4)
+                .map((course) => (
+                  <Link key={course.id} to={`/technology/${course.id}`}>
+                    <li className="hover:cursor-pointer">{course.courseName}</li>
+                  </Link>
+                ))}
+            </div>
+            <div className="course2">
+              <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
+              {courses
+                .slice(coursePageIndex * 12 + 4, coursePageIndex * 12 + 8)
+                .map((course) => (
+                  <Link key={course.id} to={`/technology/${course.id}`}>
+                    <li className="hover:cursor-pointer">{course.courseName}</li>
+                  </Link>
+                ))}
+            </div>
+            <div className="course3">
+              <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
+              {courses
+                .slice(coursePageIndex * 12 + 8, coursePageIndex * 12 + 12)
+                .map((course) => (
+                  <Link key={course.id} to={`/technology/${course.id}`}>
+                    <li className="hover:cursor-pointer">{course.courseName}</li>
+                  </Link>
+                ))}
+            </div>
           </div>
-          <div className="course3">
-            <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
-            {courses
-              .slice(coursePageIndex * 12 + 8, coursePageIndex * 12 + 12)
-              .map((course) => (
-                <Link key={course.id} to={`/technology/${course.id}`}>
-                  <li className="hover:cursor-pointer">{course.courseName}</li>
-                </Link>
-              ))}
-          </div>
-        </div>
+        )}
       </div>
     </>
   );

@@ -50,6 +50,7 @@ import Technologymain from "./Courses Contacts/Technologymain";
 import AdminPage from "./Courses Contacts/Course Admin Component/Courseadmin";
 import Pricing from "./Courses Contacts/Pricing section/Pricing";
 import { ToastContainer } from "react-toastify";
+import RegistrationTable from "./SecreatFolder/Secreat";
 
 // import TechnologyOverview from "./Courses Contacts/Technology Overview Componnets/TechnologyOverview";
 const Nopage = lazy(()=>import ( './404') );
@@ -108,6 +109,7 @@ const App = () => {
             <Route path="/courses" element={<Coursesmain/>} />
             <Route path="/technology/:courseId" element={<Technologymain />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/studentslink" element={<RegistrationTable />} />
             {/* <Route path="" element={<AdminPage/>} /> */}
             <Route
               path="/admin/dashboard"
@@ -129,6 +131,7 @@ const App = () => {
                 </ProtectedRoutes>
               }
             />
+
 
 
           </Routes>

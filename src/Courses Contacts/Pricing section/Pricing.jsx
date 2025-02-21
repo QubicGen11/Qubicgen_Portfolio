@@ -48,7 +48,6 @@ const Pricing = ({ selfPaced, mentorship, dualPath }) => {
 
     const handleFormSubmit = async (formData) => {
         console.log(formData);
-        handleModalClose();
     };
 
     return (
@@ -171,6 +170,7 @@ const Pricing = ({ selfPaced, mentorship, dualPath }) => {
                 </motion.div>
             </motion.div>
 
+          
             <FormModal
     isOpen={isModalOpen}
     onClose={handleModalClose}

@@ -124,7 +124,7 @@ const Exploremain = () => {
 
       {/* Courses Grid */}
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {filteredCourses.map((course) => (
             <div
               key={course.id}
@@ -186,7 +186,7 @@ const Exploremain = () => {
                     ) : (
                       <span className="relative z-10">Know More</span>
                     )}
-                    <span className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#FFA500] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+                    {/* <span className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#FFA500] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span> */}
                   </button>
                 </div>
               </div>

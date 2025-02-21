@@ -130,7 +130,9 @@
 }
 
 .industriesec,
-.servicesec {
+.servicesec ,
+.coursesec,
+.contactsec {
   display: none;
   position: fixed;
   top: 240px;
