@@ -109,7 +109,7 @@ const App = () => {
             <Route path="/courses" element={<Coursesmain/>} />
             <Route path="/technology/:courseId" element={<Technologymain />} />
             <Route path="/pricing" element={<Pricing />} />
-            <Route path="/preregistrationform" element={<RegistrationTable />} />
+            <Route path="/studentsonboardingform" element={<RegistrationTable />} />
             {/* <Route path="" element={<AdminPage/>} /> */}
             <Route
               path="/admin/dashboard"

@@ -200,7 +200,7 @@ export default function RegistrationForm() {
                             transition={{ duration: 0.6 }}
                             className="text-xl sm:text-2xl font-bold text-center text-white mb-4 sm:mb-6"
                         >
-                            <span className="text-[#0056b3]">  Pre-Registration Form </span>
+                            <span className="text-[#0056b3]">  Student On Boarding Form </span>
                         </motion.h2>
 
                         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
