@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  qubicgen:
+    image: qgfe:$BUILD_TAG
+    container_name: frontend_qg
+    ports:
+      - "8086:80"
+    restart: always
