@@ -216,9 +216,9 @@ const Navbar = () => {
             className="dropdown"
             onMouseEnter={() => showSection("courses")}
           >
-            <Link to="/courses" style={{ textDecoration: 'none' }}>
+            {/* <Link to="/courses" style={{ textDecoration: 'none' }}>
               <li className="hover:cursor-pointer">Courses</li>
-            </Link>
+            </Link> */}
           </div>
 
 
@@ -477,7 +477,7 @@ const Navbar = () => {
                 </li>
               </ul> */}
 
-            <div>
+            {/* <div>
               <div onClick={toggleCourses} className="serviceseclist hover:cursor-pointer mb-4 pl-7 pt-1">
                 COURSES <i className="fas fa-caret-down ml-3"></i>
               </div>
@@ -522,7 +522,7 @@ const Navbar = () => {
                   </div>
                 </ul>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
 
