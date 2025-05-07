@@ -62,26 +62,45 @@ const Certificate = () => {
             <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 bg-opacity-40"  style={{background:"URL('https://res.cloudinary.com/devewerw3/image/upload/v1746647829/ChatGPT_Image_May_8_2025_01_19_56_AM_j1tan5.png')", backgroundSize:"cover", backgroundPosition:"center"}}>
               {!verified || loading ? (
                 <div className="flex flex-col items-center bg-white rounded-lg shadow-lg px-8 py-6 min-w-[320px]">
-                  <FaSearch className="text-green-700 text-3xl animate-[searchAnim_2s_ease-in-out_infinite]" />
+                  <span className="inline-block mb-4" style={{height: "48px", width: "48px", position: "relative"}}>
+                    <span
+                      style={{
+                        position: "absolute",
+                        left: "0",
+                        top: "0",
+                        height: "100%",
+                        width: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        // The icon will move in a circular path
+                        animation: "moveCircle 1.2s linear infinite"
+                      }}
+                    >
+                      <FaSearch className="text-green-700 text-3xl" />
+                    </span>
+                  </span>
                   <span className="text-green-700 text-xl font-bold mb-2 text-center">
                     Verifying...
                   </span>
                   <div className="text-xs text-gray-500 mb-4 text-center">
                     Powered By <span className="font-semibold text-gray-700">QubicGen Private Limited</span>
                   </div>
-                  {/* Add keyframes for search animation */}
                   <style>
                     {`
-                      @keyframes searchAnim {
-                        0% { transform: translate(0, 0) rotate(0deg); }
-                        20% { transform: translate(-10px, 0) rotate(-90deg); }
-                        40% { transform: translate(10px, 0) rotate(90deg); }
-                        60% { transform: translate(0, -10px) rotate(180deg); }
-                        80% { transform: translate(0, 10px) rotate(270deg); }
-                        100% { transform: translate(0, 0) rotate(360deg); }
+                      @keyframes moveCircle {
+                        0%   { transform: translate(0px, 0px);}
+                        12.5% { transform: translate(12px, 0px);}
+                        25%  { transform: translate(17px, 12px);}
+                        37.5% { transform: translate(12px, 24px);}
+                        50%  { transform: translate(0px, 34px);}
+                        62.5% { transform: translate(-12px, 24px);}
+                        75%  { transform: translate(-17px, 12px);}
+                        87.5% { transform: translate(-12px, 0px);}
+                        100% { transform: translate(0px, 0px);}
                       }
                     `}
-                  </style> 
+                  </style>
                 </div>
               ) : (
                 <div className="flex flex-col items-center bg-white rounded-lg shadow-lg px-8 py-6 min-w-[320px]">
@@ -161,13 +180,14 @@ const Certificate = () => {
 
               {/* Footer Labels (Date / Signature) */}
               <div className="absolute bottom-20 left-16 text-sm text-gray-800 text-left">
-                <div className="border-t w-32 border-yellow-900 mb-1"></div>
                 <span>Date</span>
+                <div className="border-t w-32 border-yellow-900 mb-1"></div>
                 <div className="text-sm font-normal mt-1">{formatDate(certificate?.issueDate) || formatDate(new Date())}</div>
               </div>
               <div className="absolute bottom-20 right-16 text-sm text-gray-800 text-right">
+                <div className=" font-normal mt-1 text-xl"  style={{ fontFamily: "Alex Brush", cursive: true }}>shaiksajidhussain</div>
                 <div className="border-t w-32 border-yellow-900 mb-1 ml-auto"></div>
-                <span>SIGNATURE</span>
+                <div className="text-left">SIGNATURE</div>
               </div>
 
               {/* Certificate ID moved to bottom left */}
@@ -182,11 +202,11 @@ const Certificate = () => {
                   alt="Center Logo"
                   className="h-16"
                 />
-                <img
+                {/* <img
                   src={`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(window.location.href)}&size=80x80`}
                   alt="QR Code"
                   className="h-12"
-                />
+                /> */}
               </div>
             </div>
           </div>
