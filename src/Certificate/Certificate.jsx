@@ -145,7 +145,7 @@ const Certificate = () => {
           )}
 
           <div
-            className="relative w-[90vw] max-w-[800px] h-[calc(90vw*0.7)] max-h-[560px] bg-cover bg-center shadow-2xl rounded-md sm:w-[700px] sm:h-[490px] md:w-[800px] md:h-[560px]"
+            className="relative w-[90vw] max-w-[800px] h-[calc(90vw*0.7)] max-h-[560px] bg-cover bg-center shadow-2xl  sm:w-[700px] sm:h-[490px] md:w-[800px] md:h-[560px]"
             style={{
               backgroundImage:
                 "url('https://res.cloudinary.com/devewerw3/image/upload/v1746609944/Upscaled_Sharpened_Certificate_yoewvr.png')",
@@ -198,7 +198,9 @@ const Certificate = () => {
                 <div className="text-[10px] xs:text-xs sm:text-sm font-normal mt-1">{formatDate(certificate?.issueDate) || formatDate(new Date())}</div>
               </div>
               <div className="absolute bottom-5 sm:bottom-20 right-2 sm:right-16 text-[10px] xs:text-xs sm:text-sm text-gray-800 text-right">
-                <div className="font-normal mt-1 text-base sm:text-xl" style={{ fontFamily: "Alex Brush", cursive: true }}>shaiksajidhussain</div>
+                <div className="font-normal mt-1 text-base sm:text-xl" style={{ fontFamily: "Alex Brush", cursive: true }}>
+                  <img src="https://res.cloudinary.com/dywmrbegq/image/upload/v1746684400/signature_1_1_gh6eek.png" alt="Signature" className="w-20 h-10" />
+                </div>
                 <div className="border-t w-auto sm:w-32 border-yellow-900 mb-1 ml-auto"></div>
                 <div className="text-left">SIGNATURE</div>
               </div>
