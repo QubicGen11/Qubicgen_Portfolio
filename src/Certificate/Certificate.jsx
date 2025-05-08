@@ -18,7 +18,7 @@ const Certificate = () => {
     // Fetch certificate data
     const fetchCertificate = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/inspireleap/getCertificateByEnrollmentId/${id}`);
+        const res = await fetch(`https://inspirebe.qubicgen.com/inspireleap/getCertificateByEnrollmentId/${id}`);
         const data = await res.json();
         if (data.success && data.certificate) {
           setCertificate(data.certificate);
