@@ -54,9 +54,17 @@ const Certificate = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="min-h-screen w-screen flex items-center justify-center p-2 sm:p-4 relative" style={{background:"URL('https://res.cloudinary.com/devewerw3/image/upload/v1746647829/ChatGPT_Image_May_8_2025_01_19_56_AM_j1tan5.png')", backgroundSize:"cover", backgroundPosition:"center", backgroundRepeat:"no-repeat"}}>
-        <div className="w-full flex justify-center overflow-auto">
+      {/* <Navbar /> */}
+      <div className="h-screen w-screen flex items-center justify-center p-2 sm:p-4 relative overflow-hidden" style={{background:"URL('https://res.cloudinary.com/devewerw3/image/upload/v1746647829/ChatGPT_Image_May_8_2025_01_19_56_AM_j1tan5.png')", backgroundSize:"cover", backgroundPosition:"center", backgroundRepeat:"no-repeat"}}>
+        {/* Top Left Logo */}
+        <div className="absolute top-4 left-4 z-50">
+          <img
+            src="https://www.qubicgen.com/assets/og-CWlc-vx7.png"
+            alt="QubicGen Logo"
+            className="h-12 sm:h-16 md:h-20"
+          />
+        </div>
+        <div className="w-full flex justify-center items-center">
           {/* Loader/Verification Overlay */}
           {showOverlay && (
             <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 bg-opacity-40"
@@ -137,7 +145,7 @@ const Certificate = () => {
           )}
 
           <div
-            className="relative w-[98vw] max-w-[800px] h-[calc(98vw*0.7)] max-h-[560px] bg-cover bg-center shadow-2xl rounded-md sm:w-[700px] sm:h-[490px] md:w-[800px] md:h-[560px]"
+            className="relative w-[90vw] max-w-[800px] h-[calc(90vw*0.7)] max-h-[560px] bg-cover bg-center shadow-2xl rounded-md sm:w-[700px] sm:h-[490px] md:w-[800px] md:h-[560px]"
             style={{
               backgroundImage:
                 "url('https://res.cloudinary.com/devewerw3/image/upload/v1746609944/Upscaled_Sharpened_Certificate_yoewvr.png')",
