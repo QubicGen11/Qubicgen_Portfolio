@@ -18,7 +18,7 @@ const Certificate = () => {
     // Fetch certificate data
     const fetchCertificate = async () => {
       try {
-        const res = await fetch(`https://inspirebe.qubicgen.com/inspireleap/getCertificateByEnrollmentId/${id}`);
+        const res = await fetch(`http://localhost:3000/inspireleap/getCertificateByEnrollmentId/${id}`);
         const data = await res.json();
         if (data.success && data.certificate) {
           setCertificate(data.certificate);
@@ -55,11 +55,12 @@ const Certificate = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-[50vw] flex items-center justify-center  p-4 relative" style={{background:"URL('https://res.cloudinary.com/devewerw3/image/upload/v1746647829/ChatGPT_Image_May_8_2025_01_19_56_AM_j1tan5.png')", backgroundSize:"cover", backgroundPosition:"center"}}>  
-        <div>
+      <div className="min-h-[160vw] md:min-h-[50vw] flex items-center justify-center p-2 sm:p-4 relative" style={{background:"URL('https://res.cloudinary.com/devewerw3/image/upload/v1746647829/ChatGPT_Image_May_8_2025_01_19_56_AM_j1tan5.png')", backgroundSize:"cover", backgroundPosition:"center"}}>
+        <div className="w-full flex justify-center overflow-auto">
           {/* Loader/Verification Overlay */}
           {showOverlay && (
-            <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 bg-opacity-40"  style={{background:"URL('https://res.cloudinary.com/devewerw3/image/upload/v1746647829/ChatGPT_Image_May_8_2025_01_19_56_AM_j1tan5.png')", backgroundSize:"cover", backgroundPosition:"center"}}>
+            <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 bg-opacity-40"
+              style={{background:"URL('https://res.cloudinary.com/devewerw3/image/upload/v1746647829/ChatGPT_Image_May_8_2025_01_19_56_AM_j1tan5.png')", backgroundSize:"cover", backgroundPosition:"center"}}>
               {!verified || loading ? (
                 <div className="flex flex-col items-center bg-white rounded-lg shadow-lg px-8 py-6 min-w-[320px]">
                   <span className="inline-block mb-4" style={{height: "48px", width: "48px", position: "relative"}}>
@@ -136,71 +137,75 @@ const Certificate = () => {
           )}
 
           <div
-            className="relative w-[800px] h-[560px] bg-cover bg-center shadow-2xl"
+            className="relative w-[98vw] max-w-[800px] h-[calc(98vw*0.7)] max-h-[560px] bg-cover bg-center shadow-2xl rounded-md sm:w-[700px] sm:h-[490px] md:w-[800px] md:h-[560px]"
             style={{
               backgroundImage:
                 "url('https://res.cloudinary.com/devewerw3/image/upload/v1746609944/Upscaled_Sharpened_Certificate_yoewvr.png')",
+              aspectRatio: "800/560"
             }}
           >
             {/* Top Logos */}
             <img
               src="https://res.cloudinary.com/devewerw3/image/upload/v1730703051/1_gk8wxj.png"
               alt="QubicGen Logo"
-              className="absolute -top-3 left-8 h-40"
+              className="absolute -top-2 left-2 h-12 sm:left-8 sm:h-32 md:h-40"
             />
             <img
               src="https://res.cloudinary.com/devewerw3/image/upload/v1746012285/InspireLeap_Logo_3_rknd2i.png"
               alt="InspireLeap Logo"
-              className="absolute top-8 right-8 h-12"
+              className="absolute top-2 right-2 h-6 sm:top-8 sm:right-8 sm:h-10 md:h-12"
             />
 
             {/* Content Overlay */}
-            <div className="absolute inset-0 flex flex-col items-center text-center text-black px-8">
+            <div className="absolute inset-0 flex flex-col items-center text-center text-black px-1 sm:px-8">
               {/* Title */}
-              <h1 className="mt-24 text-5xl font-[cursive] font-bold text-gray-800"
+              <h1 className="mt-10 sm:mt-20 md:mt-24 text-2xl xs:text-xl sm:text-4xl md:text-5xl font-[cursive] font-bold text-gray-800"
                 style={{ fontFamily: "Alex Brush", cursive: true }}>
                 Certificate of Appreciation
               </h1>
-              <p className="text-sm mt-2 tracking-widest uppercase text-gray-700" style={{ fontFamily: "Plus Jakarta Sans" }}>
+              <p className="text-[7px] sm:text-xs md:text-[12px] mt-1 sm:mt-2 tracking-widest uppercase text-gray-700" style={{ fontFamily: "Plus Jakarta Sans" }}>
                 This certificate is proudly presented to
               </p>
 
               {/* Name */}
-              <h2 className="mt-4 text-5xl font-semibold border-b border-gray-500 px-6 pb-1" style={{ fontFamily: "Alex Brush", cursive: true }}>
+              <div className="sm:mt-1 md:mt-8 ">
+
+              <span className="mt-2 text-lg xs:text-xl sm:text-4xl md:text-5xl font-semibold border-b border-gray-500 px-1 sm:px-6 pb-1" style={{ fontFamily: "Alex Brush", cursive: true }}>
                 {certificate?.recipientName || certificate?.enrollment?.name || "Name & Surname"}
-              </h2>
+              </span>
 
-              {/* Body Text */}
-              <p className="mt-8 max-w-2xl leading-relaxed text-gray-900 text-xs font-[400]" style={{ fontFamily: "Plus Jakarta Sans" }}>
-                Has successfully completed an Internship with <strong>{certificate?.issuedByName || "QubicGen"}</strong> from{" "}
-                <strong>{formatDate(certificate?.startDate) || "Start Date"}</strong> to <strong>{formatDate(certificate?.endDate) || "End Date"}</strong> in the Domain of{" "}
-                <strong>{certificate?.domain || certificate?.enrollment?.course?.courseName || "Course Name"}</strong>. He/She consistently demonstrated strong problem-solving abilities,
-                excellent communication skills, a strong work ethic, and a desire to learn and grow.
-              </p>
-
-              {/* Footer Labels (Date / Signature) */}
-              <div className="absolute bottom-20 left-16 text-sm text-gray-800 text-left">
-                <span>Date</span>
-                <div className="border-t w-32 border-yellow-900 mb-1"></div>
-                <div className="text-sm font-normal mt-1">{formatDate(certificate?.issueDate) || formatDate(new Date())}</div>
+             
+                      <p className="mt-3  md:relative md:top-6 max-w-[90vw] sm:max-w-2xl leading-relaxed text-gray-900 text-[8px] xs:text-xs sm:text-sm font-[400] md:text-[16px] md:leading-[2]" style={{ fontFamily: "Plus Jakarta Sans" }}>
+                      Has successfully completed an Internship with <strong>{certificate?.issuedByName || "QubicGen"}</strong> from{" "}
+                      <strong>{formatDate(certificate?.startDate) || "Start Date"}</strong> to <strong>{formatDate(certificate?.endDate) || "End Date"}</strong> in the Domain of{" "}
+                      <strong>{certificate?.domain || certificate?.enrollment?.course?.courseName || "Course Name"}</strong>. He/She consistently demonstrated strong problem-solving abilities,
+                      excellent communication skills, a strong work ethic, and a desire to learn and grow.
+                      </p>
               </div>
-              <div className="absolute bottom-20 right-16 text-sm text-gray-800 text-right">
-                <div className=" font-normal mt-1 text-xl"  style={{ fontFamily: "Alex Brush", cursive: true }}>shaiksajidhussain</div>
-                <div className="border-t w-32 border-yellow-900 mb-1 ml-auto"></div>
+
+                      {/* Footer Labels (Date / Signature) */}
+              <div className="absolute bottom-5 sm:bottom-20 left-2 sm:left-16 text-[10px] xs:text-xs sm:text-sm text-gray-800 text-left">
+                <span>Date</span>
+                <div className="border-t w-16 sm:w-32 border-yellow-900 mb-1"></div>
+                <div className="text-[10px] xs:text-xs sm:text-sm font-normal mt-1">{formatDate(certificate?.issueDate) || formatDate(new Date())}</div>
+              </div>
+              <div className="absolute bottom-5 sm:bottom-20 right-2 sm:right-16 text-[10px] xs:text-xs sm:text-sm text-gray-800 text-right">
+                <div className="font-normal mt-1 text-base sm:text-xl" style={{ fontFamily: "Alex Brush", cursive: true }}>shaiksajidhussain</div>
+                <div className="border-t w-auto sm:w-32 border-yellow-900 mb-1 ml-auto"></div>
                 <div className="text-left">SIGNATURE</div>
               </div>
 
               {/* Certificate ID moved to bottom left */}
-              <div className="absolute bottom-2 text-md left-2 text-xs font-semibold text-gray-800">
+              {/* <div className="absolute bottom-0.5 sm:bottom-2 left-2 text-[10px] xs:text-xs font-semibold text-gray-800">
                 Certificate ID : {certificate?.certificateNumber || certificate?.verificationCode || "9876543"}
-              </div>
+              </div> */}
 
               {/* Center Bottom Logo + QR */}
-              <div className="absolute bottom-14 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center">
+              <div className="absolute bottom-6 sm:bottom-14 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center">
                 <img
                   src="https://res.cloudinary.com/devewerw3/image/upload/v1746608245/qubicgen_Logo_fkoi11.png"
                   alt="Center Logo"
-                  className="h-16"
+                  className="h-7 sm:h-16"
                 />
                 {/* <img
                   src={`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(window.location.href)}&size=80x80`}
