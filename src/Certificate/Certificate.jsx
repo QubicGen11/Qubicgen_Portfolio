@@ -55,7 +55,16 @@ const Certificate = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-[160vw] md:min-h-[50vw] flex items-center justify-center p-2 sm:p-4 relative" style={{background:"URL('https://res.cloudinary.com/devewerw3/image/upload/v1746647829/ChatGPT_Image_May_8_2025_01_19_56_AM_j1tan5.png')", backgroundSize:"cover", backgroundPosition:"center"}}>
+      <div 
+        className="min-h-screen w-full flex items-center justify-center p-2 sm:p-4 relative" 
+        style={{
+          background: "url('https://res.cloudinary.com/devewerw3/image/upload/v1746647829/ChatGPT_Image_May_8_2025_01_19_56_AM_j1tan5.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed"
+        }}
+      >
         <div className="w-full flex justify-center overflow-auto">
           {/* Loader/Verification Overlay */}
           {showOverlay && (
