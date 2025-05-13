@@ -54,9 +54,20 @@ const Certificate = () => {
 
   return (
     <>
-      <Navbar />
+      {/* QubicGen Logo */}
+      <div className="absolute top-4 left-4 z-10">
+        <a href="/">
+        
+        <img 
+          src="https://www.qubicgen.com/assets/og-CWlc-vx7.png" 
+          alt="QubicGen Logo" 
+          className="w-32 md:w-40 lg:w-48" 
+        />
+        </a>
+      </div>
+
       <div 
-        className="min-h-screen w-full flex items-center justify-center p-2 sm:p-4 relative" 
+        className="min-h-[100vh] w-full flex items-center justify-center p-2 sm:p-4 relative" 
         style={{
           background: "url('https://res.cloudinary.com/devewerw3/image/upload/v1746647829/ChatGPT_Image_May_8_2025_01_19_56_AM_j1tan5.png')",
           backgroundSize: "cover",
