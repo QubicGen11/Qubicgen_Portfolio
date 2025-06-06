@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "../HomeComponents/Navbar";
 import { FaSearch } from "react-icons/fa";
 
 const Certificate = () => {
   const { id } = useParams();
-
-  // Certificate data state
   const [certificate, setCertificate] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  // Verification animation state
   const [verified, setVerified] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
 
   useEffect(() => {
-    // Fetch certificate data
     const fetchCertificate = async () => {
       try {
         const res = await fetch(`https://be.inspireleap.org/inspireleap/getCertificateByEnrollmentId/${id}`);
@@ -33,7 +27,6 @@ const Certificate = () => {
   }, [id]);
 
   useEffect(() => {
-    // Show overlay, then show verified after 2s, then stay until user clicks OK
     if (!loading) {
       const timer = setTimeout(() => {
         setVerified(true);
@@ -42,7 +35,6 @@ const Certificate = () => {
     }
   }, [loading]);
 
-  // Helper for date formatting
   const formatDate = (dateStr) => {
     if (!dateStr) return "";
     const date = new Date(dateStr);
@@ -57,12 +49,11 @@ const Certificate = () => {
       {/* QubicGen Logo */}
       <div className="absolute top-4 left-4 z-10">
         <a href="/">
-        
-        <img 
-          src="https://www.qubicgen.com/assets/og-CWlc-vx7.png" 
-          alt="QubicGen Logo" 
-          className="w-32 md:w-40 lg:w-48" 
-        />
+          <img 
+            src="https://www.qubicgen.com/assets/og-CWlc-vx7.png" 
+            alt="QubicGen Logo" 
+            className="w-32 md:w-40 lg:w-48" 
+          />
         </a>
       </div>
 
@@ -76,7 +67,7 @@ const Certificate = () => {
           backgroundAttachment: "fixed"
         }}
       >
-        <div className="w-full flex justify-center overflow-auto">
+        <div className="w-full flex justify-center">
           {/* Loader/Verification Overlay */}
           {showOverlay && (
             <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 bg-opacity-40"
@@ -94,7 +85,6 @@ const Certificate = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        // The icon will move in a circular path
                         animation: "moveCircle 1.2s linear infinite"
                       }}
                     >
@@ -107,21 +97,6 @@ const Certificate = () => {
                   <div className="text-xs text-gray-500 mb-4 text-center">
                     Powered By <span className="font-semibold text-gray-700">QubicGen Private Limited</span>
                   </div>
-                  <style>
-                    {`
-                      @keyframes moveCircle {
-                        0%   { transform: translate(0px, 0px);}
-                        12.5% { transform: translate(12px, 0px);}
-                        25%  { transform: translate(17px, 12px);}
-                        37.5% { transform: translate(12px, 24px);}
-                        50%  { transform: translate(0px, 34px);}
-                        62.5% { transform: translate(-12px, 24px);}
-                        75%  { transform: translate(-17px, 12px);}
-                        87.5% { transform: translate(-12px, 0px);}
-                        100% { transform: translate(0px, 0px);}
-                      }
-                    `}
-                  </style>
                 </div>
               ) : (
                 <div className="flex flex-col items-center bg-white rounded-lg shadow-lg px-8 py-6 min-w-[320px]">
@@ -144,7 +119,6 @@ const Certificate = () => {
                   <div className="text-xs text-gray-500 mb-4 text-center">
                     Powered By <span className="font-semibold text-gray-700">QubicGen Private Limited</span>
                   </div>
-                  {/* OK button only shown after verified */}
                   <button
                     className="mt-2 px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
                     onClick={() => setShowOverlay(false)}
@@ -156,98 +130,238 @@ const Certificate = () => {
             </div>
           )}
 
-          <div
-            className="relative w-[98vw] max-w-[800px] h-[calc(98vw*0.7)] max-h-[560px] bg-cover bg-center shadow-2xl rounded-md sm:w-[700px] sm:h-[490px] md:w-[800px] md:h-[560px]"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/devewerw3/image/upload/v1746609944/Upscaled_Sharpened_Certificate_yoewvr.png')",
-              aspectRatio: "800/560"
-            }}
-          >
+          {/* New Certificate Design */}
+          <div className="certificate" style={{
+            position: 'relative',
+            width: '800px',
+            height: '565px',
+            backgroundImage: "url('https://res.cloudinary.com/devewerw3/image/upload/v1746609944/Upscaled_Sharpened_Certificate_yoewvr.png')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            boxShadow: 'none',
+            margin: 0,
+            padding: 0
+          }}>
             {/* Top Logos */}
-            <img
-              src="https://res.cloudinary.com/devewerw3/image/upload/v1730703051/1_gk8wxj.png"
-              alt="QubicGen Logo"
-              className="absolute -top-2 left-2 h-12 sm:left-8 sm:h-32 md:h-40"
+            <img 
+              src="https://res.cloudinary.com/dywmrbegq/image/upload/v1746686967/Qubicgen_Full_Logo_1_2_fg7igv.png" 
+              alt="QubicGen Logo" 
+              style={{
+                position: 'absolute',
+                top: '20px',
+                left: '20px',
+                height: '70px'
+              }}
             />
-            <img
-              src="https://res.cloudinary.com/devewerw3/image/upload/v1746012285/InspireLeap_Logo_3_rknd2i.png"
-              alt="InspireLeap Logo"
-              className="absolute top-2 right-2 h-6 sm:top-8 sm:right-8 sm:h-10 md:h-12"
+            <img 
+              src="https://res.cloudinary.com/devewerw3/image/upload/v1746012285/InspireLeap_Logo_3_rknd2i.png" 
+              alt="InspireLeap Logo" 
+              style={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                height: '60px'
+              }}
             />
 
-            {/* Content Overlay */}
-            <div className="absolute inset-0 flex flex-col items-center text-center text-black px-1 sm:px-8">
-              {/* Title */}
-              <h1 className="mt-10 sm:mt-20 md:mt-24 text-2xl xs:text-xl sm:text-4xl md:text-5xl font-[cursive] font-bold text-gray-800"
-                style={{ fontFamily: "Alex Brush", cursive: true }}>
-                Certificate of Appreciation
-              </h1>
-              <p className="text-[7px] sm:text-xs md:text-[12px] mt-1 sm:mt-2 tracking-widest uppercase text-gray-700" style={{ fontFamily: "Plus Jakarta Sans" }}>
-                This certificate is proudly presented to
+            {/* Watermark Logo */}
+            <img 
+              src="https://res.cloudinary.com/devewerw3/image/upload/v1746608245/qubicgen_Logo_fkoi11.png" 
+              alt="Center Watermark Logo" 
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                opacity: 0.08,
+                width: '240px',
+                height: 'auto',
+                zIndex: 0,
+                pointerEvents: 'none'
+              }}
+            />
+
+            {/* Content */}
+            <div className="content" style={{
+              position: 'absolute',
+              inset: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              color: 'black',
+              padding: '0 32px',
+              zIndex: 1
+            }}>
+              <h1 className="title" style={{
+                marginTop: '100px',
+                fontSize: '3.5rem',
+                fontFamily: "'Alex Brush', cursive",
+                fontWeight: 'bold',
+                color: 'rgb(31 41 55)'
+              }}>{certificate?.type || "Certificate of Appreciation"}</h1>
+              
+              <p className="subtitle" style={{
+                fontSize: '0.875rem',
+                marginTop: '-1rem',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'rgb(55 65 81)',
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontWeight: 'bold'
+              }}>This certificate is proudly presented to</p>
+              
+              <h2 className="name" style={{
+                marginTop: '1rem',
+                fontSize: '2.5rem',
+                fontWeight: 400,
+                borderBottom: '1px solid rgb(107 114 128)',
+                padding: '0 1.5rem 0.25rem',
+                fontFamily: "'Alex Brush', cursive"
+              }}>{certificate?.recipientName || certificate?.enrollment?.name || "Name & Surname"}</h2>
+              
+              <p className="description" style={{
+                marginTop: '1px',
+                marginBottom: 0,
+                maxWidth: '36rem',
+                lineHeight: 1.75,
+                color: 'rgb(17 24 39)',
+                fontSize: '14px',
+                fontWeight: 400,
+                fontFamily: "'Plus Jakarta Sans', sans-serif"
+              }}>
+                Has successfully completed an Internship with <strong>{certificate?.issuedByName || certificate?.enrollment?.course?.institution || "QubicGen"}</strong> from{" "}
+                <strong>{formatDate(certificate?.startDate) || formatDate(certificate?.enrollment?.startDate) || "Start Date"}</strong> to <strong>{formatDate(certificate?.endDate) || formatDate(certificate?.enrollment?.endDate) || "End Date"}</strong> in the Domain of{" "}
+                <strong>{certificate?.domain || certificate?.enrollment?.course?.courseName || "Course Name"}</strong>. He/She consistently demonstrated strong problem-solving abilities,
+                excellent communication skills, a strong work ethic, and a desire to learn and grow.
               </p>
 
-              {/* Name */}
-              <div className="sm:mt-1 md:mt-8 ">
+              {/* Footer */}
+              <div className="date-signature-row" style={{
+                position: 'absolute',
+                bottom: '70px',
+                left: '45px',
+                right: '45px',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'flex-end',
+                width: 'calc(100% - 90px)'
+              }}>
+                <div className="date-section" style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  fontSize: '16px',
+                  color: 'rgb(31 41 55)',
+                  flex: 1
+                }}>
+                  <span className="date-value">{formatDate(certificate?.issueDate) || formatDate(certificate?.enrollment?.completionDate) || formatDate(new Date())}</span>
+                  <span className="date-label">Date</span>
+                </div>
 
-              <span className="mt-2 text-lg xs:text-xl sm:text-4xl md:text-5xl font-semibold border-b border-gray-500 px-1 sm:px-6 pb-1" style={{ fontFamily: "Alex Brush", cursive: true }}>
-                {certificate?.recipientName || certificate?.enrollment?.name || "Name & Surname"}
-              </span>
+                <div className="qr-section" style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'flex-end',
+                  justifyContent: 'center',
+                  flex: 1
+                }}>
+                  <div className="qr-section-content" style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                    flex: 1
+                  }}>
+                    <span className="qr-label" style={{
+                      fontSize: '0.9rem',
+                      color: '#555',
+                      marginBottom: '2px',
+                      marginTop: '20px'
+                    }}>Scan here to verify</span>
+                    <img 
+                      src={`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(window.location.href)}&size=80x80`}
+                      alt="QR Code"
+                      style={{
+                        height: '80px',
+                        width: '80px'
+                      }}
+                    />
+                  </div>
 
-             
-                      <p className="mt-3  md:relative md:top-6 max-w-[90vw] sm:max-w-2xl leading-relaxed text-gray-900 text-[8px] xs:text-xs sm:text-sm font-[400] md:text-[16px] md:leading-[2]" style={{ fontFamily: "Plus Jakarta Sans" }}>
-                      Has successfully completed an Internship with <strong>{certificate?.issuedByName || "QubicGen"}</strong> from{" "}
-                      <strong>{formatDate(certificate?.startDate) || "Start Date"}</strong> to <strong>{formatDate(certificate?.endDate) || "End Date"}</strong> in the Domain of{" "}
-                      <strong>{certificate?.domain || certificate?.enrollment?.course?.courseName || "Course Name"}</strong>. He/She consistently demonstrated strong problem-solving abilities,
-                      excellent communication skills, a strong work ethic, and a desire to learn and grow.
-                      </p>
+                  <div className="aicte-section" style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginLeft: '20px'
+                  }}>
+                    <img 
+                      src="https://res.cloudinary.com/devewerw3/image/upload/v1747205750/AICTE_v0zola.png" 
+                      alt="AICTE Logo"
+                      style={{
+                        height: '60px'
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div className="signature-section" style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  fontSize: '16px',
+                  color: 'rgb(31 41 55)',
+                  flex: 1
+                }}>
+                  <img 
+                    src={certificate?.signatureImage || "https://res.cloudinary.com/devewerw3/image/upload/v1748447550/harisign_tf5pyb.png"} 
+                    alt="Signature" 
+                    style={{
+                      height: '40px',
+                      marginBottom: '8px',
+                      transform: 'rotate(-20deg)'
+                    }}
+                  />
+                  <span className="signature-value">{certificate?.signatoryName || "Director, QubicGen"}</span>
+                  <span className="signature-label">SIGNATURE</span>
+                </div>
               </div>
 
-                      {/* Footer Labels (Date / Signature) */}
-              <div className="absolute bottom-5 sm:bottom-20 left-2 sm:left-16 text-[10px] xs:text-xs sm:text-sm text-gray-800 text-left">
-                <span>Date</span>
-                <div className="border-t w-16 sm:w-32 border-yellow-900 mb-1"></div>
-                <div className="text-[10px] xs:text-xs sm:text-sm font-normal mt-1">{formatDate(certificate?.issueDate) || formatDate(new Date())}</div>
-              </div>
-              <div className="absolute bottom-5 sm:bottom-20 right-2 sm:right-16 text-[10px] xs:text-xs sm:text-sm text-gray-800 text-right">
-                <div className="font-normal mt-1 text-base sm:text-xl" style={{ fontFamily: "Alex Brush", cursive: true }}>shaiksajidhussain</div>
-                <div className="border-t w-auto sm:w-32 border-yellow-900 mb-1 ml-auto"></div>
-                <div className="text-left">SIGNATURE</div>
-              </div>
-
-              {/* Certificate ID moved to bottom left */}
-              {/* <div className="absolute bottom-0.5 sm:bottom-2 left-2 text-[10px] xs:text-xs font-semibold text-gray-800">
-                Certificate ID : {certificate?.certificateNumber || certificate?.verificationCode || "9876543"}
-              </div> */}
-
-              {/* Center Bottom Logo + QR */}
-              <div className="absolute bottom-6 sm:bottom-14 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center">
-                <img
-                  src="https://res.cloudinary.com/devewerw3/image/upload/v1746608245/qubicgen_Logo_fkoi11.png"
-                  alt="Center Logo"
-                  className="h-7 sm:h-16"
-                />
-                {/* <img
-                  src={`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(window.location.href)}&size=80x80`}
-                  alt="QR Code"
-                  className="h-12"
-                /> */}
+              <div className="certificate-id" style={{
+                position: 'absolute',
+                bottom: '20px',
+                left: '8px',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: 'rgb(31 41 55)'
+              }}>
+                Certificate ID: {certificate?.certificateNumber || certificate?.verificationCode || certificate?.enrollment?.certificateId || "9876543"}
               </div>
             </div>
           </div>
-          {/* Add keyframes for spin animation */}
-          <style>
-            {`
-              @keyframes spin {
-                0% { transform: rotate(0deg);}
-                100% { transform: rotate(360deg);}
-              }
-            `}
-          </style>
         </div>
       </div>
+
+      <style>
+        {`
+          @keyframes moveCircle {
+            0%   { transform: translate(0px, 0px);}
+            12.5% { transform: translate(12px, 0px);}
+            25%  { transform: translate(17px, 12px);}
+            37.5% { transform: translate(12px, 24px);}
+            50%  { transform: translate(0px, 34px);}
+            62.5% { transform: translate(-12px, 24px);}
+            75%  { transform: translate(-17px, 12px);}
+            87.5% { transform: translate(-12px, 0px);}
+            100% { transform: translate(0px, 0px);}
+          }
+        `}
+      </style>
     </>
   );
 };
 
 export default Certificate;
+
