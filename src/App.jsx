@@ -52,15 +52,18 @@ import Pricing from "./Courses Contacts/Pricing section/Pricing";
 import { ToastContainer } from "react-toastify";
 import RegistrationTable from "./SecreatFolder/Secreat";
 import Certificate from "./Certificate/Certificate";
+import Serverdown from "./Serverdown";
 
 // import TechnologyOverview from "./Courses Contacts/Technology Overview Componnets/TechnologyOverview";
 const Nopage = lazy(()=>import ( './404') );
 // Import the NotFound component
 
-
-
+const isServerDown = true; // Set to true to show the server down page
 
 const App = () => {
+  if (isServerDown) {
+    return <Serverdown />;
+  }
   return (
     <div>
       <ToastContainer/>

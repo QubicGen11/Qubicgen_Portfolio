@@ -1,0 +1,368 @@
+.serverdown-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  color: #fff;
+  text-align: center;
+}
+
+.serverdown-animation {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.gear {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #444;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  border: 6px solid #fff;
+  animation: spin 2s linear infinite;
+}
+
+.gear1 { animation-delay: 0s; }
+.gear2 { animation-delay: 0.3s; background: #666; }
+.gear3 { animation-delay: 0.6s; background: #888; }
+
+.gear:before, .gear:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 32px;
+  background: #fff;
+  border-radius: 6px;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+.gear:after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+p {
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+.serverdown-robot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.robot-body {
+  width: 120px;
+  height: 160px;
+  background: #232526;
+  border-radius: 24px 24px 32px 32px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.robot-head {
+  width: 80px;
+  height: 60px;
+  background: #414345;
+  border-radius: 24px 24px 16px 16px;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.robot-eye {
+  width: 16px;
+  height: 16px;
+  background: #00ffe7;
+  border-radius: 50%;
+  margin: 0 8px;
+  box-shadow: 0 0 8px #00ffe7, 0 0 2px #fff;
+  animation: blink 2.5s infinite;
+}
+.left-eye { animation-delay: 0s; }
+.right-eye { animation-delay: 1.2s; }
+@keyframes blink {
+  0%, 90%, 100% { opacity: 1; }
+  92%, 98% { opacity: 0.2; }
+}
+.robot-antenna {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.antenna-light {
+  width: 10px;
+  height: 10px;
+  background: #ff4d6d;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #ff4d6d, 0 0 2px #fff;
+  animation: antenna-blink 1.2s infinite alternate;
+}
+@keyframes antenna-blink {
+  0% { background: #ff4d6d; box-shadow: 0 0 12px #ff4d6d; }
+  100% { background: #fff; box-shadow: 0 0 4px #fff; }
+}
+.robot-arms {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.robot-arm {
+  width: 24px;
+  height: 12px;
+  background: #232526;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.left-arm { margin-left: -12px; }
+.right-arm { margin-right: -12px; }
+.robot-legs {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  width: 60px;
+  display: flex;
+  justify-content: space-between;
+  transform: translateX(-50%);
+}
+.robot-leg {
+  width: 14px;
+  height: 32px;
+  background: #414345;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.left-leg { }
+.right-leg { }
+
+.serverdown-progress {
+  margin-bottom: 0.5rem;
+}
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #232526;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.progress-bar-inner {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00ffe7 0%, #ff4d6d 100%);
+  animation: progress-move 2.5s linear infinite;
+}
+@keyframes progress-move {
+  0% { width: 0%; }
+  80% { width: 100%; }
+  100% { width: 0%; }
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.18;
+  z-index: 1;
+  pointer-events: none;
+  animation: float-shape 8s ease-in-out infinite alternate;
+}
+.shape1 {
+  width: 220px;
+  height: 220px;
+  background: #00ffe7;
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+.shape2 {
+  width: 160px;
+  height: 160px;
+  background: #ff4d6d;
+  bottom: 12%;
+  right: 8%;
+  animation-delay: 2s;
+}
+.shape3 {
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  bottom: 20%;
+  left: 18%;
+  animation-delay: 4s;
+}
+@keyframes float-shape {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-30px) scale(1.08); }
+}
+
+/* Sparks */
+.robot-spark {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle, #fff 0%, #ff4d6d 60%, transparent 100%);
+  opacity: 0.7;
+  z-index: 2;
+  pointer-events: none;
+  animation: spark-flicker 1.2s infinite alternate;
+}
+.spark1 { top: 30px; left: -18px; animation-delay: 0s; }
+.spark2 { top: 60px; right: -18px; animation-delay: 0.5s; }
+.spark3 { bottom: 18px; left: 50%; transform: translateX(-50%); animation-delay: 1s; }
+@keyframes spark-flicker {
+  0%, 100% { opacity: 0.7; filter: blur(0px); }
+  50% { opacity: 0.2; filter: blur(2px); }
+}
+
+/* Robot arm movement */
+.animated-arm {
+  animation: arm-move 1.8s ease-in-out infinite alternate;
+}
+@keyframes arm-move {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(18deg); }
+}
+
+/* Terminal effect */
+.serverdown-terminal {
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  border: 1px solid #222;
+}
+.terminal-text {
+  letter-spacing: 0.04em;
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+.maintenance-banner {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  animation: swing-banner 2.2s cubic-bezier(.36,.07,.19,.97) infinite alternate;
+}
+.banner-text {
+  display: inline-block;
+  background: #ff4d6d;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.5rem 2.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  letter-spacing: 0.08em;
+  border: 3px solid #fff;
+}
+@keyframes swing-banner {
+  0% { transform: translateX(-50%) rotate(-6deg); }
+  100% { transform: translateX(-50%) rotate(6deg); }
+}
+
+.tools-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  height: 48px;
+}
+.wrench, .screwdriver {
+  position: absolute;
+  width: 48px;
+  height: 12px;
+  border-radius: 6px;
+  top: 18px;
+  left: 50%;
+  transform-origin: left center;
+}
+.wrench {
+  background: linear-gradient(90deg, #888 60%, #fff 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transform: translateX(-50%) rotate(-30deg);
+  z-index: 2;
+  animation: wrench-cross 2.2s infinite alternate;
+}
+.screwdriver {
+  background: linear-gradient(90deg, #ffb300 60%, #fff 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transform: translateX(-50%) rotate(30deg);
+  z-index: 1;
+  animation: screwdriver-cross 2.2s infinite alternate;
+}
+@keyframes wrench-cross {
+  0% { transform: translateX(-50%) rotate(-30deg); }
+  100% { transform: translateX(-50%) rotate(-20deg); }
+}
+@keyframes screwdriver-cross {
+  0% { transform: translateX(-50%) rotate(30deg); }
+  100% { transform: translateX(-50%) rotate(40deg); }
+}
+
+.background-gear {
+  position: absolute;
+  top: 60%;
+  left: 80%;
+  width: 120px;
+  height: 120px;
+  background: repeating-conic-gradient(#00ffe7 0deg 20deg, #232526 20deg 40deg);
+  border-radius: 50%;
+  opacity: 0.12;
+  z-index: 0;
+  animation: gear-spin 6s linear infinite;
+}
+@keyframes gear-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Welding spark effect */
+.welding-arm {
+  position: relative;
+}
+.welding-spark {
+  position: absolute;
+  left: 90%;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle, #fff 0%, #ffb300 60%, transparent 100%);
+  opacity: 0.8;
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: welding-flicker 0.7s infinite alternate;
+}
+@keyframes welding-flicker {
+  0%, 100% { opacity: 0.8; filter: blur(1px); }
+  50% { opacity: 0.2; filter: blur(3px); }
+} 
