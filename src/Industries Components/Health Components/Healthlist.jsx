@@ -23,52 +23,52 @@ const Bankinglist = () => {
   const [HealthOffering, setHealthOffering] = useState([
     {
         title: 'Electronic Health Records (EHR) Systems',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637205/QubicGen/HealthCare/project-manager-working-update-tasks-with-gantt-chart-scheduling-diagram-hospital-success-smart-medical-doctor-working-with-smart-medical-doctor-as-conceptxa_71455-1228_gssxrw.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/Service+Offerings/Electric%20health%20records.jpeg',
         description: 'Development, implementation and customization of electronic health records (EHR) systems to digitize patient health information, streamline clinical workflows and improve care coordination among healthcare providers.'
     },
     {
         title: 'Health Information Exchange (HIE)',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637297/QubicGen/HealthCare/medical-team-having-meeting-with-doctors-white-lab-coats-surgical-scrubs-seated-table-discussing-patients-working-online-using-computers-medical-industry_533878-1711_hz1lvc.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/Service+Offerings/health%20information%20exchange.jpeg',
         description: 'Integration of health information exchange platforms to facilitate secure sharing of patient data among healthcare organizations, enabling seamless communication and collaboration across the care continuum.'
     },
     {
         title: 'Telemedicine and Telehealth Solutions',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637324/QubicGen/HealthCare/telemedicine-service-online-video-call-doctor-actively-chat-with-patient_31965-62472_dtrzf7.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/Service+Offerings/telemedecine%20and%20tele%20health%20solutions.jpeg',
         description: 'Design and deployment of telemedicine and telehealth solutions, including video conferencing platforms, remote patient monitoring systems and virtual care platforms, to enable remote consultations, monitoring and care delivery.'
     },
     {
         title: 'Medical Imaging and Picture Archiving and Communication Systems (PACS)',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637423/QubicGen/HealthCare/portrait-mature-biologist-woman-working-computer-modern-equipment-microbiological-laboratory_482257-34412_icmwwa.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/Service+Offerings/medical%20imaging.jpeg',
         description: 'Development and implementation of PACS solutions to manage medical imaging data, including storage, retrieval and distribution of radiology images, enabling timely diagnosis and treatment planning.'
     },
     {
         title: 'Healthcare Analytics and Business Intelligence',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637543/QubicGen/HealthCare/scientific-data-processing-with-human-body-scope-scanning-with-male-doctor-writing_1134-11878_hyy9ci.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/Service+Offerings/healthcare%20Analytics.jpeg',
         description: 'Utilization of healthcare analytics tools and business intelligence solutions to analyze clinical, operational and financial data, identify trends and make data-driven decisions to improve patient outcomes and optimize resource utilization.'
     },
     {
         title: 'Revenue Cycle Management (RCM)',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637572/QubicGen/HealthCare/top-view-businesspeople-working-with-icons-painted-table_1134-100_tqeic3.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/Service+Offerings/revenue%20cycling%20management.jpeg',
         description: 'Provision of revenue cycle management services to healthcare organizations, including billing, coding, claims management and accounts receivable management, to optimize revenue capture and ensure timely reimbursement.'
     },
     {
         title: 'Population Health Management',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637618/QubicGen/HealthCare/close-up-picture-doctor-s-hands-posting-symbol-home-family-member-model_1150-26706_rvtk8g.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/Service+Offerings/population%20health%20management.jpeg',
         description: 'Development and implementation of population health management platforms to analyze patient populations, identify at-risk individuals and implement targeted interventions to improve health outcomes and reduce healthcare costs.'
     },
     {
         title: 'Healthcare Interoperability and Standards Compliance',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637659/QubicGen/HealthCare/medical-infographic-with-photo_23-2148368620_xpdhcg.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/Service+Offerings/Healthcare+Interoperability+and+Stannderds+compilance.jpeg',
         description: 'Assistance with healthcare interoperability initiatives and compliance with industry standards such as HL7, FHIR and DICOM to ensure seamless data exchange and interoperability among healthcare systems and applications.'
     },
     {
         title: 'Cybersecurity and Data Privacy',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637761/QubicGen/HealthCare/cyber-security-concept_23-2148532223_xyfk62.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/Service+Offerings/cybersecurity%20and%20data%20privacy.jpeg',
         description: 'Provision of cybersecurity services to protect sensitive healthcare data from cyber threats, including ransomware attacks, data breaches and unauthorized access, through robust security measures, encryption and access controls.'
     },
     {
         title: 'Compliance and Regulatory Consulting',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709637813/QubicGen/HealthCare/standard-quality-control-collage-concept_23-2149595850_aqwrio.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/Service+Offerings/compliance%20and%20regularity%20consulting.jpeg',
         description: 'Consulting and advisory services to help healthcare organizations navigate regulatory requirements, including HIPAA, HITECH, GDPR and Meaningful Use and implement compliance programs to safeguard patient privacy and data security.'
     }
 ]);
@@ -128,7 +128,7 @@ const Bankinglist = () => {
             <p className="lead" id='leadtext'>We collaborate with healthcare and life sciences enterprises worldwide to redefine their operational processes and enhance patient experiences significantly. Leveraging deep industry insights and technological proficiency, we continuously innovate to develop transformative solutions that revolutionize our client's business methodologies.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709623443/QubicGen/medical-banner-with-doctor-working-laptop_23-2149611211_mi7vnl.jpg" alt="" />          </div>
+          <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/overview.jpeg" alt="" />          </div>
         </div>
       </div>
 
@@ -168,7 +168,7 @@ const Bankinglist = () => {
           <div className="row">
             {HealthOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
-                <p>{serve.description}</p>
+                <p className='text-sm'  >{serve.description}</p>
                 <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>
                   <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
                   <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '15px' }}>{serve.title}</p>

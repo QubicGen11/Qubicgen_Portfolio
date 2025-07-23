@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 import './Footer.css'
 import Logo from "./og.png"
 import { Link } from 'react-router-dom';
+import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   const footerRef = useRef(null);
@@ -86,31 +87,28 @@ const Footer = () => {
               <li className='falling-icon' data-aos-delay="0">
                 <a href="https://www.facebook.com/QubicGen" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
                   <span className="sr-only">Facebook</span>
-                 <img style={{height:'30px',width:'30px',marginTop:'5px'}} src="https://res.cloudinary.com/defsu5bfc/image/upload/v1713853663/Facebook-logo-premium-of-golden-social-media-png_miqqpc.png" className='rounded-2xl'  alt="" />
+                  <FaFacebookF style={{height:'30px',width:'30px',marginTop:'5px', borderRadius: '50%', background: 'white', color: '#1877F3', padding: '4px'}} />
                 </a>  
               </li>
               <li className='falling-icon' data-aos-delay="0.2">
                 <a href="https://www.instagram.com/qubicgen/" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
                   <span className="sr-only">Instagram</span>
-                  <img style={{height:'30px',width:'30px',marginTop:'5px'}} className='rounded-full' src="https://res.cloudinary.com/defsu5bfc/image/upload/v1713853722/cf01074bb3d544d41b2d02f841a31358_dk1wii.jpg" alt="" />
+                  <FaInstagram style={{height:'30px',width:'30px',marginTop:'5px', borderRadius: '50%', background: 'white', color: '#E4405F', padding: '4px'}} />
                 </a>
               </li>
               <li className='falling-icon' data-aos-delay="0.3">
                 <a href="https://twitter.com/QubicGenGlobal" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
                   <span className="sr-only">Twitter</span>
-                 <img style={{height:'30px',width:'30px',marginTop:'5px'}} className='rounded-full' src="https://res.cloudinary.com/defsu5bfc/image/upload/v1713853760/a167b5238b5f7e5e91b45dd35408e9b3_m8jvxl.jpg" alt="" />
+                  <FaTwitter style={{height:'30px',width:'30px',marginTop:'5px', borderRadius: '50%', background: 'white', color: '#1DA1F2', padding: '4px'}} />
+                </a>
+              </li>
+              <li className='falling-icon' data-aos-delay="0.4">
+                <a href="https://www.linkedin.com/company/qubicgen" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
+                  <span className="sr-only">LinkedIn</span>
+                  <FaLinkedinIn style={{height:'30px',width:'30px',marginTop:'5px', borderRadius: '50%', background: 'white', color: '#0077B5', padding: '4px'}} />
                 </a>
               </li>
              
-              <img src="" alt="" />
-
-              <li className='falling-icon' data-aos-delay="0.4">
-  <a href="https://www.linkedin.com/company/qubicgen/mycompany/" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
-    <span className="sr-only">LinkedIn</span>
-   <img style={{height:'30px',width:'30px',marginTop:'5px'}} src="https://res.cloudinary.com/defsu5bfc/image/upload/v1713853801/Linkedin-logo-premium-of-golden-social-media-png_vvmmsa.png" alt="" className='relative right-7 top- rounded-3xl' />
-  </a>
-</li>
-
             </ul>
           </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">

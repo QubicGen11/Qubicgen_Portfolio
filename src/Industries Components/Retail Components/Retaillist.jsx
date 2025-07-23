@@ -44,54 +44,54 @@ const Retaillist = () => {
 
 const [RetailOffering, setRetailOffering] = useState([
   {
-      title: 'E-Commerce Development',
-      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709706216/QubicGen/Retail/digital-wardrobe-transparent-screen_53876-105380_b3osuj.jpg',
-      description: 'Design, development and customization of e-commerce websites and mobile apps to enable online sales, including features such as product catalogs, shopping carts, payment gateways and order management systems.'
+    title: 'Customer Relationship Management (CRM)',
+    background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/services/customer+relationship+management.jpg',
+    description: 'Implementation of CRM systems to manage customer interactions, capture customer data, personalize marketing efforts and improve customer retention through targeted promotions and loyalty programs.'
   },
   {
-      title: 'Point of Sale (POS) Systems',
-      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709706515/QubicGen/Retail/easy-wireless-yechnology-payment_23-2149105207_fybuyr.jpg',
-      description: 'Implementation of POS systems to manage retail transactions, including sales, inventory management, customer data capture and reporting, both in-store and online.'
+    title: 'E-Commerce Development',
+    background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/services/e-commerce+development.jpg',
+    description: 'Design, development and customization of e-commerce websites and mobile apps to enable online sales, including features such as product catalogs, shopping carts, payment gateways and order management systems.'
   },
   {
-      title: 'Inventory Management Solutions',
-      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709706537/QubicGen/Retail/medium-shot-woman-with-tablet_23-2148902535_b5sqbt.jpg',
-      description: 'Provision of inventory management solutions to optimize inventory levels, track stock movements, automate replenishment processes and prevent stockouts, improving inventory accuracy and turnover.'
+    title: 'Inventory Management Solutions',
+    background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/services/inventory+management+solutions.jpg',
+    description: 'Provision of inventory management solutions to optimize inventory levels, track stock movements, automate replenishment processes and prevent stockouts, improving inventory accuracy and turnover.'
   },
   {
-      title: 'Omni-Channel Retailing',
-      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709706541/QubicGen/Retail/flow-chart-showing-web-purchases-with-man-holding-tablet-linked-shopping-cart_1284-44266_g4uyau.jpg',
-      description: 'Integration of online and offline sales channels to provide a seamless shopping experience across multiple touchpoints, including brick-and-mortar stores, e-commerce websites, mobile apps and social media platforms.'
+    title: 'Omni-Channel Retailing',
+    background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/services/omni-channel+retailing.jpg',
+    description: 'Integration of online and offline sales channels to provide a seamless shopping experience across multiple touchpoints, including brick-and-mortar stores, e-commerce websites, mobile apps and social media platforms.'
   },
   {
-      title: 'Customer Relationship Management (CRM)',
-      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709706594/QubicGen/Retail/customer-relationship-management-concept_23-2150038415_uwqhm8.jpg',
-      description: 'Implementation of CRM systems to manage customer interactions, capture customer data, personalize marketing efforts and improve customer retention through targeted promotions and loyalty programs.'
+    title: 'Personalization and Recommendation Engines',
+    background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/services/personalization+and+recommendation+engins.jpg',
+    description: 'Development of personalization and recommendation engines to deliver personalized product recommendations, tailored promotions and targeted marketing messages based on customer preferences and behavior.'
   },
   {
-      title: 'Retail Analytics and Business Intelligence',
-      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709706603/QubicGen/Retail/representation-user-experience-interface-design_23-2150169844_ifwxja.jpg',
-      description: 'Utilization of retail analytics tools and business intelligence solutions to analyze sales data, customer behavior and market trends, enabling data-driven decision-making and strategic planning.'
+    title: 'Point of Sale (POS) Systems',
+    background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/services/point+of+sale+systems+.jpg',
+    description: 'Implementation of POS systems to manage retail transactions, including sales, inventory management, customer data capture and reporting, both in-store and online.'
   },
   {
-      title: 'Personalization and Recommendation Engines',
-      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709706642/QubicGen/Retail/shutterstock_443121277_5772697021947_m8ctwv.jpg',
-      description: 'Development of personalization and recommendation engines to deliver personalized product recommendations, tailored promotions and targeted marketing messages based on customer preferences and behavior.'
+    title: 'Retail Analytics and Business Intelligence',
+    background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/services/retail+analytics+and+business+intilligence.jpg',
+    description: 'Utilization of retail analytics tools and business intelligence solutions to analyze sales data, customer behavior and market trends, enabling data-driven decision-making and strategic planning.'
   },
   {
-      title: 'Supply Chain Optimization',
-      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709706986/QubicGen/Retail/still-life-supply-chain-representation_23-2149827291_eud93j.jpg',
-      description: 'Optimization of retail supply chains through advanced planning and forecasting, demand sensing, supplier collaboration and logistics optimization to improve efficiency, reduce costs and minimize stockouts.'
+    title: 'RFID and Barcode Technologies',
+    background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/services/RFID+and+Barcode+Technologies+.jpg',
+    description: 'Implementation of RFID and barcode technologies for inventory tracking, asset management and loss prevention, enabling real-time visibility into merchandise movements and enhancing inventory accuracy.'
   },
   {
-      title: 'RFID and Barcode Technologies',
-      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707035/QubicGen/Retail/barcode-concept-illustration_114360-7032_cawwpl.jpg',
-      description: 'Implementation of RFID and barcode technologies for inventory tracking, asset management and loss prevention, enabling real-time visibility into merchandise movements and enhancing inventory accuracy.'
+    title: 'Supply Chain Optimization',
+    background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/services/supply+chain+optimization.jpg',
+    description: 'Optimization of retail supply chains through advanced planning and forecasting, demand sensing, supplier collaboration and logistics optimization to improve efficiency, reduce costs and minimize stockouts.'
   },
   {
-      title: 'Mobile Commerce and In-Store Technologies',
-      background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707116/QubicGen/Retail/male-customer-holding-smartphone_482257-76307_ud8sbd.jpg',
-      description: 'Development of mobile commerce solutions and in-store technologies, such as mobile payment systems, digital signage, interactive kiosks and augmented reality (AR) experiences, to enhance the shopping experience and drive engagement.'
+    title: 'Mobile Commerce and In-Store Technologies',
+    background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/services/mobile+commerse.jpg',
+    description: 'Development of mobile commerce solutions and in-store technologies, such as mobile payment systems, digital signage, interactive kiosks and augmented reality (AR) experiences, to enhance the shopping experience and drive engagement.'
   }
 ]);
   // This is for rpa offering cards
@@ -151,7 +151,7 @@ const [RetailOffering, setRetailOffering] = useState([
             <p className="lead" id='leadtext'>At QubicGen, we specialize in delivering tailored solutions for Retail and Consumer Goods industries, optimizing operations and enhancing customer experiences. From innovative storefront designs to efficient supply chain management, we empower businesses to excel in the ever-evolving marketplace.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709625817/QubicGen/background-interior-supermarket-out-focus_123827-28040_wpfavj.jpg" alt="" />          </div>
+          <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/one+solution+at+a+time.jpg" alt="" />          </div>
       </div>
     </div>
 
@@ -221,7 +221,7 @@ const [RetailOffering, setRetailOffering] = useState([
         <div className="row">
           {RetailOffering.map((serve) => (
             <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
-              <p>{serve.description}</p>
+              <p className='text-sm'>{serve.description}</p>
               <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>
                 <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
                 <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '15px' }}>{serve.title}</p>

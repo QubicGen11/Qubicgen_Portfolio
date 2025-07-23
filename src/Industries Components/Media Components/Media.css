@@ -1,7 +1,7 @@
 .mediahead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709619968/QubicGen/person-working-with-floating-screens_23-2150417064_cpcygt.jpg");background-position: center;
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Media+and+Entertainment/Media+and+entertinment/main.jpg");background-position: center;
 background-size: cover;
 }
 .mediahead::before {
@@ -60,7 +60,7 @@ left: 30%; */
 .mediahead {
 position: relative;
 height: 50vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709619968/QubicGen/person-working-with-floating-screens_23-2150417064_cpcygt.jpg");}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Media+and+Entertainment/Media+and+entertinment/main.jpg");}
 @media (min-width: 501px) and (max-width: 768px) {
 #mediatit{
 font-size: 25px;
@@ -77,7 +77,7 @@ left: 32%; */
 .mediahead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709619968/QubicGen/person-working-with-floating-screens_23-2150417064_cpcygt.jpg");background-position: center;
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Media+and+Entertainment/Media+and+entertinment/main.jpg");background-position: center;
 }
 }
 @media (min-width: 770px) and (max-width: 1024px) {
@@ -96,7 +96,7 @@ left: 32%; */
 .mediahead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709619968/QubicGen/person-working-with-floating-screens_23-2150417064_cpcygt.jpg");}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Media+and+Entertainment/Media+and+entertinment/main.jpg");}
 }
 }
   /* This is offering cards css */

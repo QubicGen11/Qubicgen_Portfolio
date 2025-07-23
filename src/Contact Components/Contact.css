@@ -19,7 +19,7 @@ input {
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
-    background: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710232910/QubicGen/Contact%20Us/robot-handshake-human-background-futuristic-digital-age_53876-129770_y17wm0.jpg");
+    background: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Contact/Robot_Hand+Contact.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

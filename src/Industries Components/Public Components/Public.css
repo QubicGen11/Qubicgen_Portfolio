@@ -1,7 +1,7 @@
 .publichead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709619421/QubicGen/silhouette-view-business-people-team-group-meeting_31965-29130_rb344a.jpg");background-position: center;
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Public+%2C+Sector+and+Government/Public+sector+and+government/main.jpg");background-position: center;
 background-size: cover;
 }
 .publichead::before {
@@ -60,7 +60,7 @@ left: 30%; */
 .publichead {
 position: relative;
 height: 50vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709619421/QubicGen/silhouette-view-business-people-team-group-meeting_31965-29130_rb344a.jpg");}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Public+%2C+Sector+and+Government/Public+sector+and+government/main.jpg");}
 @media (min-width: 501px) and (max-width: 768px) {
 #publictit{
 font-size: 25px;
@@ -77,7 +77,7 @@ left: 32%; */
 .publichead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709619421/QubicGen/silhouette-view-business-people-team-group-meeting_31965-29130_rb344a.jpg");background-position: center;
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Public+%2C+Sector+and+Government/Public+sector+and+government/main.jpg");background-position: center;
 }
 }
 @media (min-width: 770px) and (max-width: 1024px) {
@@ -96,7 +96,7 @@ left: 32%; */
 .publichead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709619421/QubicGen/silhouette-view-business-people-team-group-meeting_31965-29130_rb344a.jpg");}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Public+%2C+Sector+and+Government/Public+sector+and+government/main.jpg");}
 }
 }
   /* This is offering cards css */

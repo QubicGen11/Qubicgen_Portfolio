@@ -1,7 +1,7 @@
 .summaryhead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709626733/QubicGen/workaholic-businesswoman-pointing-financial-strategy-using-monitor-working-overtime-company-meeting-office-room_482257-2175_gpqswy.jpg");background-position: center;
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Professional+Services/Professiona+services/Main.jpg");background-position: center;
 background-size: cover;
 }
 .summaryhead::before {
@@ -60,7 +60,7 @@ left: 30%; */
 .summaryhead {
 position: relative;
 height: 50vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709626733/QubicGen/workaholic-businesswoman-pointing-financial-strategy-using-monitor-working-overtime-company-meeting-office-room_482257-2175_gpqswy.jpg");}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Professional+Services/Professiona+services/Main.jpg");}
 @media (min-width: 501px) and (max-width: 768px) {
 #summarytit{
 font-size: 25px;
@@ -77,7 +77,7 @@ left: 32%; */
 .summaryhead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709626733/QubicGen/workaholic-businesswoman-pointing-financial-strategy-using-monitor-working-overtime-company-meeting-office-room_482257-2175_gpqswy.jpg");background-position: center;
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Professional+Services/Professiona+services/Main.jpg");background-position: center;
 }
 }
 @media (min-width: 770px) and (max-width: 1024px) {
@@ -96,7 +96,7 @@ left: 32%; */
 .summaryhead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709626733/QubicGen/workaholic-businesswoman-pointing-financial-strategy-using-monitor-working-overtime-company-meeting-office-room_482257-2175_gpqswy.jpg");}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Professional+Services/Professiona+services/Main.jpg");}
 }
 }
   /* This is offering cards css */

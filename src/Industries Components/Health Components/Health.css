@@ -1,7 +1,7 @@
 .healthhead {
     position: relative;
     height: 70vh;
-    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709623279/QubicGen/successful-medical-team_329181-9252_clk28l.jpg");
+    background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/main.jpg");
     background-size: cover;
     background-position: center;
   }
@@ -62,7 +62,7 @@
 .healthhead {
   position: relative;
   height: 50vh;
-    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709623279/QubicGen/successful-medical-team_329181-9252_clk28l.jpg");
+    background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/main.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -83,7 +83,7 @@
 .healthhead {
   position: relative;
   height: 40vh;
-    background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709623279/QubicGen/successful-medical-team_329181-9252_clk28l.jpg");
+    background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Healthcare+Life+Sciences/health+care/main.jpg");
   background-size: cover;
   background-position: center;
 }

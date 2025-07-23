@@ -40,46 +40,44 @@ const Bankinglist = () => {
 
 
   const [BankingOffering, setBankingOffering] = useState([
-
-
     {
         title: 'Payment Solutions',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623552/QubicGen/bfsi/coins-smartphone-virtual-environment-representing-digital-financial-transactions_934877-1234_mlsgib.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Banking+%2C+Financial+Services+and+Insurance/banking/payment%20solutions.jpeg',
         description: 'Development of payment processing systems, including online payment gateways, mobile payment apps, peer-to-peer payment solutions and contactless payment technologies. '
     },
     {
         title: 'Risk Management and Compliance Solutions',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623019/QubicGen/bfsi/standard-quality-control-concept-m_23-2150041853_yg1emd.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Banking+%2C+Financial+Services+and+Insurance/banking/risk%20management.jpeg',
         description: 'Implementation of risk assessment tools, fraud detection systems and regulatory compliance solutions to ensure adherence to industry regulations and safeguard against financial risks. '
     },
     {
         title: 'Data Analytics and Business Intelligence',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623525/QubicGen/bfsi/business-concept-with-graphic-holography_23-2149160928_xkqre2.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Banking+%2C+Financial+Services+and+Insurance/banking/analytics.jpeg',
         description: 'Utilization of data analytics and business intelligence tools to analyze customer behavior, market trends and financial performance, enabling data-driven decision-making and strategic planning. '
     },
     {
         title: ' Cybersecurity Services',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709630218/QubicGen/cyber-security-concept_23-2148533308_lkosbr.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Banking+%2C+Financial+Services+and+Insurance/banking/cybersecurity%20services.jpeg',
         description: ' Provision of cybersecurity services to protect sensitive financial data, prevent cyber threats and ensure compliance with security standards and regulations. '
     },
     {
         title: 'Customer Relationship Management (CRM)',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623058/QubicGen/bfsi/customer-relationship-management-concept_23-2150038418_jaubrw.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Banking+%2C+Financial+Services+and+Insurance/banking/CRM.jpeg',
         description: ' Implementation of CRM systems tailored to the BFSI sector to manage customer interactions, improve customer satisfaction and personalize marketing efforts. '
     },
     {
         title: 'Enterprise Resource Planning (ERP)',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709623221/QubicGen/bfsi/isometric-erp-illustration_52683-84174_cmp1yj.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Banking+%2C+Financial+Services+and+Insurance/banking/Enterprice%20resource%20planing.jpeg',
         description: 'Integration of ERP solutions to streamline internal operations, automate processes and enhance efficiency across various departments such as finance, human resources and supply chain management. '
     },
     {
         title: 'Regulatory Technology (RegTech)',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709629763/QubicGen/bfsi/All-You-Need-to-Know-about-RegTech-in-2020-825x500_duakfc.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Banking+%2C+Financial+Services+and+Insurance/banking/Reg%20tech.jpeg',
         description: 'Development of RegTech solutions to assist financial institutions in compliance management, regulatory reporting and monitoring of regulatory changes to ensure adherence to evolving compliance requirements.'
     },
     {
         title: 'Cloud Computing Services',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709622450/QubicGen/bfsi/cloud-computing-diagram-cloud-technology-data-storage-networking-internet-service-concept_29488-6850_il5ukx.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Banking+%2C+Financial+Services+and+Insurance/banking/Cloud%20Computing.jpeg',
         description: 'Provision of cloud-based infrastructure, software as a service (SaaS) and platform as a service (PaaS) solutions to enable scalability, flexibility and cost-efficiency in IT operations while ensuring data security and regulatory compliance. '
     }
 ]);
@@ -140,7 +138,7 @@ const Bankinglist = () => {
             <p className="lead" id='leadtext'>Harnessing fresh perspectives and cutting-edge strategies, our company is dedicated to revolutionizing the landscape of Retail Banking, Lending and Leasing, Cards and Payments, Asset and Wealth Management, Investment Banks, Stock Exchanges, as well as Life/General Insurances. Despite our newcomer status, we are committed to guiding these sectors through dynamic changes, presenting exciting opportunities to elevate product offerings, services and prioritize customer satisfaction.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709535501/QubicGen/stack-money-coin-with-trading-graph_1_jjrd0p.jpg" alt="" />
+            <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Banking+%2C+Financial+Services+and+Insurance/banking/finance+guiding.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -211,10 +209,10 @@ const Bankinglist = () => {
           <div className="row">
             {BankingOffering.map((serve) => (
               <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
-                <p>{serve.description}</p>
+                <p className="text-sm">{serve.description}</p>
                 <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>
                   <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
-                  <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '15px' }}>{serve.title}</p>
+                  <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '16px' }}>{serve.title}</p>
                 </div>
 
 

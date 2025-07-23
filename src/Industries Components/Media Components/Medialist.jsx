@@ -67,32 +67,32 @@ const Medialist = () => {
   const [MediaOffering, setMediaOffering] = useState([
     {
         title: 'Content Management Systems (CMS)',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635106/QubicGen/Media%20and%20Entertainment/person-working-html-computer_23-2150038849_ewha3z.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Media+and+Entertainment/Media+and+entertinment/Service+Offerings/content%20managemnt.jpeg',
         description: 'Development and customization of content management systems tailored to the needs of media and entertainment companies, enabling efficient organization, storage and retrieval of digital assets such as videos, images and articles.'
     },
     {
         title: 'Streaming Platforms',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635243/QubicGen/Media%20and%20Entertainment/full-shot-woman-looking-floating-screen_23-2150300996_uwqaui.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Media+and+Entertainment/Media+and+entertinment/Service+Offerings/streaming%20platform.jpeg',
         description: 'Design and development of streaming platforms for live and on-demand content delivery, including video streaming services, music streaming apps and podcast platforms, to reach audiences across multiple devices and platforms.'
     },
     {
         title: 'Digital Rights Management (DRM)',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635371/QubicGen/Media%20and%20Entertainment/2022-concept-business-people-show-future-big-data-technology-metaverse-through-networking_590401-95_hnzwn4.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Media+and+Entertainment/Media+and+entertinment/Service+Offerings/digital%20rights.jpeg',
         description: 'Implementation of digital rights management solutions to protect copyrighted content from piracy and unauthorized distribution, ensuring content creators and rights holders receive proper compensation for their work.'
     },
     {
         title: 'Content Distribution Networks (CDN)',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635450/QubicGen/Media%20and%20Entertainment/world-map-with-global-technology-social-connection-network-with-nodes-links-vector-illustration_1284-1968_npdt7p.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Media+and+Entertainment/Media+and+entertinment/Service+Offerings/Content%20disribution.jpeg',
         description: 'Deployment of content distribution networks to optimize the delivery of media content to end-users, reducing latency, buffering and downtime while improving scalability and reliability of content delivery.'
     },
     {
         title: 'Advertising Technology (AdTech)',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635556/QubicGen/Media%20and%20Entertainment/corporate-management-strategy-solution-branding-concept_53876-167088_v3pfuq.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Media+and+Entertainment/Media+and+entertinment/Service+Offerings/advertising%20technology.jpeg',
         description: 'Development of advertising technology solutions, including ad serving platforms, programmatic advertising systems and ad targeting algorithms, to optimize ad placement, targeting and monetization across digital channels.'
     },
     {
         title: 'Data Analytics and Personalization',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709622700/QubicGen/bfsi/revenue-operations-collage_23-2150847854_j10r9b.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Media+and+Entertainment/Media+and+entertinment/Service+Offerings/data%20analytics%20and%20persnolaization.jpeg',
         description: 'Utilization of data analytics and machine learning algorithms to analyze user behavior, preferences and engagement patterns, enabling personalized content recommendations, targeted advertising and audience segmentation.'
     },
     {
@@ -102,10 +102,9 @@ const Medialist = () => {
     },
     {
         title: 'Social Media Integration',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709635894/QubicGen/Media%20and%20Entertainment/hands-holding-smartphone-social-media-concept_23-2150208264_ojh5o0.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Media+and+Entertainment/Media+and+entertinment/Service+Offerings/social%20media%20integration.jpeg',
         description: 'Integration of social media platforms into media and entertainment applications to facilitate social sharing, user-generated content creation and community engagement, enhancing brand visibility and audience interaction.'
     },
-
 ]);
   // This is for rpa offering cards
 
@@ -163,7 +162,7 @@ const Medialist = () => {
             <p className="lead" id='leadtext'> Investors, management and boards prioritize building an extensive content library over immediate operational profits to boost subscriptions and ad revenues. As media houses and new-age media companies transition, their strategic emphasis will soon pivot from content creation to content monetization. Positioned within the evolving value chain, media houses can drive profitability forward with QubicGen's innovative solutions.</p>
         </div>
         <div className="col-md-5" bis_skin_checked="1">
-        <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709620134/QubicGen/creative-digital-picture-gallery-blue-background-photo-album-media-technology-concept_670147-2557_gsqy9v.jpg" alt="" />        </div>
+        <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Media+and+Entertainment/Media+and+entertinment/overview.jpg" alt="" />        </div>
       </div>
     </div>
 
@@ -204,7 +203,7 @@ const Medialist = () => {
         <div className="row">
           {MediaOffering.map((serve) => (
             <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
-              <p>{serve.description}</p>
+              <p className='text-sm'>{serve.description}</p>
               <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>
                 <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
                 <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '15px' }}>{serve.title}</p>

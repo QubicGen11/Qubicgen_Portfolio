@@ -81,9 +81,12 @@ const Carrernext = () => {
 
           <div className="maincareers md:flex lg:mt-6 xl:mt-16" data-aos="fade-up">
 
+     
+
+
             <div className="careersleft mx-5 mt-1 md:w-auto">
               <img className='career-card-img rounded-lg' src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Careers/why+qubicgen.jpg" alt="" />
-              <p className='careerstext text-center animate-bounce  text-black w-28 flex items-center mr-auto mb-6 text-base relative bottom-20 right-9 ' style={{ height: '100px', backgroundColor: 'gold' }} id='careerstexttwo'>Why QubicGen?</p>
+              <p className='careerstext text-center animate-bounce text-black w-36 flex items-center ml-auto mb-6 text-base relative bottom-20 left-6 justify-center' style={{ height: '100px', backgroundColor: 'gold' }} id='careerstexttwo'>Why QubicGen?</p>
 
             </div>
 

@@ -1,7 +1,7 @@
 .retailhead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709625858/QubicGen/beautiful-family-standing-cash-counter_171337-2410_zzln8u.jpg");
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/Retail+and+Consumer+Goods.jpg");
   background-size: cover;
 }
 .retailhead::before {
@@ -60,7 +60,7 @@ left: 30%; */
 .retailhead {
 position: relative;
 height: 50vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709625858/QubicGen/beautiful-family-standing-cash-counter_171337-2410_zzln8u.jpg");}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/Retail+and+Consumer+Goods.jpg");}
 @media (min-width: 501px) and (max-width: 768px) {
 #retailtit{
 font-size: 25px;
@@ -77,7 +77,7 @@ left: 32%; */
 .retailhead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709625858/QubicGen/beautiful-family-standing-cash-counter_171337-2410_zzln8u.jpg");background-position: center;
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/Retail+and+Consumer+Goods.jpg");background-position: center;
 }
 }
 
@@ -98,7 +98,7 @@ left: 32%; */
 .retailhead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709625858/QubicGen/beautiful-family-standing-cash-counter_171337-2410_zzln8u.jpg");}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Retail+and+Consumers+Goods/Retail+and+Consumer+Goods.jpg");}
 }
 }
   /* This is offering cards css */

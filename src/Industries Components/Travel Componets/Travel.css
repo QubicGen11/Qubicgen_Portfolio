@@ -1,7 +1,7 @@
 .travelhead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1712304188/QubicGen/Transportation/Hero%20Section/airplane-track-front-view-generative-ai_1_mfdigu.jpg");background-position: center;
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Travel+Transportation+Hospitality+and+Logistics/Travel+Transportation+Hospitality.jpg");background-position: center;
 background-size: cover;
 }
 .travelhead::before {

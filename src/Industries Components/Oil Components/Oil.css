@@ -1,7 +1,7 @@
 .oilhead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709625991/QubicGen/oil-gas-refinery-plant-petrochemical-industry-sky-sunset-factory-with-evening-manufacturing-petrochemical-industrial_168569-17_uctiwm.jpg");background-position: center;
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Oil+and+Gas/oil+and+gas/oil+and+gas.jpg");background-position: center;
 background-size: cover;
 }
 .oilhead::before {
@@ -60,7 +60,7 @@ left: 30%; */
 .oilhead {
 position: relative;
 height: 50vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709625991/QubicGen/oil-gas-refinery-plant-petrochemical-industry-sky-sunset-factory-with-evening-manufacturing-petrochemical-industrial_168569-17_uctiwm.jpg");}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Oil+and+Gas/oil+and+gas/oil+and+gas.jpg");}
 @media (min-width: 501px) and (max-width: 768px) {
 #oiltit{
 font-size: 25px;
@@ -77,7 +77,7 @@ left: 32%; */
 .oilhead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709625991/QubicGen/oil-gas-refinery-plant-petrochemical-industry-sky-sunset-factory-with-evening-manufacturing-petrochemical-industrial_168569-17_uctiwm.jpg");background-position: center;
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Oil+and+Gas/oil+and+gas/oil+and+gas.jpg");background-position: center;
 }
 }
 @media (min-width: 770px) and (max-width: 1024px) {
@@ -96,7 +96,7 @@ left: 32%; */
 .oilhead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709625991/QubicGen/oil-gas-refinery-plant-petrochemical-industry-sky-sunset-factory-with-evening-manufacturing-petrochemical-industrial_168569-17_uctiwm.jpg");}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Oil+and+Gas/oil+and+gas/oil+and+gas.jpg");}
 }
 }
   /* This is offering cards css */

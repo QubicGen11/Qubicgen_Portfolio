@@ -38,27 +38,27 @@ const Oillist = () => {
   const [OilOffering, setOilOffering] = useState([
     {
         title: 'Exploration and Production Software',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707444/QubicGen/Oil%20and%20Gas/person-using-ai-tool-job_23-2150711507_ngsldj.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Oil+and+Gas/oil+and+gas/exploration+and+product+software.jpg',
         description: 'Development and implementation of software solutions for reservoir modeling, seismic interpretation, well planning, drilling optimization, production monitoring and reservoir management.'
     },
     {
         title: 'Enterprise Resource Planning (ERP) Systems',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707545/QubicGen/Oil%20and%20Gas/1683272400288_gpp0lc.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Oil+and+Gas/oil+and+gas/ERP.jpg',
         description: 'Implementation of ERP systems tailored to the needs of the oil and gas industry to streamline business processes, including financial management, procurement, supply chain management and human resources.'
     },
     {
         title: 'Data Analytics and Predictive Maintenance',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707792/QubicGen/Oil%20and%20Gas/Data-Analytics-for-PdM-800x445_et1etp.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Oil+and+Gas/oil+and+gas/Data+analytics+and+predictive+maintanence.jpg',
         description: 'Utilization of data analytics and predictive maintenance algorithms to analyze equipment performance data, predict equipment failures and optimize maintenance schedules to minimize downtime and improve asset reliability.'
     },
     {
         title: 'Cybersecurity and Industrial Control Systems (ICS) Security',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709707969/QubicGen/Oil%20and%20Gas/organized-female-hacker-her-team-stealing-information-from-government-server-using-super-computers_482257-20619_rkh42i.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Oil+and+Gas/oil+and+gas/cybersecurity+and+industrial+control+systems+security.jpg',
         description: 'Provision of cybersecurity services to protect oil and gas assets and operations from cyber threats, including ransomware attacks, data breaches and unauthorized access, through robust security measures and monitoring of industrial control systems.'
     },
     {
         title: 'Digital Twins and Simulation Modeling',
-        background: 'https://res.cloudinary.com/defsu5bfc/image/upload/v1709708024/QubicGen/Oil%20and%20Gas/digitaltwins_qzmbsn.jpg',
+        background: 'https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Oil+and+Gas/oil+and+gas/Digital+twins+and+simultaion+modeling.jpg',
         description: 'Development of digital twin solutions and simulation models to create virtual replicas of oil and gas assets, simulate operational scenarios, optimize performance and support decision-making.'
     }
 ]);
@@ -189,7 +189,7 @@ const Oillist = () => {
         <div className="row">
           {OilOffering.map((serve) => (
             <div className="book" style={{ marginLeft: '50px', marginTop: '20px' }}>
-              <p>{serve.description}</p>
+              <p className='text-sm'>{serve.description}</p>
               <div className="cover" style={{ background: `rgba(255, 255, 255, 0.8) url('${serve.background}') center/cover` }}>
                 <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
                 <p style={{ fontWeight: 'bolder', color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '15px' }}>{serve.title}</p>
