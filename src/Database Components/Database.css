@@ -1,7 +1,7 @@
 .databasehead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709118390/data-center-with-server-racks-corridor-room-3d-render-digital-data-cloud-technology_1_ejksb2.jpg");  background-position: bottom;
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Base/db_head.jpg");  background-position: center;
 background-size: cover;
 }
 .databasehead::before {
@@ -57,7 +57,7 @@ left: 30%; */
 .databasehead {
 position: relative;
 height: 50vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709118390/data-center-with-server-racks-corridor-room-3d-render-digital-data-cloud-technology_1_ejksb2.jpg");
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Base/db_head.jpg");
 }
 
 }
@@ -77,7 +77,7 @@ left: 32%; */
 .databasehead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709118390/data-center-with-server-racks-corridor-room-3d-render-digital-data-cloud-technology_1_ejksb2.jpg");background-position: center;
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Base/db_head.jpg");background-position: center;
 }
 }
 
@@ -96,7 +96,7 @@ font-size: 12px;
 .databasehead {
 position: relative;
 height: 70vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709118390/data-center-with-server-racks-corridor-room-3d-render-digital-data-cloud-technology_1_ejksb2.jpg");
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Base/db_head.jpg");
 }
 }
 

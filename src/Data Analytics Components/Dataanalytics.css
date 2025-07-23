@@ -1,8 +1,8 @@
 .dataanalyticshead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710496189/QubicGen/Data%20Analytics/Hero%20Section/revenue-operations-collage_nxlhqr_1_w1mwox.jpg");
-    background-position: bottom;
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Analytics/da_head.png");
+    background-position: center;
 background-size: cover;
 }
 .dataanalyticshead::before {
@@ -58,7 +58,7 @@ left: 30%; */
 .dataanalyticshead {
 position: relative;
 height: 50vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710496189/QubicGen/Data%20Analytics/Hero%20Section/revenue-operations-collage_nxlhqr_1_w1mwox.jpg");
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Analytics/da_head.png");
 }
 
 }
@@ -78,7 +78,7 @@ left: 32%; */
 .dataanalyticshead {
 position: relative;
 height: 40vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710496189/QubicGen/Data%20Analytics/Hero%20Section/revenue-operations-collage_nxlhqr_1_w1mwox.jpg");
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Analytics/da_head.png");
 background-position: center;
 }
 }
@@ -98,7 +98,7 @@ font-size: 12px;
 .dataanalyticshead {
 position: relative;
 height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710496189/QubicGen/Data%20Analytics/Hero%20Section/revenue-operations-collage_nxlhqr_1_w1mwox.jpg");
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Analytics/da_head.png");
 }
 }
 

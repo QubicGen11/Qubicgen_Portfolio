@@ -55,50 +55,46 @@ const Digitalslist = () => {
 
 
 const[DigitalMarketingServices,setDigitalMarketingServices]=useState([
-
-    
     {
     title: 'Healthcare',
     description: 'Boost patient engagement and reach with targeted digital marketing strategies for healthcare providers.',
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709809875/QubicGen/Digital%20Marketing/Who%20We%20Serve/medical-technology-concepts-medical-students-use-mobile-phones-search-information-modern-office-morning-desk_533890-529_ikulti.jpg"
+    background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/DM_servings/dm_health.jpeg"
     },
     {
     title: 'E-Commerce',
     description: 'Drive online sales and brand visibility with comprehensive digital marketing solutions for e-commerce businesses.',
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709809917/QubicGen/Digital%20Marketing/Who%20We%20Serve/laptop-shopping-bags-online-shopping-concept_1423-189_dmrqcx.jpg"
+    background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/DM_servings/dm_ecommerce.webp"
     },
     {
     title: 'Education',
     description: 'Enhance student recruitment and enrollment with strategic digital marketing services for educational institutions.',
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709809963/QubicGen/Digital%20Marketing/Who%20We%20Serve/view-school-supplies-desk_23-2151110149_flvhbn.jpg"
+    background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/DM_servings/dm_education.jpg"
     },
     {
     title: 'Automobile',
     description: 'Maximize brand awareness and drive dealership traffic with tailored digital marketing solutions for the automobile industry.',
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709809969/QubicGen/Digital%20Marketing/Who%20We%20Serve/view-car-running-high-speed_23-2150635403_tkm3dy.jpg"
+    background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/DM_servings/dm_automobile.png"
     },
     {
     title: 'Media & Entertainment',
     description: 'Amplify audience engagement and content visibility with dynamic digital marketing strategies for the media and entertainment industry.',
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709810010/QubicGen/Digital%20Marketing/Who%20We%20Serve/free-photo-social-media-marketing-concept-marketing_971974-1468_enouse.jpg"
+    background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/DM_servings/dm_media.jpg"
     },
     {
     title: 'Social Media Marketing',
     description: 'Build brand loyalty and drive engagement with expert social media marketing services for businesses.',
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709810041/QubicGen/Digital%20Marketing/Who%20We%20Serve/social-media-marketing-concept-marketing-with-applications_23-2150063134_irlpdf.jpg"
+    background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/DM_servings/dm_social.jpg"
     },
     {
     title: 'SEO (Search Engine Optimization)',
     description: 'Improve online visibility and drive organic traffic with results-driven SEO services.',
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709810075/QubicGen/Digital%20Marketing/Who%20We%20Serve/top-view-cloud-with-word-seo_1134-68_wv7fyb.jpg"
+    background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/DM_servings/dm_seop.webp"
     },
     {
     title: 'Retail',
     description :'Increase foot traffic and online sales with tailored digital marketing strategies for retail businesses.',
-    background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709810123/QubicGen/Digital%20Marketing/Who%20We%20Serve/smiling-girl-holding-shopping-bags_23-2148286179_qe7fpo.jpg"
+    background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/DM_servings/dm_retail.webp"
     }
-    
-    
     ]);
 
   // This is for rpa offering cards
@@ -158,7 +154,7 @@ const[DigitalMarketingServices,setDigitalMarketingServices]=useState([
      <p className="lead" id='leadtext'>Digital marketing encompasses a range of strategies and tactics aimed at promoting businesses and their products or services online. From search engine optimization (SEO) to social media marketing, email campaigns and content creation, our digital marketing services harness the power of the internet to drive brand awareness, engagement and conversions. With tailored strategies and expert execution, we help businesses thrive in the competitive digital landscape, reaching their target audiences effectively and maximizing their online presence.</p>
    </div>
    <div className="col-md-5" bis_skin_checked="1">
-     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709809779/QubicGen/Digital%20Marketing/Overview/hand-holding-smartphone-social-media-concept_23-2150208245_s252be.jpg"  alt="" />
+     <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/dm_overview.jpg"  alt="" />
    </div>
  </div>
     </div>

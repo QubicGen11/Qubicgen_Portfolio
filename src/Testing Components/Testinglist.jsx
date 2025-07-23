@@ -56,24 +56,23 @@ const [TestingServe, setTestingServe] = useState([
   {
       title:'HealthCare',
       description: 'Ensure healthcare system reliability, security and compliance with our testing services for electronic health records and telemedicine platforms.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710141503/QubicGen/Testing/Who%20We%20Serve/biotechnology-specialist-laboratory-conducting-experiments_23-2150468696_bce5ur.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Testing/Testing_serving/testing_health.jpg"
       },
       {
       title: 'Finance',
       description :'Mitigate risks and ensure financial system integrity through our thorough testing solutions for banking applications and trading platforms.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710141682/QubicGen/Testing/Who%20We%20Serve/blue-money-business-graph-finance-chart-diagram-economy-3d-coin-background-with-growth-financial-data-concept-investment-market-profit-bar-success-market-stock-technology-currency-report_79161-2359_hur7jd.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Testing/Testing_serving/testing_finance.jpg"
       },
       {
       title: 'Retail',
       description: 'Deliver seamless shopping experiences and drive customer satisfaction with our end-to-end testing services for e-commerce websites and mobile apps.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710141633/QubicGen/Testing/Who%20We%20Serve/clear-view-shopping-cart-with-supermarket-s-blurry-refrigerator-aisle-illuminated-by-bokeh-lights_91128-3496_pj0cms.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Testing/Testing_serving/testing_retail.webp"
       },
       {
       title: 'Transportation',
       description: 'Optimize operations and ensure passenger safety with our comprehensive testing solutions for transportation ticketing systems and fleet management software.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710141660/QubicGen/Testing/Who%20We%20Serve/container-truck-ship-port-ai-generated-image_511042-612_iizmby.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Testing/Testing_serving/testing_transportation.webp"
       }
-  
   ]);
 
   // This is for rpa offering cards
@@ -133,7 +132,7 @@ const [TestingServe, setTestingServe] = useState([
      <p className="lead" id='leadtext'>Welcome to the epitome of quality assurance. Our testing services ensure that every aspect of your software or application is scrutinized, polished and perfected. From functionality to performance, we leave no stone unturned, delivering solutions that exceed expectations and inspire confidence in your digital endeavors.</p>
    </div>
    <div className="col-md-5" bis_skin_checked="1">
-     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710141444/QubicGen/Testing/Overview/software-tester-concept-illustration_114360-12815_wgmqbp.jpg"  alt="" />
+     <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Testing/Testing_overview.jpg"  alt="" />
    </div>
  </div>
     </div>

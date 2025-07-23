@@ -1,7 +1,7 @@
 .Businessconsultinghead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710142193/QubicGen/Business%20Consulting/Hero%20Section/group-business-people_gwrqhu_2_fzl5xn.jpg");
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Business_Consulting/bc_Head.jpg");
     background-position: center;
 background-size: cover;
 }
@@ -58,7 +58,7 @@ left: 30%; */
 .Businessconsultinghead {
 position: relative;
 height: 50vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710142193/QubicGen/Business%20Consulting/Hero%20Section/group-business-people_gwrqhu_2_fzl5xn.jpg");
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Business_Consulting/bc_Head.jpg");
 }
 
 }
@@ -78,7 +78,7 @@ left: 32%; */
 .Businessconsultinghead {
 position: relative;
 height: 40vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710142193/QubicGen/Business%20Consulting/Hero%20Section/group-business-people_gwrqhu_2_fzl5xn.jpg");
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Business_Consulting/bc_Head.jpg");
 background-position: center;
 }
 }
@@ -98,7 +98,7 @@ font-size: 12px;
 .Businessconsultinghead {
 position: relative;
 height: 40vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710142193/QubicGen/Business%20Consulting/Hero%20Section/group-business-people_gwrqhu_2_fzl5xn.jpg");
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Business_Consulting/bc_Head.jpg");
 }
 }
 

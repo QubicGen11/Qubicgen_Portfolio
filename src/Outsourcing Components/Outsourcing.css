@@ -1,8 +1,8 @@
 .outsourcinghead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709280159/QubicGen/Outsourcing/Hero%20Section/outsource-inhouse-choice-concept_127544-1554_ivxvsn.jpg");
-      background-position: bottom;
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/outsourcing_Head.jpg");
+      background-position:top;
 background-size: cover;
 }
 .outsourcinghead::before {
@@ -58,7 +58,7 @@ left: 30%; */
 .outsourcinghead {
 position: relative;
 height: 50vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709280159/QubicGen/Outsourcing/Hero%20Section/outsource-inhouse-choice-concept_127544-1554_ivxvsn.jpg");
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/outsourcing_Head.jpg");
 }
 
 }
@@ -78,7 +78,7 @@ left: 32%; */
 .outsourcinghead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709280159/QubicGen/Outsourcing/Hero%20Section/outsource-inhouse-choice-concept_127544-1554_ivxvsn.jpg");
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/outsourcing_Head.jpg");
 background-position: center;
 }
 }
@@ -98,7 +98,7 @@ font-size: 12px;
 .outsourcinghead {
 position: relative;
 height: 70vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709280159/QubicGen/Outsourcing/Hero%20Section/outsource-inhouse-choice-concept_127544-1554_ivxvsn.jpg");
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/outsourcing_Head.jpg");
 }
 }
 

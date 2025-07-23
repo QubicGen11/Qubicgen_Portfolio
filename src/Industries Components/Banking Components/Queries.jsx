@@ -81,7 +81,7 @@ const Queries = () => {
       <section className="min-h-screen flex items-stretch text-white" data-aos="fade-up">
       <div>
         <section className="min-h-screen flex items-stretch text-white" data-aos="fade-up">
-          <div className="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center" style={{backgroundImage: 'url(https://res.cloudinary.com/defsu5bfc/image/upload/v1709795358/QubicGen/question-mark-icon-solving-problem-solution-concept_53876-13887_jqtc9c.jpg)' ,backgroundPosition:'center'}}>
+          <div className="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center" style={{backgroundImage: 'url(https://qubicgen-prod.s3.us-east-1.amazonaws.com/Any+Queires/any+queries.jpg)' ,backgroundPosition:'center'}}>
             <div className="absolute bg-black opacity-60 inset-0 z-0" />
             <div className="w-full px-24 z-10">
               <h1 className="text-5xl font-bold text-left tracking-wide">Got Any Queries for us?</h1>

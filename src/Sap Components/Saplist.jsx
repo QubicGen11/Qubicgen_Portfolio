@@ -59,40 +59,39 @@ const [Sapserve, setSapserve] = useState([
   {
       title:'HealthCare',
       description: 'For healthcare providers, SAP services can help them improve patient outcomes, reduce costs and deliver personalized care. SAP solutions cover everything from healthcare analytics and electronic medical records (EMR) to health information exchange (HIE) and beyond.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709806277/QubicGen/SAP/Who%20We%20Serve/physician-with-stethoscope-virtual-screen-background_1232-181_isqgn9.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/SAP/SAP_Offerings/sap_healthcare.png"
       },
       
       {
       title: 'Education',
       description: 'SAP services can help educators and learners transform the way they teach and learn. Digital learning experiences, streamlined administrative processes and optimized resource management are some of the benefits of SAP solutions for education.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709806309/QubicGen/SAP/Who%20We%20Serve/top-view-academic-cap-with-globe-school-bus_23-2148756549_c1hyta.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/SAP/SAP_Offerings/sap_education.png"
       },
       {
       title: 'Manufacturing',
       description: 'Manufacturers can optimize their production processes, enhance product quality and innovate new business models with SAP services. SAP solutions support digital product innovation, smart manufacturing and servitization and aftermarket for manufacturing.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709806334/QubicGen/SAP/Who%20We%20Serve/person-using-ai-tool-job_23-2150711467_jnycn2.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/SAP/SAP_Offerings/sap_manufacture.webp"
       },
       {
       title: 'Energy and Utilities',
       description: 'SAP services can help energy companies and utilities manage the transition to a more sustainable and decentralized energy landscape. Smart metering and markets, customer experience, field service and bill to cash are some of the features of SAP solutions for energy and utilities.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709806360/QubicGen/SAP/Who%20We%20Serve/wind-energy-with-wind-turbines-background_53876-124631_xawjmg.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/SAP/SAP_Offerings/sap_Energy.jpg"
       },
       {
       title: 'Banking',
       description :'Banks and financial institutions can deliver better value, customer satisfaction and shareholder returns with SAP services. SAP solutions support finance and risk, total spend management, digital customer engagement and banking operations for banking.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709806485/QubicGen/SAP/Who%20We%20Serve/shiny-indian-rupee-digital-currency-background-with-circuit-lines_1017-41186_velsbi.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/SAP/SAP_Offerings/sap_Banking.jpg"
       },
       {
       title: 'Government',
       description: 'SAP services can help public sector organizations improve citizen services, increase efficiency and achieve sustainability goals. SAP solutions support government ERP, public sector analytics, human capital management, spend management and citizen services for government.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709806402/QubicGen/SAP/Who%20We%20Serve/grey-marble-column-details-building_1359-886_l9rool.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/SAP/SAP_Offerings/sap_government.jpg"
       },
       {
       title: 'Media and Entertainment',
       description: 'Media companies and content creators can deliver engaging and personalized experiences to their audiences with SAP services. SAP solutions support content creation and production, content distribution, content monetization and customer experience for media and entertainment.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709806420/QubicGen/SAP/Who%20We%20Serve/clapperboard-popcorn-film-stripe-cinema-tickets-wooden-desk_23-2148188189_dcu5de.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/SAP/SAP_Offerings/sap_entertainment.webp"
       }
-  
   ]);
 
   // This is for rpa offering cards
@@ -153,7 +152,7 @@ const [Sapserve, setSapserve] = useState([
         <p className="lead" id='leadtext'>SAP is a leading enterprise resource planning (ERP) software suite trusted by businesses worldwide to streamline operations, enhance efficiency and drive growth. Our tailored SAP solutions encompass consulting, implementation, customization and support services, ensuring seamless integration with your existing infrastructure and aligning with your unique business needs. From finance and procurement to human resources and supply chain management, our expertise spans across all SAP modules, enabling you to unlock the full potential of your enterprise and achieve sustainable success.</p>
       </div>
       <div className="col-md-5" bis_skin_checked="1">
-        <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709808156/QubicGen/SAP/Overview/cloud-storage-network-server-online-backup-graphic_53876-132757_zuvdnf.jpg"  alt="" />
+        <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/SAP/sap_overview.jpg"  alt="" />
       </div>
     </div>
     </div>

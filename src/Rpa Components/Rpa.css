@@ -1,8 +1,8 @@
 .rpahead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/RPA/Hero%20Section/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");  
-  background-position: bottom;
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/RPA/rpa+main.jpg");  
+  background-position: center;
 background-size: cover;
 }
 .rpahead::before {
@@ -59,7 +59,7 @@ left: 30%; */
 .rpahead {
 position: relative;
 height: 50vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/RPA/Hero%20Section/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");  
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/RPA/rpa+main.jpg");  
 }
 
 
@@ -80,7 +80,7 @@ left: 32%; */
 .rpahead {
 position: relative;
 height: 40vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/RPA/Hero%20Section/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");  
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/RPA/rpa+main.jpg");  
 background-position: center;
 }
 }
@@ -100,7 +100,7 @@ font-size: 12px;
 .rpahead {
 position: relative;
 height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1708941767/QubicGen/RPA/Hero%20Section/robot-hand-3d-background-presenting-technology-gesture_1_rxluns.jpg");  
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/RPA/rpa+main.jpg");  
 }
 }
 

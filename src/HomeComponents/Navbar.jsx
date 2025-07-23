@@ -311,9 +311,9 @@ const Navbar = () => {
                   <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
                     <Link to="/banking" style={{ color: 'white', textDecoration: 'none' }}>Banking, Financial Services and Insurance</Link>
                   </li>
-                  <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
+                  {/* <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
                     <Link to="/energy" style={{ color: 'white', textDecoration: 'none' }}>Energy and Utilities</Link>
-                  </li>
+                  </li> */}
                   <li className="industyseclist pl-7 pt-1 w-auto rounded-lg">
                     <Link to="/media" style={{ color: 'white', textDecoration: 'none' }}>Media and Entertainment</Link>
                   </li>
@@ -353,9 +353,9 @@ const Navbar = () => {
                   <li className="serviceseclist pl-7 pt-1">
                     <Link to="/webdevelopment" style={{ color: 'white', textDecoration: 'none' }}>Web Development</Link>
                   </li>
-                  <li className="serviceseclist pl-7 pt-1">
+                  {/* <li className="serviceseclist pl-7 pt-1">
                     <Link to="/sap" style={{ color: 'white', textDecoration: 'none' }}>SAP</Link>
-                  </li>
+                  </li> */}
                   <li className="serviceseclist pl-7 pt-1">
                     <Link to="/database" style={{ color: 'white', textDecoration: 'none' }}>Database</Link>
                   </li>
@@ -369,7 +369,7 @@ const Navbar = () => {
                     <Link to="/outsourcing" style={{ color: 'white', textDecoration: 'none' }}>Outsourcing</Link>
                   </li>
                   <li className="serviceseclist pl-7 pt-1">
-                    <Link to="/cybersecurity" style={{ color: 'white', textDecoration: 'none' }}>Cyber Security</Link>
+                    {/* <Link to="/cybersecurity" style={{ color: 'white', textDecoration: 'none' }}>Cyber Security</Link> */}
                   </li>
                   <li className="serviceseclist pl-7 pt-1">
                     <Link to="/dataanalytics" style={{ color: 'white', textDecoration: 'none' }}>Data Analytics</Link>
@@ -545,7 +545,7 @@ const Navbar = () => {
           <div className="indus1">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
             <Link to="/banking"><li className="hover:cursor-pointer">Banking, Financial Services and Insurance</li></Link>
-            <Link to="/energy"><li className="hover:cursor-pointer">Energy and Utilities</li></Link>
+            {/* <Link to="/energy"><li className="hover:cursor-pointer">Energy and Utilities</li></Link> */}
             <Link to="/media"><li className="hover:cursor-pointer">Media and Entertainment</li></Link>
             <Link to="/health"> <li className="hover:cursor-pointer">Healthcare Life Sciences</li></Link>
           </div>
@@ -580,7 +580,7 @@ const Navbar = () => {
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}></Link>
             <Link to="/rpa"><li className="hover:cursor-pointer">Robotic Process Automation</li></Link>
             <Link to="/webdevelopment"><li className="hover:cursor-pointer">Web Development</li></Link>
-            <Link to="/sap"><li className="hover:cursor-pointer">SAP</li></Link>
+            {/* <Link to="/sap"><li className="hover:cursor-pointer">SAP</li></Link> */}
             <Link to="/database"> <li className="hover:cursor-pointer">DataBase</li></Link>
           </div>
           <div className="service2">
@@ -589,7 +589,7 @@ const Navbar = () => {
             <Link to="/digitalmarketing"><li className="hover:cursor-pointer">Digital Marketing</li></Link>
             <Link to="/digitalization"><li className="hover:cursor-pointer">Digitalization</li></Link>
             <Link to="/outsourcing"><li className="hover:cursor-pointer">Outsourcing</li></Link>
-            <Link to="/cybersecurity"><li className="hover:cursor-pointer">Cyber Security</li></Link>
+            {/* <Link to="/cybersecurity"><li className="hover:cursor-pointer">Cyber Security</li></Link> */}
           </div>
           <div className="service3">
             <Link to="" style={{ color: 'white', textDecoration: 'none' }}>

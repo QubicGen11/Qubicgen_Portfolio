@@ -1,7 +1,7 @@
 .testinghead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710141403/QubicGen/Testing/Hero%20Section/programming-background-with-person-working-with-codes-computer_23-2150010142_da4agi.jpg");
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Testing/Testing_head.avif");
   background-position: center;
 background-size: cover;
 }
@@ -58,7 +58,7 @@ left: 30%; */
 .testinghead {
 position: relative;
 height: 50vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710141403/QubicGen/Testing/Hero%20Section/programming-background-with-person-working-with-codes-computer_23-2150010142_da4agi.jpg");
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Testing/Testing_head.avif");
 }
 
 
@@ -79,7 +79,7 @@ left: 32%; */
 .testinghead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710141403/QubicGen/Testing/Hero%20Section/programming-background-with-person-working-with-codes-computer_23-2150010142_da4agi.jpg");
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Testing/Testing_head.avif");
 background-position: center;
 }
 }
@@ -100,7 +100,7 @@ left: 32%; */
 .testinghead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1710141403/QubicGen/Testing/Hero%20Section/programming-background-with-person-working-with-codes-computer_23-2150010142_da4agi.jpg");
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Testing/Testing_head.avif");
 }
 }
 

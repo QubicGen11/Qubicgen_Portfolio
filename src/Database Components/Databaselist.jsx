@@ -56,49 +56,30 @@ const Databaselist = () => {
     {
       title: 'HealthCare',
       description: 'Securely manage patient data with our healthcare-focused database solutions, ensuring compliance and privacy.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807628/QubicGen/DataBase/Who%20We%20Serve/successful-medical-team_329181-9252_ra6ybo.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Base/db_servings/db_health.avif"
     },
 
     {
       title: 'Education',
       description: 'Empower academic institutions with scalable database solutions for student management and learning platforms.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807661/QubicGen/DataBase/Who%20We%20Serve/person-with-books-digital-art-style-education-day_23-2151164358_dvaqvz.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Base/db_servings/db_education.avif"
     },
     {
       title: 'Manufacturing',
       description: 'Drive efficiency and innovation in manufacturing with our scalable database solutions for production control.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807696/QubicGen/DataBase/Who%20We%20Serve/smart-indian-engineer-man-wearing-safety-helmet-doing-stock-tick-check-cardboard-stock-product-management-factory-warehouse-background_609648-1445_pwe0re.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Base/db_servings/db_manufacturing.webp"
     },
     {
       title: 'Energy and Utilities',
       description: 'Optimize grid operations and asset management with our reliable database solutions for the energy sector.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807702/QubicGen/DataBase/Who%20We%20Serve/turbine-green-energy-electricity-technology-concept_53876-31722_uojffv.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Base/db_servings/db_energy.avif"
     },
     {
       title: 'Banking',
       description: 'Ensure data integrity and compliance in financial transactions with our banking-focused database services.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807742/QubicGen/DataBase/Who%20We%20Serve/online-banking-person-uses-system-selects-service-hologram-laptop_102583-7081_caaxcb.jpg"
+      background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Base/db_servings/db_banking.avif"
     },
-    {
-      title: 'Government',
-      description: 'Modernize citizen services and improve transparency with our government-focused database services.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807775/QubicGen/DataBase/Who%20We%20Serve/grey-marble-column-details-building_1359-886_h7fdsd.jpg"
-    },
-    {
-      title: 'Media',
-      description: 'Deliver personalized content experiences with our media-focused database solutions for digital asset management.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710067270/QubicGen/DataBase/Who%20We%20Serve/3d-glasses-movies-clapper-board_23-2149558757_ktbfbu.jpg"
-    },
-    {
-      title: 'Transportation',
-      description: 'Enhance fleet management and passenger safety with our transportation-focused database services.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807834/QubicGen/DataBase/Who%20We%20Serve/logistics-transportation-container-cargo-ship-cargo-plane-with-working-crane-bridge-shipyard-sunrise-logistic-import-export-transport-industry-background-ai-generative_123827-24177_jou2y1.jpg"
-    },
-    {
-      title: 'Retail',
-      description: 'Optimize inventory management and customer engagement with our retail-focused database solutions.',
-      background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1709807867/QubicGen/DataBase/Who%20We%20Serve/background-interior-supermarket-out-focus_123827-28040_zssyws.jpg"
-    }
+
 
   ]);
 
@@ -159,7 +140,7 @@ const Databaselist = () => {
             <p className="lead" id='leadtext'>Welcome to the nucleus of data empowerment. Our database services are the cornerstone of efficient data management, offering robust solutions tailored to your needs. From designing and optimizing databases to ensuring seamless integration and security, we empower businesses to unlock the full potential of their data and drive informed decisions.</p>
           </div>
           <div className="col-md-5" bis_skin_checked="1">
-            <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709118916/3628676_556_ztwvm5.jpg" alt="" />
+            <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Data+Base/db_overview.webp" alt="" />
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 .digitalshead {
   position: relative;
   height: 70vh;
-  background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709809678/QubicGen/Digital%20Marketing/Hero%20Section/digital-marketing-with-icons-business-people_53876-94833_shrop6.jpg");  background-position: bottom;
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/dm_head.webp");  background-position: center;
 background-size: cover;
 }
 .digitalshead::before {
@@ -57,8 +57,8 @@ left: 30%; */
 .digitalshead {
 position: relative;
 height: 50vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709809678/QubicGen/Digital%20Marketing/Hero%20Section/digital-marketing-with-icons-business-people_53876-94833_shrop6.jpg");
-}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/dm_head.webp");
+} 
 
 
 }
@@ -78,7 +78,7 @@ left: 32%; */
 .digitalshead {
 position: relative;
 height: 40vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709809678/QubicGen/Digital%20Marketing/Hero%20Section/digital-marketing-with-icons-business-people_53876-94833_shrop6.jpg");
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/dm_head.webp");
 background-position: center;
 }
 }
@@ -98,7 +98,7 @@ font-size: 12px;
 .digitalshead {
 position: relative;
 height: 70vh;
-background-image: url("https://res.cloudinary.com/defsu5bfc/image/upload/v1709809678/QubicGen/Digital%20Marketing/Hero%20Section/digital-marketing-with-icons-business-people_53876-94833_shrop6.jpg");}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Digital_Marketing/dm_head.jpg");}
 }
 
   /* This is offering cards css */

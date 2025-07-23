@@ -111,11 +111,11 @@ const Businessconsultinglist = () => {
     <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}}  >
 
 <div className="col-md-7" bis_skin_checked="1">
-  <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '40px', padding: '20px', fontWeight: 'bolder' }}>Empower Your Business with Strategic Guidance. Our Consulting Services Offer Tailored Solutions to Drive Growth, Efficiency and Innovation. </h1>
+  <h1 className="featurette-heading fw-normal lh-1" style={{ fontSize: '35px', padding: '20px', fontWeight: 'bolder' }}>Empower Your Business with Strategic Guidance. Our Consulting Services Offer Tailored Solutions to Drive Growth, Efficiency and Innovation. </h1>
   <p className="lead" id='leadtext'>Transform your business with our expert consulting services. We offer strategic guidance and tailored solutions to propel your growth, enhance efficiency and foster innovation. From insightful analysis to actionable plans, we're committed to empowering your success every step of the way.</p>
 </div>
 <div className="col-md-5" bis_skin_checked="1">
-  <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710142264/QubicGen/Business%20Consulting/Overview/three-businesspersons-meeting_f87y5a_1_1_na6zih.jpg" alt="" />
+  <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Business_Consulting/bc_overview.jpg" alt="" />
 </div>
 </div>
     </div>

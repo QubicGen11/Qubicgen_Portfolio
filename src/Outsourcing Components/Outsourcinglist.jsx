@@ -21,49 +21,44 @@ const Outsourcinglist = () => {
     {
         title:'IT Support and Help Desk Services',
         description: 'Remote technical support and help desk assistance for efficient troubleshooting and user guidance, ensuring seamless operation of IT systems.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069614/QubicGen/Outsourcing/What%20We%20Serve/colleagues-with-headphones-working-call-center-office_23-2149256154_gthdix.jpg"
+        background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/Outsourcing_Servings/ithelp&desktop.jpeg"
         },        
         {
         title: 'Software Development and Maintenance',
         description: 'Outsourcing software development projects to skilled developers, coupled with ongoing maintenance and support services for sustained functionality and performance.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069653/QubicGen/Outsourcing/What%20We%20Serve/diverse-programmers-discussing-about-html-code-compiling-discovers-errors-standing-front-multiple-screens-startup-office-software-developers-working-server-interface-development_482257-64363_zf1bd2.jpg"
+        background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/Outsourcing_Servings/software%20development%20and%20maintainance.jpg"
         },
-        {
-        title: 'Infrastructure Management',
-        description: 'Efficient management and maintenance of IT infrastructure components to ensure optimal performance and reliability, with proactive monitoring and timely upgrades.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069711/QubicGen/Outsourcing/What%20We%20Serve/man-holding-smartphone-with-apartment-buildings-hologram_23-2149369107_tiv7uv.jpg"
-        },
+
         {
         title: 'Cloud Services',
         description: 'Assistance in migrating to and managing cloud-based platforms, optimizing resources and ensuring security for scalable and cost-effective IT solutions.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069724/QubicGen/Outsourcing/What%20We%20Serve/saas-concept-collage_23-2149399281_g4y7wp.jpg"
+        background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/Outsourcing_Servings/cloudservice.jpg"
         },
         {
         title: 'Data Management and Analytics',
         description :'Outsourcing data management tasks and providing analytics services to extract actionable insights, supporting informed decision-making and business growth.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069740/QubicGen/Outsourcing/What%20We%20Serve/office-workers-using-finance-graphs_23-2150408661_ybp6pw.jpg"
+        background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/Outsourcing_Servings/data%20management%20and%20analytics.jpeg"
         },
         {
         title: 'Business Process Outsourcing (BPO)',
         description: 'Outsourcing non-core business processes such as customer support and finance to specialized providers, streamlining operations and enhancing efficiency.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069828/QubicGen/Outsourcing/What%20We%20Serve/emphasizing-night-shift-call-center-ambiance_1127216-861_izi6oe.jpg"
+        background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/Outsourcing_Servings/business%20processing%20unit.jpeg"
         },
         {
         title: 'Quality Assurance and Testing',
         description: 'Outsourcing software testing tasks for thorough quality assurance, ensuring reliability, usability and performance of software applications.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069840/QubicGen/Outsourcing/What%20We%20Serve/standard-quality-control-collage-concept_23-2149595834_xfvauk.jpg"
+        background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/Outsourcing_Servings/Quality-Assurance-AwsQuality.png"
         },
         {
         title: 'Project Management',
         description: 'Outsourcing project management tasks to experienced professionals for efficient planning, execution and delivery of IT projects, ensuring successful outcomes and client satisfaction.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069912/QubicGen/Outsourcing/What%20We%20Serve/multiethnic-businesspeople-discussing-financial-company-solution-sitting-conference-table_482257-10542_wqntyr.jpg"
+        background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/Outsourcing_Servings/project%20management.jpg"
         },
         {
         title: 'IT Consulting and Advisory',
         description: 'Strategic IT consulting services and advisory on technology trends and best practices to drive digital transformation and innovation, aligning technology initiatives with business objectives.',
-        background: "https://res.cloudinary.com/defsu5bfc/image/upload/v1710069953/QubicGen/Outsourcing/What%20We%20Serve/business-people-working-using-technology-connect-with-others_23-2149369106_h6aeos.jpg"
+        background: "https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/Outsourcing_Servings/it+consulting.webp"
         }
-    
     ]);
 
   // This is for rpa offering cards
@@ -119,11 +114,11 @@ const Outsourcinglist = () => {
     <div className="row featurette" bis_skin_checked="1" style={{marginTop:'100px'}} >
    
    <div className="col-md-7" bis_skin_checked="1">
-     <h1 className="featurette-heading fw-normal lh-1" style={{fontSize:'40px',padding:'20px',fontWeight:'bolder'}}>Outsource with Confidence: Partnering for Success in Every Endeavor. Let Us Handle the Workload, While You Focus on Your Vision.</h1>
+     <h1 className="featurette-heading fw-normal lh-1" style={{fontSize:'30px',padding:'20px',fontWeight:'bolder'}}>Outsource with Confidence: Partnering for Success in Every Endeavor. Let Us Handle the Workload, While You Focus on Your Vision.</h1>
      <p className="lead" id='leadtext'>Discover the power of seamless outsourcing solutions tailored to your business needs. From streamlining operations to expanding capabilities, we handle the heavy lifting so you can stay focused on driving success.</p>
    </div>
    <div className="col-md-5" bis_skin_checked="1">
-     <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709281234/QubicGen/Outsourcing/Overview/human-resources-concept-with-hand_fmwmbk.jpg"  alt="" />
+     <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Services/Outsourcing/outsourcing_overview.jpeg" className='w-[30vw]'  alt="" />
    </div>
  </div>
     </div>
