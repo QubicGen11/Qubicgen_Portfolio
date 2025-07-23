@@ -58,7 +58,7 @@ import Serverdown from "./Serverdown";
 const Nopage = lazy(()=>import ( './404') );
 // Import the NotFound component
 
-const isServerDown = true; // Set to true to show the server down page
+const isServerDown = false; // Set to true to show the server down page
 
 const App = () => {
   if (isServerDown) {
