@@ -8,6 +8,15 @@
   transform: scale(1.04);
 }
 
+.carousel-inner img {
+  height: 200px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 30px;
+  display: block;
+  margin: 0 auto;
+}
+
 @media (min-width: 320px) and (max-width: 440px) {
   #whatwedotext {
     position: relative;

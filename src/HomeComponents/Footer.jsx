@@ -101,15 +101,7 @@ const Footer = () => {
                  <img style={{height:'30px',width:'30px',marginTop:'5px'}} className='rounded-full' src="https://res.cloudinary.com/defsu5bfc/image/upload/v1713853760/a167b5238b5f7e5e91b45dd35408e9b3_m8jvxl.jpg" alt="" />
                 </a>
               </li>
-              {/* <li className='falling-icon' data-aos-delay="0.4">
-                <a href="#" rel="noreferrer" target="_blank" className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75">
-                  <span className="sr-only">GitHub</span>
-                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                  </svg>
-                </a>
-              </li> */}
-
+             
               <img src="" alt="" />
 
               <li className='falling-icon' data-aos-delay="0.4">
@@ -189,19 +181,19 @@ const Footer = () => {
               <p className="text-lg font-medium" style={{fontSize:'25px',color:'gold'}} >Contact Us</p>
               <ul className="mt-8 space-y-4 text-sm">
                 <li>
-                  <a className="footercontact flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end" href="mailto:services@qubicgen.com">
+                  <a className="footercontact text-xs flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end" href="mailto:services@qubicgen.com">
                     <svg xmlns="http://www.w3.org/2000/svg" className="size-5 shrink-0 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <p className="flex-1  dark:text-gray-300 "><a href="mailto:services@qubicgen.com"> services@qubicgen.com </a></p>
+                    <p className="flex-1 text-sm  dark:text-gray-300 "><a href="mailto:services@qubicgen.com"> services@qubicgen.com </a></p>
                   </a>
                 </li>
                 <li>
-                  <p className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end" style={{marginTop:'25px'}}>
+                  <p className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end" style={{marginTop:'25px',marginLeft:'10px'}}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="size-5 shrink-0 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    <a href="tel:+919649749845" className="flex-1 hover:text-yellow-400  dark:text-gray-300">+91 964 974 9845</a>
+                    <a href="tel:+919649749845" className="flex-1 text-sm  hover:text-yellow-400  dark:text-gray-300">+91 964 974 9845</a>
                   </p>
                 </li>
                 <li className="flex items-start justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end" style={{marginTop:'25px'}}>

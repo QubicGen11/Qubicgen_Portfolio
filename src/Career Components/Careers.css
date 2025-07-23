@@ -150,3 +150,12 @@
   height: 220px;
   opacity: 1;
 }
+
+.career-card-img {
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}

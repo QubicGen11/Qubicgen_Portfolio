@@ -92,7 +92,7 @@ const Carausel = () => {
         </div>
       <div className="carousel-inner">
         <div className="carousel-item active"  >
-          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709803237/QubicGen/Home%20Page/Corossal/Slide1_1_ejspvq_e2vp5u_1_1_afehbj.jpg" id='slide1img' className="d-block w-100" alt="Image is still loading" loading="lazy" />
+          <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Landing+Page/Carousel/unlock+your+thiughts.jpg" id='slide1img' className="d-block w-100" alt="Image is still loading" loading="lazy" />
           <div className="carousel-caption" id='captiontrust'>
             <h1 style={{ color: 'white' }}>Unlock</h1>
             <h1 style={{ color: 'white' }}>Your </h1>
@@ -153,7 +153,7 @@ const Carausel = () => {
           </div>
         </div>
         <div className="carousel-item" >
-          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709803508/QubicGen/Home%20Page/Corossal/Slidethree_1_oyauhe_rsbljp_1_1_1_1_deornf.jpg" id='slide3img' className="d-block w-100" alt="..." loading="lazy" />
+          <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Landing+Page/Carousel/trust+your+it+partnerr.png" id='slide3img' className="d-block w-100" alt="..." loading="lazy" />
           <div className="carousel-caption" id='captiontrust1' >
             <h1 style={{ color: 'white' }}>your trusted it partner </h1>
             <h1>for reliability and excellence.</h1>
@@ -216,7 +216,7 @@ const Carausel = () => {
           </div>
         </div>
         <div className="carousel-item" >
-          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709803609/QubicGen/Home%20Page/Corossal/Slidetwo_v2l3e3_kunfm5_2_lswsgi.jpg" id='slide2img' className="d-block w-100" alt="..." loading="lazy" />
+          <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Landing+Page/Carousel/One+step+solution.jpeg" id='slide2img' className="d-block w-100" alt="..." loading="lazy" />
           <div className="carousel-caption" id='captiontrust2'>
             <h1 style={{ color: 'white' }}>one stop solution </h1>
             <h1>for all your business ideas. </h1>
@@ -278,7 +278,7 @@ const Carausel = () => {
         </div>
 
         <div className="carousel-item" >
-          <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1711617993/QubicGen/Home%20Page/Corossal/futuristic-5g-wireless-network-ai-robot-hand-tap-wifi-icon_1_nknhjd.jpg" id='slide4img' className="d-block w-100" alt="..." loading="lazy" />
+          <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Landing+Page/Carousel/automate+excel.jpg" id='slide4img' className="d-block w-100" alt="..." loading="lazy" />
           <div className="carousel-caption" id='captiontrust3'>
             <h1 style={{ color: 'white' }}>Automate.</h1>
             <h1>Operate.</h1> 

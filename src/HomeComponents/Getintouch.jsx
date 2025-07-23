@@ -136,7 +136,7 @@ const Getintouch = () => {
                                 <div className="frame-d">
                                     <div className="group-a-parent">
                                         <div className="group-a" />
-                                        <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709273884/Group_2372_1_duuuo0.png" alt="" />
+                                        <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Landing+Page/Get+in+Touch/getintouchicon.png" alt="" />
                                     </div>
                                     <img className="frame-e-icon" loading="eager" alt="" src={vectorgetin} />
                                 </div>

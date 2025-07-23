@@ -64,22 +64,22 @@ At QubicGen, we specialize in powering businesses through digital transformation
               <div className="carousel-inner" style={{ height: '200px', width: '300px', borderRadius:'30px' }}>
                 <div className="carousel-item active" data-bs-interval="2000">
                   <Link to="/rpa">
-                    <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709804355/QubicGen/Home%20Page/What%20We%20Do/robotic-arm-rpa-hologram_klywdu_qaw6xz_1_1_1_1_1_2_lictuk.jpg" className="d-block w-100" alt="..." />
+                    <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Landing+Page/What+we+do/rpa1.jpg" alt="..." />
                   </Link>
                 </div>
                 <div className="carousel-item" data-bs-interval="2000">
                   <Link to="/digitalization">
-                    <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709804544/QubicGen/Home%20Page/What%20We%20Do/26761825_2111.i101.015.F.m004.c9.digital_transformation_digitization_isometric_jttcar_n7620j_1_1_1_e0ttdw.jpg" className="d-block w-100" alt="..." />
+                    <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Landing+Page/What+we+do/digitalization.jpg" className="d-block w-100" alt="..." />
                   </Link>
                 </div>
                 <div className="carousel-item" data-bs-interval="2000">
                   <Link to="/sap">
-                    <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709804755/QubicGen/Home%20Page/What%20We%20Do/998_sap_etuzdj_m4s30u_2_1_1_jwwv9o.jpg" className="d-block w-100" alt="..." />
+                    <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Landing+Page/What+we+do/sap.jpg" className="d-block w-100" alt="..." />
                   </Link>
                 </div>
                 <div className="carousel-item" data-bs-interval="2000">
                   <Link to="/cybersecurity">
-                    <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709804890/QubicGen/Home%20Page/What%20We%20Do/3d-internet-secuirty-badge_lhwfci_s4vubk_1_1_1_1_1_fpktfg.jpg" className="d-block w-100" alt="..." />
+                    <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Landing+Page/What+we+do/cybersecutrity.jpg" className="d-block w-100" alt="..." />
                   </Link>
                 </div>
               </div>

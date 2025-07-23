@@ -32,7 +32,7 @@ const Careers = () => {
 
     <div className="careeesfull bg-black" data-aos="fade-right">
 
-    <div className="Careersmain flex bg-center justify-center items-center sm:h-10 " style={{background:"url('https://res.cloudinary.com/defsu5bfc/image/upload/v1711395054/photo-1590650516494-0c8e4a4dd67e_hcicty.jpg')",backgroundPosition:'center center'}}>
+    <div className="Careersmain flex bg-center justify-center items-center sm:h-10 " style={{background:"url('https://qubicgen-prod.s3.us-east-1.amazonaws.com/Careers/career.jpg')",backgroundPosition:'center center', backgroundSize:'cover'}}>
         <div className="z-50 text-2xl ml-3 text-white sm:mx-6 md:text-4xl md:mr-80 lg:text-5xl lg:mb-10 ">
            <span style={{color:'gold'}}>QubicGen :</span>  Where Curiosity Meets Innovation
         </div>
