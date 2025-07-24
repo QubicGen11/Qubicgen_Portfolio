@@ -249,7 +249,7 @@ const Terms = () => {
       <p  className='text-base font-light'>
         By visiting this page on our website:{" "}
         <a
-          href="https://www.qubicgen.com/contact"
+          href="https://www.qubicgen.com/studentform"
           rel="external nofollow noopener"
           target="_blank"
         >
