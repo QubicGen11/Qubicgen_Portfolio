@@ -141,6 +141,7 @@ const Manufacturinglist = () => {
             <p className="lead" id='leadtext'>At QubicGen, we specialize in providing comprehensive solutions in the manufacturing sector. From optimizing production processes to implementing cutting-edge technologies, we are dedicated to helping manufacturers achieve operational excellence, drive innovation and stay ahead in a competitive market. With our tailored services, we empower companies to maximize efficiency, minimize costs and elevate their overall performance.</p>
         </div>
         <div className="col-md-5" bis_skin_checked="1">
+        <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Manufacturing/manufacturing_overview.jpg" alt="" />
         </div>
       </div>
     </div>

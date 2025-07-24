@@ -268,7 +268,14 @@ const Navbar = () => {
         >
 
 
-          <img style={{ height: '20px', width: '20px' }} src="https://res.cloudinary.com/defsu5bfc/image/upload/v1710314651/QubicGen/Home%20Page/Nav%20Bar/icons8-menu-100_ulk92j.png" alt="" />      </button>
+          <span style={{ fontSize: '24px', display: 'inline-block', verticalAlign: 'middle' }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </span>
+          </button>
 
         {/* Off-canvas component */}
         <div

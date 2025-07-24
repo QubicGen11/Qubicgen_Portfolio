@@ -10,7 +10,7 @@ const Privacy = () => {
 
 
     <div className="bg-black">
-    <div className="Privacymain flex bg-center justify-center items-center sm:h-10 " style={{background:"url('https://res.cloudinary.com/defsu5bfc/image/upload/v1711956578/QubicGen/Privacy%20Policy/cyber-security-network-padlock-icon-internet-technology-networking_150455-4671_d2maxh.jpg')",backgroundPosition:'top center',backgroundSize:'cover',backgroundRepeat:'no-repeat'}}>
+    <div className="Privacymain flex bg-center justify-center items-center sm:h-10 " style={{background:"url('https://qubicgen-prod.s3.us-east-1.amazonaws.com/Privacy+Policy/privacypolicy.jpg')",backgroundPosition:'top center',backgroundSize:'cover',backgroundRepeat:'no-repeat'}}>
         <div className="z-50 text-2xl ml-3 text-white sm:mx-6 md:text-4xl md:mr-80 lg:text-5xl lg:mb-10 ">
         <span className='font-bold'>Privacy Policy</span>
         </div>

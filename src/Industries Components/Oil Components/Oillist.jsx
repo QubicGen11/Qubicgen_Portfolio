@@ -119,7 +119,7 @@ const Oillist = () => {
             <p className="lead" id='leadtext'>At QubicGen, we offer a full spectrum of services designed to meet the unique needs of the oil and gas industry. Leveraging our expertise in exploration, drilling, production and refining, we provide tailored solutions that drive efficiency, maximize performance and ensure sustainability throughout the entire value chain.</p>
         </div>
         <div className="col-md-5" bis_skin_checked="1">
-        <img src="https://res.cloudinary.com/defsu5bfc/image/upload/v1709626058/QubicGen/electric-vehicle-plugged-charging-point_157027-3504_weapmb.jpg" alt="" />        </div>
+        <img src="https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Oil+and+Gas/oilandgas_overview.jpeg"  className='w-[30vw]' alt="" />        </div>
       </div>
     </div>
 

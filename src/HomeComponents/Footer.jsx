@@ -149,11 +149,7 @@ const Footer = () => {
                     RPA
                   </Link>
                 </li>
-                <li>
-                  <Link className=" dark:text-white dark:hover:text-white/75" to="/cybersecurity">
-                    Cyber Security
-                  </Link>
-                </li>
+          
                 <li>
                   <Link className=" dark:text-white dark:hover:text-white/75" to="/sap">
                    SAP

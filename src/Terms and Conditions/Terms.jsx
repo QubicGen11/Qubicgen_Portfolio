@@ -10,7 +10,7 @@ const Terms = () => {
     <Navbar/>
 
     <div className="bg-black">
-    <div className="Termsmain flex bg-center justify-center items-center sm:h-10 " style={{background:"url('https://res.cloudinary.com/defsu5bfc/image/upload/v1711956430/QubicGen/Terms%20and%20Conditions/online-business-contract-electronic-signature-esigning-digital-document-management-paperless-office-signing-business-contract-concept_29488-10512_bwyy50.jpg')",backgroundPosition:'center center',backgroundRepeat:'no-repeat',backgroundSize:'cover'}}>
+    <div className="Termsmain flex bg-center justify-center items-center sm:h-10 " style={{background:"url('https://qubicgen-prod.s3.us-east-1.amazonaws.com/Terms+and+Conditions/terms-and-conditions.webp')",backgroundPosition:'center center',backgroundRepeat:'no-repeat',backgroundSize:'cover'}}>
         <div className="z-50 text-2xl ml-3 text-white sm:mx-6 md:text-4xl md:mr-80 lg:text-5xl lg:mb-10 ">
         <span className='font-bold'>Terms and Conditions</span>
         </div>

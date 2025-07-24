@@ -1,7 +1,7 @@
 .manufacturinghead {
   position: relative;
   height: 70vh;
-  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Manufacturing/Manufacturing/Main.jpg");
+  background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Manufacturing/manufactiuring_head.webp");
 background-position: center;
 background-size: cover;
 }
@@ -61,7 +61,7 @@ left: 30%; */
 .manufacturinghead {
 position: relative;
 height: 50vh;
-background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Manufacturing/Manufacturing/Main.jpg");}
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Manufacturing/manufactiuring_head.webp");}
 }
 @media (min-width: 501px) and (max-width: 768px) {
 #manufacturingtit{
@@ -79,7 +79,7 @@ left: 32%; */
 .manufacturinghead {
 position: relative;
 height: 40vh;
-background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Manufacturing/Manufacturing/Main.jpg");
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Manufacturing/manufactiuring_head.webp");
 background-position: center;
 }
 }
@@ -99,7 +99,7 @@ left: 32%; */
 .manufacturinghead {
 position: relative;
 height: 40vh;
-background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Manufacturing/Manufacturing/Main.jpg");
+background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Manufacturing/manufactiuring_head.webp");
 }
 }
   /* This is offering cards css */
@@ -139,7 +139,7 @@ background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industri
   }
   
   .card-front {
-    background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Manufacturing/Manufacturing/Main.jpg");
+    background-image: url("https://qubicgen-prod.s3.us-east-1.amazonaws.com/Industries/Manufacturing/manufactiuring_head.webp");
     color: #fff;
     display: flex;
     align-items: center;
