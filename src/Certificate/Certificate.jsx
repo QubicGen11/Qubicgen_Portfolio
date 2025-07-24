@@ -9,6 +9,80 @@ const Certificate = () => {
   const [verified, setVerified] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
 
+  // Force desktop mode for mobile devices
+  useEffect(() => {
+    const forceDesktopMode = () => {
+      // Force desktop mode for screens smaller than 768px
+      if (window.innerWidth < 768) {
+        // Remove existing viewport meta tag
+        const existingViewport = document.querySelector('meta[name="viewport"]');
+        if (existingViewport) {
+          existingViewport.remove();
+        }
+        
+        // Create new viewport meta tag for desktop mode
+        const viewport = document.createElement('meta');
+        viewport.name = 'viewport';
+        viewport.content = 'width=1200, initial-scale=0.5, maximum-scale=1.0, user-scalable=no';
+        document.head.appendChild(viewport);
+        
+        // Force body to have desktop-like styling
+        document.body.style.minWidth = '1200px';
+        document.body.style.overflowX = 'auto';
+        
+        // Add CSS to force desktop layout
+        const style = document.createElement('style');
+        style.id = 'desktop-mode-style';
+        style.textContent = `
+          @media screen and (max-width: 767px) {
+            body {
+              min-width: 1200px !important;
+              overflow-x: auto !important;
+            }
+            .certificate {
+              transform: scale(0.8) !important;
+              transform-origin: top center !important;
+            }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    };
+
+    // Apply immediately
+    forceDesktopMode();
+
+    // Apply on window resize
+    window.addEventListener('resize', forceDesktopMode);
+
+    // Cleanup function
+    return () => {
+      // Remove the desktop mode style
+      const desktopStyle = document.getElementById('desktop-mode-style');
+      if (desktopStyle) {
+        desktopStyle.remove();
+      }
+      
+      // Restore original viewport
+      const viewport = document.querySelector('meta[name="viewport"]');
+      if (viewport) {
+        viewport.remove();
+      }
+      
+      // Create default viewport
+      const defaultViewport = document.createElement('meta');
+      defaultViewport.name = 'viewport';
+      defaultViewport.content = 'width=device-width, initial-scale=1.0';
+      document.head.appendChild(defaultViewport);
+      
+      // Restore body styles
+      document.body.style.minWidth = '';
+      document.body.style.overflowX = '';
+      
+      window.removeEventListener('resize', forceDesktopMode);
+    };
+  }, []);
+
   useEffect(() => {
     const fetchCertificate = async () => {
       try {
